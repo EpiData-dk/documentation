@@ -4,6 +4,8 @@
 4: Mantis 183: Oprydning i Capacity/Length - unificer til én property "Size"
 5: Mantis 163: UCmdType, EpiDataUtils, UEpiDataType - Unificér NumChars, AlfaNumChars... etc.
 6: VarInc(): Flyttes til generelt sted.
+  - UDocument: iInc()...
 7: UOutput: TStatTable er pt. sub-class af TStatOutputObj - hvorfor??? Fjern denne sammenhæng hvis ikke nødvendig.
 8: footer for alle xTab's skal bruger xTab.footer
 9: SMUtils: SplitString genbruges i nuværende form på generel lokation.
+10: TEpiVector: DataType vs. FieldDataType?

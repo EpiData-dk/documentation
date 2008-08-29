@@ -31,4 +31,7 @@ Build 144 - 20. aug. 2008:
 4: New: LifeTable command - displays Survival Table and posibly (/G) Kaplan-Meier curve.
 5: Added: Footer property on TStatTable.
 6: Added: Set option - LIFETABLE HEADER = "Interval,Beg. Total,Deaths,Lost,Survival,Std. Error" added. Used for headers in LifeTable.
+7: Added: NormalizeVectorNames to TEpiDataFrame. Changes all $... varnames to equivalent without $.
 
+Version 2.0 Rel.6
+Build 145 - 1 sept. 2008:
