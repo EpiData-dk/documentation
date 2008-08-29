@@ -1,0 +1,9 @@
+1: UTables - TTables.AdjustOutput: Kan generaliseres og flyttes til generel tilgængelig position.
+2: UVectors - R2: Flyt til general tilgængelig position.
+3:  -- " --  - TEpiIntVector.SetAsFloat - DoROund: Kan bruges generalt. Flyt!
+4: Mantis 183: Oprydning i Capacity/Length - unificer til én property "Size"
+5: Mantis 163: UCmdType, EpiDataUtils, UEpiDataType - Unificér NumChars, AlfaNumChars... etc.
+6: VarInc(): Flyttes til generelt sted.
+7: UOutput: TStatTable er pt. sub-class af TStatOutputObj - hvorfor??? Fjern denne sammenhæng hvis ikke nødvendig.
+8: footer for alle xTab's skal bruger xTab.footer
+9: SMUtils: SplitString genbruges i nuværende form på generel lokation.

@@ -1,0 +1,34 @@
+Version 2.0 Rel.5
+Build 141 - 8 aug. 2008:
+1: Fix: Access violation ved "gen i <var>", hvis <var> allerede eksisterer.
+2: Feature (mantis 274): Info if output if a select is present or a command specific IF is applied.
+3: Fix: Sorting tables now also works for /FV option.
+4: Added: Test for .chk-file relating to .rec file for labels and proper saving/restoring.
+5: Fix: If tables with /FV or /CC option contained variables which combined had no data, an error occured. Now an info is displayed (that combination contains no data) and table not included in final output.
+6: Fix: Using SPACE/ENTER in the variable window (F3) cause sometimes strange behaviour, not correctly showing chosen vars and vars on command promt.
+
+Build 142 - 11 aug. 2008:
+1: Added: Option /NT for boxplot - no display of the table containing percentiles.
+2: Change: Moved "MIN" to top of list in boxplot table display.
+3: Fix (Mantis 282): Tables respecting /VN /VNL for /CC /OA etc.
+4: Added: New TTableFormats - a record holding information about the different formats in tables unit.
+5: Change: Streamlined table output for compact tables (/OA and /CC ). See "InternalOutputStatHeader" in UOutput.pas
+6: Added: TSKTableAnalysis implemented as prototype for Svend Kreiner
+
+Build 143 - 13. aug. 2008:
+1: Change: In tables - /CC removed. /CT, /RR and /AR added. /AR works as /RR + Attack Rate info. /OA now works as /CT /AR. 
+2: Added (Mantis 283): "SET TABLE CT OR/RR HEADER" set options implemented. Controls header in /O and /RR compact tables.
+3: Added: Reading data from clipboard marks data as modified - hence, reading again is only allowed if current data is explicitly closed.
+4: Fix: Removed unwanted lines fra graph with PNG files.
+5: Fix: Compact table types now gives correct html divideing line between header and table content.
+6: Suspended: /NM option put as "always on" for CIPlot, due to incorrect missing calculations.
+7: Fix: Header for N columen corrected - now it display the chosen outcome value(label).
+
+Build 144 - 20. aug. 2008:
+1: Fix: In tables - No longer fails when using /O and /RR together without /CT
+2: Change: Tables dialog commandline now matches changes in tables command options.
+3: Added: Set option - LIFETABLE INTERVAL = 0,7,15,30,60,90,180,360,540,720 added. Used for interval in LifeTable.
+4: New: LifeTable command - displays Survival Table and posibly (/G) Kaplan-Meier curve.
+5: Added: Footer property on TStatTable.
+6: Added: Set option - LIFETABLE HEADER = "Interval,Beg. Total,Deaths,Lost,Survival,Std. Error" added. Used for headers in LifeTable.
+
