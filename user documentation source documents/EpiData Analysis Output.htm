@@ -1,0 +1,593 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>EpiData Association</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.2  + PFE">
+	<META NAME="Version" CONTENT="1.2">
+	<META NAME="AUTHOR" CONTENT="Jens Lauritsen, EpiData Association">
+	<META NAME="GetLatest" CONTENT="From Http://www.epidata.dk">
+	<STYLE>
+	<!--
+		P { color: #000000; font-family: serif,sanserif,monospace ; font-size: 1.0em; ALIGN=JUSTIFY}
+		H1 {  font-size: 1.1em; margin-top: 1cm;  color: #000000; widows: 2; orphans: 2; color : Blue }
+		H2 { font-size: 1.05em;  margin-top: 0.5cm; direction: ltr; color: #000000; text-align: left; ; color : Blue}
+		H3 { font-size: 1.025em; margin-top: 0.5cm;  direction: ltr; color: #000000; text-align: left; ; color : Blue }
+		H4 { font-size: 1.0em; margin-top: 0.5cm;  direction: ltr; color: #000000; text-align: left; ; color : Blue }
+	        .bodywhite  {color: black; background-color:white; }
+		.heading { color: blue; font-weight: bold; font-size: 1.05em; ALIGN=JUSTIFY}
+
+		table.box1 {empty-cells: show; 	vertical-align: baseline; border-spacing: 0; font-family: serif,sanserif,monospace; font-size: 1.0em; }
+		table.box1 { color: #000000;	background-color: #f8f8f8;	empty-cells: show;}
+		table.box1 tr, td {  border: solid thin blue; Text-align: right;	padding-left: .3em;	padding-right: .3em; font-size: 1.0em}
+		table.box1 .firstcol { Text-align: left ; font-weight: bold; color: red}   
+
+		table.filled1 {	empty-cells: show; 	vertical-align: baseline; font-family: serif,sanserif,monospace ; font-size: 1.0em;}
+		table.filled1 { color: blue;	background-color: #f8f8f8;	empty-cells: show; font-size: 1.0em}
+		table.filled1 tr {	border: none;	border-spacing: 0.6mm;}
+		table.filled1 tr, td { 	background-color: #dddddd; color: #000000;	padding: .2em; }
+		table.filled1 .caption {font-size: 1.1em ; color: blue; padding: .2em; background-color: #dddddd;}
+		table.filled1 .even { 	color: blue; background-color: white; padding: .2em; font-family: serif,sanserif,monospace; font-size: 1.0em;}
+		table.filled1 .uneven {	color: red; background-color: yellow; font-weight: bold; padding: .2em; font-family: serif,sanserif,monospace; font-size: 1.0em;}
+	-->
+	</STYLE>
+
+</HEAD>
+<BODY class=bodywhite  TEXT="#000000" LINK="#0000ff" DIR="LTR" ; font-family: "Times New Roman,sanserif" >
+<a name="top"></a><IMG SRC="Epianim.gif" NAME="Grafik1" ALIGN=LEFT BORDER=1>
+<p style="color: blue; background-color: #f8f8f8">
+<p><b>JM.Lauritsen</b>, EpiData Association, Denmark. Http://www.epidata.dk<br>
+<p>First version revised by Jamie Hockin, Health Canada.
+<b>V1.2</b> December 2005<hr> </P> 
+<h1>Output format definition in EpiData Analysis</h1>
+<h3>Contents</h3>
+<menu><li><a href="#approach">Approach to formatting</a></li>
+	<li><a href="#font">Controlling font, size and characters used</a></li>
+	<li><a href="#control">Controlling output in tables with the SET and TYPE commands</a></li>
+	<li><a href="#type">User specified text or contents</a></li>
+	<li><a href="#more">More on style sheets</a></li></menu>
+<a name="Approach"></a><H3  >Approach to formatting</H3>
+<P >EpiData
+Analysis output to the screen or printer is based on the html (hyper text meta language)
+format. HTML is a structured formatting principle used on all
+internet pages. EpiData Analysis will comply with the W3C standards.
+W3C is an international organisation informing about developments and
+standards on <FONT COLOR="#0000ff"><U><A HREF="http://www.w3c.org/">Http://www.w3c.org</A></U></FONT>.</P>
+<P>EpiData provides two levels of control over the appearance of output on the basis of an overall setting of font and size of text. 
+The user may choose from a number of output designs or styles for tabular output using the SET command, or may directly provide HTML 
+formatting using the TYPE command. More powerful control is available through the use of style sheets, but most users will not need to do this.
+All EpiData output is created through a combination of HTML structures with the style and contents of those structures. 
+
+For example, a table cell is a structure which has a style such as left-align and then the actual number or text. EpiData uses a specific style for each structure and these styles are defined in a cascading
+style sheet (CSS) named epiout.css. By changing the styles in this file, users can easily adapt the output format, e.g. to publish reports on a web site. The style sheet contains definitions for size, colour, margins, alignment, borders, etc. 
+For a short introduction to HTML and CSS see
+<FONT COLOR="#0000ff"><U><A HREF="http://www.w3.org/Style/Examples/011/firstcss">http://www.w3.org/Style/Examples/011/firstcss</A></U></FONT> or 
+<a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets">Wikipedia Encyclopedia</a></P>
+<P>Since the html and css are open standards, it is easy for the user to customise
+output format and design. For example, it is possible to produce a report with figures, text or tables placed side by side like this: </P>
+<table class=filled1 align=center>
+<tr><td colspan=3 class=caption>Title for the combination of two graphs in EpiData Analysis</td>
+<tr><td colspan=3><img src="his.png"><img src="i.png"></td>
+<tr><td colspan=2><p style="color=blue; Font-size=1.2em; text-align=center">On the right you see an example of an I-Chart<br>and on the left a barchart 
+<br>with group descriptions (value labels) at the bottom<br><br>The colours could be adapted<br><font color=red>Try other </font>
+<font color=green>colour combinations</font> <font color=red>yourself</font></p>
+<td align=center><TABLE class=box1>
+		<TR ><TD class=firstcol>SEX</td><TD >	No.</td><TD>%</td>
+		</TR>
+		<TR><TD class=firstcol>Female</td><TD>490</TD><TD>12.17</td>
+		</TR>
+		<TR><TD class=firstcol>Male</td><TD>3537</td><TD>87.83</td>
+		</TR>
+		<TR><TD class=firstcol>Total</td><TD>4027</td><TD>100</td>
+		</TR>
+      </TABLE>
+</td>
+</td>
+</table>
+<P   >Although there
+is <B>no</B> &quot;graph side by side&quot; command in EpiData
+Analysis, this combination of graphs, table and text explanation, can be produced directly from the program. This is explained at the end of this document. But before
+getting to that a general description is given in the next sections</P>
+<a href="#top">Back to contents</a>
+<a name="control"></a><h1>Controlling Output from EpiData Analysis</h1>
+<P>EpiData Analysis commands add information, such as tables or graphs, to the output window, along with a variety of other messages. Each type of
+information is structured according to an html code definition, including the defined style names or "classes". Most users do not need to worry about this, because EpiData Analysis comes a standard set of definitions and styles. However, the style sheet (EPIOUT.CSS) provides a very powerful means of customizing the appearance of the output. 
+
+<!-- Historically style sheets have come later than HTML, so many things which can be 
+done with style sheets can also be done with HTML code, but then the user cannot easily change format in general. -->
+
+<a name="font"></a><h3>SET Command - Controlling font, character set and size
+<!--How to change font and size-->
+</h3>
+<p>According to the W3c standards it is good practice to separate choice of font, size and character set from other aspects. 
+Therefore these aspects of output are controlled by separate SET commands.
+
+<TABLE class=filled1>
+	<TR >	<td><H4>Aspect</H4> </TD>
+		<td><H4>Contents </H4>	</TD>
+		<td> <h4>SET command</B></td>
+		<td> <h4>Examples</B></td>
+	</TR>
+	<TR ><td>
+		<B>Type of font</B></td>
+		<TD>name<br>Must be installed</td>
+		<td>set&nbsp;viewer&nbsp;font&nbsp;name=</td>
+		<td><b>set&nbsp;viewer&nbsp;font&nbsp;name&nbsp;="Arial,Courier"<br>
+                       set viewer font name="Arial Unicode,Thinfix"</b>
+		<br>Always include at least one proportional <br>and one fixed font.
+		</td>
+	</TR>
+	<TR >
+		<td><B>Size of font</B></td>
+		<TD>size in pixels</td>
+		<td>set viewer font size=</td>
+		<td><b>set viewer font size=12<br>
+		       set viewer font size=8<br>
+		       set viewer font size=25</b><br>
+		       For courses where you project the screen it is wise <br>to set font size large such as 25
+                       <br>The same size is used for the help window.		        
+</td>
+	</TR>
+	<TR >
+		<td><B>Size of font in auxiliary windows</B></td>
+		<TD>size in pixels</td>
+		<td>set window font size=</td>
+		<td><b>set window font size=12<br>
+		       set window font size=25</b><br>
+		       For courses where you project the screen it is wise <br>to set font size large such as 25
+		       </td>
+	</TR>
+
+	<TR >
+		<td><B>Character set or alphabet</B></td>
+		<TD>Name</td>
+		<td>SET&nbsp;viewer&nbsp;font&nbsp;charset</td>
+		<td><b>SET&nbsp;viewer&nbsp;font&nbsp;charset&nbsp;=&nbsp;"ISO-8859-1"</b><br>
+		       <b>SET viewer font charset = "gb2312"</b>
+                       </td>
+                </TR>
+	</TR>
+</TABLE>
+
+With the separation of font, size and character set from other elements of the output it is very easy to adapt a page to other systems. 
+The user must therefore be careful when customising definitions. With improper mixture of colour and font etc. the output could be invisible, e.g. by chosing 
+black text on black bacground. 
+ 
+<h3>SET Command - Controlling what gets displayed
+<!--Information presented to users and associated style names-->
+</h3>
+<p>The SET command provides the user with control over the output in a number of ways. The following table shows the SET commands that may be used to turn on or off the display of various information, along with the defined styles names that determine the format of the information.
+<TABLE class=filled1>
+	<TR >	<td><H4>Information</H4> </TD>
+		<td><H4>Contents </H4>	</TD>
+		<td><h4>style sheet element name </B></TD>
+		<td> <h4>SET command to show or hide this information</B></td>
+	</TR>
+	<TR ><td>
+			<B>Results which are not in tables</B></td>
+		<TD>text</td>
+		<td>.result  </td>
+		<td><b>set show results = on[off]</b></td>
+	</TR>
+	<TR >
+		<td><B>Information to user</B></td>
+		<TD>text</td>
+		<td>.info    </td>
+		<td><b>set show info = on[off]</b></td>
+	</TR>
+	<TR >
+		<td><B>Executed command</B></td>
+		<TD>text</td>
+		<td>	.command </td>
+		<td><b>set show command = on[off]</b></td>
+	</TR>
+	<TR >
+		<TD> </TD>
+		<TD </td>
+		<TD </td>
+		<td><b>set echo=on[off] </b>turns all three of the above on or off</td>
+	</TR>
+	<TR >
+		<td><B>Error messages</B></td>
+		<TD>text</td>
+		<td>.error</td>
+		<td><b>set show error=on[off]</b></td>
+	</TR>
+	<TR >
+		<td><B>System information</B></td>
+		<TD>text</td>
+		<td>.systeminfo</td>
+		<td><b>set show systeminfo = off[on] </b>shows time to execute procedures, memory and other special information</td>
+	</TR>
+	<TR >
+		<td><B>results in tables</B></td>
+		<TD>tables </td><td></td>
+		<td><i>See table styles below </i></td>
+
+	</TR>
+	<TR >
+		<td><B>Additional formats for whole page etc.</B></td>
+		<td>General page description</td>
+		<td>body</td>
+		<td>Defines background and overall page for results</td>
+	</TR>
+	<TR >
+		<td><B>Other</B></td>
+		<TD></P>Other elements</td>
+		<td>standard naming</td>
+		<td>Other elements have standard names, e.g. <i>indent </i>will specify indentation of text in the main window. Help and command files use some special classes.</td>
+	</TR>
+</TABLE>
+<h4>Inclusion of table percents</h4> 
+<p>This is controlled with <B>set table</B> parameters:
+
+<TABLE class=filled1>
+	<COL WIDTH=100>
+	<COL WIDTH=250>
+	<COL WIDTH=340>
+		<TR ><TD>Include or not: </td>
+			<TD style="font-weight=bold">set table percents=rct
+                                                 <br>set table percents=off</td>
+                        <TD ><b>rct</b> indicates <b>c</b>olumn, <b>r</b>ow, <b>t</b>otal<br>e.g. to include only row percents use "=r"</td>
+		<TR>
+		<td>Format of percent </td>
+                       <td  style="font-weight=bold">set table percents column=&quot;p1()&quot;
+                                                    <br>set table percents row=&quot;p1  &quot;
+                                                     <br>set table percents total=&quot;p0[]&quot;
+                       </td><td>Where <B>p</B> is required <B>1</B> is number of decimals,
+                                the third character will be shown before the percent and from 3 unwards after the percent, e.g. 
+                                <br><b>p0():(56) <br>p1( %):(56.1 %) </b>for the number 56.14321</td>
+                 </tr>
+		<TR ><TD>Percents</td>
+			<TD style="font-weight=bold">set table header percents=%</td>
+                        <TD >Just put the text or sign you wish to have at column headings of percents columns</td>
+		</TR>
+		<TR ><TD>Total "word"</td>
+			<TD style="font-weight=bold">set table header total="Total"</td>
+                        <TD >The word to place at column and row total</td>
+		</TR>
+</TABLE>
+
+<H2  >SET Command - Formatting tables</H2>
+<P>Distinct types of tabular output are formed by several commands:</P>
+<ul>
+<li>System tables are used for output from <b>dir</b> and <b>var</b> 
+<li>Tables containing graphs
+<li>Frequency tables (one way tables)
+<li>Statistics from <b>describe</b> and <b>means</b>.
+<li>Data tables with crosstabulation of two or more variables with optional
+inclusion of percentages, from <b>tables</b> and <b>epitables</b>.
+</ul>
+<p>The appearance of tabular output can be controlled using the SET command.
+</p>
+
+<h3> Formatting of tables </h3>
+<P   >The format of the cells are provided with EpiData Analysis as these standard types:
+<ul><li>1.line		(lines at top and bottom of table)
+<li  >2.box		(boxes around all cells)
+<li  >3.filled		(coloured background)
+<li>4.freq    (frequency table)
+<li>5.stat    (other statistics tables)
+<li  >6.system	(simple types for variable lists)
+<li  >7.graph		(for graphs which are shown in tables)
+</ul>
+<a name="type"></a><H2  >User specified HTML text </H2>
+<H3  >Type command</H3>
+<P   >Simple or complicated HTML code may be
+specified by the user explicitly using the <B>type</B> command. For example,</P>
+
+<p style="margin-left: 1cm"><b>type &quot;Preliminary tables from our study /h3&quot;</b>
+<br>will format the text as a level 3 heading (&lt;h3&gt;):
+<h3 style="margin-left:1cm"><font color=red>Preliminary tables from our study</font></h3>
+<p style="margin-left: 1cm"><b>type &quot;&lt;table width=50%  border align=center&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;b&gt;Final results&lt;/center&gt;&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</b>
+<br>will put the text in a box:<br>
+<table width=50% border align=center><tr><td><center><b>Final results</b></center></td></tr></table>
+<P   >
+The <b>Type</b> command requires &quot; around the text&quot, so for more complicated formulations use <b>Echo</b> 
+</P>
+<H3  >Echo and show Commands - Combining tables and other aspects</H3>
+<p>Since the
+whole formulation of output is controlled by HTML language structures
+the user can add other types of output. 
+<P   ><B>Example:</B></P>
+<P   >The user wants a report to have two figures placed side by side
+like this in the output: </P>
+<table class=filled1><tr class=caption><td colspan=2><font color=blue>Title for the combination of two graphs in EpiData Analysis</font></td>
+<tr><td><img src="his.png"></td><td><img src="dec.png"></td>
+</table>
+<P   >To accomplish this: </P>
+<P   >1. First create the two figures:</P>
+<P style="margin-left: 1cm"><b>read datafile<br>
+histogram age /save=&quot;his.png&quot;        // left figure<br>
+scatter dectime age /save=&quot;dec.png&quot;     //right figure</b></P>
+<P   >2. Then add to the output the figures with as little &quot;noise&quot; as
+possible:</P>
+<P  style="margin-left: 1cm"><b>set show command=off</b></P>
+<P   >3. Add the tables to the output (Notice the use of &lt;font&gt; to set the
+color of the font):</P>
+<P  STYLE="margin-left: 1cm"><b>echo &lt;table&gt;&lt;tr&gt;&lt;td colspan=2 border align=center &gt;<br>
+&lt;font color=blue&gt; Title for a combination of two graphs
+in EpiData Analysis&lt;/font&gt;&lt;/td&gt;<br>
+&lt;tr&gt;&lt;td&gt;&lt;img src=&quot;his.png&quot;&gt;&lt;/td&gt;&lt;td&gt;&lt;img
+src=&quot;dec2.png&quot;&gt;&lt;/td&gt;&lt;/table&gt;</b></P>
+<P   >4. To include the figures in a routine report, you save the html code in a file and add to output with the command <b>Show</b>
+<P  STYLE="margin-left: 1cm"><b>show table9.txt</b></P>
+<p>Where contents of <b>table9.txt</b> is the text shown after the <b>echo</b> in point 3.
+If you change design of the report you then just change the contents of the table.txt file and run again. In this way contents of the table are separated from
+running the report, which you would save in a pgm file. 
+</P>
+
+<a href="#top">Back to contents</a>
+
+<a name="more"></a><H1>More on style sheets</H1>
+
+<P   >The design or output format of a table is controlled by a general setting of
+font type and size <a href="#font">as shown above and</a> by specfic definition of table elements in the
+style sheet <b>epiout.css</b>. Two standard setup files are
+provided named epiout_b.css and epiout_w.css with black and white background. It is very important <b>not</b> to define font names, size and character sets in the style sheet. Use only relative size 
+(e.g. 0.8em instead of 14px) and general font type information (e.g. proportional instead of arial). 
+<p>Other aspects can also be controlled, e.g. if the user decides that before a certain table there should always be a 
+pagebreak at printing, inclusion of the style element "page-break-before: always" would allow for this. 
+For a full description of style sheets and tables see <a href="http://www.w3.org/TR/CSS21/tables.html">http://www.w3.org/TR/CSS21/tables.html</a>.</P>
+<p>EpiData analysis creates the html code and shows the code according to the definitions in the style sheet.
+For the table below, indentation from left margin is done by &lt;P style="Margin-left: 2cm"&gt, 
+and the space between the title and the table, by "&lt;H3 style=";Margin-bottom: 0.25cm&gt;". </P>
+<p>To see an example of the HTML code run a table in EpiData Analysis, click on "Viewer" and choose "Edit HTML output".</p>
+
+<H3 style="Margin-left: 2cm ;Margin-bottom: 0.25cm">Example: One way frequency table</H3>
+
+<TABLE class=box1 style="Margin-left: 2cm">
+	<COL WIDTH=68>
+	<COL WIDTH=55 >
+	<COL WIDTH=64>
+		<TR ><TD class=firstcol>SEX</td><TD >	No.</td><TD>%</td>
+		</TR>
+		<TR><TD class=firstcol>Female</td><TD>490</TD><TD>12.17</td>
+		</TR>
+		<TR><TD class=firstcol>Male</td><TD>3537</td><TD>87.83</td>
+		</TR>
+		<TR><TD class=firstcol>Total</td><TD>4027</td><TD>100</td>
+		</TR>
+</TABLE>
+
+<P style="Margin-left: 2cm">The first column has this style: "{ Text-align: left  ; font-weight: bold; color: red}"
+<br>The other columns this: "{  Text-align: right; color: black ; border: solid thin blue}"
+</p>
+
+<h3 style="Margin-left: 1cm">Example of  two way table</h3>
+<TABLE class=box1 style="Margin-left: 1cm ;Margin-bottom: 2cm ;" WIDTH=603 BORDER=1 CELLPADDING=2 CELLSPACING=0 FRAME=HSIDES RULES=GROUPS>
+	<COL WIDTH=142>	<COL WIDTH=64>	<COL WIDTH=47>	<COL WIDTH=57>	<COL WIDTH=47>	<COL WIDTH=57>	<COL WIDTH=47>	<COL WIDTH=64>	<COL WIDTH=47>	<COL WIDTH=43>	<COL WIDTH=55>
+		<TR><TD COLSPAN=11 WIDTH=601>Residence of runner</td>		</TR>
+		<TR><TD WIDTH=142>Completion	time - Hours</td><TD WIDTH=54>   0- 25 km</td><TD WIDTH=37>   %</td><TD WIDTH=57>   26-62 km</td><TD WIDTH=37>   %</td><TD WIDTH=47>   63 &ndash;120</td><TD WIDTH=37>   %</td><TD WIDTH=54>   120+ km</td><TD WIDTH=37>   %</td><TD WIDTH=33>   Total</td><TD WIDTH=45>   %</td>
+		</TR>
+		<TR><TD WIDTH=142>2.5-3.4</td><TD WIDTH=54>120</td><TD WIDTH=37>(15.3)</td><TD WIDTH=57>187</td><TD WIDTH=37>(23.8)</td><TD WIDTH=47>243</td><TD WIDTH=37>(31.0)</td><TD WIDTH=54>235</td><TD WIDTH=37>(29.9)</td><TD WIDTH=33>785</td><TD WIDTH=45>(100.0)</td>
+		</TR>
+		<TR><TD WIDTH=142>3.5-3.7</td><TD WIDTH=54>156</td><TD WIDTH=37>(18.9)</td><TD WIDTH=57>204</td><TD WIDTH=37>(24.7)</td><TD WIDTH=47>238</td><TD WIDTH=37>(28.8)</td><TD WIDTH=54>229</td><TD WIDTH=37>(27.7)</td><TD WIDTH=33>827</td><TD WIDTH=45>(100.0)</td>
+		</TR>
+		<TR><TD WIDTH=142>3.8-4.1</td><TD WIDTH=54>156</td><TD WIDTH=37>(19.6)</td><TD WIDTH=57>222</td><TD WIDTH=37>(27.9)</td><TD WIDTH=47>177</td><TD WIDTH=37>(22.2)</td><TD WIDTH=54>241</td><TD WIDTH=37>(30.3)</td><TD WIDTH=33>796</td><TD WIDTH=45>(100.0)</td>
+		</TR>
+		<TR><TD WIDTH=142>4.2-6.2</td><TD WIDTH=54>164</td><TD WIDTH=37>(20.9)</td><TD WIDTH=57>204</td><TD WIDTH=37>(26.0)</td><TD WIDTH=47>175</td><TD WIDTH=37>(22.3)</td><TD WIDTH=54>243</td><TD WIDTH=37>(30.9)</td><TD WIDTH=33>786</td><TD WIDTH=45>(100.0)</td>
+		</TR>
+		<TR><TD WIDTH=142>Total</td><TD WIDTH=54>596</td><TD WIDTH=37>(18.7)</td><TD WIDTH=57>817</td><TD WIDTH=37>(25.6)</td><TD WIDTH=47>833</td><TD WIDTH=37>(26.1)</td><TD WIDTH=54>948</td><TD WIDTH=37>(29.7)</td><TD WIDTH=33>3194</td><TD WIDTH=45>(100.0)</td>
+		</TR>
+</TABLE>
+
+<p>Contents of cells differ by type of table. For a general crosstable the contents are like this: </P>
+<h3 style="Margin-left: 2cm">Content
+of cells in a 2 column by 3 row table:</h3>
+
+<TABLE class=filled1 style="Margin-left: 1cm" BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+	<TR>
+		<TD style="text-align: center" COLSPAN=4  >column variable label</td>
+	</TR>
+	<TR >
+		<TD >rowvariable label</td>
+		<TD>valuelabel column<br>category1</td>
+		<TD >valuelabel column<BR>category 2</td>
+		<TD >RowTotal </td>
+	</TR>
+	<TR >
+		<TD >valuelabel row<br>category1</td>
+		<TD>cellcount</td>
+		<TD >cellcount</td>
+		<TD >rowtotal <br>category 1</td>
+	</TR>
+	<TR >
+		<TD >valuelabel row<br>category2</td>
+		<TD>cellcount</td>
+		<TD >cellcount</td>
+		<TD >rowtotal <br>category 2</td>
+	</TR>
+	<TR >
+		<TD >valuelabel row<br>category3</td>
+		<TD>cellcount</td>
+		<TD >cellcount</td>
+		<TD >rowtotal<br> category 3</td>
+	</TR>
+	<TR >
+		<TD >Columntotal</td>
+		<TD>columntotal <br>category 1</td>
+		<TD >columntotal <BR>category 2</td>
+		<TD >totalcount</td>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 >Requested Chi2 values and other statistics</td>
+	</TR>
+</TABLE>
+<P  >If a row or column variable does not
+have a variable label the name of the variable is shown instead.
+Similarly for value labels. As seen in the previous table percents can be added to contents. Percents will appear in columns for that, such that size, alignment etc. can be specified</P>
+<P  ><BR></P>
+<P   >The design
+of the cells is controlled by the style sheet contents like this:</P>
+<P   ><B>A.
+Stylesheet names used for a table without percents </B></P>
+<TABLE class=filled1 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=77>
+	<COL WIDTH=43>
+	<COL WIDTH=43>
+	<COL WIDTH=55>
+	<TR>
+		<TD COLSPAN=4>caption</td>
+       <td rowspan=8 width="200" style="background-color: #f8f8f8; padding-left: 8px">Note "cell1", "cell2" etc. to facilitate different colouring of alternating rows.
+<br>This is extremely powerful, but caution should be taken. With inappropriate specification output will disappear. 
+E.g if you choose white text on white background.
+</td>
+	</TR>
+	<TR >
+		<td>RowVariable</td>
+		<td>firstrow</td>
+		<td>firstrow</td>
+		<td>RowtotalH</td>
+	</TR>
+	<TR >
+		<td class=even>firstcol1</td>
+		<td class=even>cell1</td>
+		<td class=even>cell1</td>
+		<td class=even>RowTotal1</td>
+	</TR>
+	<TR >
+		<td class=uneven>firstcol2</td>
+		<td  class=uneven>cell2</td>
+		<td  class=uneven>cell2</td>
+		<td class=uneven>RowTotal2</td>
+	</TR>
+
+
+	<TR >
+		<td class=even>firstcol1</td>
+		<td class=even>cell1</td>
+		<td class=even>cell1</td>
+		<td class=even>RowTotal1</td>
+	</TR>
+	<TR >
+		<td class=uneven>firstcol2</td>
+		<td  class=uneven>cell2</td>
+		<td  class=uneven>cell2</td>
+		<td class=uneven>RowTotal2</td>
+	</TR>
+
+	<TR >
+		<td>ColumnTotalH</td>
+		<td>ColumnTotal</td>
+		<td>ColumnTotal</td>
+		<td>GrandTotal</td>
+	</TR>
+	<TR>
+		<td COLSPAN=4> cellfoot</td>
+	</TR>
+</TABLE>
+
+<P   ><B>B.
+Stylesheet names used for a table with percents</B></P>
+<TABLE class=filled1 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=77>
+	<COL WIDTH=43>
+	<COL WIDTH=43>
+	<COL WIDTH=55>
+	<COL WIDTH=55>
+	</TR>
+	<TR >
+		<td>RowVariable</td>
+		<td>firstrow</td>
+		<td>firstrowpct</td>
+		<td>RowtotalH</td>
+		<td>RowtotalHpct</td>
+	</TR>
+	<TR >
+		<td class=even>firstcol1</td>
+		<td class=even>cell1</td>
+		<td class=even>cellpct1</td>
+		<td class=even>RowTotal1</td>
+		<td class=even>RowTotalpct1</td>
+	</TR>
+	<TR >
+		<td class=uneven>firstcol2</td>
+		<td  class=uneven>cell2</td>
+		<td  class=uneven>cellpct2</td>
+		<td class=uneven>RowTotal2</td>
+		<td class=uneven>RowTotalpct2</td>
+	</TR>
+
+
+	<TR >
+		<td class=even>firstcol1</td>
+		<td class=even>cell1</td>
+		<td class=even>cell1</td>
+		<td class=even>RowTotal1</td>
+		<td class=even>RowTotalpct1</td>
+	</TR>
+	<TR >
+		<td class=uneven>firstcol2</td>
+		<td  class=uneven>cell2</td>
+		<td  class=uneven>cellpct2</td>
+		<td class=uneven>RowTotal2</td>
+		<td class=uneven>RowTotalpct2</td>
+	</TR>
+
+	<TR >
+		<td>ColumnTotalH</td>
+		<td>ColumnTotal</td>
+		<td>ColumnTotal</td>
+		<td>GrandTotal</td>
+		<td>GrandTotalPct</td>
+	</TR>
+	<TR>
+		<td COLSPAN=5> cellfoot</td>
+	</TR>
+</TABLE>
+
+</P>
+<P   >The cell names of a style sheet defines how that element is designed or
+formed. The user can define general elements or use named specific
+elements.
+</p>
+<P   >Notice that
+the implementation of footer is <B>not</B> the HTML tag called
+&lt;tfoot&gt;&lt;/tfoot&gt;, since this has created problems for
+correct behaviour of combinations of footer, caption and contents in
+the output window. The cellfoot class is a property for the last row.</P>
+<P   STYLE="margin-right: 0cm; page-break-before: always">
+<B>User defined output</B></P>
+<P >The W3C organisation also provides validators, which can be used to test if a
+html page or style sheet complies with the standard. The validation
+report shows errors and hints about efficient formatting. </P>
+
+<TABLE class=filled1 >
+	<TR>
+		<TD></TD>
+		<TD><B>Standard</b></TD>
+		<TD><B>Validator</B></TD>
+		<TD><B>Introduction shown at</B></TD>
+	</TR>
+
+	<TR VALIGN=TOP>
+		<td><B>html</B></TD>
+		<td>www.w3.org/TR/html401</TD>
+		<td>see w3c.org left side</TD>
+		<td>www.w3.org/MarkUp/Guide/</TD>
+	</TR>
+
+	<TR VALIGN=TOP>
+		<td> <B>css</B></TD>
+		<td>www.w3.org/Style/CSS/</TD>
+		<td>jigsaw.w3.org/css-validator/</TD>
+		<td>www.w3.org/MarkUp/Guide/Style.html</TD>
+	</TR>
+</TABLE>
+<a href="#top">Back to contents</a>
+
+<hr>
+<P   >EpiData
+Analysis is released as freeware by the EpiData Association, Odense
+Denmark. </P>
+<P   >Copyright
+EpiData Association 2005-2006. </P>
+<P   >Latest
+update available from Http://www.epidata.dk</P>
+<P  >Standard
+disclaimers apply, see http://www.epidata.dk/disclaim.htm</P>
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,13 @@
+LABELBLOCK
+  LABEL label_sex    1  mand    2  kvinde  END
+  LABEL label_place    1  Østdamnark    2  Vestdanmark    3  "Uden for Danmark"  END
+END
+
+SEX
+  COMMENT LEGAL USE label_sex
+END
+
+PLACE
+  COMMENT LEGAL USE label_place
+END
+
