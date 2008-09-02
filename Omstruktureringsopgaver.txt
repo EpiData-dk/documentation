@@ -9,3 +9,5 @@
 8: footer for alle xTab's skal bruger xTab.footer
 9: SMUtils: SplitString genbruges i nuværende form på generel lokation.
 10: TEpiVector: DataType vs. FieldDataType?
+11: TCommand - tilføj format struktur (eg. E0-E4 osv.). Se mantis 284.
+12: Mantis 200: Pre-parsing entries.

@@ -33,5 +33,13 @@ Build 144 - 20. aug. 2008:
 6: Added: Set option - LIFETABLE HEADER = "Interval,Beg. Total,Deaths,Lost,Survival,Std. Error" added. Used for headers in LifeTable.
 7: Added: NormalizeVectorNames to TEpiDataFrame. Changes all $... varnames to equivalent without $.
 
+Build 145 - 1. Sept. 2008:
+1: Added: /Close with LifeTable marks data as modified.
+2: Fix: Correctly reports if dataframe contains no data in LifeTable.
+3: Fix: Problems with manually defined intervals.
+4: Fix: Sorting in browse windows (with a selected set of variables) not longer reloads the dataframe with full set of variables.
+
+Build 146 - 2. Sept. 2008:
+1: Change: Rewritten CIPlot. Now supports /NM option but not /BY (yet).
+2: Added: Properties on TTwoWaytable. Can now access grand row header, grand colomn header, individual row headers (label/value) and individual column headers (label/value).
 Version 2.0 Rel.6
-Build 145 - 1 sept. 2008:
