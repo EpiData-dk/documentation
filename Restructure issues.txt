@@ -11,3 +11,5 @@
 10: TEpiVector: DataType vs. FieldDataType?
 11: TCommand - tilføj format struktur (eg. E0-E4 osv.). Se mantis 284.
 12: Mantis 200: Pre-parsing entries.
+13: TODO-list i Delphi.
+14: Definer antal af vektor. Bruges Byte og bool? 

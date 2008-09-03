@@ -42,4 +42,17 @@ Build 145 - 1. Sept. 2008:
 Build 146 - 2. Sept. 2008:
 1: Change: Rewritten CIPlot. Now supports /NM option but not /BY (yet).
 2: Added: Properties on TTwoWaytable. Can now access grand row header, grand colomn header, individual row headers (label/value) and individual column headers (label/value).
+
+Build 147 - 3. Sept. 2008:
+1: Fix: "RUN" botton in graph dialog didn't work - fixed.
+2: Axis titles applied for scatter, line, dotplot, cdfplot, epicurve, ciplot
+3: Fix: Situation where expanding dataframe with a single NA_... as the last entry in expanding vector, would cause the next entry to contain NA_... +1 (usually resulting in an error).
+4: Fix: Using a single var with line/scatter caused an error.
+5: Change: In graph dialog - first variable is no longer displayed as optional and BY variable box is also no longer displayed (by not implemented).
+6: Fix: Some errors not displayed correctly due to malformatted dm.error(...) function call.
+7: Change: Epicurve - Outcome is stripped of missing.
+8: Change: Deleted previous introduced initial size of a TEpiStringVector. This induced a problem with reading data in some instances.
+9: Added: New option /NOTOT for CIPlot = do not display total (including 95% CI lines).
+10: Updated language file.
+
 Version 2.0 Rel.6
