@@ -55,4 +55,8 @@ Build 147 - 3. Sept. 2008:
 9: Added: New option /NOTOT for CIPlot = do not display total (including 95% CI lines).
 10: Updated language file.
 
+Build 148 - 4. Sept. 2008:
+1: New (Mantis 286): Add multiple variable support for Boxplot.
+2: Added: New /NM option for new Boxplot implementation.
+
 Version 2.0 Rel.6
