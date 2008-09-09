@@ -58,5 +58,10 @@ Build 147 - 3. Sept. 2008:
 Build 148 - 4. Sept. 2008:
 1: New (Mantis 286): Add multiple variable support for Boxplot.
 2: Added: New /NM option for new Boxplot implementation.
-
-Version 2.0 Rel.6
+3: Change: A dot (".") has been added label values when using recode in the form "Recode A to B x=y", such that label for value y in B is ".x"
+4: Added: Label value command from "recode" added to history.
+5: Fix: CIplot - options /NOTOT and /NOCI are now independt of eachother.
+6: Fix: CIplot - removed errornous extra "|" at end of bottom axis title.
+7: Added: Recode - /Clear option added, and default /Clear removed from labelvalue line.
+8: Change: Added /NG to LifeTable, ciplot, boxplot, epicurve
+9: Remode: /G from lifetable - in addition with (8) adjusted dialog accordingly.

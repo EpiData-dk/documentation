@@ -17,3 +17,6 @@
 16: MibIsDate... osv. kan omskrives til brug af SplitLine(...) og være knap så komplekse.
 17: Samle Dato utilities....
    - UFrames: GetDate.
+18: Kommandoer flyttes væk fra UCmdProcessor og til andre (evt. nye) unit:
+   - Recode: Flyttes evt. til UDocument.
+19: Memory Leaks.
