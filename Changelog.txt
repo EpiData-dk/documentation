@@ -65,3 +65,7 @@ Build 148 - 4. Sept. 2008:
 7: Added: Recode - /Clear option added, and default /Clear removed from labelvalue line.
 8: Change: Added /NG to LifeTable, ciplot, boxplot, epicurve
 9: Remode: /G from lifetable - in addition with (8) adjusted dialog accordingly.
+10: New: Stattables implemented.
+11:     - Options /Close, /Page /Strata implemented.
+12: Change: Unified certain options for commands.
+13: Change: Moved "SplitString" from smUtils to UGeneralUtils.

@@ -20,3 +20,5 @@
 18: Kommandoer flyttes væk fra UCmdProcessor og til andre (evt. nye) unit:
    - Recode: Flyttes evt. til UDocument.
 19: Memory Leaks.
+20: Fjern overflødige filer:
+   - fileio/BufferedStreams
