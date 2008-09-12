@@ -8,17 +8,19 @@
 7: UOutput: TStatTable er pt. sub-class af TStatOutputObj - hvorfor??? Fjern denne sammenhæng hvis ikke nødvendig.
 8: footer for alle xTab's skal bruger xTab.footer
 9: SMUtils: SplitString genbruges i nuværende form på generel lokation.
-10: TEpiVector: DataType vs. FieldDataType?
+10: Vectorer:
+   - DataType vs. FieldDataType?
+   - FieldFormat? Hvorfor når vi alligevel ønsker at lave udregning uden brug af afrunding.
+   - Definer antal af vektor. Bruges Byte og bool? Indfør en tid (TTime/TDateTime) vektor?
 11: TCommand - tilføj format struktur (eg. E0-E4 osv.). Se mantis 284.
 12: Mantis 200: Pre-parsing entries.
 13: TODO-list i Delphi.
-14: Definer antal af vektor. Bruges Byte og bool? Indfør en tid (TTime/TDateTime) vektor?
+14: Memory Leaks.
 15: Tilføj - AsValueLabel[x] på alle vektorer.
 16: MibIsDate... osv. kan omskrives til brug af SplitLine(...) og være knap så komplekse.
 17: Samle Dato utilities....
    - UFrames: GetDate.
 18: Kommandoer flyttes væk fra UCmdProcessor og til andre (evt. nye) unit:
    - Recode: Flyttes evt. til UDocument.
-19: Memory Leaks.
-20: Fjern overflødige filer:
+19: Fjern overflødige filer:
    - fileio/BufferedStreams
