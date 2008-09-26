@@ -66,6 +66,25 @@ Build 148 - 4. Sept. 2008:
 8: Change: Added /NG to LifeTable, ciplot, boxplot, epicurve
 9: Remode: /G from lifetable - in addition with (8) adjusted dialog accordingly.
 10: New: Stattables implemented.
-11:     - Options /Close, /Page /Strata implemented.
-12: Change: Unified certain options for commands.
-13: Change: Moved "SplitString" from smUtils to UGeneralUtils.
+   - Options /Close, /Page /Strata implemented.
+11: Change: Unified certain options for commands.
+12: Change: Moved "SplitString" from smUtils to UGeneralUtils.
+13: Added: MCI statistical option for Aggregate.
+14: Fix: /NT now works with BoxPlot.
+15: Change: Heading for Stattables follow new strategy. ("Variable label"<br>"Stat name")
+16: Fix: Scatter produces error when two variables combined contained no data.
+17: Lifetable:
+   - Added: /Q
+   - Log Rank test. /T
+   - Hazard ration. /HAZ
+   - Log likelihood. /T
+   - Event time for specific survival propertion (/P25 /P50 /P75) and comparison with reference group.
+   - Survival proportion for specific times
+18: Fix: Error using browse and the renaming variables.
+19: LifeTable - if observation has negative time interval (or range variable) it is excluded. 10 first are displayed and a total number of excluded observations is also shown.
+20: Change: Lifetable graph now shows survival in interval from 0-1 instead of 0-100%
+21: Fix: When generating a new interger variable with an expression resulting in floating value an incorrect error message was displayed.
+22: Fix: Parsing command with malformed syntax resultet in incorrect error message. Refered to wrong keyword.
+23: Change: New principle for finding percentile index with a small sample population. A fixed index table for N<20 is used.
+24: Added: All dialog now save last position and size.
+25: Change: CIplot result table - swapped Total column and crude column.

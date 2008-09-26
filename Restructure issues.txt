@@ -11,6 +11,7 @@
 10: Vectorer:
    - DataType vs. FieldDataType?
    - FieldFormat? Hvorfor når vi alligevel ønsker at lave udregning uden brug af afrunding.
+   - Det samme gælder Decimal size og FieldSize. Gem disse i chkproperties i stedet og brug kun ved skrivning af data.
    - Definer antal af vektor. Bruges Byte og bool? Indfør en tid (TTime/TDateTime) vektor?
 11: TCommand - tilføj format struktur (eg. E0-E4 osv.). Se mantis 284.
 12: Mantis 200: Pre-parsing entries.
