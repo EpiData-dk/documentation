@@ -88,3 +88,9 @@ Build 148 - 4. Sept. 2008:
 23: Change: New principle for finding percentile index with a small sample population. A fixed index table for N<20 is used.
 24: Added: All dialog now save last position and size.
 25: Change: CIplot result table - swapped Total column and crude column.
+
+Version 2.1 Rel. 0
+Build 151 - 13. Oct. 2008:
+1: Fix (Mantis 300): EpiCurve crashed with wrong order of variables. Added a "No Data" error.
+2: Fix (Mantis 301): Missing left-axis title added - "Count"
+3: Fix (Mantis 305): Reading value labels from external REC file caused the program to save an incorrect CHK file. Labeling for label value set changed to NOT include the keyword "FROM".
