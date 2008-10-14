@@ -25,3 +25,5 @@
    - Recode: Flyttes evt. til UDocument.
 19: Fjern overflødige filer:
    - fileio/BufferedStreams
+20: Parsing:
+   - Strukturering af options i bedre grupper.
