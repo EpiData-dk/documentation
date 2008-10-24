@@ -28,3 +28,4 @@
 20: Parsing:
    - Strukturering af options i bedre grupper.
 21: CheckVariableNo does NOT catch variable structur like "*", "var1-var10", "var?"
+22: Only use NA_???? in Get/SetMissing and remove from all other places.
