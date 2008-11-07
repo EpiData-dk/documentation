@@ -21,11 +21,15 @@
 16: MibIsDate... osv. kan omskrives til brug af SplitLine(...) og være knap så komplekse.
 17: Samle Dato utilities....
    - UFrames: GetDate.
+   - MibIsDate()
 18: Kommandoer flyttes væk fra UCmdProcessor og til andre (evt. nye) unit:
    - Recode: Flyttes evt. til UDocument.
 19: Fjern overflødige filer:
    - fileio/BufferedStreams
+   - fileIO/BaseDataset
+   - fileIO/AARecFile
+   - fileIO/UEpiFile (her bruges kun TLabelValueList og TLabelBlocksList)
 20: Parsing:
    - Strukturering af options i bedre grupper.
-21: CheckVariableNo does NOT catch variable structur like "*", "var1-var10", "var?"
+21: CheckVariableNo does NOT catch variable structures like "*", "var1-var10", "var?"
 22: Only use NA_???? in Get/SetMissing and remove from all other places.
