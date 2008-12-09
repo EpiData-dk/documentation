@@ -97,3 +97,11 @@ Build 151 - 13. Oct. 2008:
 4: Change: Savedata and SavePGM save dialogs now defaults to current dir.
 5: Change: Missingvalue / Labelvalue now accepts multiple variables
 6: Fix: Tables using /OA where a variable has more than 2 outcomes for 2x2 statistics cause problem to crash.
+
+
+Version 2.1 Rel. 1
+Build 159 - 9. Dec. 2008:
+1: Added: /Q to correlate
+2: Added: /Q to regress
+3: Fixed: /KEY was not working with MERGE and APPEND
+
