@@ -104,4 +104,7 @@ Build 159 - 9. Dec. 2008:
 1: Added: /Q to correlate
 2: Added: /Q to regress
 3: Fixed: /KEY was not working with MERGE and APPEND
-
+4: Added: SPC commands to Main Menu.
+5: New: Create seperate sub-menu for SPC graph on main form.
+6: Unified common SPC checks in own procedure.
+7: Fix: Bug in parser where "round(..)" only accepted a single parameter.
