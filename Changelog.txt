@@ -108,3 +108,7 @@ Build 159 - 9. Dec. 2008:
 5: New: Create seperate sub-menu for SPC graph on main form.
 6: Unified common SPC checks in own procedure.
 7: Fix: Bug in parser where "round(..)" only accepted a single parameter.
+8: Fix: /NT caused EpiCurve to crash.
+9: Change: round(...) now accepts both 1 and 2 parameters.
+10: Added: Prototype of new Graph/SPC dialog.
+11: Temporary fix: Saving file automatically resets all positional paramters for .REC files.
