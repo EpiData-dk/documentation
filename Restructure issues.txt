@@ -34,3 +34,4 @@
 21: CheckVariableNo does NOT catch variable structures like "*", "var1-var10", "var?"
 22: Only use NA_???? in Get/SetMissing and remove from all other places.
 23: Dialoger!
+24: Se op ansDataTypes og ryd op!
