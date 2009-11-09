@@ -1,10 +1,10 @@
-* FValueLabels, FGlobalDefs bliver created både i "Create" og i Åben.
+* FValueLabels, FGlobalDefs bliver created bÃ¥de i "Create" og i Ã…ben.
 * Brug kun 1 stream (Tstream) og oprete Tmememory- eller Tfile- alt efter options valget.
-* FStoredInMemory er overflødig, da vi har options.
+* FStoredInMemory er overflÃ¸dig, da vi har options.
 
 
-* Relate struktur ligger IKKE på TEpiDatafile (dvs. FIsRelated, FGlobalDefs??) fjernes.
------- Tilhører relate -------
+* Relate struktur ligger IKKE pÃ¥ TEpiDatafile (dvs. FIsRelated, FGlobalDefs??) fjernes.
+------ TilhÃ¸rer relate -------
 Properties related to relate-files
 BackupList: TStringList
 IsRelateTop:Boolean 	True if data file is top of the relate hierarchy
@@ -18,7 +18,7 @@ HasRelate:Boolean 	True if data file contains one or more relate files
 
 
 Ide:
-Unificer TEpiDatafile.OPEN til alle import funktionerne. Og lad Create om at oprette de nøsvendige
-tilknyttede objekter (TStringLists, TStream, osv.). Desuden kaldes Reset, men KUN hvis den pågældende TEpidatafile
-er ændres (aflæs FModified el. lign.).
-Så sikres at det ikke mangler noget mht. initialisering af streams, objekter osv.
+Unificer TEpiDatafile.OPEN til alle import funktionerne. Og lad Create om at oprette de nÃ¸svendige
+tilknyttede objekter (TStringLists, TStream, osv.). Desuden kaldes Reset, men KUN hvis den pÃ¥gÃ¦ldende TEpidatafile
+er Ã¦ndres (aflÃ¦s FModified el. lign.).
+SÃ¥ sikres at det ikke mangler noget mht. initialisering af streams, objekter osv.
