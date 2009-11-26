@@ -1,0 +1,28 @@
+Last Edited: 2009-11-23
+
+Todo:
+* Implement other field types.
+* Import function -> importing DF from known formats and placing components.
+ - importing/creating from QES file.
+* Switch that enables copying properties from last edited field or double click function.
+* Auto layout button -> automatically creates a linear building of fields.
+* Shortcuts.
+ - F2 = Int, F3 = Float, F4 = .... etc.
+ - Using "shift" copies previous inserted field with new field name and no variable label.
+* Scrollbar on design panel.
+* Edits in designers autoselects text - an unwanted feature.
+
+Know Issues:
+* With only one field on form, the docking behaves stranges.
+
+
+
+Nice to have:
+* OnChanged hook on TEpiDataFile.
+
+
+
+Completed:
+* Edit forms on using pop-up menu is placed incorrectly.
+* OnChanged hook on TEpiField
+
