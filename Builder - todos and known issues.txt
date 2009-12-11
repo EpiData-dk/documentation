@@ -43,6 +43,30 @@ Todo:
 * navn på hvert tabsheet skal være som navn på filen (hvis den er gemt) og ellers untitled.
       ved "mouse over" navnet skal hele stien vises og ellers kun selve filnavnet.
 * Default folder sættes nederst i statusbar på samme måde som i analysis (skal kun vises og ikke være aktiv).
+* Tilføj versions nr til caption på main frame
+* Man kan ikke lukke et faneblad igen - bør være muligt.
+     taster: F10 lukker aktuelt faneblad
+               Ctrl+F4 samme funktion.
+
+           Hvis der er felter på formen, så skriv i msg box:
+                        "Dataform open"
+                         "Cancel"  "Close form"
+            (med cancel som default)
+
+* Vi skal have et princip for, hvad der må være åbent, når applikationen lukkes.
+    Til testapplikationen er ovenstående pkt 2 tilstrækkeligt
+     Enig ?
+
+* Der skal være en ikon til dato'er med en "pop-up", som angiver de tre typer. Ved funktionstasten for dato bruges default date type (se pkt 4). De specielle felt typer skal være i en særlig ikon, som en "sub menu". Dvs. at vi samlet har i toolbar:
+  integer, float, string, textlabel, date, other, file
+  under file:
+  file label, study label, version, + øvrige bruger header specificerede.
+  samt de øvrige "tools", fx slet alt, åben, gem
+
+* På options alt+s tilføjes flg.:
+   Background colour    (default hvid)
+   Preferred date type  (default dmy) dmy mdy ymd
+   Date separator       (default /)
 
 
 Know Issues:
