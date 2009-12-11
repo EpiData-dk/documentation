@@ -1,0 +1,98 @@
+Last Edited: 2009-11-23
+
+Todo:
+* Implement other field types.
+* importing from QES file.
+* Switch that enables copying properties from last edited field or double click function.
+* Shortcuts.
+ - F2 = Int, F3 = Float, F4 = .... etc.
+ - Using "shift" copies previous inserted field with new field name and no variable label.
+* Snapping functionality according to components already present, and not like now.
+* Edits in designers autoselects text - an unwanted feature.
+* tilføj "ctrl+N" til ny fil.
+* tilføj til statusbar:
+  Fields:  x            Records: y Flyt progressbar til statusbar
+* gemme filer
+   Uanset om en fil har data eller ej, så skal det ikke på nogen nem måde være muligt at
+        overskrive fil med gyldige data.
+     dvs. : hvis man overskriver en eksisterende fil, så kopieres den eksisterende fil med samme navn
+               minfil.dta -> minfil.old.dta                minfil.recxml -> minfil.old.recxml
+              derefter gemmes den "nye" fil med samme navn, som angivet.
+    En fil med data MÅ alene overskrives efter to gange "delete file and loose data"
+* Når man definerer og editerer et givet felt,
+      så skal ikonen for den pgl. felttype fra toolbar vises i caption.
+* hvis en fil indeholder data.
+   Ved tilføjelse af nye felter skal felt formen have en edit mere "Default value"
+        Feltet skal initieres med den pgl. værdi.
+* knappen for en given felttype SKAL blive nede, så man kan tilføje flere af samme type.
+   det er meget mere reglen end at man skifter type for hvert felt. 
+* felter placeret med mus eller fks tast skal være på aktuel synlig tabsheet
+* ved "mouse over" navnet skal hele stien vises og ellers kun selve filnavnet.
+* Default folder sættes nederst i statusbar på samme måde som i analysis (skal kun vises og ikke
+  være aktiv).
+* Tilføj versions nr til caption på main frame
+* Man kan ikke lukke et faneblad igen - bør være muligt.
+     taster: F10 lukker aktuelt faneblad
+               Ctrl+F4 samme funktion.
+
+           Hvis der er felter på formen, så skriv i msg box:
+                        "Dataform open"
+                         "Cancel"  "Close form"
+            (med cancel som default)
+
+* Vi skal have et princip for, hvad der må være åbent, når applikationen lukkes.
+    Til testapplikationen er ovenstående pkt 2 tilstrækkeligt
+
+* Der skal være en ikon til dato'er med en "pop-up", som angiver de tre typer.
+  Ved funktionstasten for dato bruges default date type (se pkt 4). De specielle felt typer skal
+  være i en særlig ikon, som en "sub menu". Dvs. at vi samlet har i toolbar:
+  integer, float, string, textlabel, date, other, file
+  under file:
+  file label, study label, version, + øvrige bruger header specificerede.
+  samt de øvrige "tools", fx slet alt, åben, gem
+
+* På options alt+s tilføjes flg.:
+   Background colour    (default hvid)
+   Preferred date type  (default dmy) dmy mdy ymd
+   Date separator       (default /)
+
+* Ved indlæsning af lange filer (prøv med pennsylvania.rec) forsvinder toolbar når man går under skærmhøjde.
+
+* Desuden hvis man sætter cursor på nederst på skærmen, fx med f2, så kommer "ok" button uden for
+  pc'ens skærm, og nederste nye felt kommer under aktuel visning.
+  Kan der være en "align to bottom" som max nederste grænse , samtidig med at man ved tilføjelse
+  automatisk ser feltet, der lige er sat på. ?
+
+* ved indlæsnign af filer lander øverste felt oveni toolbar. Sæt øverste felt til en topmargin på 75 pixel.
+
+* ved indlæsning af filer vises hele default feltbredden, indtil man evt. udfører "edit", mens den
+  ved tilføjelse af felter alene viser  den aktuelle bredde.
+
+* dato felter m.v.
+  jeg tror du skal starte med at sætte disse på, da det er besværligt at finde testfiler uden alle felt
+  typer - og man ved ikke omdet er pga manglende felttype eller en anden fejl, det ikke virker.
+
+* Prøv følgende:
+  a. indlæs pennsylvania.rec
+  b. flyt id feltet ud ca 2 cm til højre for save button og 2 cm ned.
+  c , foretag en align - UDEN equal distance - bemærk, at id felt så står oven en af de andre
+  d foretag nu align med alle tre chk bokse markeret.
+     hvor er id feltet ?   - det står nederst, det burde stå øverst fordi det er første felt i filen.
+
+  Med andre ord - der er brug for at holde styr på rækkefølge af felter - har du nogen ideer ?
+  Kan man fx. sortere efter y og ved flere med samme y efter x
+
+
+* Vi skal have diskuteret, hvordan felterne skal vises på formen.
+  Kunne det være sådan: Når
+  show field name on dataform (y/n default y) er sat til n
+  så vises: field name shown in input field
+  og altid: ved "mouse over", så vises navnet i en "bobbel". 
+
+Know Issues:
+* With only one field on form, the docking behaves stranges.
+
+
+
+Nice to have:
+* OnChanged hook on TEpiDataFile.
