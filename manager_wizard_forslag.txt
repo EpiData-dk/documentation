@@ -1,0 +1,35 @@
+Slide 1: "Basics"
+- File label.
+- Study label. (adv.)
+- Hvor mange variabler
+- Check box: kræver/behov for GCP (adv.)
+
+Slide 1.1: "GCP Basic"
+- Administrator navn
+- Password
+- Antal brugere
+
+Slide 1.2: "GCP Brugere" (#brugere gentagelser)
+- Bruger type
+- Bruger navn
+- Password
+
+Slide 2: "Variabler" (#variable gentagelser)
+- Variable type.
+- Variable navn.
+- Variable label.
+- Variable længde (adv.)
+ - decimaler (adv).
+- Overskrift, dvs. en ovenstående label.
+
+Slide 3: "Basic properties"
+- Must-/No-enter
+- Repeat
+- osv...
+
+Slide 4: "Value labels"
+- List af variabler, med afkrydsning om de kræver value labels.
+
+Slide 5: "Value labels design"
+- Grid med "Value | Labels"
+
