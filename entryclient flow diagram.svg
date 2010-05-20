@@ -21,15 +21,15 @@
     <marker
        inkscape:stockid="Arrow1Mend"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="Arrow1Mend"
-       style="overflow:visible;">
+       style="overflow:visible">
       <path
          id="path4115"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
-         transform="scale(0.4) rotate(180) translate(10,0)" />
+         d="M 0,0 L 5,-5 L -12.5,0 L 5,5 L 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
     </marker>
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
@@ -65,7 +65,7 @@
      inkscape:zoom="0.70710678"
      inkscape:cx="135.58005"
      inkscape:cy="488.08872"
-     inkscape:document-units="px"
+     inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
@@ -76,7 +76,8 @@
      inkscape:window-y="25"
      showborder="true"
      inkscape:showpageshadow="true"
-     borderlayer="false" />
+     borderlayer="true"
+     units="mm" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -336,7 +337,7 @@
        id="path6332"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.78103900000000004;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:1.56207801999999996, 0.78103900000000004;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.781039;stroke-linecap:butt;stroke-linejoin:miter;marker-start:none;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:1.56207802, 0.781039;stroke-dashoffset:0;stroke-opacity:1"
        d="M 330.94191,892.7551 L 39.160147,892.7551 L 39.160147,118.92598 L 137.46651,118.92598 L 137.68448,138.45371"
        id="path7364"
        sodipodi:nodetypes="ccccc" />
@@ -1173,7 +1174,7 @@
        id="path5664"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1"
        d="M 247.13382,526.98184 L 274.00388,526.98184"
        id="path7756"
        transform="translate(21.228433,-75.566862)" />
@@ -1439,7 +1440,7 @@
       <g
          id="g14244">
         <rect
-           style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.26972127;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.26972127,4.53944254;stroke-opacity:1;stroke-dashoffset:0"
+           style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.26972127;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.26972127, 4.53944254;stroke-dashoffset:0;stroke-opacity:1"
            id="rect17697"
            width="79.654129"
            height="23.307745"
@@ -1521,50 +1522,50 @@
          transform="translate(21.228433,-75.566862)"
          id="path8342"
          d="M 323,462.36218 L 323,487.86218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          transform="translate(21.228433,-75.566862)"
          id="path8865"
          d="M 324,512.86218 L 324,534.36218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          transform="translate(21.228433,-75.566862)"
          id="path9388"
          d="M 361,571.36218 L 384,571.36218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          transform="translate(21.228433,-75.566862)"
          id="path9911"
          d="M 457.5,571.36218 L 478,571.36218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          transform="translate(21.228433,-75.566862)"
          id="path10434"
          d="M 559.5,570.86218 L 578.5,570.86218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          sodipodi:nodetypes="ccc"
          transform="translate(21.228433,-75.566862)"
          id="path10959"
          d="M 577,483.86218 L 559,483.86218 L 559,454.36218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          sodipodi:nodetypes="ccc"
          transform="translate(21.228433,-75.566862)"
          id="path11482"
          d="M 650,483.86218 L 668,483.86218 L 668,453.36218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          transform="translate(21.228433,-75.566862)"
          id="path12005"
          d="M 614,533.86218 L 614,521.61218"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          sodipodi:nodetypes="ccc"
          transform="translate(21.228433,-75.566862)"
          id="path12528"
          d="M 324.91557,607.94557 L 324.91557,631.39101 L 478.71129,631.39101"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <path
          id="path13572"
          d="M 443.26763,532.96082 L 443.26763,555.29532"
@@ -1574,7 +1575,7 @@
          transform="translate(21.228433,-75.566862)"
          id="path13574"
          d="M 614.65257,608.65268 L 614.65257,632.78009 L 561.62324,632.78009"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1" />
       <text
          sodipodi:linespacing="125%"
          id="text14154"
@@ -2016,7 +2017,7 @@
            sodipodi:role="line">Nej</tspan></text>
     </g>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;marker-end:url(#Arrow1Mend)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:1"
        d="M 170.5,172.86221 L 170.5,216.3622"
        id="path6271"
        transform="translate(21.228433,-75.566862)" />
@@ -2048,7 +2049,7 @@
       </g>
     </g>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-opacity:1"
        d="M 236.17366,352.68004 L 258.09397,352.68004"
        id="path6896"
        transform="translate(21.228433,-75.566862)" />
@@ -2058,7 +2059,7 @@
        id="path7757"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;marker-end:url(#Arrow1Mend)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#Arrow1Mend);stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:1"
        d="M 360,842.36218 L 727,842.36218 L 727,204.36219 L 269.25,204.36219 L 269.25,180.86219"
        id="path8298"
        transform="translate(21.228433,-75.566862)"
