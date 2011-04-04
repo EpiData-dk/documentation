@@ -1,0 +1,19 @@
+Core:
+
+
+
+Manager:
+* når jeg flytter mellem felter med pilene er det ikke altid "headings" highlightes. Men mellem to felter kan man regne ud, at man er der. Prøv fx med nr 4. Her kan jeg heller ikke finde en systematik, men det ser ud som om, at fokus er flyttet og det foregående (eller efterfølgende) felt (ramme) highligted, ligesom cursor vises i det foregående. 
+
+* der kom usystematisk access violation når jeg slår "vis feltnavne" til og fra. Prøv fx. med nr 3
+    Jeg kan ikke reproducere det systematisk - desværre.
+
+* Section tegner i windows/Mac
+
+* Copy/Paste medtager IKKE calculations og evt. andre
+
+* Valuelabels bør ikke kunne indeholde tomme labels
+
+* Indlæsning af .REC filer med password
+
+Entry:
