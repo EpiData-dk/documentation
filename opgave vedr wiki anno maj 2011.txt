@@ -1,0 +1,37 @@
+Wiki:
+
+
+* Documentation:
+ - XML Format:
+  a) Opret XML Schema og link til dette.
+  b) Forkortes med generel opbygning, dog tilføje specielle sectioner, som fx. records.
+
+ - AsciiMath flyttes til anden gruppe. Hører til under hjælp til wiki.
+
+ - Keyboard Shortcuts opdateres:
+  a) Så opbygningen er som under "Common Commands/Uses"
+  b) Passer til programmernes aktuelle opsætning.
+
+ - Template tilføjes hvordan programmet startes i Windows/Linux. Lille eksempel.
+
+ - "Tutorial" laves færdig eller slettes.
+
+* epidata: Er generelt ikke færdig.
+ - Field guide er ikke færdig.
+ - Teaching example guide færdiggøres.
+ - Course Materal TB: Slet tabeller - der er malplaceret.
+
+* Playground: Slettes!
+
+* Source documents:
+ - Slet ikke udfyldt. Slettes eller tilføjes dokumentation.
+
+* wiki: Virker som gammelt matriale fra original installation. Slettes?
+
+* Main:
+ - THis is an example... : En gentagelse fra "epidata" - slet!
+ - Source documentation skal opdateres når undermappen "source documents" tilføjes sider.
+ - Documentation: Ufuldstændig - mange links mangler og er ikke genneført.
+ - Field guide: Mangler fuldstændigt.
+ - sidebar: bør gøres mere intuitiv.
+ - This wiki is under contruction: Slettes.
