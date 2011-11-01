@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.epidata.dk"
+  xmlns="http://www.epidata.dk" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+    schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+  
+  <!-- Reuseable types. -->
+  <xs:simpleType name="FieldType">
+    <xs:annotation>
+      <xs:documentation>
+      <div>
+      // Bool  (0)
+      ftBoolean = 0,
+      
+      // Numbers  (1, 2, 3)
+      ftInteger, ftAutoInc, ftFloat,
+      
+      // Date (4, 5, 6)
+      ftDMYDate, ftMDYDate, ftYMDDate,
+      // (7, 8, 9)
+      ftDMYToday, ftMDYToday, ftYMDToday,
+      
+      // Time (10, 11)
+      ftTime, ftTimeNow,
+      
+      // Strings (12, 13)
+      ftString, ftUpperString
+      </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="13"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="RecordStatus">
+    <xs:annotation>
+      <xs:documentation>
+        <div>
+          Status:
+          0 = normal
+          1 = verified
+          2 = deleted
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="LangType" mixed="true">
+    <xs:attribute ref="xml:lang" use="required"/>
+  </xs:complexType>
+  
+  <xs:complexType name="TextType">
+    <xs:sequence>
+      <xs:element name="Text" maxOccurs="unbounded" type="LangType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Caption" type="TextType"/>
+
+  <xs:complexType name="LabelType" mixed="true">
+    <xs:sequence>
+      <xs:element name="Label" maxOccurs="unbounded" type="LangType"/>
+    </xs:sequence>
+    <xs:attribute name="missing" type="xs:boolean"/>
+    <xs:attribute name="order" use="required" type="xs:integer"/>
+    <xs:attribute name="value" use="required"/>
+  </xs:complexType>
+
+  <!-- Basis for schema! EpiData -->
+  <xs:element name="EpiData">
+    <xs:annotation>
+      <xs:documentation>
+        Main info for EpiData Tag.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Settings"/>
+        <xs:element ref="ProjectSettings"/>
+        <xs:element ref="Study"/>
+        <xs:element ref="ValueLabelSets"/>
+        <xs:element ref="DataFiles"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Settings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Scrambled" type="xs:boolean"/>
+        <xs:element name="DateSeparator" type="xs:string"/>
+        <xs:element name="TimeSeparator" type="xs:string"/>
+        <xs:element name="DecimalSeparator" type="xs:string"/>
+        <xs:element name="MissingString" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProjectSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AutoIncStart" type="xs:integer"/>
+        <xs:element name="TimedBackupInterval" type="xs:integer"/>
+        <xs:element name="BackupOnShutdown" type="xs:boolean"/>
+        <xs:element name="ShowFieldNames" type="xs:boolean"/>
+        <xs:element name="ShowFieldBorders" type="xs:boolean"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Study">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Author" type="xs:string"/>
+        <xs:element name="Created" type="xs:string"/>
+        <xs:element name="Identifier" type="xs:string"/>
+        <xs:element name="Language" type="xs:string"/>
+        <xs:element name="Modified" type="xs:string"/>
+        <xs:element name="OtherLanguages" type="xs:string"/>
+        <xs:element name="Version" type="xs:string"/>
+        <xs:element name="Abstract" type="TextType" minOccurs="0"/>
+        <xs:element name="Citations" type="TextType" minOccurs="0"/>
+        <xs:element name="Funding" type="TextType" minOccurs="0"/>
+        <xs:element name="GeographicalCoverage" type="TextType" minOccurs="0"/>
+        <xs:element name="Publisher" type="TextType" minOccurs="0"/>
+        <xs:element name="Purpose" type="TextType" minOccurs="0"/>
+        <xs:element name="Rights" type="TextType" minOccurs="0"/>
+        <xs:element name="TimeCoverage" type="TextType" minOccurs="0"/>
+        <xs:element name="Title" type="TextType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValueLabelSets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ValueLabelSet" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Internal">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ValueLabel" maxOccurs="unbounded" type="LabelType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+            <xs:attribute name="type" use="required" type="FieldType"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DataFile"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Records"/>
+        <xs:element ref="Version"/>
+        <xs:element ref="Sections"/>
+      </xs:sequence>
+      <xs:attribute name="created" use="required"/>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Records">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Record" maxOccurs="unbounded">
+          <xs:complexType mixed="true">
+            <xs:attribute name="st" use="required" type="RecordStatus"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Section" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" ref="Caption"/>
+              <xs:element ref="Fields"/>
+              <xs:element ref="Headings"/>
+            </xs:sequence>
+            <xs:attribute name="height" use="required" type="xs:int"/>
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="left" use="required" type="xs:int"/>
+            <xs:attribute name="name" use="required" type="xs:string"/>
+            <xs:attribute name="top" use="required" type="xs:int"/>
+            <xs:attribute name="width" use="required" type="xs:int"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Fields">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Field" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice minOccurs="0">
+                <xs:element ref="Calculation"/>
+                <xs:element ref="Compare"/>
+              </xs:choice>
+              <xs:element minOccurs="0" ref="Ranges"/>
+              <xs:element minOccurs="0" ref="Jumps"/>
+              <xs:element ref="Question"/>
+              <xs:element minOccurs="0" ref="Notes"/>
+            </xs:sequence>
+            <xs:attribute name="autoupdatemode" type="xs:integer"/>
+            <xs:attribute name="confirmentry" type="xs:boolean"/>
+            <xs:attribute name="decimals" use="required" type="xs:integer"/>
+            <xs:attribute name="defaultvalue" type="xs:integer"/>
+            <xs:attribute name="entrymode" use="required" type="xs:integer"/>
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="left" use="required" type="xs:integer"/>
+            <xs:attribute name="length" use="required" type="xs:integer"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="repeat" type="xs:boolean"/>
+            <xs:attribute name="showvaluelabel" type="xs:boolean"/>
+            <xs:attribute name="top" use="required" type="xs:integer"/>
+            <xs:attribute name="type" use="required" type="FieldType"/>
+            <xs:attribute name="valuelabelref" type="xs:NCName"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Calculation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DayField"/>
+        <xs:element ref="MonthField"/>
+        <xs:element ref="YearField"/>
+        <xs:element ref="ResultField"/>
+      </xs:sequence>
+      <xs:attribute name="type" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DayField" type="xs:NCName"/>
+  <xs:element name="MonthField" type="xs:NCName"/>
+  <xs:element name="YearField" type="xs:NCName"/>
+  <xs:element name="ResultField" type="xs:NCName"/>
+  <xs:element name="Compare">
+    <xs:complexType>
+      <xs:attribute name="to" use="required" type="xs:NCName"/>
+      <xs:attribute name="type" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ranges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Range"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Range">
+    <xs:complexType>
+      <xs:attribute name="end" use="required" type="xs:integer"/>
+      <xs:attribute name="start" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Jumps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Jump"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Jump">
+    <xs:complexType>
+      <xs:attribute name="on" use="required" type="xs:integer"/>
+      <xs:attribute name="reset" use="required" type="xs:integer"/>
+      <xs:attribute name="to" type="xs:NCName"/>
+      <xs:attribute name="type" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Question" type="TextType"/>
+  <xs:element name="Notes" type="TextType"/>
+  <xs:element name="Headings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Heading"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Heading">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Caption"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="left" use="required" type="xs:integer"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="top" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Version" type="xs:string"/>
+</xs:schema>

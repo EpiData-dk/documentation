@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EpiData version="0">
- <Settings>
-  <Scrambled>false</Scrambled>
-  <DateSeparator>/</DateSeparator>
-  <TimeSeparator>.</TimeSeparator>
-  <DecimalSeparator>,</DecimalSeparator>
-  <MissingString>.</MissingString>
- </Settings>
+<EpiData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.epidata.dk sample.xsd"
+ xmlns="http://www.epidata.dk"
+ version="0">
+  <Settings>
+    <Scrambled>false</Scrambled>
+    <DateSeparator>/</DateSeparator>
+    <TimeSeparator>.</TimeSeparator>
+    <DecimalSeparator>,</DecimalSeparator>
+    <MissingString>.</MissingString>
+  </Settings>
  <ProjectSettings>
   <AutoIncStart>100</AutoIncStart>
   <TimedBackupInterval>10</TimedBackupInterval>
