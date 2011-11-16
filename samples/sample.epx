@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EpiData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<EpiData xmlns="http://www.epidata.dk/XML/1.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.epidata.dk sample.xsd"
- xmlns="http://www.epidata.dk"
  version="0">
-  <Settings>
-    <Scrambled>false</Scrambled>
-    <DateSeparator>/</DateSeparator>
-    <TimeSeparator>.</TimeSeparator>
-    <DecimalSeparator>,</DecimalSeparator>
-    <MissingString>.</MissingString>
-  </Settings>
+ <Settings>
+  <Scrambled>false</Scrambled>
+  <DateSeparator>/</DateSeparator>
+  <TimeSeparator>.</TimeSeparator>
+  <DecimalSeparator>,</DecimalSeparator>
+  <MissingString>.</MissingString>
+ </Settings>
  <ProjectSettings>
   <AutoIncStart>100</AutoIncStart>
   <TimedBackupInterval>10</TimedBackupInterval>
@@ -22,7 +22,8 @@
   <Created>2010/08/24 08.29.00</Created>
   <Identifier>EpiData Sample File #1</Identifier>
   <Language>en</Language>
-  <Modified>2011/08/24 13.39.18</Modified>
+  <Modified>2011/11/02 09.39.07</Modified>
+  <Notes></Notes>
   <OtherLanguages></OtherLanguages>
   <Version>1</Version>
   <Abstract>
@@ -52,6 +53,7 @@
   </TimeCoverage>
   <Title>
    <Text xml:lang="dk">Sample Project File</Text>
+   <Text xml:lang="en">Untitled Project</Text>
   </Title>
  </Study>
  <ValueLabelSets>
@@ -337,15 +339,15 @@
      </Caption>
      <Fields>
       <Field id="f18" name="J1" top="30" left="107" type="1" length="2" decimals="0" entrymode="1">
-       <Ranges>
-        <Range start="0" end="4"/>
-       </Ranges>
        <Jumps>
         <Jump on="1" type="2" reset="1"/>
         <Jump on="2" type="1" reset="2"/>
         <Jump on="3" type="3" reset="3" to="f19"/>
         <Jump on="4" type="0" reset="0"/>
        </Jumps>
+       <Ranges>
+        <Range start="0" end="4"/>
+       </Ranges>
        <Question>
         <Text xml:lang="en">Jump field</Text>
        </Question>
@@ -411,13 +413,13 @@
        </Question>
       </Field>
       <Field id="f32" name="O4" top="111" left="146" type="1" length="2" decimals="0" entrymode="0">
-       <Question>
-        <Text xml:lang="en">Notes field</Text>
-       </Question>
        <Notes>
         <Text xml:lang="en">This field has notes attached. Use this to write helpfull comment for
         persons entering data in EpiData EntryClient.</Text>
        </Notes>
+       <Question>
+        <Text xml:lang="en">Notes field</Text>
+       </Question>
       </Field>
      </Fields>
      <Headings>
@@ -455,10 +457,10 @@
       </Field>
       <Field id="f30" name="C3" top="16" left="258" type="1" length="4" decimals="0" entrymode="0">
        <Calculation type="1">
+        <ResultField>f31</ResultField>
         <DayField>f28</DayField>
         <MonthField>f29</MonthField>
         <YearField>f30</YearField>
-        <ResultField>f31</ResultField>
        </Calculation>
        <Question>
         <Text xml:lang="en">Year</Text>
