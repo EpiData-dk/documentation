@@ -1,0 +1,32 @@
+Møde m. DDA ang. sidste ændringer i XML/Schema
+
+1) DOCFLEX til at skrive annotations
+2) I steder for reusable types med xs:int, så brug enums. Det gør programmet sværere men xml formatet nemmere.
+3) LangType i schema: ændre navn - minder for meget om noget allerede standard.
+4) Label type -> attribut "value" mangler en type.
+5) Lav xs:restriction på Created, Modified og andre dato formater.
+6) Der mangler "agency" i study -> af hensyn til DDI3.
+7) Language i study -> type ændres til xml:lang. Ændre til attribut?
+8) Study->funding: udvid xml med hvem (agency) og en note.
+9) Study->citation: er det reference til artikler ellers er den principielt overflødig (super tag for andet).
+10) Study: Prøv at undgå "fri tekst" det giver mange problemer mht. senere konvertering.
+11) Study: Geocoverage, timecoverage.
+12) Study: måske tilføje topical coverage (keywords). Meget vigtigt for senere søgning. Addon til EU databaser mht. keyword (forenede).
+13) STudy: tilføje populations beskrivelse. Godt for DDI.
+14) I forhold til spgm. databank, så have note/reference information om hvor de kommer fra. UR[N|I].
+    På section niveau bør indføres "conceptuelt" med fx. specifik baggrund info, emne osv.
+15) Datafile->created mangler type.
+16) REcord->st: skal hedde "status" i stedet.
+17) Section->id: typen skal ændres til xs:id
+18) Section->name: bør måske fjernes.
+19) Field: samme som section.
+20) Navngivning af calculation elementer. Tilføj "Ref" i alle tags.
+21) Reusable type til reference af felter!
+
+
+
+
+Kryptering:
+- i stedet for at checke på forskud (cryptering) så check på bagkant fx. vha. hash'es eller andet.
+- marker med crypt(md5)
+- kryptering af kun records => ingen schema ændring.
