@@ -1,20 +1,23 @@
 Møde m. DDA ang. sidste ændringer i XML/Schema
 
 XML ændringer (kræver implicit rettelse i skema også):
-2) I steder for reusable types med xs:int, så brug enums. Det gør programmet sværere men xml formatet nemmere.
-6) Der mangler "agency" i study -> af hensyn til DDI3.
-8) Study->funding: udvid xml med hvem (agency) og en note.
-9) Study->citation: er det reference til artikler ellers er den principielt overflødig (super tag for andet).
-10) Study: Prøv at undgå "fri tekst" det giver mange problemer mht. senere konvertering.
-11) Study: Geocoverage, timecoverage.
-12) Study: måske tilføje topical coverage (keywords). Meget vigtigt for senere søgning. Addon til EU databaser mht. keyword (forenede).
-13) STudy: tilføje populations beskrivelse. Godt for DDI.
-14) I forhold til spgm. databank, så have note/reference information om hvor de kommer fra. UR[N|I].
-    På section niveau kan indføres "conceptuelt" med fx. specifik baggrund info, emne osv.
+ - simple ændringer:
 16) REcord->st: skal hedde "status" i stedet.
+20) Navngivning af calculation elementer. Tilføj "Ref" i alle tags.
 18) Section->name: bør måske fjernes / eller flettes med "id".
 19) Field: samme som 18)
-20) Navngivning af calculation elementer. Tilføj "Ref" i alle tags.
+2) I steder for reusable types med xs:int, så brug enums. Det gør programmet sværere men xml formatet nemmere.
+12) Study: måske tilføje topical coverage (keywords). Meget vigtigt for senere søgning. Addon til EU databaser mht. keyword (forenede).
+6) Der mangler "agency" i study -> af hensyn til DDI3.
+
+ - granulering af tags (klargøres til flere men i vores kun implementaring til 1):
+13) STudy: tilføje populations beskrivelse. Godt for DDI.
+8) Study->funding: udvid xml med hvem (agency) og en note.
+9) Study->citation: er det reference til artikler (ja). Så skal navnet ændres til ????
+11) Study: Geocoverage, timecoverage.
+
+14) I forhold til spgm. databank, så have note/reference information om hvor de kommer fra. UR[N|I].
+    På section niveau kan indføres "conceptuelt" med fx. specifik baggrund info, emne osv.
 
 
 Skema ændringer:
