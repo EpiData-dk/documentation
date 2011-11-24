@@ -209,12 +209,12 @@
         <xs:element name="Agency" type="xs:string"/>
         <xs:element name="Created" type="xs:string"/>
         <xs:element name="Identifier" type="xs:string"/>
+        <xs:element name="KeyWords" type="xs:string"/>
         <xs:element name="Language" type="xs:string"/>
         <xs:element name="Modified" type="xs:string"/>
         <xs:element name="Notes" type="xs:string" minOccurs="0"/>
         <!-- Other languages bør måske være en gentagende type... dvs. flere af dem mulige. (maxOccurance="unbounded") -->
         <xs:element name="OtherLanguages" type="xs:string"/>
-        <xs:element name="TopicalCoverage" type="xs:string"/>
         <xs:element name="Version" type="xs:string"/>
         <xs:element name="Abstract" type="TextType" minOccurs="0"/>
         <xs:element name="Citations" type="TextType" minOccurs="0"/>
@@ -222,6 +222,7 @@
         <xs:element name="GeographicalCoverage" type="TextType" minOccurs="0"/>
         <xs:element name="Publisher" type="TextType" minOccurs="0"/>
         <xs:element name="Purpose" type="TextType" minOccurs="0"/>
+        <xs:element name="Population" type="TextType" minOccurs="0"/>
         <xs:element name="Rights" type="TextType" minOccurs="0"/>
         <xs:element name="TimeCoverage" type="TextType" minOccurs="0"/>
         <xs:element name="Title" type="TextType"/>
@@ -361,7 +362,7 @@
             <xs:element name="Field2Ref" type="xs:NCName" minOccurs="0"/>
             <xs:element name="Field3Ref" type="xs:NCName" minOccurs="0"/>
             <xs:element name="Delimiter1" type="xs:string"/>
-            <xs:element name="Delimiter1" type="xs:string"/>
+            <xs:element name="Delimiter2" type="xs:string"/>
           </xs:sequence>
         </xs:choice>
       </xs:sequence>
