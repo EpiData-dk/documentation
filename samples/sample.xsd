@@ -183,7 +183,7 @@
     </xs:sequence>
     <xs:attribute name="missing" type="xs:boolean"/>
     <xs:attribute name="order" use="required" type="xs:integer"/>
-    <xs:attribute name="value" use="required"/>
+    <xs:attribute name="value" use="required" type="xs:string"/>
   </xs:complexType>
 
   <!-- Does this not exists as a built in type? -->
@@ -229,16 +229,16 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Author" type="xs:string"/>
-        <xs:element name="Agency" type="xs:string"/>
+        <xs:element name="Agency" type="xs:string" minOccurs="0"/>
         <xs:element name="Created" type="xs:string"/>
-        <xs:element name="Identifier" type="xs:string"/>
-        <xs:element name="KeyWords" type="xs:string"/>
+        <xs:element name="Identifier" type="xs:string" minOccurs="0"/>
+        <xs:element name="Keywords" type="xs:string" minOccurs="0"/>
         <xs:element name="Language" type="xs:string"/>
         <xs:element name="Modified" type="xs:string"/>
         <xs:element name="Notes" type="xs:string" minOccurs="0"/>
         <!-- Other languages bør måske være en gentagende type... dvs. flere af dem mulige. (maxOccurance="unbounded") -->
-        <xs:element name="OtherLanguages" type="xs:string"/>
-        <xs:element name="Version" type="xs:string"/>
+        <xs:element name="OtherLanguages" type="xs:string" minOccurs="0"/>
+        <xs:element name="Version" type="xs:string" minOccurs="0"/>
         <xs:element name="Abstract" type="TextType" minOccurs="0"/>
         <xs:element name="Citations" type="TextType" minOccurs="0"/>
         <xs:element name="Funding" type="TextType" minOccurs="0"/>
