@@ -146,6 +146,24 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="CalculationType">
+    <xs:annotation>
+      <xs:documentation>
+        <div>
+          Type of comparison
+          0 = ctTimeDiff
+          1 = ctCombineDate
+          2 = ctCombineString
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ctTimeDiff"/>
+      <xs:enumeration value="ctCombineDate"/>
+      <xs:enumeration value="ctCombineString"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
   <xs:complexType name="LangType" mixed="true">
     <xs:attribute ref="xml:lang" use="required"/>
   </xs:complexType>
@@ -168,13 +186,20 @@
     <xs:attribute name="value" use="required"/>
   </xs:complexType>
 
+  <!-- Does this not exists as a built in type? -->
+  <xs:simpleType name="SingleCharType">
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
   <!-- Basis for schema! EpiData -->
   <xs:element name="EpiData">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="Settings"/>
         <xs:element ref="ProjectSettings"/>
-        <xs:element ref="Study"/>
+        <xs:element ref="StudyInfo"/>
         <xs:element ref="ValueLabelSets" minOccurs="0"/>
         <xs:element ref="DataFiles"/>
       </xs:sequence>
@@ -184,25 +209,23 @@
   <xs:element name="Settings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DateSeparator" type="xs:string"/>
-        <xs:element name="TimeSeparator" type="xs:string"/>
-        <xs:element name="DecimalSeparator" type="xs:string"/>
-        <xs:element name="MissingString" type="xs:string"/>
       </xs:sequence>
+      <xs:attribute name="dateSeparator" type="SingleCharType" use="required"/>
+      <xs:attribute name="timeSeparator" type="SingleCharType" use="required"/>
+      <xs:attribute name="decimalSeparator" type="SingleCharType" use="required"/>
+      <xs:attribute name="missingString" type="SingleCharType" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="ProjectSettings">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element name="AutoIncStart" type="xs:integer"/>
-        <xs:element name="TimedBackupInterval" type="xs:integer"/>
-        <xs:element name="BackupOnShutdown" type="xs:boolean"/>
-        <xs:element name="ShowFieldNames" type="xs:boolean"/>
-        <xs:element name="ShowFieldBorders" type="xs:boolean"/>
-      </xs:sequence>
-    </xs:complexType>
+      <xs:attribute name="autoIncStart" type="xs:integer" default="1"/>
+      <xs:attribute name="timedBackupInterval" type="xs:integer" default="10"/>
+      <xs:attribute name="backupOnShutdown" type="xs:boolean" default="true"/>
+      <xs:attribute name="showFieldNames" type="xs:boolean" default="false"/>
+      <xs:attribute name="showFieldBorders" type="xs:boolean" default="true"/>
+    </xs:complexType>  
   </xs:element>
-  <xs:element name="Study">
+  <xs:element name="StudyInfo">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Author" type="xs:string"/>
@@ -366,7 +389,7 @@
           </xs:sequence>
         </xs:choice>
       </xs:sequence>
-      <xs:attribute name="type" use="required" type="xs:integer"/>
+      <xs:attribute name="type" use="required" type="CalculationType"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Compare">

@@ -3,24 +3,14 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.epidata.dk sample.xsd"
  version="0">
- <Settings>
-  <Scrambled>false</Scrambled>
-  <DateSeparator>/</DateSeparator>
-  <TimeSeparator>.</TimeSeparator>
-  <DecimalSeparator>,</DecimalSeparator>
-  <MissingString>.</MissingString>
- </Settings>
- <ProjectSettings>
-  <AutoIncStart>100</AutoIncStart>
-  <TimedBackupInterval>10</TimedBackupInterval>
-  <BackupOnShutdown>true</BackupOnShutdown>
-  <ShowFieldNames>false</ShowFieldNames>
-  <ShowFieldBorders>true</ShowFieldBorders>
- </ProjectSettings>
- <Study>
+ <Settings dateSeparator="/" timeSeparator="." decimalSeparator="," missingString="."/>
+ <ProjectSettings timedBackupInterval="10"/>
+ <StudyInfo>
   <Author>Torsten Bonde Christiansen Jens M. Lauritsen</Author>
+  <Agency>www.epidata.dk</Agency>
   <Created>2010/08/24 08.29.00</Created>
   <Identifier>EpiData Sample File #1</Identifier>
+  <KeyWords>epidata,manager</KeyWords>
   <Language>en</Language>
   <Modified>2011/11/02 09.39.07</Modified>
   <Notes></Notes>
@@ -55,9 +45,9 @@
    <Text xml:lang="dk">Sample Project File</Text>
    <Text xml:lang="en">Untitled Project</Text>
   </Title>
- </Study>
+ </StudyInfo>
  <ValueLabelSets>
-  <ValueLabelSet id="valuelabelset_id_0" type="1" name="Integet Set">
+  <ValueLabelSet id="IntegerSet" type="ftInteger">
    <Internal>
     <ValueLabel order="1" value="10">
      <Label xml:lang="en">Value A</Label>
@@ -73,7 +63,7 @@
     </ValueLabel>
    </Internal>
   </ValueLabelSet>
-  <ValueLabelSet id="valuelabelset_id_1" type="3" name="Float Set">
+  <ValueLabelSet id="FloatSet" type="ftFloat">
    <Internal>
     <ValueLabel order="1" value="1,11">
      <Label xml:lang="en">Float value A</Label>
@@ -92,7 +82,7 @@
     </ValueLabel>
    </Internal>
   </ValueLabelSet>
-  <ValueLabelSet id="valuelabelset_id_2" type="12" name="String Set">
+  <ValueLabelSet id="StringSet" type="ftString">
    <Internal>
     <ValueLabel order="1" value="AAA">
      <Label xml:lang="en">First string label</Label>
@@ -112,98 +102,98 @@
  <DataFiles>
   <DataFile id="datafile_id_0" created="2011/04/05 10.16.04">
    <Records>
-    <Record status="0">f19=1,f23=1234,f24=1,f14=100,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.22.55,f0=10,f2=1\,11,f16=AAA,f8=THIS IS A SAMPLE TEXT,f4=This is a sample text,f15=English,f1=12345678,f3=1234\,5678,f17=50,f5=12/09/2010,f6=12/09/2010,f12=12.00.00,f7=1912/09/10,f18=0,f20=10,f21=1\,11,f26=5,f25=2,f27=6,f32=1,f28=1,f29=1,f30=11,f31=2011/01/01</Record>
-    <Record status="0">f19=2,f23=2,f24=2,f14=101,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.25.36,f0=20,f2=2\,22,f16=CCC,f8=DETTE ER EN PRØVE TEKST,f4=Dette er en prøve tekst,f15=Dansk,f1=23456789,f3=2345\,6789,f17=51,f5=11/09/2011,f6=11/09/2011,f12=11.00.00,f7=2011/09/11,f18=1,f21=9\,99,f26=10,f25=3,f27=11,f32=3,f28=2,f29=2,f30=20,f31=1920/02/02</Record>
-    <Record status="0">f19=3,f23=3,f24=3,f14=102,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.26.38,f0=30,f2=3\,33,f16=CCC,f8=هذا هو نص عينة,f4=هذا هو نص عينة,f15=العربية,f1=34567890,f3=3456\,789,f17=52,f5=10/09/2010,f6=10/09/2010,f12=10.00.00,f7=2010/09/10,f18=2,f20=99,f21=9\,99,f26=1,f25=3,f27=2,f32=0,f28=3,f29=3,f30=3,f31=2003/03/03</Record>
-    <Record status="0">f19=4,f14=103,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.27.40,f0=99,f2=9\,99,f16=ZZZ,f8=这是一个示例文本,f4=这是一个示例文本,f15=中文,f1=45678901,f3=4567\,8901,f17=53,f5=09/09/2009,f6=09/09/2009,f12=09.00.00,f7=2009/09/09,f18=3,f21=8\,88,f26=100,f25=3,f27=111,f32=2,f28=4,f29=4,f30=4,f31=2004/04/04</Record>
-    <Record status="0">f14=104,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.28.23,f0=10,f2=1\,11,f16=AAA,f8=ÞETTA ER SÝNISHORN TEXTA,f4=Þetta er sýnishorn texta,f15=Íslenska,f1=56789012,f3=5678\,9012,f17=54,f5=08/08/2008,f6=08/08/2008,f12=08.00.00,f7=2008/08/08,f18=4,f26=5,f25=5,f27=6,f32=1,f28=5,f29=5,f30=5,f31=2005/05/05</Record>
-    <Record status="0">f19=6,f23=6,f24=6,f14=105,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.30.54,f0=20,f2=2\,22,f16=BBB,f8=ΑΥΤΌ ΕΊΝΑΙ ΈΝΑ ΔΕΊΓΜΑ ΚΕΙΜΈΝΟΥ,f4=Αυτό είναι ένα δείγμα κειμένου,f15=Ελληνικά,f1=78901234,f3=7890\,1234,f17=55,f5=06/06/2006,f6=06/06/2006,f12=06.00.00,f7=2006/06/06,f18=0,f20=10,f21=1\,11,f26=5,f25=5,f27=6,f32=2,f28=6,f29=6,f30=6,f31=2006/06/06</Record>
-    <Record status="0">f19=7,f23=7,f24=7,f14=106,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.31.38,f0=30,f2=3\,33,f16=CCC,f8=นี้คือข้อความตัวอย่าง,f4=นี้คือข้อความตัวอย่าง,f15=ไทย,f1=89012345,f3=8901\,2345,f17=56,f5=05/05/2005,f6=05/05/2005,f12=05.00.00,f7=2005/05/05,f18=2,f20=99,f21=9\,99,f26=7,f25=7,f27=8,f32=1,f28=7,f29=7,f30=7,f31=2007/07/07</Record>
-    <Record status="0">f19=8,f23=8,f24=8,f14=107,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.32.56,f0=99,f2=9\,99,f16=ZZZ,f8=ЭТО ОБРАЗЕЦ ТЕКСТА,f4=Это образец текста,f15=Русский,f1=90123456,f3=9012\,3456,f17=57,f5=04/04/2004,f6=04/04/2004,f12=04.00.00,f7=2004/04/04,f18=0,f26=6,f25=6,f27=7,f32=1,f28=8,f29=8,f30=8,f31=2008/08/08</Record>
-    <Record status="0">f19=9,f23=9,f24=9,f14=108,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.33.50,f0=10,f2=1\,11,f16=AAA,f8=ĐÂY LÀ MỘT VĂN BẢN MẪU,f4=Đây là một văn bản mẫu,f15=Việt,f1=1234567,f3=123\,4567,f17=58,f5=03/03/2003,f6=03/03/2003,f12=03.00.00,f7=2003/03/03,f18=0,f20=10,f26=8,f25=9,f27=9,f32=4,f28=9,f29=9,f30=9,f31=2009/09/09</Record>
-    <Record status="0">f19=10,f14=109,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.35.31,f0=10,f2=1\,11,f16=CCC,f8=C&apos;EST UN EXEMPLE DE TEXTE,f4=C&apos;est un exemple de texte,f15=Français,f1=42,f3=42,f17=59,f5=02/02/2002,f6=02/02/2002,f12=02.00.00,f7=2002/02/02,f18=3,f21=8\,88,f26=1,f25=7,f27=2,f32=3,f28=25,f29=4,f30=11,f31=2011/04/25</Record>
-    <Record status="0">f19=11,f23=11,f24=11,f14=110,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.36.56,f0=99,f2=9\,99,f16=ZZZ,f8=ESTE ES UN TEXTO DE EJEMPLO,f4=Este es un texto de ejemplo,f15=Español,f1=1866,f3=25\,02,f17=120,f5=01/01/2001,f6=01/01/2001,f12=01.00.00,f7=2001/01/01,f18=0,f26=9,f25=4,f27=10,f32=2,f28=22,f29=3,f30=3,f31=2003/03/22</Record>
-    <Record status="0">f19=12,f23=12,f24=12,f14=111,f9=05/01/2011,f10=01/05/2011,f11=2011/01/05,f13=14.37.54,f0=99,f2=9\,99,f16=ZZZ,f8=דעם איז אַ מוסטער טעקסט,f4=דעם איז אַ מוסטער טעקסט,f15=ייִדיש,f1=8448,f3=84\,48,f17=250,f5=13/01/2011,f6=01/13/2011,f12=23.59.59,f7=2011/01/13,f18=4,f20=99,f21=8\,88,f26=2,f25=4,f27=3,f32=1,f28=13,f29=12,f30=2012,f31=2012/12/13</Record>
+    <Record status="rsNormal">VLAST=1,M2=1234,M1=1,A1=100,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.22.55,VL1=10,VL2=1\,11,VL3=AAA,S3=THIS IS A SAMPLE TEXT,S2=This is a sample text,S1=English,I1=12345678,F1=1234\,5678,I2=50,D1=12/09/2010,D2=12/09/2010,T1=12.00.00,D3=1912/09/10,J1=0,J2=10,J3=1\,11,O2=5,O1=2,O3=6,O4=1,C1=1,C2=1,C3=11,C4=2011/01/01</Record>
+    <Record status="rsNormal">VLAST=2,M2=2,M1=2,A1=101,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.25.36,VL1=20,VL2=2\,22,VL3=CCC,S3=DETTE ER EN PRØVE TEKST,S2=Dette er en prøve tekst,S1=Dansk,I1=23456789,F1=2345\,6789,I2=51,D1=11/09/2011,D2=11/09/2011,T1=11.00.00,D3=2011/09/11,J1=1,J3=9\,99,O2=10,O1=3,O3=11,O4=3,C1=2,C2=2,C3=20,C4=1920/02/02</Record>
+    <Record status="rsNormal">VLAST=3,M2=3,M1=3,A1=102,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.26.38,VL1=30,VL2=3\,33,VL3=CCC,S3=هذا هو نص عينة,S2=هذا هو نص عينة,S1=العربية,I1=34567890,F1=3456\,789,I2=52,D1=10/09/2010,D2=10/09/2010,T1=10.00.00,D3=2010/09/10,J1=2,J2=99,J3=9\,99,O2=1,O1=3,O3=2,O4=0,C1=3,C2=3,C3=3,C4=2003/03/03</Record>
+    <Record status="rsNormal">VLAST=4,A1=103,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.27.40,VL1=99,VL2=9\,99,VL3=ZZZ,S3=这是一个示例文本,S2=这是一个示例文本,S1=中文,I1=45678901,F1=4567\,8901,I2=53,D1=09/09/2009,D2=09/09/2009,T1=09.00.00,D3=2009/09/09,J1=3,J3=8\,88,O2=100,O1=3,O3=111,O4=2,C1=4,C2=4,C3=4,C4=2004/04/04</Record>
+    <Record status="rsNormal">A1=104,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.28.23,VL1=10,VL2=1\,11,VL3=AAA,S3=ÞETTA ER SÝNISHORN TEXTA,S2=Þetta er sýnishorn texta,S1=Íslenska,I1=56789012,F1=5678\,9012,I2=54,D1=08/08/2008,D2=08/08/2008,T1=08.00.00,D3=2008/08/08,J1=4,O2=5,O1=5,O3=6,O4=1,C1=5,C2=5,C3=5,C4=2005/05/05</Record>
+    <Record status="rsNormal">VLAST=6,M2=6,M1=6,A1=105,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.30.54,VL1=20,VL2=2\,22,VL3=BBB,S3=ΑΥΤΌ ΕΊΝΑΙ ΈΝΑ ΔΕΊΓΜΑ ΚΕΙΜΈΝΟΥ,S2=Αυτό είναι ένα δείγμα κειμένου,S1=Ελληνικά,I1=78901234,F1=7890\,1234,I2=55,D1=06/06/2006,D2=06/06/2006,T1=06.00.00,D3=2006/06/06,J1=0,J2=10,J3=1\,11,O2=5,O1=5,O3=6,O4=2,C1=6,C2=6,C3=6,C4=2006/06/06</Record>
+    <Record status="rsNormal">VLAST=7,M2=7,M1=7,A1=106,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.31.38,VL1=30,VL2=3\,33,VL3=CCC,S3=นี้คือข้อความตัวอย่าง,S2=นี้คือข้อความตัวอย่าง,S1=ไทย,I1=89012345,F1=8901\,2345,I2=56,D1=05/05/2005,D2=05/05/2005,T1=05.00.00,D3=2005/05/05,J1=2,J2=99,J3=9\,99,O2=7,O1=7,O3=8,O4=1,C1=7,C2=7,C3=7,C4=2007/07/07</Record>
+    <Record status="rsNormal">VLAST=8,M2=8,M1=8,A1=107,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.32.56,VL1=99,VL2=9\,99,VL3=ZZZ,S3=ЭТО ОБРАЗЕЦ ТЕКСТА,S2=Это образец текста,S1=Русский,I1=90123456,F1=9012\,3456,I2=57,D1=04/04/2004,D2=04/04/2004,T1=04.00.00,D3=2004/04/04,J1=0,O2=6,O1=6,O3=7,O4=1,C1=8,C2=8,C3=8,C4=2008/08/08</Record>
+    <Record status="rsNormal">VLAST=9,M2=9,M1=9,A1=108,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.33.50,VL1=10,VL2=1\,11,VL3=AAA,S3=ĐÂY LÀ MỘT VĂN BẢN MẪU,S2=Đây là một văn bản mẫu,S1=Việt,I1=1234567,F1=123\,4567,I2=58,D1=03/03/2003,D2=03/03/2003,T1=03.00.00,D3=2003/03/03,J1=0,J2=10,O2=8,O1=9,O3=9,O4=4,C1=9,C2=9,C3=9,C4=2009/09/09</Record>
+    <Record status="rsNormal">VLAST=10,A1=109,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.35.31,VL1=10,VL2=1\,11,VL3=CCC,S3=C&apos;EST UN EXEMPLE DE TEXTE,S2=C&apos;est un exemple de texte,S1=Français,I1=42,F1=42,I2=59,D1=02/02/2002,D2=02/02/2002,T1=02.00.00,D3=2002/02/02,J1=3,J3=8\,88,O2=1,O1=7,O3=2,O4=3,C1=25,C2=4,C3=11,C4=2011/04/25</Record>
+    <Record status="rsNormal">VLAST=11,M2=11,M1=11,A1=110,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.36.56,VL1=99,VL2=9\,99,VL3=ZZZ,S3=ESTE ES UN TEXTO DE EJEMPLO,S2=Este es un texto de ejemplo,S1=Español,I1=1866,F1=25\,02,I2=120,D1=01/01/2001,D2=01/01/2001,T1=01.00.00,D3=2001/01/01,J1=0,O2=9,O1=4,O3=10,O4=2,C1=22,C2=3,C3=3,C4=2003/03/22</Record>
+    <Record status="rsNormal">VLAST=12,M2=12,M1=12,A1=111,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.37.54,VL1=99,VL2=9\,99,VL3=ZZZ,S3=דעם איז אַ מוסטער טעקסט,S2=דעם איז אַ מוסטער טעקסט,S1=ייִדיש,I1=8448,F1=84\,48,I2=250,D1=13/01/2011,D2=01/13/2011,T1=23.59.59,D3=2011/01/13,J1=4,J2=99,J3=8\,88,O2=2,O1=4,O3=3,O4=1,C1=13,C2=12,C3=2012,C4=2012/12/13</Record>
    </Records>
    <Version></Version>
    <Sections>
-    <Section id="section_id_main" name="MAIN" top="0" left="0" width="0" height="0">
+    <Section id="MAIN" top="0" left="0" width="0" height="0">
      <Fields>
-      <Field id="f19" name="VLAST" top="966" left="619" type="1" length="2" decimals="0" entrymode="0">
+      <Field id="VLAST" top="966" left="619" type="ftInteger" length="2" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Last field...</Text>
        </Question>
       </Field>
-      <Field id="f22" name="M3" top="929" left="619" type="1" length="5" decimals="0" entrymode="2">
+      <Field id="M3" top="929" left="619" type="ftInteger" length="5" decimals="0" entrymode="2">
        <Question>
         <Text xml:lang="en">The No-Enter field</Text>
        </Question>
       </Field>
-      <Field id="f23" name="M2" top="892" left="619" type="1" length="4" decimals="0" entrymode="0" confirmentry="true">
+      <Field id="M2" top="892" left="619" type="ftInteger" length="4" decimals="0" entrymode="0" confirmentry="true">
        <Question>
         <Text xml:lang="en">Confirm-entry field</Text>
        </Question>
       </Field>
-      <Field id="f24" name="M1" top="854" left="619" type="1" length="2" decimals="0" entrymode="0">
+      <Field id="M1" top="854" left="619" type="ftInteger" length="2" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Just a field</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
-      <Heading id="heading_id_0" name="Mh2" top="38" left="25">
+      <Heading id="Mh2" top="38" left="25">
        <Caption>
         <Text xml:lang="en">This sample file was created with EpiData Manager. (see http://www.epidata.dk)</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_2" name="Mh3" top="57" left="25">
+      <Heading id="Mh3" top="57" left="25">
        <Caption>
         <Text xml:lang="en">Random data contained - only for testing and demonstration. See all sections.</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_3" name="Mh1" top="12" left="25">
+      <Heading id="Mh1" top="12" left="25">
        <Caption>
         <Text xml:lang="en">EpiData SAMPLE FILE V2.0 (June 2011)</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_10" name="Mh5" top="834" left="498">
+      <Heading id="Mh5" top="834" left="498">
        <Caption>
         <Text xml:lang="en">Fields not in a section:</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_13" name="Mh4" top="77" left="25">
+      <Heading id="Mh4" top="77" left="25">
        <Caption>
         <Text xml:lang="en">Notice the different national characters used in the string field section</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
-    <Section id="section_id_1" name="Section4" top="262" left="354" width="358" height="175">
+    <Section id="Section4" top="262" left="354" width="358" height="175">
      <Caption>
       <Text xml:lang="en">Auto Fields:</Text>
      </Caption>
      <Fields>
-      <Field id="f14" name="A1" top="5" left="221" type="2" length="4" decimals="0" entrymode="0">
+      <Field id="A1" top="5" left="221" type="ftAutoInc" length="4" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Auto Incrementing (4 digits)</Text>
        </Question>
       </Field>
-      <Field id="f9" name="A2" top="35" left="221" type="7" length="10" decimals="0" entrymode="0" autoupdatemode="0">
+      <Field id="A2" top="35" left="221" type="ftDMYToday" length="10" decimals="0" entrymode="0" autoupdatemode="umCreated">
        <Question>
         <Text xml:lang="en">Date Field Auto (dmy)</Text>
        </Question>
       </Field>
-      <Field id="f10" name="A3" top="65" left="221" type="8" length="10" decimals="0" entrymode="0" autoupdatemode="0">
+      <Field id="A3" top="65" left="221" type="ftMDYToday" length="10" decimals="0" entrymode="0" autoupdatemode="umCreated">
        <Question>
         <Text xml:lang="en">Date Field Auto (mdy)</Text>
        </Question>
       </Field>
-      <Field id="f11" name="A4" top="95" left="221" type="9" length="10" decimals="0" entrymode="0" autoupdatemode="0">
+      <Field id="A4" top="95" left="221" type="ftYMDToday" length="10" decimals="0" entrymode="0" autoupdatemode="umCreated">
        <Question>
         <Text xml:lang="en">Date Field Auto (ymd)</Text>
        </Question>
       </Field>
-      <Field id="f13" name="A5" top="125" left="221" type="11" length="8" decimals="0" entrymode="0" autoupdatemode="0">
+      <Field id="A5" top="125" left="221" type="ftTimeNow" length="8" decimals="0" entrymode="0" autoupdatemode="umCreated">
        <Question>
         <Text xml:lang="en">Time Field Auto</Text>
        </Question>
@@ -211,22 +201,22 @@
      </Fields>
      <Headings/>
     </Section>
-    <Section id="section_id_3" name="Section2" top="107" left="312" width="400" height="150">
+    <Section id="Section2" top="107" left="312" width="400" height="150">
      <Caption>
       <Text xml:lang="en">Field with valuelabels:</Text>
      </Caption>
      <Fields>
-      <Field id="f0" name="VL1" top="12" left="190" type="1" length="2" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_0">
+      <Field id="VL1" top="12" left="190" type="ftInteger" length="2" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_0">
        <Question>
         <Text xml:lang="en">Integer Field (2 digits)</Text>
        </Question>
       </Field>
-      <Field id="f2" name="VL2" top="55" left="190" type="3" length="4" decimals="2" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_1">
+      <Field id="VL2" top="55" left="190" type="ftFloat" length="4" decimals="2" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_1">
        <Question>
         <Text xml:lang="en">Float Field (1.2 digits)</Text>
        </Question>
       </Field>
-      <Field id="f16" name="VL3" top="97" left="190" type="12" length="3" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_2">
+      <Field id="VL3" top="97" left="190" type="ftString" length="3" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_2">
        <Question>
         <Text xml:lang="en">String Field (3 characters)</Text>
        </Question>
@@ -234,61 +224,61 @@
      </Fields>
      <Headings/>
     </Section>
-    <Section id="section_id_4" name="Section6" top="627" left="25" width="687" height="185">
+    <Section id="Section6" top="627" left="25" width="687" height="185">
      <Caption>
       <Text xml:lang="en">String fields:</Text>
      </Caption>
      <Fields>
-      <Field id="f8" name="S3" top="123" left="116" type="13" length="40" decimals="0" entrymode="0">
+      <Field id="S3" top="123" left="116" type="ftUpperString" length="40" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Sample text</Text>
        </Question>
       </Field>
-      <Field id="f4" name="S2" top="68" left="116" type="12" length="40" decimals="0" entrymode="0">
+      <Field id="S2" top="68" left="116" type="ftString" length="40" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Sample text</Text>
        </Question>
       </Field>
-      <Field id="f15" name="S1" top="15" left="116" type="12" length="20" decimals="0" entrymode="0">
+      <Field id="S1" top="15" left="116" type="ftString" length="20" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Language</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
-      <Heading id="heading_id_6" name="Sh3" top="101" left="116">
+      <Heading id="Sh3" top="101" left="116">
        <Caption>
         <Text xml:lang="en">String Field (40 characters), UPPERCASE in language:</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_5" name="Sh2" top="48" left="116">
+      <Heading id="Sh2" top="48" left="116">
        <Caption>
         <Text xml:lang="en">String Field (40 characters), in language:</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_4" name="Sh1" top="-4" left="116">
+      <Heading id="Sh1" top="-4" left="116">
        <Caption>
         <Text xml:lang="en">String Field (20 characters)</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
-    <Section id="section_id_5" name="Section1" top="107" left="25" width="280" height="150">
+    <Section id="Section1" top="107" left="25" width="280" height="150">
      <Caption>
       <Text xml:lang="en">Number Fields:</Text>
      </Caption>
      <Fields>
-      <Field id="f1" name="I1" top="0" left="169" type="1" length="8" decimals="0" entrymode="0">
+      <Field id="I1" top="0" left="169" type="ftInteger" length="8" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Integer Field (8 digits)</Text>
        </Question>
       </Field>
-      <Field id="f3" name="F1" top="29" left="169" type="3" length="9" decimals="4" entrymode="0">
+      <Field id="F1" top="29" left="169" type="ftFloat" length="9" decimals="4" entrymode="0">
        <Question>
         <Text xml:lang="en">Float Field (4.4 digits)</Text>
        </Question>
       </Field>
-      <Field id="f17" name="I2" top="86" left="169" type="1" length="3" decimals="0" entrymode="0">
+      <Field id="I2" top="86" left="169" type="ftInteger" length="3" decimals="0" entrymode="0">
        <Ranges>
         <Range start="50" end="250"/>
        </Ranges>
@@ -298,34 +288,34 @@
       </Field>
      </Fields>
      <Headings>
-      <Heading id="heading_id_7" name="Nh1" top="62" left="96">
+      <Heading id="Nh1" top="62" left="96">
        <Caption>
         <Text xml:lang="en">With range (50-250):</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
-    <Section id="section_id_6" name="Section3" top="262" left="25" width="320" height="175">
+    <Section id="Section3" top="262" left="25" width="320" height="175">
      <Caption>
       <Text xml:lang="en">Date Fields:</Text>
      </Caption>
      <Fields>
-      <Field id="f5" name="D1" top="10" left="215" type="4" length="10" decimals="0" entrymode="0">
+      <Field id="D1" top="10" left="215" type="ftDMYDate" length="10" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Date Field (DD/MM/YYYY)</Text>
        </Question>
       </Field>
-      <Field id="f6" name="D2" top="45" left="215" type="5" length="10" decimals="0" entrymode="0">
+      <Field id="D2" top="45" left="215" type="ftMDYDate" length="10" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Date Field (MM/DD/YYYY)</Text>
        </Question>
       </Field>
-      <Field id="f12" name="T1" top="117" left="215" type="10" length="8" decimals="0" entrymode="0">
+      <Field id="T1" top="117" left="215" type="ftTime" length="8" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Time Field (HH:MM:SS)</Text>
        </Question>
       </Field>
-      <Field id="f7" name="D3" top="82" left="215" type="6" length="10" decimals="0" entrymode="0">
+      <Field id="D3" top="82" left="215" type="ftYMDDate" length="10" decimals="0" entrymode="0">
        <Question>
         <Text xml:lang="en">Date Field (YYYY/MM/DD)</Text>
        </Question>
@@ -333,17 +323,17 @@
      </Fields>
      <Headings/>
     </Section>
-    <Section id="section_id_7" name="Section7" top="819" left="25" width="450" height="180">
+    <Section id="Section7" top="819" left="25" width="450" height="180">
      <Caption>
       <Text xml:lang="en">Jumps:</Text>
      </Caption>
      <Fields>
-      <Field id="f18" name="J1" top="30" left="107" type="1" length="2" decimals="0" entrymode="1">
+      <Field id="J1" top="30" left="107" type="ftInteger" length="2" decimals="0" entrymode="1">
        <Jumps>
-        <Jump on="1" type="2" reset="1"/>
-        <Jump on="2" type="1" reset="2"/>
-        <Jump on="3" type="3" reset="3" tofieldref="f19"/>
-        <Jump on="4" type="0" reset="0"/>
+        <Jump on="1" type="jtSkipNextField" reset="jrSystemMissing"/>
+        <Jump on="2" type="jtExitSection" reset="jrMaxMissing"/>
+        <Jump on="3" type="jtToField" reset="jr2ndMissing" tofieldref="VLAST"/>
+        <Jump on="4" type="jtSaveRecord" reset="jrLeaveAsIs"/>
        </Jumps>
        <Ranges>
         <Range start="0" end="4"/>
@@ -352,67 +342,67 @@
         <Text xml:lang="en">Jump field</Text>
        </Question>
       </Field>
-      <Field id="f20" name="J2" top="96" left="189" type="1" length="2" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_0">
+      <Field id="J2" top="96" left="189" type="ftInteger" length="2" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_0">
        <Question>
         <Text xml:lang="en">With valuelabel</Text>
        </Question>
       </Field>
-      <Field id="f21" name="J3" top="123" left="189" type="3" length="4" decimals="2" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_1">
+      <Field id="J3" top="123" left="189" type="ftFloat" length="4" decimals="2" entrymode="0" showvaluelabel="true" valuelabelref="valuelabelset_id_1">
        <Question>
         <Text xml:lang="en">Float with second max</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
-      <Heading id="heading_id_12" name="Jh1" top="-3" left="189">
+      <Heading id="Jh1" top="-3" left="189">
        <Caption>
         <Text xml:lang="en">0 = No Jump defined</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_8" name="Jh2" top="15" left="189">
+      <Heading id="Jh2" top="15" left="189">
        <Caption>
         <Text xml:lang="en">1 = Skip Next (system missing)</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_1" name="Jh3" top="35" left="189">
+      <Heading id="Jh3" top="35" left="189">
        <Caption>
         <Text xml:lang="en">2 = Exit Section (max missing)</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_9" name="Jh4" top="55" left="189">
+      <Heading id="Jh4" top="55" left="189">
        <Caption>
         <Text xml:lang="en">3 = Jump to last field (2nd max)</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_11" name="Jh5" top="75" left="189">
+      <Heading id="Jh5" top="75" left="189">
        <Caption>
         <Text xml:lang="en">4 = Save record (leave as is)</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
-    <Section id="section_id_8" name="Section5" top="448" left="25" width="320" height="169">
+    <Section id="Section5" top="448" left="25" width="320" height="169">
      <Caption>
       <Text xml:lang="en">Other Properties:</Text>
      </Caption>
      <Fields>
-      <Field id="f26" name="O2" top="39" left="96" type="1" length="3" decimals="0" entrymode="0" defaultvalue="100">
+      <Field id="O2" top="39" left="96" type="ftInteger" length="3" decimals="0" entrymode="0" defaultvalue="100">
        <Question>
         <Text xml:lang="en">Default Value</Text>
        </Question>
       </Field>
-      <Field id="f25" name="O1" top="8" left="96" type="1" length="3" decimals="0" entrymode="0" repeat="true">
+      <Field id="O1" top="8" left="96" type="ftInteger" length="3" decimals="0" entrymode="0" repeat="true">
        <Question>
         <Text xml:lang="en">Repeat Value</Text>
        </Question>
       </Field>
-      <Field id="f27" name="O3" top="39" left="269" type="1" length="3" decimals="0" entrymode="0">
-       <Compare tofieldref="f26" type="3"/>
+      <Field id="O3" top="39" left="269" type="ftInteger" length="3" decimals="0" entrymode="0">
+       <Compare tofieldref="f26" type="fcGT"/>
        <Question>
         <Text xml:lang="en">Compare field</Text>
        </Question>
       </Field>
-      <Field id="f32" name="O4" top="111" left="146" type="1" length="2" decimals="0" entrymode="0">
+      <Field id="O4" top="111" left="146" type="ftInteger" length="2" decimals="0" entrymode="0">
        <Notes>
         <Text xml:lang="en">This field has notes attached. Use this to write helpfull comment for
         persons entering data in EpiData EntryClient.</Text>
@@ -423,40 +413,40 @@
       </Field>
      </Fields>
      <Headings>
-      <Heading id="heading_id_14" name="OH1" top="44" left="146">
+      <Heading id="OH1" top="44" left="146">
        <Caption>
         <Text xml:lang="en">&gt;</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_17" name="OH2" top="72" left="25">
+      <Heading id="OH2" top="72" left="25">
        <Caption>
         <Text xml:lang="en">Press F12 to view the notes in the</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_18" name="OH3" top="90" left="25">
+      <Heading id="OH3" top="90" left="25">
        <Caption>
         <Text xml:lang="en">field below:</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
-    <Section id="section_id_9" name="S4" top="448" left="354" width="358" height="169">
+    <Section id="S4" top="448" left="354" width="358" height="169">
      <Caption>
       <Text xml:lang="en">Calculated fields</Text>
      </Caption>
      <Fields>
-      <Field id="f28" name="C1" top="16" left="58" type="1" length="2" decimals="0" entrymode="1">
+      <Field id="C1" top="16" left="58" type="ftInteger" length="2" decimals="0" entrymode="1">
        <Question>
         <Text xml:lang="en">Day</Text>
        </Question>
       </Field>
-      <Field id="f29" name="C2" top="16" left="161" type="1" length="2" decimals="0" entrymode="1">
+      <Field id="C2" top="16" left="161" type="ftInteger" length="2" decimals="0" entrymode="1">
        <Question>
         <Text xml:lang="en">Month</Text>
        </Question>
       </Field>
-      <Field id="f30" name="C3" top="16" left="258" type="1" length="4" decimals="0" entrymode="0">
-       <Calculation type="1">
+      <Field id="C3" top="16" left="258" type="ftInteger" length="4" decimals="0" entrymode="0">
+       <Calculation type="ctCombineDate">
         <ResultFieldRef>f31</ResultFieldRef>
         <DayFieldRef>f28</DayFieldRef>
         <MonthFieldRef>f29</MonthFieldRef>
@@ -466,19 +456,19 @@
         <Text xml:lang="en">Year</Text>
        </Question>
       </Field>
-      <Field id="f31" name="C4" top="106" left="189" type="6" length="10" decimals="0" entrymode="2">
+      <Field id="C4" top="106" left="189" type="ftDMYDate" length="10" decimals="0" entrymode="2">
        <Question>
         <Text xml:lang="en">Result Date Field (YMD)</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
-      <Heading id="heading_id_15" name="CH1" top="57" left="25">
+      <Heading id="CH1" top="57" left="25">
        <Caption>
         <Text xml:lang="en">Above fields combine into following</Text>
        </Caption>
       </Heading>
-      <Heading id="heading_id_16" name="H1" top="75" left="25">
+      <Heading id="H1" top="75" left="25">
        <Caption>
         <Text xml:lang="en">date field. Result IS validated!</Text>
        </Caption>
