@@ -111,26 +111,25 @@
     <Record status="rsNormal">VLAST=11,M2=11,M1=11,A1=110,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.36.56,VL1=99,VL2=9\,99,VL3=ZZZ,S3=ESTE ES UN TEXTO DE EJEMPLO,S2=Este es un texto de ejemplo,S1=Español,I1=1866,F1=25\,02,I2=120,D1=01/01/2001,D2=01/01/2001,T1=01.00.00,D3=2001/01/01,J1=0,O2=9,O1=4,O3=10,O4=2,C1=22,C2=3,C3=3</Record>
     <Record status="rsNormal">VLAST=12,M2=12,M1=12,A1=111,A2=05/01/2011,A3=01/05/2011,A4=2011/01/05,A5=14.37.54,VL1=99,VL2=9\,99,VL3=ZZZ,S3=דעם איז אַ מוסטער טעקסט,S2=דעם איז אַ מוסטער טעקסט,S1=ייִדיש,I1=8448,F1=84\,48,I2=250,D1=13/01/2011,D2=01/13/2011,T1=23.59.59,D3=2011/01/13,J1=4,J2=99,J3=8\,88,O2=2,O1=4,O3=3,O4=1,C1=13,C2=12,C3=2012</Record>
    </Records>
-   <Version></Version>
    <Sections>
     <Section id="MAIN" top="0" left="0" width="0" height="0">
      <Fields>
-      <Field id="VLAST" top="966" left="619" type="ftInteger" length="2" decimals="0" entrymode="0">
+      <Field id="VLAST" top="966" left="619" type="ftInteger" length="2" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Last field...</Text>
        </Question>
       </Field>
-      <Field id="M3" top="929" left="619" type="ftInteger" length="5" decimals="0" entrymode="2">
+      <Field id="M3" top="929" left="619" type="ftInteger" length="5" decimals="0" entryMode="emNoEnter">
        <Question>
         <Text xml:lang="en">The No-Enter field</Text>
        </Question>
       </Field>
-      <Field id="M2" top="892" left="619" type="ftInteger" length="4" decimals="0" entrymode="0" confirmentry="true">
+      <Field id="M2" top="892" left="619" type="ftInteger" length="4" decimals="0" entryMode="emDefault" confirmEntry="true">
        <Question>
         <Text xml:lang="en">Confirm-entry field</Text>
        </Question>
       </Field>
-      <Field id="M1" top="854" left="619" type="ftInteger" length="2" decimals="0" entrymode="0">
+      <Field id="M1" top="854" left="619" type="ftInteger" length="2" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Just a field</Text>
        </Question>
@@ -169,27 +168,27 @@
       <Text xml:lang="en">Auto Fields:</Text>
      </Caption>
      <Fields>
-      <Field id="A1" top="5" left="221" type="ftAutoInc" length="4" decimals="0" entrymode="0">
+      <Field id="A1" top="5" left="221" type="ftAutoInc" length="4" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Auto Incrementing (4 digits)</Text>
        </Question>
       </Field>
-      <Field id="A2" top="35" left="221" type="ftDMYToday" length="10" decimals="0" entrymode="0" autoupdatemode="umCreated">
+      <Field id="A2" top="35" left="221" type="ftDMYToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text xml:lang="en">Date Field Auto (dmy)</Text>
        </Question>
       </Field>
-      <Field id="A3" top="65" left="221" type="ftMDYToday" length="10" decimals="0" entrymode="0" autoupdatemode="umCreated">
+      <Field id="A3" top="65" left="221" type="ftMDYToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text xml:lang="en">Date Field Auto (mdy)</Text>
        </Question>
       </Field>
-      <Field id="A4" top="95" left="221" type="ftYMDToday" length="10" decimals="0" entrymode="0" autoupdatemode="umCreated">
+      <Field id="A4" top="95" left="221" type="ftYMDToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text xml:lang="en">Date Field Auto (ymd)</Text>
        </Question>
       </Field>
-      <Field id="A5" top="125" left="221" type="ftTimeNow" length="8" decimals="0" entrymode="0" autoupdatemode="umCreated">
+      <Field id="A5" top="125" left="221" type="ftTimeNow" length="8" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text xml:lang="en">Time Field Auto</Text>
        </Question>
@@ -202,17 +201,17 @@
       <Text xml:lang="en">Field with valuelabels:</Text>
      </Caption>
      <Fields>
-      <Field id="VL1" top="12" left="190" type="ftInteger" length="2" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="IntegerSet">
+      <Field id="VL1" top="12" left="190" type="ftInteger" length="2" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="IntegerSet">
        <Question>
         <Text xml:lang="en">Integer Field (2 digits)</Text>
        </Question>
       </Field>
-      <Field id="VL2" top="55" left="190" type="ftFloat" length="4" decimals="2" entrymode="0" showvaluelabel="true" valuelabelref="FloatSet">
+      <Field id="VL2" top="55" left="190" type="ftFloat" length="4" decimals="2" entryMode="emDefault" showValueLabel="true" valueLabelRef="FloatSet">
        <Question>
         <Text xml:lang="en">Float Field (1.2 digits)</Text>
        </Question>
       </Field>
-      <Field id="VL3" top="97" left="190" type="ftString" length="3" decimals="0" entrymode="0" showvaluelabel="true" valuelabelref="StringSet">
+      <Field id="VL3" top="97" left="190" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="StringSet">
        <Question>
         <Text xml:lang="en">String Field (3 characters)</Text>
        </Question>
@@ -225,17 +224,17 @@
       <Text xml:lang="en">String fields:</Text>
      </Caption>
      <Fields>
-      <Field id="S3" top="123" left="116" type="ftUpperString" length="40" decimals="0" entrymode="0">
+      <Field id="S3" top="123" left="116" type="ftUpperString" length="40" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Sample text</Text>
        </Question>
       </Field>
-      <Field id="S2" top="68" left="116" type="ftString" length="40" decimals="0" entrymode="0">
+      <Field id="S2" top="68" left="116" type="ftString" length="40" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Sample text</Text>
        </Question>
       </Field>
-      <Field id="S1" top="15" left="116" type="ftString" length="20" decimals="0" entrymode="0">
+      <Field id="S1" top="15" left="116" type="ftString" length="20" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Language</Text>
        </Question>
@@ -264,17 +263,17 @@
       <Text xml:lang="en">Number Fields:</Text>
      </Caption>
      <Fields>
-      <Field id="I1" top="0" left="169" type="ftInteger" length="8" decimals="0" entrymode="0">
+      <Field id="I1" top="0" left="169" type="ftInteger" length="8" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Integer Field (8 digits)</Text>
        </Question>
       </Field>
-      <Field id="F1" top="29" left="169" type="ftFloat" length="9" decimals="4" entrymode="0">
+      <Field id="F1" top="29" left="169" type="ftFloat" length="9" decimals="4" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Float Field (4.4 digits)</Text>
        </Question>
       </Field>
-      <Field id="I2" top="86" left="169" type="ftInteger" length="3" decimals="0" entrymode="0">
+      <Field id="I2" top="86" left="169" type="ftInteger" length="3" decimals="0" entryMode="emDefault">
        <Ranges>
         <Range start="50" end="250"/>
        </Ranges>
@@ -296,22 +295,22 @@
       <Text xml:lang="en">Date Fields:</Text>
      </Caption>
      <Fields>
-      <Field id="D1" top="10" left="215" type="ftDMYDate" length="10" decimals="0" entrymode="0">
+      <Field id="D1" top="10" left="215" type="ftDMYDate" length="10" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Date Field (DD/MM/YYYY)</Text>
        </Question>
       </Field>
-      <Field id="D2" top="45" left="215" type="ftMDYDate" length="10" decimals="0" entrymode="0">
+      <Field id="D2" top="45" left="215" type="ftMDYDate" length="10" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Date Field (MM/DD/YYYY)</Text>
        </Question>
       </Field>
-      <Field id="T1" top="117" left="215" type="ftTime" length="8" decimals="0" entrymode="0">
+      <Field id="T1" top="117" left="215" type="ftTime" length="8" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Time Field (HH:MM:SS)</Text>
        </Question>
       </Field>
-      <Field id="D3" top="82" left="215" type="ftYMDDate" length="10" decimals="0" entrymode="0">
+      <Field id="D3" top="82" left="215" type="ftYMDDate" length="10" decimals="0" entryMode="emDefault">
        <Question>
         <Text xml:lang="en">Date Field (YYYY/MM/DD)</Text>
        </Question>
@@ -324,11 +323,11 @@
       <Text xml:lang="en">Jumps:</Text>
      </Caption>
      <Fields>
-      <Field id="J1" top="30" left="107" type="ftInteger" length="2" decimals="0" entrymode="1">
+      <Field id="J1" top="30" left="107" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter">
        <Jumps>
         <Jump on="1" type="jtSkipNextField" reset="jrSystemMissing"/>
         <Jump on="2" type="jtExitSection" reset="jrMaxMissing"/>
-        <Jump on="3" type="jtToField" reset="jr2ndMissing" tofieldref="VLAST"/>
+        <Jump on="3" type="jtToField" reset="jr2ndMissing" toFieldRef="VLAST"/>
         <Jump on="4" type="jtSaveRecord" reset="jrLeaveAsIs"/>
        </Jumps>
        <Ranges>
@@ -338,12 +337,12 @@
         <Text xml:lang="en">Jump field</Text>
        </Question>
       </Field>
-      <Field id="J2" top="96" left="189" type="ftInteger" length="2" decimals="0" entrymode="0" showvaluelabel="true">
+      <Field id="J2" top="96" left="189" type="ftInteger" length="2" decimals="0" entryMode="emDefault" showValueLabel="true">
        <Question>
         <Text xml:lang="en">With valuelabel</Text>
        </Question>
       </Field>
-      <Field id="J3" top="123" left="189" type="ftFloat" length="4" decimals="2" entrymode="0" showvaluelabel="true">
+      <Field id="J3" top="123" left="189" type="ftFloat" length="4" decimals="2" entryMode="emDefault" showValueLabel="true">
        <Question>
         <Text xml:lang="en">Float with second max</Text>
        </Question>
@@ -382,23 +381,23 @@
       <Text xml:lang="en">Other Properties:</Text>
      </Caption>
      <Fields>
-      <Field id="O2" top="39" left="96" type="ftInteger" length="3" decimals="0" entrymode="0" defaultvalue="100">
+      <Field id="O2" top="39" left="96" type="ftInteger" length="3" decimals="0" entryMode="emDefault" defaultValue="100">
        <Question>
         <Text xml:lang="en">Default Value</Text>
        </Question>
       </Field>
-      <Field id="O1" top="8" left="96" type="ftInteger" length="3" decimals="0" entrymode="0" repeat="true">
+      <Field id="O1" top="8" left="96" type="ftInteger" length="3" decimals="0" entryMode="emDefault" repeat="true">
        <Question>
         <Text xml:lang="en">Repeat Value</Text>
        </Question>
       </Field>
-      <Field id="O3" top="39" left="269" type="ftInteger" length="3" decimals="0" entrymode="0">
-       <Compare tofieldref="O2" type="fcGT"/>
+      <Field id="O3" top="39" left="269" type="ftInteger" length="3" decimals="0" entryMode="emDefault">
+       <Compare toFieldRef="O2" type="fcGT"/>
        <Question>
         <Text xml:lang="en">Compare field</Text>
        </Question>
       </Field>
-      <Field id="O4" top="111" left="146" type="ftInteger" length="2" decimals="0" entrymode="0">
+      <Field id="O4" top="111" left="146" type="ftInteger" length="2" decimals="0" entryMode="emDefault">
        <Notes>
         <Text xml:lang="en">This field has notes attached. Use this to write helpfull comment for
         persons entering data in EpiData EntryClient.</Text>
@@ -431,17 +430,17 @@
       <Text xml:lang="en">Calculated fields</Text>
      </Caption>
      <Fields>
-      <Field id="C1" top="16" left="58" type="ftInteger" length="2" decimals="0" entrymode="1">
+      <Field id="C1" top="16" left="58" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter">
        <Question>
         <Text xml:lang="en">Day</Text>
        </Question>
       </Field>
-      <Field id="C2" top="16" left="161" type="ftInteger" length="2" decimals="0" entrymode="1">
+      <Field id="C2" top="16" left="161" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter">
        <Question>
         <Text xml:lang="en">Month</Text>
        </Question>
       </Field>
-      <Field id="C3" top="16" left="275" type="ftInteger" length="4" decimals="0" entrymode="0">
+      <Field id="C3" top="16" left="275" type="ftInteger" length="4" decimals="0" entryMode="emDefault">
        <Calculation type="ctCombineDate">
         <ResultFieldRef>C4</ResultFieldRef>
         <DayFieldRef>C1</DayFieldRef>
@@ -452,7 +451,7 @@
         <Text xml:lang="en">Year</Text>
        </Question>
       </Field>
-      <Field id="C4" top="106" left="189" type="ftDMYDate" length="10" decimals="0" entrymode="2">
+      <Field id="C4" top="106" left="189" type="ftDMYDate" length="10" decimals="0" entryMode="emNoEnter">
        <Question>
         <Text xml:lang="en">Result Date Field (YMD)</Text>
        </Question>

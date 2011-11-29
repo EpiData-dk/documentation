@@ -164,6 +164,24 @@
     </xs:restriction>
   </xs:simpleType>
   
+  <xs:simpleType name="EntryModeType">
+    <xs:annotation>
+      <xs:documentation>
+        <div>
+          Behaviour for field entry.
+          0 = emDefault 
+          1 = emMustEnter
+          2 = emNoEnter
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="emDefault"/>
+      <xs:enumeration value="emMustEnter"/>
+      <xs:enumeration value="emNoEnter"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
   <xs:complexType name="LangType" mixed="true">
     <xs:attribute ref="xml:lang" use="required"/>
   </xs:complexType>
@@ -190,6 +208,11 @@
   <xs:simpleType name="SingleCharType">
     <xs:restriction base="xs:string">
       <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EpiDataGlobalDateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"></xs:pattern>
     </xs:restriction>
   </xs:simpleType>
   
@@ -230,11 +253,11 @@
       <xs:sequence>
         <xs:element name="Author" type="xs:string"/>
         <xs:element name="Agency" type="xs:string" minOccurs="0"/>
-        <xs:element name="Created" type="xs:string"/>
+        <xs:element name="Created" type="EpiDataGlobalDateType"/>
         <xs:element name="Identifier" type="xs:string" minOccurs="0"/>
         <xs:element name="Keywords" type="xs:string" minOccurs="0"/>
         <xs:element name="Language" type="xs:string"/>
-        <xs:element name="Modified" type="xs:string"/>
+        <xs:element name="Modified" type="EpiDataGlobalDateType"/>
         <xs:element name="Notes" type="xs:string" minOccurs="0"/>
         <!-- Other languages bør måske være en gentagende type... dvs. flere af dem mulige. (maxOccurance="unbounded") -->
         <xs:element name="OtherLanguages" type="xs:string" minOccurs="0"/>
@@ -279,12 +302,12 @@
         <xs:element name="DataFile">
           <xs:complexType>
             <xs:sequence>
-              <xs:element ref="Records"/>
-              <xs:element name="Version" type="xs:string" minOccurs="0"/>
+              <xs:element ref="Records" minOccurs="0"/>
               <xs:element ref="Caption" minOccurs="0"/>
               <xs:element ref="Sections"/>
             </xs:sequence>
-            <xs:attribute name="created" use="required"/>
+            <xs:attribute name="version" type="xs:string"/>
+            <xs:attribute name="created" use="required" type="EpiDataGlobalDateType"/>
             <xs:attribute name="id" use="required" type="xs:ID"/>
           </xs:complexType>
         </xs:element>
@@ -308,16 +331,14 @@
         <xs:element name="Section" minOccurs="1" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element minOccurs="0" ref="Caption"/>
-              <xs:element ref="Fields"/>
-              <xs:element ref="Headings"/>
+              <xs:element ref="Caption" minOccurs="0"/>
+              <xs:element ref="Fields" minOccurs="0"/>
+              <xs:element ref="Headings" minOccurs="0"/>
             </xs:sequence>
             <!-- Inherited attributes (class hierachy) -->
-            <xs:attribute name="id" use="required" type="xs:NCName"/>
-<!--            <xs:attribute name="name" use="required" type="xs:NCName"/> -->
+            <xs:attribute name="id" use="required" type="xs:ID"/>
             <xs:attribute name="top" use="required" type="xs:int"/>
             <xs:attribute name="left" use="required" type="xs:int"/>
-            <!-- Required attributes -->
             <xs:attribute name="height" use="required" type="xs:int"/>
             <xs:attribute name="width" use="required" type="xs:int"/>
           </xs:complexType>
@@ -341,24 +362,22 @@
               <xs:element minOccurs="0" ref="Question"/>
             </xs:sequence>
             <!-- Inherited attributes (class hierachy) -->
-            <xs:attribute name="id" use="required" type="xs:NCName"/>
-<!--            <xs:attribute name="name" use="required" type="xs:NCName"/> -->
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="type" use="required" type="FieldType"/>
             <xs:attribute name="top" use="required" type="xs:int"/>
             <xs:attribute name="left" use="required" type="xs:int"/>
-            <!-- Required attributes -->
-            <xs:attribute name="type" use="required" type="FieldType"/>
             <xs:attribute name="length" use="required" type="xs:int"/>
             <xs:attribute name="decimals" use="required" type="xs:int"/>
-            <xs:attribute name="entrymode" use="required" type="xs:int"/>
+            <xs:attribute name="entryMode" use="required" type="EntryModeType"/>
             <!-- Optional attributes -->
-            <xs:attribute name="autoupdatemode" type="AutoUpdateMode"/>
-            <xs:attribute name="confirmentry" type="xs:boolean"/>
-            <xs:attribute name="defaultvalue" type="xs:string"/>
-            <xs:attribute name="forcepicklist" type="xs:boolean"/>
+            <xs:attribute name="autoUpdateMode" type="AutoUpdateMode"/>
+            <xs:attribute name="confirmEntry" type="xs:boolean"/>
+            <xs:attribute name="defaultValue" type="xs:string"/>
+            <xs:attribute name="forcePickList" type="xs:boolean"/>
             <xs:attribute name="repeat" type="xs:boolean"/>
-            <xs:attribute name="showvaluelabel" type="xs:boolean"/>
-            <xs:attribute name="valuelabelref" type="xs:NCName"/>
-            <xs:attribute name="valuelabelwritefieldref" type="xs:NCName"/>
+            <xs:attribute name="showValueLabel" type="xs:boolean"/>
+            <xs:attribute name="valueLabelRef" type="xs:IDREF"/>
+            <xs:attribute name="valueLabelWriteFieldRef" type="xs:IDREF"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -367,23 +386,23 @@
   <xs:element name="Calculation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ResultFieldRef" type="xs:NCName"/>
+        <xs:element name="ResultFieldRef" type="xs:IDREF"/>
         <xs:choice>
           <xs:sequence>
-            <xs:element name="DayFieldRef" type="xs:NCName"/>
-            <xs:element name="MonthFieldRef" type="xs:NCName"/>
-            <xs:element name="YearFieldRef" type="xs:NCName"/>
+            <xs:element name="DayFieldRef" type="xs:IDREF"/>
+            <xs:element name="MonthFieldRef" type="xs:IDREF"/>
+            <xs:element name="YearFieldRef" type="xs:IDREF"/>
           </xs:sequence>
           <xs:sequence>
-            <xs:element name="StartDateRef" type="xs:NCName" minOccurs="0"/>
-            <xs:element name="StartTimeRef" type="xs:NCName" minOccurs="0"/>
-            <xs:element name="EndDateRef" type="xs:NCName" minOccurs="0"/>
-            <xs:element name="EndTimeRef" type="xs:NCName" minOccurs="0"/>
+            <xs:element name="StartDateRef" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="StartTimeRef" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="EndDateRef" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="EndTimeRef" type="xs:IDREF" minOccurs="0"/>
           </xs:sequence>
           <xs:sequence>
-            <xs:element name="Field1Ref" type="xs:NCName" minOccurs="0"/>
-            <xs:element name="Field2Ref" type="xs:NCName" minOccurs="0"/>
-            <xs:element name="Field3Ref" type="xs:NCName" minOccurs="0"/>
+            <xs:element name="Field1Ref" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="Field2Ref" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="Field3Ref" type="xs:IDREF" minOccurs="0"/>
             <xs:element name="Delimiter1" type="xs:string"/>
             <xs:element name="Delimiter2" type="xs:string"/>
           </xs:sequence>
@@ -394,7 +413,7 @@
   </xs:element>
   <xs:element name="Compare">
     <xs:complexType>
-      <xs:attribute name="tofieldref" use="required" type="xs:NCName"/>
+      <xs:attribute name="toFieldRef" use="required" type="xs:IDREF"/>
       <xs:attribute name="type" use="required" type="FieldComparisonType"/>
     </xs:complexType>
   </xs:element>
@@ -418,7 +437,7 @@
             <xs:attribute name="on" use="required" type="xs:string"/>
             <xs:attribute name="type" use="required" type="JumpType"/>
             <xs:attribute name="reset" use="required" type="JumpResetType"/>
-            <xs:attribute name="tofieldref" type="xs:NCName"/>
+            <xs:attribute name="toFieldRef" type="xs:IDREF"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
