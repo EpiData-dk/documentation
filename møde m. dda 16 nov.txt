@@ -11,23 +11,23 @@ XML ændringer (kræver implicit rettelse i skema også):
 *6) Der mangler "agency" i study -> af hensyn til DDI3.
 
  - granulering af tags (klargøres til flere men i vores kun implementering til 1):
-13) STudy: tilføje populations beskrivelse. Godt for DDI.
-8) Study->funding: udvid xml med hvem (agency) og en note.
-9) Study->citation: er det reference til artikler (ja). Så skal navnet ændres til ????
-11) Study: Geocoverage, timecoverage.
+*13) STudy: tilføje populations beskrivelse. Godt for DDI.
+*8) Study->funding: udvid xml med hvem (agency) og en note.
+*9) Study->citation: er det reference til artikler (ja). Så skal navnet ændres til ????
+*11) Study: Geocoverage, timecoverage.
 
-14) I forhold til spgm. databank, så have note/reference information om hvor de kommer fra. UR[N|I].
+*14) I forhold til spgm. databank, så have note/reference information om hvor de kommer fra. UR[N|I].
     På section niveau kan indføres "conceptuelt" med fx. specifik baggrund info, emne osv.
 
 
 Skema ændringer:
-3) LangType i schema: ændre navn - minder for meget om noget allerede standard.
-4) Label type -> attribut "value" mangler en type.
-5) Lav xs:restriction på Created, Modified og andre dato formater.
+*3) LangType i schema: ændre navn - minder for meget om noget allerede standard.
+*4) Label type -> attribut "value" mangler en type.
+*5) Lav xs:restriction på Created, Modified og andre dato formater.
 7) Language i study -> type ændres til xml:lang. Ændre til attribut?
-15) Datafile->created mangler type.
-17) Section->id: typen skal ændres til xs:id
-21) Reusable type til reference af felter!
+*15) Datafile->created mangler type.
+*17) Section->id: typen skal ændres til xs:id
+*21) Reusable type til reference af felter!
 
 
 Anden snak

@@ -182,13 +182,13 @@
     </xs:restriction>
   </xs:simpleType>
   
-  <xs:complexType name="LangType" mixed="true">
+  <xs:complexType name="InternalLangType" mixed="true">
     <xs:attribute ref="xml:lang" use="required"/>
   </xs:complexType>
   
   <xs:complexType name="TextType">
     <xs:sequence>
-      <xs:element name="Text" maxOccurs="unbounded" type="LangType"/>
+      <xs:element name="Text" maxOccurs="unbounded" type="InternalLangType"/>
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Caption" type="TextType"/>
@@ -197,7 +197,7 @@
   
   <xs:complexType name="LabelType" mixed="true">
     <xs:sequence>
-      <xs:element name="Label" maxOccurs="unbounded" type="LangType"/>
+      <xs:element name="Label" maxOccurs="unbounded" type="InternalLangType"/>
     </xs:sequence>
     <xs:attribute name="missing" type="xs:boolean"/>
     <xs:attribute name="order" use="required" type="xs:integer"/>
