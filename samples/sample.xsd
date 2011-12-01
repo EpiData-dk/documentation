@@ -12,28 +12,6 @@
   
   <!-- Reuseable types. -->
   <xs:simpleType name="FieldType">
-    <xs:annotation>
-      <xs:documentation>
-      <div>
-      // Bool  (0)
-      ftBoolean = 0,
-      
-      // Numbers  (1, 2, 3)
-      ftInteger, ftAutoInc, ftFloat,
-      
-      // Date (4, 5, 6)
-      ftDMYDate, ftMDYDate, ftYMDDate,
-      // (7, 8, 9)
-      ftDMYToday, ftMDYToday, ftYMDToday,
-      
-      // Time (10, 11)
-      ftTime, ftTimeNow,
-      
-      // Strings (12, 13)
-      ftString, ftUpperString
-      </div>
-      </xs:documentation>
-    </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="ftBoolean"/>
       <xs:enumeration value="ftInteger"/>
@@ -51,7 +29,6 @@
       <xs:enumeration value="ftUpperString"/>
     </xs:restriction>
   </xs:simpleType>
-  
   <xs:simpleType name="RecordStatus">
     <xs:annotation>
       <xs:documentation>
@@ -69,7 +46,6 @@
       <xs:enumeration value="rsDeleted"/>
     </xs:restriction>
   </xs:simpleType>
-  
   <xs:simpleType name="AutoUpdateMode">
     <xs:annotation>
       <xs:documentation>
@@ -85,7 +61,6 @@
       <xs:enumeration value="umUpdated"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="FieldComparisonType">
     <xs:annotation>
       <xs:documentation>
@@ -105,7 +80,6 @@
       <xs:enumeration value="fcGT"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="JumpType">
     <xs:annotation>
       <xs:documentation>
@@ -125,7 +99,6 @@
       <xs:enumeration value="jtToField"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="JumpResetType">
     <xs:annotation>
       <xs:documentation>
@@ -145,7 +118,6 @@
       <xs:enumeration value="jr2ndMissing"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="CalculationType">
     <xs:annotation>
       <xs:documentation>
@@ -163,7 +135,6 @@
       <xs:enumeration value="ctCombineString"/>
     </xs:restriction>
   </xs:simpleType>
-  
   <xs:simpleType name="EntryModeType">
     <xs:annotation>
       <xs:documentation>
@@ -181,30 +152,37 @@
       <xs:enumeration value="emNoEnter"/>
     </xs:restriction>
   </xs:simpleType>
-  
-  <xs:complexType name="InternalLangType" mixed="true">
-    <xs:attribute ref="xml:lang" use="required"/>
+  <!--
+    Til Jannik:
+     Kan man ikke lave en logisk restriktion, som fx. at længden på xml:lang altid skal være 3! 
+  -->
+  <xs:complexType name="EpiDataLangType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        An EpiData instance should always use the ISO 639-2/T language codes.
+        For further reference please see xml:lang documentation or wikipedia:
+        http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes        
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute ref="xml:lang"/>
   </xs:complexType>
-  
   <xs:complexType name="TextType">
     <xs:sequence>
-      <xs:element name="Text" maxOccurs="unbounded" type="InternalLangType"/>
+      <xs:element name="Text" maxOccurs="unbounded" type="EpiDataLangType"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Caption" type="TextType"/>
-  <xs:element name="Notes" type="TextType"/>
-  <xs:element name="Question" type="TextType"/>
-  
   <xs:complexType name="LabelType" mixed="true">
     <xs:sequence>
-      <xs:element name="Label" maxOccurs="unbounded" type="InternalLangType"/>
+      <xs:element name="Label" maxOccurs="unbounded" type="EpiDataLangType"/>
     </xs:sequence>
     <xs:attribute name="missing" type="xs:boolean"/>
     <xs:attribute name="order" use="required" type="xs:integer"/>
     <xs:attribute name="value" use="required" type="xs:string"/>
   </xs:complexType>
-
-  <!-- Does this not exists as a built in type? -->
+  <!--
+    Til Jannik:
+      Eksisterer denne selvdefinerede type ikke allerede?
+  -->
   <xs:simpleType name="SingleCharType">
     <xs:restriction base="xs:string">
       <xs:length value="1"/>
@@ -226,7 +204,8 @@
         <xs:element ref="ValueLabelSets" minOccurs="0"/>
         <xs:element ref="DataFiles"/>
       </xs:sequence>
-      <xs:attribute name="version" use="required" type="xs:integer"/>
+      <xs:attribute name="version" type="xs:integer" fixed="1"/>
+      <xs:attribute ref="xml:lang" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Settings">
@@ -256,11 +235,8 @@
         <xs:element name="Created" type="EpiDataGlobalDateType"/>
         <xs:element name="Identifier" type="xs:string" minOccurs="0"/>
         <xs:element name="Keywords" type="xs:string" minOccurs="0"/>
-        <xs:element name="Language" type="xs:string"/>
         <xs:element name="Modified" type="EpiDataGlobalDateType"/>
         <xs:element name="Notes" type="xs:string" minOccurs="0"/>
-        <!-- Other languages bør måske være en gentagende type... dvs. flere af dem mulige. (maxOccurance="unbounded") -->
-        <xs:element name="OtherLanguages" type="xs:string" minOccurs="0"/>
         <xs:element name="Version" type="xs:string" minOccurs="0"/>
         <xs:element name="Abstract" type="TextType" minOccurs="0"/>
         <xs:element name="Citations" type="TextType" minOccurs="0"/>
@@ -460,4 +436,8 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <!-- Wrapper for TextType -->
+  <xs:element name="Caption" type="TextType"/>
+  <xs:element name="Notes" type="TextType"/>
+  <xs:element name="Question" type="TextType"/>
 </xs:schema>

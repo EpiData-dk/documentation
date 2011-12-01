@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EpiData version="0" xmlns="http://www.epidata.dk/XML/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk sample.xsd">
+<EpiData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.epidata.dk/XML/1.0 sample.xsd"
+ xmlns="http://www.epidata.dk/XML/1.0"
+ version="1"
+ xml:lang="eng">
  <Settings dateSeparator="/" timeSeparator="." decimalSeparator="," missingString="."/>
  <ProjectSettings autoIncStart="1" timedBackupInterval="10" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
  <StudyInfo>
@@ -14,83 +18,83 @@
   <OtherLanguages></OtherLanguages>
   <Version>1</Version>
   <Abstract>
-   <Text xml:lang="en">Sample file showing a wide range of constructs possible with fields,
+   <Text>Sample file showing a wide range of constructs possible with fields,
     sections and headings.</Text>
   </Abstract>
   <Citations>
-   <Text xml:lang="en">None so far.</Text>
+   <Text>None so far.</Text>
   </Citations>
   <Funding>
-   <Text xml:lang="en">N/A</Text>
+   <Text>N/A</Text>
   </Funding>
   <GeographicalCoverage>
-   <Text xml:lang="en">Denmark</Text>
+   <Text>Denmark</Text>
   </GeographicalCoverage>
   <Publisher>
-   <Text xml:lang="en">EpiData Association</Text>
+   <Text>EpiData Association</Text>
   </Publisher>
   <Purpose>
-   <Text xml:lang="en">Show what EpiData Manager and Entry Client is capable of.</Text>
+   <Text>Show what EpiData Manager and Entry Client is capable of.</Text>
   </Purpose>
   <Rights>
-   <Text xml:lang="en">EpiData Association</Text>
+   <Text>EpiData Association</Text>
   </Rights>
   <TimeCoverage>
-   <Text xml:lang="en">May 2011</Text>
+   <Text>May 2011</Text>
   </TimeCoverage>
   <Title>
-   <Text xml:lang="en">Untitled Project</Text>
+   <Text>Untitled Project</Text>
   </Title>
  </StudyInfo>
  <ValueLabelSets>
   <ValueLabelSet id="IntegerSet" type="ftInteger">
    <Internal>
     <ValueLabel order="1" value="10">
-     <Label xml:lang="en">Value A</Label>
+     <Label>Value A</Label>
     </ValueLabel>
     <ValueLabel order="2" value="20">
-     <Label xml:lang="en">Value B</Label>
+     <Label>Value B</Label>
     </ValueLabel>
     <ValueLabel order="3" value="30">
-     <Label xml:lang="en">Value C</Label>
+     <Label>Value C</Label>
     </ValueLabel>
     <ValueLabel order="4" value="99" missing="true">
-     <Label xml:lang="en">A missing</Label>
+     <Label>A missing</Label>
     </ValueLabel>
    </Internal>
   </ValueLabelSet>
   <ValueLabelSet id="FloatSet" type="ftFloat">
    <Internal>
     <ValueLabel order="1" value="1,11">
-     <Label xml:lang="en">Float value A</Label>
+     <Label>Float value A</Label>
     </ValueLabel>
     <ValueLabel order="2" value="2,22">
-     <Label xml:lang="en">Float value B</Label>
+     <Label>Float value B</Label>
     </ValueLabel>
     <ValueLabel order="3" value="3,33">
-     <Label xml:lang="en">Float value C</Label>
+     <Label>Float value C</Label>
     </ValueLabel>
     <ValueLabel order="4" value="8,88" missing="true">
-     <Label xml:lang="en">Second last missing</Label>
+     <Label>Second last missing</Label>
     </ValueLabel>
     <ValueLabel order="5" value="9,99" missing="true">
-     <Label xml:lang="en">Float missing</Label>
+     <Label>Float missing</Label>
     </ValueLabel>
    </Internal>
   </ValueLabelSet>
   <ValueLabelSet id="StringSet" type="ftString">
    <Internal>
     <ValueLabel order="1" value="AAA">
-     <Label xml:lang="en">First string label</Label>
+     <Label>First string label</Label>
     </ValueLabel>
     <ValueLabel order="2" value="BBB">
-     <Label xml:lang="en">Second string label</Label>
+     <Label>Second string label</Label>
     </ValueLabel>
     <ValueLabel order="3" value="CCC">
-     <Label xml:lang="en">Third string label</Label>
+     <Label>Third string label</Label>
     </ValueLabel>
     <ValueLabel order="4" value="ZZZ" missing="true">
-     <Label xml:lang="en">Missing string label</Label>
+     <Label>Missing string label</Label>
     </ValueLabel>
    </Internal>
   </ValueLabelSet>
@@ -116,81 +120,81 @@
      <Fields>
       <Field id="VLAST" top="966" left="619" type="ftInteger" length="2" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Last field...</Text>
+        <Text>Last field...</Text>
        </Question>
       </Field>
       <Field id="M3" top="929" left="619" type="ftInteger" length="5" decimals="0" entryMode="emNoEnter">
        <Question>
-        <Text xml:lang="en">The No-Enter field</Text>
+        <Text>The No-Enter field</Text>
        </Question>
       </Field>
       <Field id="M2" top="892" left="619" type="ftInteger" length="4" decimals="0" entryMode="emDefault" confirmEntry="true">
        <Question>
-        <Text xml:lang="en">Confirm-entry field</Text>
+        <Text>Confirm-entry field</Text>
        </Question>
       </Field>
       <Field id="M1" top="854" left="619" type="ftInteger" length="2" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Just a field</Text>
+        <Text>Just a field</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
       <Heading id="Mh2" top="38" left="25">
        <Caption>
-        <Text xml:lang="en">This sample file was created with EpiData Manager. (see http://www.epidata.dk)</Text>
+        <Text>This sample file was created with EpiData Manager. (see http://www.epidata.dk)</Text>
        </Caption>
       </Heading>
       <Heading id="Mh3" top="57" left="25">
        <Caption>
-        <Text xml:lang="en">Random data contained - only for testing and demonstration. See all sections.</Text>
+        <Text>Random data contained - only for testing and demonstration. See all sections.</Text>
        </Caption>
       </Heading>
       <Heading id="Mh1" top="12" left="25">
        <Caption>
-        <Text xml:lang="en">EpiData SAMPLE FILE V2.0 (June 2011)</Text>
+        <Text>EpiData SAMPLE FILE V2.0 (June 2011)</Text>
        </Caption>
       </Heading>
       <Heading id="Mh5" top="834" left="498">
        <Caption>
-        <Text xml:lang="en">Fields not in a section:</Text>
+        <Text>Fields not in a section:</Text>
        </Caption>
       </Heading>
       <Heading id="Mh4" top="77" left="25">
        <Caption>
-        <Text xml:lang="en">Notice the different national characters used in the string field section</Text>
+        <Text>Notice the different national characters used in the string field section</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
     <Section id="Section4" top="262" left="354" width="358" height="175">
      <Caption>
-      <Text xml:lang="en">Auto Fields:</Text>
+      <Text>Auto Fields:</Text>
      </Caption>
      <Fields>
       <Field id="A1" top="5" left="221" type="ftAutoInc" length="4" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Auto Incrementing (4 digits)</Text>
+        <Text>Auto Incrementing (4 digits)</Text>
        </Question>
       </Field>
       <Field id="A2" top="35" left="221" type="ftDMYToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
-        <Text xml:lang="en">Date Field Auto (dmy)</Text>
+        <Text>Date Field Auto (dmy)</Text>
        </Question>
       </Field>
       <Field id="A3" top="65" left="221" type="ftMDYToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
-        <Text xml:lang="en">Date Field Auto (mdy)</Text>
+        <Text>Date Field Auto (mdy)</Text>
        </Question>
       </Field>
       <Field id="A4" top="95" left="221" type="ftYMDToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
-        <Text xml:lang="en">Date Field Auto (ymd)</Text>
+        <Text>Date Field Auto (ymd)</Text>
        </Question>
       </Field>
       <Field id="A5" top="125" left="221" type="ftTimeNow" length="8" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
-        <Text xml:lang="en">Time Field Auto</Text>
+        <Text>Time Field Auto</Text>
        </Question>
       </Field>
      </Fields>
@@ -198,22 +202,22 @@
     </Section>
     <Section id="Section2" top="107" left="312" width="400" height="150">
      <Caption>
-      <Text xml:lang="en">Field with valuelabels:</Text>
+      <Text>Field with valuelabels:</Text>
      </Caption>
      <Fields>
       <Field id="VL1" top="12" left="190" type="ftInteger" length="2" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="IntegerSet">
        <Question>
-        <Text xml:lang="en">Integer Field (2 digits)</Text>
+        <Text>Integer Field (2 digits)</Text>
        </Question>
       </Field>
       <Field id="VL2" top="55" left="190" type="ftFloat" length="4" decimals="2" entryMode="emDefault" showValueLabel="true" valueLabelRef="FloatSet">
        <Question>
-        <Text xml:lang="en">Float Field (1.2 digits)</Text>
+        <Text>Float Field (1.2 digits)</Text>
        </Question>
       </Field>
       <Field id="VL3" top="97" left="190" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="StringSet">
        <Question>
-        <Text xml:lang="en">String Field (3 characters)</Text>
+        <Text>String Field (3 characters)</Text>
        </Question>
       </Field>
      </Fields>
@@ -221,56 +225,56 @@
     </Section>
     <Section id="Section6" top="627" left="25" width="687" height="185">
      <Caption>
-      <Text xml:lang="en">String fields:</Text>
+      <Text>String fields:</Text>
      </Caption>
      <Fields>
       <Field id="S3" top="123" left="116" type="ftUpperString" length="40" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Sample text</Text>
+        <Text>Sample text</Text>
        </Question>
       </Field>
       <Field id="S2" top="68" left="116" type="ftString" length="40" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Sample text</Text>
+        <Text>Sample text</Text>
        </Question>
       </Field>
       <Field id="S1" top="15" left="116" type="ftString" length="20" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Language</Text>
+        <Text>Language</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
       <Heading id="Sh3" top="101" left="116">
        <Caption>
-        <Text xml:lang="en">String Field (40 characters), UPPERCASE in language:</Text>
+        <Text>String Field (40 characters), UPPERCASE in language:</Text>
        </Caption>
       </Heading>
       <Heading id="Sh2" top="48" left="116">
        <Caption>
-        <Text xml:lang="en">String Field (40 characters), in language:</Text>
+        <Text>String Field (40 characters), in language:</Text>
        </Caption>
       </Heading>
       <Heading id="Sh1" top="-4" left="116">
        <Caption>
-        <Text xml:lang="en">String Field (20 characters)</Text>
+        <Text>String Field (20 characters)</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
     <Section id="Section1" top="107" left="25" width="280" height="150">
      <Caption>
-      <Text xml:lang="en">Number Fields:</Text>
+      <Text>Number Fields:</Text>
      </Caption>
      <Fields>
       <Field id="I1" top="0" left="169" type="ftInteger" length="8" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Integer Field (8 digits)</Text>
+        <Text>Integer Field (8 digits)</Text>
        </Question>
       </Field>
       <Field id="F1" top="29" left="169" type="ftFloat" length="9" decimals="4" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Float Field (4.4 digits)</Text>
+        <Text>Float Field (4.4 digits)</Text>
        </Question>
       </Field>
       <Field id="I2" top="86" left="169" type="ftInteger" length="3" decimals="0" entryMode="emDefault">
@@ -278,41 +282,41 @@
         <Range start="50" end="250"/>
        </Ranges>
        <Question>
-        <Text xml:lang="en">Integer field (3 digits)</Text>
+        <Text>Integer field (3 digits)</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
       <Heading id="Nh1" top="62" left="96">
        <Caption>
-        <Text xml:lang="en">With range (50-250):</Text>
+        <Text>With range (50-250):</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
     <Section id="Section3" top="262" left="25" width="320" height="175">
      <Caption>
-      <Text xml:lang="en">Date Fields:</Text>
+      <Text>Date Fields:</Text>
      </Caption>
      <Fields>
       <Field id="D1" top="10" left="215" type="ftDMYDate" length="10" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Date Field (DD/MM/YYYY)</Text>
+        <Text>Date Field (DD/MM/YYYY)</Text>
        </Question>
       </Field>
       <Field id="D2" top="45" left="215" type="ftMDYDate" length="10" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Date Field (MM/DD/YYYY)</Text>
+        <Text>Date Field (MM/DD/YYYY)</Text>
        </Question>
       </Field>
       <Field id="T1" top="117" left="215" type="ftTime" length="8" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Time Field (HH:MM:SS)</Text>
+        <Text>Time Field (HH:MM:SS)</Text>
        </Question>
       </Field>
       <Field id="D3" top="82" left="215" type="ftYMDDate" length="10" decimals="0" entryMode="emDefault">
        <Question>
-        <Text xml:lang="en">Date Field (YYYY/MM/DD)</Text>
+        <Text>Date Field (YYYY/MM/DD)</Text>
        </Question>
       </Field>
      </Fields>
@@ -320,7 +324,7 @@
     </Section>
     <Section id="Section7" top="819" left="25" width="450" height="180">
      <Caption>
-      <Text xml:lang="en">Jumps:</Text>
+      <Text>Jumps:</Text>
      </Caption>
      <Fields>
       <Field id="J1" top="30" left="107" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter">
@@ -334,110 +338,110 @@
         <Range start="0" end="4"/>
        </Ranges>
        <Question>
-        <Text xml:lang="en">Jump field</Text>
+        <Text>Jump field</Text>
        </Question>
       </Field>
       <Field id="J2" top="96" left="189" type="ftInteger" length="2" decimals="0" entryMode="emDefault" showValueLabel="true">
        <Question>
-        <Text xml:lang="en">With valuelabel</Text>
+        <Text>With valuelabel</Text>
        </Question>
       </Field>
       <Field id="J3" top="123" left="189" type="ftFloat" length="4" decimals="2" entryMode="emDefault" showValueLabel="true">
        <Question>
-        <Text xml:lang="en">Float with second max</Text>
+        <Text>Float with second max</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
       <Heading id="Jh1" top="-3" left="189">
        <Caption>
-        <Text xml:lang="en">0 = No Jump defined</Text>
+        <Text>0 = No Jump defined</Text>
        </Caption>
       </Heading>
       <Heading id="Jh2" top="15" left="189">
        <Caption>
-        <Text xml:lang="en">1 = Skip Next (system missing)</Text>
+        <Text>1 = Skip Next (system missing)</Text>
        </Caption>
       </Heading>
       <Heading id="Jh3" top="35" left="189">
        <Caption>
-        <Text xml:lang="en">2 = Exit Section (max missing)</Text>
+        <Text>2 = Exit Section (max missing)</Text>
        </Caption>
       </Heading>
       <Heading id="Jh4" top="55" left="189">
        <Caption>
-        <Text xml:lang="en">3 = Jump to last field (2nd max)</Text>
+        <Text>3 = Jump to last field (2nd max)</Text>
        </Caption>
       </Heading>
       <Heading id="Jh5" top="75" left="189">
        <Caption>
-        <Text xml:lang="en">4 = Save record (leave as is)</Text>
+        <Text>4 = Save record (leave as is)</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
     <Section id="Section5" top="448" left="25" width="320" height="169">
      <Caption>
-      <Text xml:lang="en">Other Properties:</Text>
+      <Text>Other Properties:</Text>
      </Caption>
      <Fields>
       <Field id="O2" top="39" left="96" type="ftInteger" length="3" decimals="0" entryMode="emDefault" defaultValue="100">
        <Question>
-        <Text xml:lang="en">Default Value</Text>
+        <Text>Default Value</Text>
        </Question>
       </Field>
       <Field id="O1" top="8" left="96" type="ftInteger" length="3" decimals="0" entryMode="emDefault" repeat="true">
        <Question>
-        <Text xml:lang="en">Repeat Value</Text>
+        <Text>Repeat Value</Text>
        </Question>
       </Field>
       <Field id="O3" top="39" left="269" type="ftInteger" length="3" decimals="0" entryMode="emDefault">
        <Compare toFieldRef="O2" type="fcGT"/>
        <Question>
-        <Text xml:lang="en">Compare field</Text>
+        <Text>Compare field</Text>
        </Question>
       </Field>
       <Field id="O4" top="111" left="146" type="ftInteger" length="2" decimals="0" entryMode="emDefault">
        <Notes>
-        <Text xml:lang="en">This field has notes attached. Use this to write helpfull comment for
+        <Text>This field has notes attached. Use this to write helpfull comment for
         persons entering data in EpiData EntryClient.</Text>
        </Notes>
        <Question>
-        <Text xml:lang="en">Notes field</Text>
+        <Text>Notes field</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
       <Heading id="OH1" top="44" left="146">
        <Caption>
-        <Text xml:lang="en">&gt;</Text>
+        <Text>&gt;</Text>
        </Caption>
       </Heading>
       <Heading id="OH2" top="72" left="25">
        <Caption>
-        <Text xml:lang="en">Press F12 to view the notes in the</Text>
+        <Text>Press F12 to view the notes in the</Text>
        </Caption>
       </Heading>
       <Heading id="OH3" top="90" left="25">
        <Caption>
-        <Text xml:lang="en">field below:</Text>
+        <Text>field below:</Text>
        </Caption>
       </Heading>
      </Headings>
     </Section>
     <Section id="S4" top="448" left="354" width="358" height="169">
      <Caption>
-      <Text xml:lang="en">Calculated fields</Text>
+      <Text>Calculated fields</Text>
      </Caption>
      <Fields>
       <Field id="C1" top="16" left="58" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter">
        <Question>
-        <Text xml:lang="en">Day</Text>
+        <Text>Day</Text>
        </Question>
       </Field>
       <Field id="C2" top="16" left="161" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter">
        <Question>
-        <Text xml:lang="en">Month</Text>
+        <Text>Month</Text>
        </Question>
       </Field>
       <Field id="C3" top="16" left="275" type="ftInteger" length="4" decimals="0" entryMode="emDefault">
@@ -448,24 +452,24 @@
         <YearFieldRef>C3</YearFieldRef>
        </Calculation>
        <Question>
-        <Text xml:lang="en">Year</Text>
+        <Text>Year</Text>
        </Question>
       </Field>
       <Field id="C4" top="106" left="189" type="ftDMYDate" length="10" decimals="0" entryMode="emNoEnter">
        <Question>
-        <Text xml:lang="en">Result Date Field (YMD)</Text>
+        <Text>Result Date Field (YMD)</Text>
        </Question>
       </Field>
      </Fields>
      <Headings>
       <Heading id="CH1" top="57" left="25">
        <Caption>
-        <Text xml:lang="en">Above fields combine into following</Text>
+        <Text>Above fields combine into following</Text>
        </Caption>
       </Heading>
       <Heading id="H1" top="75" left="25">
        <Caption>
-        <Text xml:lang="en">date field. Result IS validated!</Text>
+        <Text>date field. Result IS validated!</Text>
        </Caption>
       </Heading>
      </Headings>
