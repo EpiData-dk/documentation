@@ -12,69 +12,226 @@
   
   <!-- Reuseable types. -->
   <xs:simpleType name="FieldType">
+    <xs:annotation>
+      <xs:documentation>
+        Type specifier for contained data. This applied to fields and value labels. 
+      </xs:documentation>
+    </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="ftBoolean"/>
-      <xs:enumeration value="ftInteger"/>
-      <xs:enumeration value="ftAutoInc"/>
-      <xs:enumeration value="ftFloat"/>
-      <xs:enumeration value="ftDMYDate"/>
-      <xs:enumeration value="ftMDYDate"/>
-      <xs:enumeration value="ftYMDDate"/>
-      <xs:enumeration value="ftDMYToday"/>
-      <xs:enumeration value="ftMDYToday"/>
-      <xs:enumeration value="ftYMDToday"/>
-      <xs:enumeration value="ftTime"/>
-      <xs:enumeration value="ftTimeNow"/>
-      <xs:enumeration value="ftString"/>
-      <xs:enumeration value="ftUpperString"/>
+      <xs:enumeration value="ftBoolean">
+        <xs:annotation>
+          <xs:documentation>
+            Containers: Fields
+            
+            Specifies a container holding True/False (and missing) values. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftInteger">
+        <xs:annotation>
+          <xs:documentation>
+            Containers: Fields, Value Labels.
+            
+            Specifies a container holding regular integer values. Eg: 1, 42, 39987.
+            The maximum length of an integer container is 16 digits (approx. 64-bit value).             
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftAutoInc">
+        <xs:annotation>
+          <xs:documentation>
+            Containers: Fields.
+            
+            Specifies a container holding integer value. This type specifies that a program should automatically
+            increment the value for each record, keeping it unique at all times.
+            
+            Preferably field with this type should not allow users to enter data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>        
+      <xs:enumeration value="ftFloat">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields, Value Labels.
+            
+            Specifies a container holding decimal values. Eg: 1.42, 3.1, 3.14159265
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftDMYDate">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format DD/MM/YYYY. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftMDYDate">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format MM/DD/YYYY. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftYMDDate">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format YYYY/MM/DD. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftDMYAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format DD/MM/YYYY.
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftMDYAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format MM/DD/YYYY.
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftYMDAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format YYYY/MM/DD.
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftTime">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding time in the format HH:MM:SS
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftTimeAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding time in the format HH:MM:SS
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftString">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields, Value Labels.
+            
+            Specifies a container holding any string value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftUpperString">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields, Value Labels.
+            
+            Specifies a container holding any string value, but always in UPPERCASE.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="RecordStatus">
     <xs:annotation>
       <xs:documentation>
-        <div>
-          Status:
-          0 = normal
-          1 = verified
-          2 = deleted
-        </div>
+        RecordStatus specifies what state a record is in at present time. This allow
+        a user to document how a records is to be considered, eg. during data analysis.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="rsNormal"/>
-      <xs:enumeration value="rsVerified"/>
-      <xs:enumeration value="rsDeleted"/>
+      <xs:enumeration value="rsNormal">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the default state for a record. 
+          </xs:documentation>
+        </xs:annotation>        
+      </xs:enumeration>
+      <xs:enumeration value="rsVerified">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this record has been verfied. This could either be by
+            manual checks of original data, double entry of data or other means.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="rsDeleted">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this record has been marked for deletion. Since it is the nature of
+            EpiData to preserve data best possible, before actually deleting data it is marked for
+            deletion.
+            This state should also inform a data analysis program, NOT to include this record for
+            all analysis. ie. do NOT read into program.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="AutoUpdateMode">
     <xs:annotation>
       <xs:documentation>
-        <div>
-          Auto Update Mode:
-          0 = When created
-          1 = On save record
-        </div>
+        AutoUpdateMode is bound to the following field types: ft[DMY/MDY/YMD]Auto and ftTimeAuto. 
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="umCreated"/>
-      <xs:enumeration value="umUpdated"/>
+      <xs:enumeration value="umCreated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the value of the value for this field is set when a new record is created and should not be updated otherwise. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="umUpdated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the value of the value for this field is set whenever the record is save, ie. on first save and additionally
+            on modifications, but not when read! 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="FieldComparisonType">
     <xs:annotation>
       <xs:documentation>
-        <div>
-          Comparison for fields:
-          0: Less than ( &lt; )
-          1: Less or equal ( &lt;= )
-          2: Greater or equal ( &gt;= )
-          3: Greater than ( &gt; )
-        </div>
+        FieldComparisonType specifies that this field should be compared to another field using the specific comparision. 
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="fcLT"/>
+      <xs:enumeration value="fcLT">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be less than (&lt;) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="fcLEq"/>
       <xs:enumeration value="fcGEq"/>
       <xs:enumeration value="fcGT"/>
