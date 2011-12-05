@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://www.epidata.dk/XML/1.0"
-  xmlns="http://www.epidata.dk/XML/1.0"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.epidata.dk/XML/1.0" xmlns="http://www.epidata.dk/XML/1.0"
   elementFormDefault="qualified">
-  
-  <xs:import
-    namespace="http://www.w3.org/XML/1998/namespace"
-    schemaLocation="http://www.w3.org/2009/01/xml.xsd"
-  />
-  
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+    schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+
   <!-- Reuseable types. -->
   <xs:simpleType name="FieldType">
     <xs:annotation>
@@ -48,7 +44,7 @@
             Preferably field with this type should not allow users to enter data.
           </xs:documentation>
         </xs:annotation>
-      </xs:enumeration>        
+      </xs:enumeration>
       <xs:enumeration value="ftFloat">
         <xs:annotation>
           <xs:documentation>
@@ -171,7 +167,7 @@
           <xs:documentation>
             Specifies the default state for a record. 
           </xs:documentation>
-        </xs:annotation>        
+        </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="rsVerified">
         <xs:annotation>
@@ -476,10 +472,11 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"></xs:pattern>
+      <xs:pattern
+        value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <!-- Basis for schema! EpiData -->
   <xs:element name="EpiData">
     <xs:annotation>
@@ -550,40 +547,139 @@
   </xs:element>
   <xs:element name="ProjectSettings">
     <xs:annotation>
-      <xs:documentation>
-        This element describes settings relevant for the project and settings for the programs displaying/executing
-        the project.
-      </xs:documentation>
+      <xs:documentation>This element describes settings relevant for the project and settings for the programs displaying/executing the project.
+
+This element is mainly for use in the EpiData programs and are not required to be used in other setups. However is it vital that when this element IS present in a project file, that the content is saved again as is and is not altered.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:attribute name="autoIncStart" type="xs:integer" default="1"/>
-      <xs:attribute name="timedBackupInterval" type="xs:integer" default="10"/>
-      <xs:attribute name="backupOnShutdown" type="xs:boolean" default="true"/>
-      <xs:attribute name="showFieldNames" type="xs:boolean" default="false"/>
-      <xs:attribute name="showFieldBorders" type="xs:boolean" default="true"/>
-    </xs:complexType>  
+      <xs:attribute name="autoIncStart" type="xs:integer" default="1">
+        <xs:annotation>
+          <xs:documentation>Defines the starting value of all Auto Increment fields (@FieldType = ftAutoInc). If this value is set after records have been entered the algorithm for next value in the auto inc field is:
+result = Max(autoIncStart, last_record_value + 1)</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="timedBackupInterval" type="xs:integer" default="10">
+        <xs:annotation>
+          <xs:documentation>Defines the number of minutes between each time a program should automatically created backups of the project. This backup should be saved to another file, such that data is not overwritten unless the user explicitly request it (eg. by pressing save).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="backupOnShutdown" type="xs:boolean" default="true">
+        <xs:annotation>
+          <xs:documentation>Specifies that a program should create a backup of the project when closing the project. This is different from @timedBackup which is done while the program is running.
+Additionally this backup should be "permanent" in the sense that a program should not delete this backup file if a such exists. A good strategy is to save these kind of backup with the original filename but including the date and/or time of saving.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="showFieldNames" type="xs:boolean" default="false">
+        <xs:annotation>
+          <xs:documentation>Specifies that a program displaying the project should NOT show the names of the fields in a visual setting. The program should now disable access to the field name, just not display them.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="showFieldBorders" type="xs:boolean" default="true">
+        <xs:annotation>
+          <xs:documentation>If possible do not show fields with a visual border. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
   </xs:element>
   <xs:element name="StudyInfo">
+    <xs:annotation>
+      <xs:documentation>This element is an EpiData representation of the Dublin Core primary elements regarding study information.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Author" type="xs:string"/>
-        <xs:element name="Agency" type="xs:string" minOccurs="0"/>
-        <xs:element name="Created" type="EpiDataGlobalDateType"/>
-        <xs:element name="Identifier" type="xs:string" minOccurs="0"/>
-        <xs:element name="Keywords" type="xs:string" minOccurs="0"/>
-        <xs:element name="Modified" type="EpiDataGlobalDateType"/>
-        <xs:element name="Notes" type="xs:string" minOccurs="0"/>
-        <xs:element name="Version" type="xs:string" minOccurs="0"/>
-        <xs:element name="Abstract" type="TextType" minOccurs="0"/>
-        <xs:element name="Citations" type="TextType" minOccurs="0"/>
-        <xs:element name="Funding" type="TextType" minOccurs="0"/>
-        <xs:element name="GeographicalCoverage" type="TextType" minOccurs="0"/>
-        <xs:element name="Publisher" type="TextType" minOccurs="0"/>
-        <xs:element name="Purpose" type="TextType" minOccurs="0"/>
-        <xs:element name="Population" type="TextType" minOccurs="0"/>
-        <xs:element name="Rights" type="TextType" minOccurs="0"/>
-        <xs:element name="TimeCoverage" type="TextType" minOccurs="0"/>
-        <xs:element name="Title" type="TextType"/>
+        <xs:element name="Author" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This element should contain the name of the author(s) for this project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Agency" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>TODO</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Created" type="EpiDataGlobalDateType">
+          <xs:annotation>
+            <xs:documentation>Specifies the date and time when this project was created. Note that this is not the first time the project was saved, but when created (as new) in a program.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Identifier" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A unique identifier for the project. This identifier should be unique at least across all project by same person, but preferable to all other projects as well.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Keywords" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A short list of comma separated keywords, describing the project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Modified" type="EpiDataGlobalDateType">
+          <xs:annotation>
+            <xs:documentation>Specifies the date and time when this project was last modified. This value should be updated every time the project is saved with new changes.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Notes" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>User defined notes for the project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Version" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A user defined version string for the project. Meant as a guide for the user to keep track of multiple copies of the same project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Abstract" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A human-readable abstract of the study unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the study and structured coverage information are to be entered in Purpose and Coverage. 
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Citations" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Any external reference. Could be, e.g. Pubmed reference number.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Funding" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Provides information about the agency and grant(s) which funded the described project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="GeographicalCoverage" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The spatial topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Publisher" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Person or organization responsible for making the resource available in its present form.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Purpose" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The purpose of the study, in human-readable form. This should include detailed information on the investigator's primary study questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Population" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The targeted population of the study.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Rights" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Information about rights held in and over the resource.
+
+Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="TimeCoverage" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Title" type="TextType">
+          <xs:annotation>
+            <xs:documentation>The project title.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
