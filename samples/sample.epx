@@ -4,7 +4,7 @@
  xmlns="http://www.epidata.dk/XML/1.0"
  version="1"
  xml:lang="eng">
- <Settings dateSeparator="/" timeSeparator="." decimalSeparator="," missingString="."/>
+ <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
  <ProjectSettings autoIncStart="1" timedBackupInterval="10" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
  <StudyInfo>
   <Author>Torsten Bonde Christiansen Jens M. Lauritsen</Author>
@@ -12,10 +12,8 @@
   <Created>2010/08/24 08.29.00</Created>
   <Identifier>EpiData Sample File #1</Identifier>
   <Keywords>epidata,manager</Keywords>
-  <Language>en</Language>
   <Modified>2011/11/28 21.55.57</Modified>
   <Notes></Notes>
-  <OtherLanguages></OtherLanguages>
   <Version>1</Version>
   <Abstract>
    <Text>Sample file showing a wide range of constructs possible with fields,
@@ -177,22 +175,22 @@
         <Text>Auto Incrementing (4 digits)</Text>
        </Question>
       </Field>
-      <Field id="A2" top="35" left="221" type="ftDMYToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
+      <Field id="A2" top="35" left="221" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text>Date Field Auto (dmy)</Text>
        </Question>
       </Field>
-      <Field id="A3" top="65" left="221" type="ftMDYToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
+      <Field id="A3" top="65" left="221" type="ftMDYAuto" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text>Date Field Auto (mdy)</Text>
        </Question>
       </Field>
-      <Field id="A4" top="95" left="221" type="ftYMDToday" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
+      <Field id="A4" top="95" left="221" type="ftYMDAuto" length="10" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text>Date Field Auto (ymd)</Text>
        </Question>
       </Field>
-      <Field id="A5" top="125" left="221" type="ftTimeNow" length="8" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
+      <Field id="A5" top="125" left="221" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" autoUpdateMode="umCreated">
        <Question>
         <Text>Time Field Auto</Text>
        </Question>

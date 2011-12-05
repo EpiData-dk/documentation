@@ -198,6 +198,8 @@
     <xs:annotation>
       <xs:documentation>
         AutoUpdateMode is bound to the following field types: ft[DMY/MDY/YMD]Auto and ftTimeAuto. 
+        
+        It specifies how auto updated fields should update their values.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
@@ -232,81 +234,166 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="fcLEq"/>
-      <xs:enumeration value="fcGEq"/>
-      <xs:enumeration value="fcGT"/>
+      <xs:enumeration value="fcLEq">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be less than or equal (&lt;=) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcGEq">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be greaters than (&gt;) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcGT">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be greaters than or equal (&gt;=) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="JumpType">
     <xs:annotation>
       <xs:documentation>
-        <div>
-          Jump to types
-          0: Save current record and start new.
-          1: Exit current section. If in mainsection or last section, behaves as "0".
-          2: Skips next field. If last last or second last field, behaves as "0".
-          3: Jump to specific field. Field MUST exists!
-        </div>
+        JumpType specifies where the jump is going to.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="jtSaveRecord"/>
-      <xs:enumeration value="jtExitSection"/>
-      <xs:enumeration value="jtSkipNextField"/>
-      <xs:enumeration value="jtToField"/>
+      <xs:enumeration value="jtSaveRecord">
+        <xs:annotation>
+          <xs:documentation>
+            Save current record and start new.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtExitSection">
+        <xs:annotation>
+          <xs:documentation>
+            Exit current section. If in main section or last section, behaves as "jtSaveRecord".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtSkipNextField">
+        <xs:annotation>
+          <xs:documentation>
+            Skips next field. If last or second last field in section, behaves as "jtExitSection".
+            If last or second last field in main section, behaves as "jtSaveRecord".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtToField">
+        <xs:annotation>
+          <xs:documentation>
+            Jump to specific field. Field MUST exists!
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="JumpResetType">
     <xs:annotation>
       <xs:documentation>
-        <div>
-          Behaviour for field skipped by jumping over them.
-          0: Leave fields as is. 
-          1: Insert system missing (empty field).
-          2: Insert Max missing value if defined, otherwise default to "leave as is".
-          3: Insert 2nd greates missing value (2ndMax) if defined, otherwise default to "leave as is".
-        </div>
+        Specifies the behaviour for fields skipped when jumping over them.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="jrLeaveAsIs"/>
-      <xs:enumeration value="jrSystemMissing"/>
-      <xs:enumeration value="jrMaxMissing"/>
-      <xs:enumeration value="jr2ndMissing"/>
+      <xs:enumeration value="jrLeaveAsIs">
+        <xs:annotation>
+          <xs:documentation>
+            Leave fields as is. Ie. if the field contains data already do not delete.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jrSystemMissing">
+        <xs:annotation>
+          <xs:documentation>
+            Insert system missing (.) into the field, regardsless of already present data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jrMaxMissing">
+        <xs:annotation>
+          <xs:documentation>
+            Insert Max missing value if defined, otherwise default to "leave as is". 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jr2ndMissing">
+        <xs:annotation>
+          <xs:documentation>
+            Insert 2nd greates missing value (2ndMax) if defined, otherwise default to "leave as is".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="CalculationType">
     <xs:annotation>
       <xs:documentation>
-        <div>
-          Type of comparison
-          0 = ctTimeDiff
-          1 = ctCombineDate
-          2 = ctCombineString
-        </div>
+        Defines the type of calculation.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="ctTimeDiff"/>
-      <xs:enumeration value="ctCombineDate"/>
-      <xs:enumeration value="ctCombineString"/>
+      <xs:enumeration value="ctTimeDiff">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where it is possible to find a time/date difference between specified fields.
+            At least 1 start date/time and at least 1 end date/time MUST be specified.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ctCombineDate">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where 3 fields (specifying a day count, month count and a year) is combined into
+            a date field. The resulting date field can be of any format type (DMY, MDY or YMD).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ctCombineString">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where up to 3 fields and up to 2 strings can be combined into a string. This
+            gives the user a possibility to create a unique string based on several different entries.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EntryModeType">
     <xs:annotation>
       <xs:documentation>
-        <div>
-          Behaviour for field entry.
-          0 = emDefault 
-          1 = emMustEnter
-          2 = emNoEnter
-        </div>
+        Defines how entry for this field should be.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="emDefault"/>
-      <xs:enumeration value="emMustEnter"/>
-      <xs:enumeration value="emNoEnter"/>
+      <xs:enumeration value="emDefault">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is allowed but not mandatory. A field left blank is considered missing (system missing).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="emMustEnter">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is mandatory. The field cannot be blank, ie. it must contain data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="emNoEnter">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is NOT allowed. This field may contain data, but cannot be altered by the user during
+            an entry session. Use this eg. for calculated fields.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <!--
@@ -329,23 +416,65 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="LabelType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a Value-Label pair. 
+      </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
-      <xs:element name="Label" maxOccurs="unbounded" type="EpiDataLangType"/>
+      <xs:element name="Label" maxOccurs="unbounded" type="EpiDataLangType">
+        <xs:annotation>
+          <xs:documentation>
+            Descriptive catagory text.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
-    <xs:attribute name="missing" type="xs:boolean"/>
-    <xs:attribute name="order" use="required" type="xs:integer"/>
-    <xs:attribute name="value" use="required" type="xs:string"/>
+    <xs:attribute name="missing" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Set this to true if value should be considered "missing" and treated as such during data analysis.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="order" use="required" type="xs:integer">
+      <xs:annotation>
+        <xs:documentation>
+          Defines the order in which the list of value labels should be visually presented during entry.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="value" use="required" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The value part of the value-label pair.
+          
+          Although this is defined as xs:string, the data type should conform with the @FieldType chosen
+          for the value label set.          
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
   <!--
     Til Jannik:
       Eksisterer denne selvdefinerede type ikke allerede?
   -->
   <xs:simpleType name="SingleCharType">
+    <xs:annotation>
+      <xs:documentation>
+        Only a single character is allow.
+      </xs:documentation>
+    </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:length value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EpiDataGlobalDateType">
+    <xs:annotation>
+      <xs:documentation>
+        Date formatted as: YYYY/MM/DD HH:MM:SS, where "/" and ":" are specified in the @Settings element.
+      </xs:documentation>
+    </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:pattern value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"></xs:pattern>
     </xs:restriction>
@@ -353,6 +482,11 @@
   
   <!-- Basis for schema! EpiData -->
   <xs:element name="EpiData">
+    <xs:annotation>
+      <xs:documentation>
+        The EpiData EPX document.
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="Settings"/>
@@ -361,21 +495,66 @@
         <xs:element ref="ValueLabelSets" minOccurs="0"/>
         <xs:element ref="DataFiles"/>
       </xs:sequence>
-      <xs:attribute name="version" type="xs:integer" fixed="1"/>
-      <xs:attribute ref="xml:lang" use="required"/>
+      <xs:attribute name="version" type="xs:integer" fixed="1">
+        <xs:annotation>
+          <xs:documentation>
+            Version of the EPX document. In this edition is MUST be: 1
+            <p/>
+            This number increases with newer releases of the document specification.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute ref="xml:lang" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            An EpiData instance should always use the ISO 639-2/T language codes.
+            For further reference please see xml:lang documentation or wikipedia:
+            http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes        
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="Settings">
+    <xs:annotation>
+      <xs:documentation>
+        This element defines the basic settings for reading the document correctly. Since each instance of
+        an EpiData EPX document may choose to use different separators, their use must be specified. This
+        is done so in this element.
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
-      </xs:sequence>
-      <xs:attribute name="dateSeparator" type="SingleCharType" use="required"/>
-      <xs:attribute name="timeSeparator" type="SingleCharType" use="required"/>
-      <xs:attribute name="decimalSeparator" type="SingleCharType" use="required"/>
-      <xs:attribute name="missingString" type="SingleCharType" use="required"/>
+      <xs:attribute name="dateSeparator" type="SingleCharType" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the separators for dates.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="timeSeparator" type="SingleCharType" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the separtor for time registration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="decimalSeparator" type="SingleCharType" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the separator for floating point numbers. We do not define a thousand separator and number should
+            not contain any such separator.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="ProjectSettings">
+    <xs:annotation>
+      <xs:documentation>
+        This element describes settings relevant for the project and settings for the programs displaying/executing
+        the project.
+      </xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:attribute name="autoIncStart" type="xs:integer" default="1"/>
       <xs:attribute name="timedBackupInterval" type="xs:integer" default="10"/>
