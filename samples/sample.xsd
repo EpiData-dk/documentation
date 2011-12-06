@@ -684,19 +684,29 @@ Typically, rights information includes a statement about various property rights
     </xs:complexType>
   </xs:element>
   <xs:element name="ValueLabelSets">
+    <xs:annotation>
+      <xs:documentation>Container for multiple sets of @ValueLabelSet</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="ValueLabelSet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A ValueLabelSet is a logical container for a list of Value-Label pairs. It is the purpose of this container to descripe the type of content and the type of values.
+This is also known as a catagory.</xs:documentation>
+          </xs:annotation>
           <xs:complexType>
-            <xs:sequence>
+            <xs:choice>
               <xs:element name="Internal">
+                <xs:annotation>
+                  <xs:documentation>Specifies that the valuelabels are located in this file.</xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="ValueLabel" maxOccurs="unbounded" type="LabelType"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-            </xs:sequence>
+            </xs:choice>
             <xs:attribute name="id" use="required" type="xs:ID"/>
             <xs:attribute name="type" use="required" type="FieldType"/>
           </xs:complexType>
@@ -705,17 +715,31 @@ Typically, rights information includes a statement about various property rights
     </xs:complexType>
   </xs:element>
   <xs:element name="DataFiles">
+    <xs:annotation>
+      <xs:documentation>Container for ("multiple" will be in version 2) datafile's.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="DataFile">
+          <xs:annotation>
+            <xs:documentation>A logical container for the physical data part of the project. It groups all fields, texts (headings) and data into one single presentable unit.</xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element ref="Records" minOccurs="0"/>
               <xs:element ref="Caption" minOccurs="0"/>
               <xs:element ref="Sections"/>
             </xs:sequence>
-            <xs:attribute name="version" type="xs:string"/>
-            <xs:attribute name="created" use="required" type="EpiDataGlobalDateType"/>
+            <xs:attribute name="version" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>A user supplied version information string. This allows a user to keep own track on what "state" this dataset is in.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="created" use="required" type="EpiDataGlobalDateType">
+              <xs:annotation>
+                <xs:documentation>Specifies the date and time when this dataset was created. Note that this is not the first time the dataset was saved, but when created (as new) in a program.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
             <xs:attribute name="id" use="required" type="xs:ID"/>
           </xs:complexType>
         </xs:element>
