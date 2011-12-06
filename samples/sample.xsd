@@ -747,9 +747,21 @@ This is also known as a catagory.</xs:documentation>
     </xs:complexType>
   </xs:element>
   <xs:element name="Records">
+    <xs:annotation>
+      <xs:documentation>Logical container for multiple record's.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Record" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A record represent a single physical line of data, based on the set of fields specified in a datafile. A line is constucted with the following syntax:
+
+FieldId=Value[,FieldId=Value...]
+
+If a value contains a "," (comma) then it must be escaped using "\" (backslash). Eg:
+
+<record status="rsNormal">name=Torsten,age=30,comment=this is a comment with a \, (comma) in it</record></xs:documentation>
+          </xs:annotation>
           <xs:complexType mixed="true">
             <xs:attribute name="status" use="required" type="RecordStatus"/>
           </xs:complexType>
@@ -758,9 +770,16 @@ This is also known as a catagory.</xs:documentation>
     </xs:complexType>
   </xs:element>
   <xs:element name="Sections">
+    <xs:annotation>
+      <xs:documentation>A logical container for all sections in a dataset.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Section" minOccurs="1" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A section is a logical grouping of fields and headings which naturally belong together.
+A section is also a visual unit and does as such also contain positional information.</xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element ref="Caption" minOccurs="0"/>
@@ -769,19 +788,43 @@ This is also known as a catagory.</xs:documentation>
             </xs:sequence>
             <!-- Inherited attributes (class hierachy) -->
             <xs:attribute name="id" use="required" type="xs:ID"/>
-            <xs:attribute name="top" use="required" type="xs:int"/>
-            <xs:attribute name="left" use="required" type="xs:int"/>
-            <xs:attribute name="height" use="required" type="xs:int"/>
-            <xs:attribute name="width" use="required" type="xs:int"/>
+            <xs:attribute name="top" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the top border, measured in pixels from top of the page.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="left" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the left border, measured in pixels from top of the page.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="height" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the height of the section, measured in pixels.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="width" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the width of the section, measured in pixels.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Fields">
+    <xs:annotation>
+      <xs:documentation>Logical container for a list of fields.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Field" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A field repesent a single question in the dataset along with all the properties that may influence the data entry.
+It is possible to direct flow, add logical restrictions, perform calculations based on entry and more.
+A field is also a visual unit and as such also contains positional information.</xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <!-- Element created "on the fly" in Core. Hence they written first. -->
@@ -796,29 +839,94 @@ This is also known as a catagory.</xs:documentation>
             <!-- Inherited attributes (class hierachy) -->
             <xs:attribute name="id" use="required" type="xs:ID"/>
             <xs:attribute name="type" use="required" type="FieldType"/>
-            <xs:attribute name="top" use="required" type="xs:int"/>
-            <xs:attribute name="left" use="required" type="xs:int"/>
-            <xs:attribute name="length" use="required" type="xs:int"/>
-            <xs:attribute name="decimals" use="required" type="xs:int"/>
+            <xs:attribute name="top" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the top boundry of the field. The height of a field (GUI entry) should be determined by the font height.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="left" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the left boundry of the field. The width of a field (GUI entry) should be determined by the font width of a "W" and the length of the field.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="length" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the number of characters allowed for entry.
+
+This is NOT the number of bytes used, since string field are recorded as UTF-8 text. Thus the byte-length may wary between length and length*4.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="decimals" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the number of decimal digits in a floating point field. If the field specifies any other type, this should always be 0 (nul).
+
+Note that the number of decimals does NOT add to the length of the field, hence the number of integer digits is:
+I = Length - (D + 1)
+
+The "+ 1" is due to the decimal separator. Hence the shortest length for a floating point field is 3 (1 integer digit, 1 separator, 1 decimal digit).</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
             <xs:attribute name="entryMode" use="required" type="EntryModeType"/>
             <!-- Optional attributes -->
             <xs:attribute name="autoUpdateMode" type="AutoUpdateMode"/>
-            <xs:attribute name="confirmEntry" type="xs:boolean"/>
-            <xs:attribute name="defaultValue" type="xs:string"/>
-            <xs:attribute name="forcePickList" type="xs:boolean"/>
-            <xs:attribute name="repeat" type="xs:boolean"/>
-            <xs:attribute name="showValueLabel" type="xs:boolean"/>
-            <xs:attribute name="valueLabelRef" type="xs:IDREF"/>
-            <xs:attribute name="valueLabelWriteFieldRef" type="xs:IDREF"/>
+            <xs:attribute name="confirmEntry" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Specifies whether the use always should confirm the fields entered data. If set to "false" then the program flow should automatically jump to next field when the length of entry has reach field length.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="defaultValue" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Specifies if the field should contain a default value for each new record.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="forcePickList" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>If a value label set is assigned in @valueLabelRef, setting this to "true" will force a program to present a pick list with the value-label pairs of the assigned value label set.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="repeat" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>If specified, during the entry of a new record the field should be prefilled with the value from the last entered record.
+If no records have previously been entered the field should be empty.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="showValueLabel" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Specifies that the during visual representation, the label part of a value label should be shown after a valid value have been entered by the user.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="valueLabelRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a @ValueLabelSet.
+
+Specifies that the values of this field is part of the value label set. In an analysis it is customary to present the labels instead of the values.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="valueLabelWriteFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of another string field.
+
+If a @valueLabelRef is assigned then this specifies that the label part of the value-label pair is written to the references field. It is wise to change the recieving field to entryMode="emNoEnter"</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Calculation">
+    <xs:annotation>
+      <xs:documentation>A calculation give the user a possibility to perform a simple operation based upon the entered data.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ResultFieldRef" type="xs:IDREF"/>
+        <xs:element name="ResultFieldRef" type="xs:IDREF">
+          <xs:annotation>
+            <xs:documentation>Must reference the "id" of a field.
+
+Specifies which field the result of the calculation should be stored in.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
         <xs:choice>
           <xs:sequence>
             <xs:element name="DayFieldRef" type="xs:IDREF"/>
@@ -893,7 +1001,11 @@ This is also known as a catagory.</xs:documentation>
     </xs:complexType>
   </xs:element>
   <!-- Wrapper for TextType -->
-  <xs:element name="Caption" type="TextType"/>
+  <xs:element name="Caption" type="TextType">
+    <xs:annotation>
+      <xs:documentation>A Caption is a descriptive text for an element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:element name="Notes" type="TextType"/>
   <xs:element name="Question" type="TextType"/>
 </xs:schema>
