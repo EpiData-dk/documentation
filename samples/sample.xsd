@@ -225,8 +225,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="fcLT">
         <xs:annotation>
-          <xs:documentation>
-            Specifies that this field MUST be less than (&lt;) the compared field. 
+          <xs:documentation>Specifies that this field MUST be less than (&lt;) the compared field. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -240,14 +239,14 @@
       <xs:enumeration value="fcGEq">
         <xs:annotation>
           <xs:documentation>
-            Specifies that this field MUST be greaters than (&gt;) the compared field. 
+            Specifies that this field MUST be greaters than or equal (&gt;=) the compared field. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="fcGT">
         <xs:annotation>
           <xs:documentation>
-            Specifies that this field MUST be greaters than or equal (&gt;=) the compared field. 
+            Specifies that this field MUST be greaters than (&gt;) the compared field. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -841,7 +840,7 @@ A field is also a visual unit and as such also contains positional information.<
             <xs:attribute name="type" use="required" type="FieldType"/>
             <xs:attribute name="top" use="required" type="xs:int">
               <xs:annotation>
-                <xs:documentation>Specifies the top boundry of the field. The height of a field (GUI entry) should be determined by the font height.</xs:documentation>
+                <xs:documentation>Specifies the top boundry of the field. The heigth of a field (GUI entry) should be determined by the font heigth.</xs:documentation>
               </xs:annotation>
             </xs:attribute>
             <xs:attribute name="left" use="required" type="xs:int">
@@ -929,22 +928,90 @@ Specifies which field the result of the calculation should be stored in.</xs:doc
         </xs:element>
         <xs:choice>
           <xs:sequence>
-            <xs:element name="DayFieldRef" type="xs:IDREF"/>
-            <xs:element name="MonthFieldRef" type="xs:IDREF"/>
-            <xs:element name="YearFieldRef" type="xs:IDREF"/>
+            <xs:element name="DayFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an integer field.
+
+This element represents the day information in the "combine fields into date" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="MonthFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an integer field.
+
+This element represents the month information in the "combine fields into date" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="YearFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an integer field.
+
+This element represents the year information in the "combine fields into date" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
           <xs:sequence>
-            <xs:element name="StartDateRef" type="xs:IDREF" minOccurs="0"/>
-            <xs:element name="StartTimeRef" type="xs:IDREF" minOccurs="0"/>
-            <xs:element name="EndDateRef" type="xs:IDREF" minOccurs="0"/>
-            <xs:element name="EndTimeRef" type="xs:IDREF" minOccurs="0"/>
+            <xs:element name="StartDateRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the starting date information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="StartTimeRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the starting time information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="EndDateRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the end date information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="EndTimeRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the end time information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
           <xs:sequence>
-            <xs:element name="Field1Ref" type="xs:IDREF" minOccurs="0"/>
-            <xs:element name="Field2Ref" type="xs:IDREF" minOccurs="0"/>
-            <xs:element name="Field3Ref" type="xs:IDREF" minOccurs="0"/>
-            <xs:element name="Delimiter1" type="xs:string"/>
-            <xs:element name="Delimiter2" type="xs:string"/>
+            <xs:element name="Field1Ref" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field (all types allowed).
+
+This element represents the first field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Field2Ref" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field (all types allowed).
+
+This element represents the second field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Field3Ref" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field (all types allowed).
+
+This element represents the third field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Delimiter1" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>This element represents the first free string that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Delimiter2" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>This element represents the second (and optional) free string that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
         </xs:choice>
       </xs:sequence>
@@ -952,49 +1019,105 @@ Specifies which field the result of the calculation should be stored in.</xs:doc
     </xs:complexType>
   </xs:element>
   <xs:element name="Compare">
+    <xs:annotation>
+      <xs:documentation>Specifies that this field should be compared to another field with a simple set of operators.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
-      <xs:attribute name="toFieldRef" use="required" type="xs:IDREF"/>
+      <xs:attribute name="toFieldRef" use="required" type="xs:IDREF">
+        <xs:annotation>
+          <xs:documentation>Must reference the "id" of a field with the same type.
+
+Specifies which field this field is being compared to.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="type" use="required" type="FieldComparisonType"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Ranges">
+    <xs:annotation>
+      <xs:documentation>A logical container for a list of range definitions.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Range" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A range defines the logical lower and upper limit of value, valid for this field.
+The defined limits MUST be the same type as the field type.</xs:documentation>
+          </xs:annotation>
           <xs:complexType>
-            <xs:attribute name="start" use="required" type="xs:string"/>
-            <xs:attribute name="end" use="required" type="xs:string"/>
+            <xs:attribute name="start" use="required" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Defines the lower limit of valid data.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="end" use="required" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Defines the upper limit of valid data.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Jumps">
+    <xs:annotation>
+      <xs:documentation>A logical container for a list of jump definitions.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Jump" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A jump is used to direct the entry flow in another direction, than what the "normal" flow is. This is based on a matching value, the destination and what to do with the fields that is skipped in the process.</xs:documentation>
+          </xs:annotation>
           <xs:complexType>
-            <xs:attribute name="on" use="required" type="xs:string"/>
+            <xs:attribute name="on" use="required" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Specifies the value that effectuates this jump. The value type must be the same as the field type.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
             <xs:attribute name="type" use="required" type="JumpType"/>
             <xs:attribute name="reset" use="required" type="JumpResetType"/>
-            <xs:attribute name="toFieldRef" type="xs:IDREF"/>
+            <xs:attribute name="toFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field or not be filled.
+
+This attribute must be used if the JumpType is jtToField and specifies which field to jump to.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Headings">
+    <xs:annotation>
+      <xs:documentation>A logical container for a list of heading definitions.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Heading" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A heading represents an optional text that can be used to guide the user during entry on what the dataset/field is all about.
+
+A heading is also a visual unit and as such also contains positional information.</xs:documentation>
+          </xs:annotation>
           <xs:complexType>
             <xs:sequence>
               <xs:element ref="Caption"/>
             </xs:sequence>
             <!-- Inherited attributes (class hierachy) -->
             <xs:attribute name="id" use="required" type="xs:ID"/>
-            <xs:attribute name="top" use="required" type="xs:int"/>
-            <xs:attribute name="left" use="required" type="xs:int"/>
+            <xs:attribute name="top" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the top boundry of the field. The heigth of a field (GUI entry) should be determined by the font heigth.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="left" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the left boundry of the field. The width of a field (GUI entry) should be determined by the font width of a "W" and the length of the field.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -1006,6 +1129,14 @@ Specifies which field the result of the calculation should be stored in.</xs:doc
       <xs:documentation>A Caption is a descriptive text for an element.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="Notes" type="TextType"/>
-  <xs:element name="Question" type="TextType"/>
+  <xs:element name="Notes" type="TextType">
+    <xs:annotation>
+      <xs:documentation>A note is a place where the user can present additional information which may be relevant for the field, dataset, study etc.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Question" type="TextType">
+    <xs:annotation>
+      <xs:documentation>Represent the question text used in conjunction with a field.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
 </xs:schema>
