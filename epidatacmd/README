@@ -1,0 +1,25 @@
+This is software in development. Comment on the EpiData list, see http://www.epidata.dk
+Get latest release from http://www.epidata.dk/testing.php
+
+This product cannot be sold for money or any other value. Must be free.
+
+The epidatacmd command line tool will create EpiData xml files based on template files.:
+Template files should be using UTF-8
+
+For more information on the template format, see:
+       http://www.epidata.org/dokuwiki/doku.php/documentation:templateformat
+
+To see options: epidatacmd -h
+
+Example file included: templatesample.tmpl
+to execute this:
+
+linux: ./epidatacmd template -i templatesample.tmpl -o diary.epx
+
+windows:  epidatacmd template -i templatesample.tmpl -o diary.epx
+
+EpiData Association, Denmark, 2011-March
+
+Programming: Torsten Christiansen (TC)
+Design: Jens Lauritsen and TC
+

@@ -1,0 +1,39 @@
+# linetype"	"Contents"					
+#	"Toolbox standard file for food item Diary (two versions with and without jumps)"					
+#	"Version2.3"	"March 12th2011" Jens Lauritsen
+# Note jumps only specified for first block of dairy questions 				
+"title"	"en"	"Toolbox standard file for food items"				
+#						
+#	"#section main is declared by the software as the default section"					
+#						
+#	"definition of labels for use in this project"					
+"valuelabel"	"yn"	"i"	1	"No"			
+"valuelabel"	"yn"	"i"	2	"Yes"			
+"valuelabel"	"yn"	"i"	8	"Irrelevant"	"Missing"		
+"valuelabel"	"yn"	"i"	9	"Missing"	"Missing"		
+"heading"	"main"	"h1"	"Food item questionnaire for toolbox project"			
+"heading"	"main"	"h2"	"___________________________________________________________________"			
+"section"	"Dairy"	400				
+"heading"	"Dairy"	"h1"	"In this section you will see Diary Product items"			
+
+"field"	"Dairy"	"i"	1	"dry1"	"Any Dairy product? within the last 7 days ?"	"yn" "show"
+"set"	"field"	"dry1"	"confirm" 
+"set"	"field"	"dry1"	"entrymode"	"mustenter" 
+"set"	"field"	"dry1"	"jump"		1	"exitsection"	"2ndmissing" 
+"field"	"Dairy"	"i"	1	"dry1"	"Milk"	"yn"
+"field"	"Dairy"	"i"	1	"dry1"	"Buttermilk"	"yn"
+"field"	"Dairy"	"i"	1	"dry1"	"Sourcream"	"yn"
+"field"	"Dairy"	"i"	1	"dry1"	"Cottagecheese"	"yn"
+"field"	"Dairy"	"i"	1	"dry1"	"Cheese"	"yn"
+"field"	"Dairy"	"i"	1	"dry1"	"Frozendessert"	"yn"
+"field"	"Dairy"	"i"	1	"dry1"	"Yogurt"	"yn"
+"heading"	"main"	"h3"	"___________________________________________________________________"		
+
+"field"	"Main"	"s"	30	"t1"	"Any other comments ?"
+"field"	"Main"	"s"	50	"t1"	".."
+"field"	"Main"	"s"	50	"t1"	".."
+"heading"	"main"	"h9"	"___________________________________________________________________"			
+"heading"	"main"	"hauto"	"Automatic fields created"			
+"field"	"main"	"a"	4	"Id"	"Idnumber"	
+"field"	"main"	"n"	0	"CreateDate"	"Dato of creation"		
+"field"	"main"	"z"	0	"CreateTime"	"Time of creation"		
