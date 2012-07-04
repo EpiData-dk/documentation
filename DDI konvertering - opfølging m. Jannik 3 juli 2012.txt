@@ -1,16 +1,23 @@
-* Versioner og Agency
+Opgaver:
+
 * Sæt flere "Labels" på elementer, genbrug Prefix fra 'id'.
-* Language på alle texter.
 * Concept mangler:
    - Beskrivelse af grupperede spg. 
    - Generelt beskrivender for et koncept som kan dækker over mange ting. Fx. helt ned til catagory schemes etc.
    - Bruge fx. sections captions til Concept.  
-* PhysicalLocation->StorageFormat: Datoer ændres til "string"
-* Representationen af "Save Record" ved jumps, ændres til at hoppe til en tom Sequence, med en beskrivelse på Seq. at det er "End Of Record".
 * Mangler at implementere Labels der exporteres til StatementItem.
 * IfThenElse codition skal der angives "programminLanguage" -> her bruges DDA's notation.
 * Section Headings laves til StatementItems -> evt. med UserID der vil fremhæve betydningen.
-* GrossFileStructure: Fjern tagget CaseQuantity
 * I DDA kan blank ikke bruges som missing, der skal en representation til. Dvs. alle blanke skal laves om til uoplyst eller irrelevant!
   dette kan jeg ikke se en løsning på umiddelbart, da vi ikke på forhånd kan vide om Valuelabels definerer hhv. uoplyst eller irrelevant.
-*  
+
+
+
+Løst:
+* Versioner og Agency
+* Language på alle texter.
+* PhysicalLocation->StorageFormat: Datoer ændres til "string"
+* Representationen af "Save Record" ved jumps, ændres til at hoppe til en tom Sequence, med en beskrivelse på Seq. at det er "End Of Record".
+* GrossFileStructure: Fjern tagget CaseQuantity
+
+
