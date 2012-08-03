@@ -1,0 +1,153 @@
+{\rtf1\ansi\deff1\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset128 Times New Roman;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\fswiss\fprq2\fcharset0 Lucida Sans Unicode;}{\f3\froman\fprq2\fcharset0 Times New Roman;}{\f4\fswiss\fprq2\fcharset0 Arial;}{\f5\fmodern\fprq1\fcharset0 Courier New;}{\f6\froman\fprq2\fcharset0 Symbol;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s1\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030\snext1 Normal;}
+{\s2\sb240\sa120\keepn\rtlch\af1\afs28\lang1081\ltrch\dbch\af2\langfe255\hich\f1\fs28\lang1030\loch\f1\fs28\lang1030\sbasedon1\snext3 Heading;}
+{\s3\sa120\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030\sbasedon1\snext3 Body Text;}
+{\s4\sa120\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030\sbasedon3\snext4 List;}
+{\s5\sb120\sa120\rtlch\af3\afs24\lang1081\ai\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\i\loch\f3\fs24\lang1030\i\sbasedon1\snext5 caption;}
+{\s6\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030\sbasedon1\snext6 Index;}
+{\s7\sb120\sa120\rtlch\af3\afs24\lang1081\ai\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\i\loch\f3\fs24\lang1030\i\sbasedon1\snext7 caption;}
+{\s8\li720\ri0\lin720\rin0\fi-429\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\loch\f1\fs24\lang1030\sbasedon1\snext1 toc 1;}
+{\s9\li1440\ri0\lin1440\rin0\fi-429\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\loch\f1\fs24\lang1030\sbasedon1\snext1 toc 2;}
+{\s10\li2160\ri0\lin2160\rin0\fi-429\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\loch\f1\fs24\lang1030\sbasedon1\snext1 toc 3;}
+{\s11\li2880\ri0\lin2880\rin0\fi-429\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\loch\f1\fs24\lang1030\sbasedon1\snext1 toc 4;}
+{\s12\tx431\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon13\snext1 Numbered Heading 1;}
+{\s13\sb440\sa60\rtlch\af1\afs34\lang1081\ab\ltrch\dbch\af1\langfe255\hich\f1\fs34\lang1030\b\loch\f1\fs34\lang1030\b\sbasedon1\snext1 heading 1;}
+{\s14\tx431\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon15\snext1 Numbered Heading 2;}
+{\s15\sb440\sa60\rtlch\af1\afs28\lang1081\ab\ltrch\dbch\af1\langfe255\hich\f1\fs28\lang1030\b\loch\f1\fs28\lang1030\b\sbasedon1\snext1 heading 2;}
+{\s16\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Square List;}
+{\s17\li720\ri0\lin720\rin0\fi-429\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\loch\f1\fs24\lang1030\sbasedon1\snext1 Lower Roman List;}
+{\s18\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Diamond List;}
+{\s19\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Numbered List;}
+{\s20\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Triangle List;}
+{\s21\tx431\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon22\snext1 Numbered Heading 3;}
+{\s22\sb440\sa60\rtlch\af1\afs24\lang1081\ab\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\b\loch\f1\fs24\lang1030\b\sbasedon1\snext1 heading 3;}
+{\s23\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Dashed List;}
+{\s24\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon19\snext1 Upper Roman List;}
+{\s25\sb440\sa60\rtlch\af1\afs24\lang1081\ab\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\b\loch\f1\fs24\lang1030\b\sbasedon1\snext1 heading 4;}
+{\s26\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Heart List;}
+{\s27\sb240\sa118\qc\rtlch\af1\afs32\lang1081\ab\ltrch\dbch\af1\langfe255\hich\f1\fs32\lang1030\b\loch\f1\fs32\lang1030\b\sbasedon1\snext1 Contents Header;}
+{\s28\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon19\snext1 Upper Case List;}
+{\s29\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Bullet List;}
+{\s30\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Hand List;}
+{\s31\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Tick List;}
+{\s32\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon19\snext1 Lower Case List;}
+{\s33\li1440\ri1440\lin1440\rin1440\fi0\sa118\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\loch\f1\fs24\lang1030\sbasedon1\snext1 Block Text;}
+{\s34\tx1584\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon12\snext1 Section Heading;}
+{\s35\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Implies List;}
+{\s36\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Box List;}
+{\s37\li720\ri0\lin720\rin0\fi-429\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\snext1 Star List;}
+{\s38\rtlch\af5\afs24\lang1081\ltrch\dbch\af5\langfe255\hich\f5\fs24\lang1030\loch\f5\fs24\lang1030\sbasedon1\snext1 Plain Text;}
+{\s39\tx1584\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030\sbasedon12\snext1 Chapter Heading;}
+{\*\cs41\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe255\hich\f6\fs24\lang1030\loch\f6\fs24\lang1030 RTF_Num 2 1;}
+{\*\cs42\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 2;}
+{\*\cs43\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 3;}
+{\*\cs44\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 4;}
+{\*\cs45\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 5;}
+{\*\cs46\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 6;}
+{\*\cs47\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 7;}
+{\*\cs48\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 8;}
+{\*\cs49\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 9;}
+{\*\cs50\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 10;}
+{\*\cs51\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 1;}
+{\*\cs52\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 2;}
+{\*\cs53\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 3;}
+{\*\cs54\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 4;}
+{\*\cs55\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 5;}
+{\*\cs56\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 6;}
+{\*\cs57\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 7;}
+{\*\cs58\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 8;}
+{\*\cs59\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 9;}
+{\*\cs60\cf0\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe2052\hich\f6\fs24\lang9\loch\f6\fs24\lang9 RTF_Num 2 10;}
+{\*\cs61\rtlch\af6\afs24\lang1081\ltrch\dbch\af6\langfe255\hich\f6\fs24\lang1030\loch\f6\fs24\lang1030 RTF_Num 3 1;}
+{\*\cs62\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs24\lang1030\loch\f1\fs24\lang1030\sbasedon63 Endnote Text;}
+{\*\cs63\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 Normal;}
+{\*\cs64\rtlch\afs20\lang1081\ltrch\dbch\langfe255\hich\fs20\lang1030\loch\fs20\lang1030 Reference;}
+{\*\cs65\rtlch\afs20\lang1081\ltrch\dbch\langfe255\hich\fs20\lang1030\loch\fs20\lang1030 WW-Reference;}
+{\*\cs66\rtlch\af1\afs20\lang1081\ltrch\dbch\af1\langfe255\hich\f1\fs20\lang1030\loch\f1\fs20\lang1030\sbasedon63 Footnote Text;}
+{\*\cs67\rtlch\afs20\lang1081\ltrch\dbch\langfe255\hich\fs20\lang1030\loch\fs20\lang1030 WW-Reference1;}
+{\*\cs68\rtlch\afs24\lang1081\ltrch\dbch\langfe255\hich\fs24\lang1030\loch\fs24\lang1030 Endnote Symbol;}
+{\*\cs69\cf0\rtlch\af1\afs24\lang1081\ltrch\dbch\af1\langfe2052\hich\f1\fs24\lang9\loch\f1\fs24\lang9 Endnote Symbol;}
+}{\*\listtable{\list\listtemplateid1\listsimple
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li720}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li1440}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li2160}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li2880}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li3600}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li4320}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li5040}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li5760}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li6480}
+{\*\soutlvl{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li7200}}{\listname RTF_Num 2;}\listid1}
+{\list\listtemplateid2\listsimple
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\lang1030\f6\langfe255\f6\f6\fi-429\li720}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li1440}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li2160}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li2880}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li3600}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li4320}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li5040}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li5760}
+{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li6480}
+{\*\soutlvl{\listlevel\levelnfc23\leveljc0\levelstartat0\levelfollow0{\leveltext \'01\u1 ?;}{\levelnumbers;}\f6\f6\f6\f6\fi-429\li7200}}{\listname RTF_Num 3;}\listid2}
+}{\listoverridetable{\listoverride\listid1\listoverridecount0\ls0}{\listoverride\listid2\listoverridecount0\ls1}}
+
+{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr0\mo0\dy0\hr0\min0}{\comment StarWriter}{\vern3200}}\deftab720
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse195\pgwsxn11905\pghsxn16837\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\pgdscnxt0 Standard;}
+{\pgdsc1\pgdscuse195\pgwsxn11905\pghsxn16837\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\pgdscnxt1 Endnote;}}
+{\*\pgdscno0}\paperh16837\paperw11905\margl1440\margr1440\margt1440\margb1440\sectd\sbknone\pgwsxn11905\pghsxn16837\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnar
+\pard\plain \ltrpar\s13\ul\ulc0\sl240\slmult1\sb440\sa60\ql\rtlch\af1\afs34\lang1081\ab\ltrch\dbch\af1\langfe255\hich\f1\fs34\lang1030\b\loch\f1\fs34\lang1030\b {\rtlch \ltrch\loch\f1\fs34\lang1030\i0\b EpiData Server/SVN ops\'e6tning.}
+\par \pard\plain \ltrpar\s1\ul\ulc0\sl240\slmult1\ql\rtlch\afs34\lang1081\ab\ltrch\dbch\langfe255\hich\fs34\lang1030\b\loch\fs34\lang1030\b 
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0{\rtlch\ltrch\hich\b\loch\b HOST:}}{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0  YourShelter (yoursheltet.net) }
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0{\rtlch\ltrch\hich\b\loch\b LOGIN (Client ID):}}{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0  31670}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0{\rtlch\ltrch\hich\b\loch\b Password:}}{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Kendt af Jens Lauritsen, Torsten B. Christiansen, Michael Bruus.}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0{\rtlch\ltrch\hich\b\loch\b OS: }}{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Ubuntu 7.04}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Der er oprettet 4 linux brugere (torsten, jens, michael og peter) og en gruppe (admin). Alle tilh\'f8rende admin gruppen (pt. torsten, jens, michael og peter) har tilladelse til at bruge "sudo" kommandoen (til at udf\'f8re opgaver som root).}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 I tilf\'f8jelse til standard ops\'e6tningen er installeret: nano, aptitude, subversion, subversion-tools.}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Desuden er der redigeret i ops\'e6tningen af "locale" s\'e5ledes at keyboard/text bruger en_DK.UTF-8. }
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\ul\ulc0\sl240\slmult1\ql\rtlch\af3\afs28\lang1081\ab\ltrch\dbch\af3\langfe255\hich\f3\fs28\lang1030\b\loch\f3\fs28\lang1030\b {\rtlch \ltrch\loch\f3\fs28\lang1030\i0\b SubVersion ops\'e6tning:}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Det er etableret 6 repositories p\'e5 lokaliteten "/usr/local/svn" - Analysis, Entry, EpiC, Core, Validate, Docs, InstallAnalysis og InstallEntry. De kan tilg\'e5s p\'e5 adressen:}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\qc\rtlch\af3\afs24\lang1081\ab\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\b\loch\f3\fs24\lang1030\b {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b https://88.80.218.4/svn/<repos-navn>/\{trunk,branch\}}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Husk at adressen er case-sensitiv.}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ab\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\b\loch\f3\fs24\lang1030\b {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b VIGTIGT!}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Opbygningen af et repository er baseret p\'e5 g\'e6ngs svn standard (med undtagelse af Docs). Der findes 4 undermapper til et repository.}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\f6\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls0\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0{\rtlch\ltrch\hich\b\loch\b /trunk }}{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 - her ligger hovedudviklingslinien af koden, dvs. det stabile release p\'e5 hjemmesiden.}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\f6\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls0\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0{\rtlch\ltrch\hich\b\loch\b /branches}}{\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0  - her kopieres kildekoden ud n\'e5r der skal foretages st\'f8rre \'e6ndringer p\'e5 koden. Som. fx. ved nyt minor eller major version.}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\f6\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls0\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 /{\rtlch\ltrch\hich\b\loch\b tag }og {\rtlch\ltrch\hich\b\loch\b /site} - bruges pt. ikke.}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 SVN er samk\'f8rt med apache2 serveren og flg. konfigurations filer er tilpasset (fra standard ops\'e6tningen) til vores behov:}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\lang1030\f6\langfe255\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls1\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 /etc/apache2/sites-available/svn: Konfigurationen for subversion repository via apache.}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\lang1030\f6\langfe255\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls1\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 /etc/subversion/passwd: Password fil (i MD5 format) for udviklerne. Indeholder pt. (torsten, jens, michael)}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\lang1030\f6\langfe255\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls1\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 /etc/subversion/passwd-install: Password fil (i MD5 format) for brugere af installations rutiner. Indeholder pt. (gilles, jens, torsten, michael, pedro)}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\lang1030\f6\langfe255\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls1\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 /etc/apache2/ports.conf: Tilf\'f8jet porten 443 - for SSL via HTTPS.}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\lang1030\f6\langfe255\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls1\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 /etc/sudoers: Tilf\'f8jet gruppen "admin".}
+\par \pard\plain {\listtext\pard\plain \li720\ri0\lin720\rin0\fi-429\f3\lang1030\f3\langfe255\f3\sl240\slmult1\f6\lang1030\f6\langfe255\f6 \tab}\ilvl0 \ltrpar\s1\sl240\slmult1\ls1\li0\ri0\lin0\rin0\fi-429\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 /etc/apache2/conf/...  : Her ligger et autogenereret SSL certifikat, gjort med scriptet {\rtlch\ltrch\hich\b\loch\b /usr/lib/ssl/misc/CA.pl}}
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ab\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\b\loch\f3\fs24\lang1030\b 
+\par \pard\plain \ltrpar\s1\sl240\slmult1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 For at man kan skrive til repository er det vigtigt at det p\'e5 serveren tilh\'f8rer bruger+gruppe "www-data". Dette er brugeren apache2 serveren bruger ved l\'e6sning/skrivning af filer.}
+\par \pard\plain \ltrpar\s1\ul\ulc0\ql\rtlch\af3\afs28\lang1081\ab\ltrch\dbch\af3\langfe255\hich\f3\fs28\lang1030\b\loch\f3\fs28\lang1030\b {\rtlch \ltrch\loch\f3\fs28\lang1030\i0\b Backup:}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Der er lavet et backup-script som k\'f8res af CRON daemonen hver nat ca. kl. 02.15. Jobbet er placeret i mappen \'94/etc/cron.test\'94 og hedder \'94svn_backup\'94. Der tages backup af alle SVN repositories p\'e5 en gang (vha. \'94tar -czf /usr/local/svn ....\'94 ) og resultatet 
+heraf kopieres til Jens Lauritsens konto p\'e5 en maskine p\'e5 IMADA (SDU).}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 Serveren hos HostEurope:}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\ul\ulc0\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 KIS Admin system:}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 web: www.hosteurope.de}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 kundenr: 231139}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 kode: lozx48pq}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 VI Panel (server admin): }
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 web: www.vipanel.de}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 IP: 88.80.218.4  (svn.epidata.dk)}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 UserName:  31670}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 {\rtlch \ltrch\loch\f3\fs24\lang1030\i0\b0 kode: lozx48pq}
+\par \pard\plain \ltrpar\s1\ql\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe255\hich\f3\fs24\lang1030\loch\f3\fs24\lang1030 
+\par }
