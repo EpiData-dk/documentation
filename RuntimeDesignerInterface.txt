@@ -1,0 +1,25 @@
+Generelle ting i fht. jvRuntimeDesigner:
+ - Tegne v. drag på MAC
+ - Snapping af controls
+ - Snapping linier
+ * Håndtering af dobbelt beskeder, som fx. Ctrl+C/V/X
+
+Ting der skal laves i forbindelse med jvRuntimeDesigner og Manager:
+ * Håndtering af sectioner i sectioner
+ * Slet af ctrl => slet af EpiCtrl.
+ * Sizing af Edits
+
+Implementering af RuntimeDesigner i Manager:
+ - Opdatering af statusbar
+ - Pil-op/ned vælger nyt felt
+ - Sæt fokus på PropertiesForm (edits) ved ugyldig indtastning.
+ - Scrolling i Windows.
+ - Actions fra menuen.
+ - Do/Undo af flyt, cut, copy, paste
+ - Ved slet => warning!
+ - Hurtig opretning af felter/heading.
+ - Copy/Paste placering ved musens klik
+ * Copy/Paste skal håndtere EpiCtrls.
+ * Load af datafile 
+ * Click på designer => properties form (section, mail).
+ * Tilføjelse af Manager settings!
