@@ -10,13 +10,19 @@ Ting der skal laves i forbindelse med jvRuntimeDesigner og Manager:
  * Sizing af Edits
 
 Implementering af RuntimeDesigner i Manager:
- - Opdatering af statusbar
- - Pil-op/ned vælger nyt felt (og sætter view af scrollbox rigtigt)
  - Sæt fokus på PropertiesForm (edits) ved ugyldig indtastning.
  - Scrolling i Windows.
  - Do/Undo af flyt, cut, copy, paste
  - Ved slet => warning!
+ - Håndtering af ændringer i Properties form
+   = Field
+   * Section
+   * Heading
  - Copy/Paste placering ved musens klik (mangler kun højreklik => placering selv ved "Paste fra menuen")
+ * Importform => håndtering af krypterede .EPX filer
+ * Se antal records ved importform
+ * Opdatering af statusbar
+ * Pil-op/ned vælger nyt felt (og sætter view af scrollbox rigtigt)
  * Hurtig opretning af felter/heading.
  * Actions fra menuen.
  * Copy/Paste skal håndtere EpiCtrls.
