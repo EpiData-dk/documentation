@@ -10,15 +10,18 @@ Ting der skal laves i forbindelse med jvRuntimeDesigner og Manager:
  * Sizing af Edits
 
 Implementering af RuntimeDesigner i Manager:
- - Sæt fokus på PropertiesForm (edits) ved ugyldig indtastning.
  - Scrolling i Windows.
  - Do/Undo af flyt, cut, copy, paste
- - Ved slet => warning!
- - Håndtering af ændringer i Properties form
-   = Field
+ - Copy/Paste placering ved musens klik (mangler kun højreklik => placering selv ved "Paste fra menuen")
+ - LM_ADD_FIELD v. KeyFields.
+ * Ved slet => warning!
+ * Mulighed for at vælge resterende felttyper!
+ * Oprettelse af control m. mus => properties form vises.
+ * Sæt fokus på PropertiesForm (edits) ved ugyldig indtastning.
+ * Håndtering af ændringer i Properties form
+   * Field
    * Section
    * Heading
- - Copy/Paste placering ved musens klik (mangler kun højreklik => placering selv ved "Paste fra menuen")
  * Importform => håndtering af krypterede .EPX filer
  * Se antal records ved importform
  * Opdatering af statusbar
