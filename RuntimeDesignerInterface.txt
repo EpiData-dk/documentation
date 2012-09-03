@@ -12,8 +12,8 @@ Ting der skal laves i forbindelse med jvRuntimeDesigner og Manager:
 Implementering af RuntimeDesigner i Manager:
  - Scrolling i Windows.
  - Do/Undo af flyt, cut, copy, paste
- - Copy/Paste placering ved musens klik (mangler kun højreklik => placering selv ved "Paste fra menuen")
- - LM_ADD_FIELD v. KeyFields.
+ -cd Epi Copy/Paste placering ved musens klik (mangler kun højreklik => placering selv ved "Paste fra menuen")
+ * LM_ADD_FIELD v. KeyFields.
  * Ved slet => warning!
  * Mulighed for at vælge resterende felttyper!
  * Oprettelse af control m. mus => properties form vises.
