@@ -1,7 +1,7 @@
 Generelle ting i fht. jvRuntimeDesigner:
- - Tegne v. drag på MAC
  - Snapping af controls
  - Snapping linier
+ * Tegne v. drag på MAC
  * Håndtering af dobbelt beskeder, som fx. Ctrl+C/V/X
 
 Ting der skal laves i forbindelse med jvRuntimeDesigner og Manager:
