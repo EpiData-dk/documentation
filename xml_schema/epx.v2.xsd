@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.epidata.dk/XML/1.0" xmlns="http://www.epidata.dk/XML/1.0"
+  elementFormDefault="qualified">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+    schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+
+  <!-- Reuseable types. -->
+  <xs:simpleType name="FieldType">
+    <xs:annotation>
+      <xs:documentation>
+        Type specifier for contained data. This applied to fields and value labels. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ftBoolean">
+        <xs:annotation>
+          <xs:documentation>
+            Containers: Fields
+            
+            Specifies a container holding True/False (and missing) values. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftInteger">
+        <xs:annotation>
+          <xs:documentation>
+            Containers: Fields, Value Labels.
+            
+            Specifies a container holding regular integer values. Eg: 1, 42, 39987.
+            The maximum length of an integer container is 16 digits (approx. 64-bit value).             
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftAutoInc">
+        <xs:annotation>
+          <xs:documentation>
+            Containers: Fields.
+            
+            Specifies a container holding integer value. This type specifies that a program should automatically
+            increment the value for each record, keeping it unique at all times.
+            
+            Preferably field with this type should not allow users to enter data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftFloat">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields, Value Labels.
+            
+            Specifies a container holding decimal values. Eg: 1.42, 3.1, 3.14159265
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftDMYDate">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format DD/MM/YYYY. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftMDYDate">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format MM/DD/YYYY. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftYMDDate">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format YYYY/MM/DD. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftDMYAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format DD/MM/YYYY.
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftMDYAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format MM/DD/YYYY.
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftYMDAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding date with the format YYYY/MM/DD.
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftTime">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding time in the format HH:MM:SS
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftTimeAuto">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields.
+            
+            Specifies a container holding time in the format HH:MM:SS
+            This type additionally specify that the recorded date should be autoupdated.
+            Strategy for update is specified in @AutoUpdateMode.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftString">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields, Value Labels.
+            
+            Specifies a container holding any string value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ftUpperString">
+        <xs:annotation>
+          <xs:documentation>
+            Container: Fields, Value Labels.
+            
+            Specifies a container holding any string value, but always in UPPERCASE.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RecordStatus">
+    <xs:annotation>
+      <xs:documentation>
+        RecordStatus specifies what state a record is in at present time. This allow
+        a user to document how a records is to be considered, eg. during data analysis.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rsNormal">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the default state for a record. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="rsVerified">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this record has been verfied. This could either be by
+            manual checks of original data, double entry of data or other means.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="rsDeleted">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this record has been marked for deletion. Since it is the nature of
+            EpiData to preserve data best possible, before actually deleting data it is marked for
+            deletion.
+            This state should also inform a data analysis program, NOT to include this record for
+            all analysis. ie. do NOT read into program.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AutoUpdateMode">
+    <xs:annotation>
+      <xs:documentation>
+        AutoUpdateMode is bound to the following field types: ft[DMY/MDY/YMD]Auto and ftTimeAuto. 
+        
+        It specifies how auto updated fields should update their values.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="umCreated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the value of the value for this field is set when a new record is created and should not be updated otherwise. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="umUpdated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the value of the value for this field is set whenever the record is save, ie. on first save and additionally
+            on modifications, but not when read! 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FieldComparisonType">
+    <xs:annotation>
+      <xs:documentation>
+        FieldComparisonType specifies that this field should be compared to another field using the specific comparision. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fcLT">
+        <xs:annotation>
+          <xs:documentation>Specifies that this field MUST be less than (&lt;) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcLEq">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be less than or equal (&lt;=) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcGEq">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be greaters than or equal (&gt;=) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcGT">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be greaters than (&gt;) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="JumpType">
+    <xs:annotation>
+      <xs:documentation>
+        JumpType specifies where the jump is going to.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="jtSaveRecord">
+        <xs:annotation>
+          <xs:documentation>
+            Save current record and start new.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtExitSection">
+        <xs:annotation>
+          <xs:documentation>
+            Exit current section. If in main section or last section, behaves as "jtSaveRecord".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtSkipNextField">
+        <xs:annotation>
+          <xs:documentation>
+            Skips next field. If last or second last field in section, behaves as "jtExitSection".
+            If last or second last field in main section, behaves as "jtSaveRecord".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtToField">
+        <xs:annotation>
+          <xs:documentation>
+            Jump to specific field. Field MUST exists!
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="JumpResetType">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies the behaviour for fields skipped when jumping over them.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="jrLeaveAsIs">
+        <xs:annotation>
+          <xs:documentation>
+            Leave fields as is. Ie. if the field contains data already do not delete.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jrSystemMissing">
+        <xs:annotation>
+          <xs:documentation>
+            Insert system missing (.) into the field, regardsless of already present data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jrMaxMissing">
+        <xs:annotation>
+          <xs:documentation>
+            Insert Max missing value if defined, otherwise default to "leave as is". 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jr2ndMissing">
+        <xs:annotation>
+          <xs:documentation>
+            Insert 2nd greates missing value (2ndMax) if defined, otherwise default to "leave as is".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CalculationType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the type of calculation.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ctTimeDiff">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where it is possible to find a time/date difference between specified fields.
+            At least 1 start date/time and at least 1 end date/time MUST be specified.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ctCombineDate">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where 3 fields (specifying a day count, month count and a year) is combined into
+            a date field. The resulting date field can be of any format type (DMY, MDY or YMD).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ctCombineString">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where up to 3 fields and up to 2 strings can be combined into a string. This
+            gives the user a possibility to create a unique string based on several different entries.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EntryModeType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines how entry for this field should be.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="emDefault">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is allowed but not mandatory. A field left blank is considered missing (system missing).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="emMustEnter">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is mandatory. The field cannot be blank, ie. it must contain data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="emNoEnter">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is NOT allowed. This field may contain data, but cannot be altered by the user during
+            an entry session. Use this eg. for calculated fields.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--
+    Til Jannik:
+     Kan man ikke lave en logisk restriktion, som fx. at længden på xml:lang altid skal være 3! 
+  -->
+  <xs:complexType name="EpiDataLangType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        An EpiData instance should always use the ISO 639-2/T language codes.
+        For further reference please see xml:lang documentation or wikipedia:
+        http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes        
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute ref="xml:lang"/>
+  </xs:complexType>
+  <xs:complexType name="TextType">
+    <xs:sequence>
+      <xs:element name="Text" maxOccurs="unbounded" type="EpiDataLangType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LabelType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a Value-Label pair. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Label" maxOccurs="unbounded" type="EpiDataLangType">
+        <xs:annotation>
+          <xs:documentation>
+            Descriptive catagory text.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="missing" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation>
+          Set this to true if value should be considered "missing" and treated as such during data analysis.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="order" use="required" type="xs:integer">
+      <xs:annotation>
+        <xs:documentation>
+          Defines the order in which the list of value labels should be visually presented during entry.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="value" use="required" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The value part of the value-label pair.
+          
+          Although this is defined as xs:string, the data type should conform with the @FieldType chosen
+          for the value label set.          
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--
+    Til Jannik:
+      Eksisterer denne selvdefinerede type ikke allerede?
+  -->
+  <xs:simpleType name="SingleCharType">
+    <xs:annotation>
+      <xs:documentation>
+        Only a single character is allow.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EpiDataGlobalDateType">
+    <xs:annotation>
+      <xs:documentation>
+        Date formatted as: YYYY/MM/DD HH:MM:SS, where "/" and ":" are specified in the @Settings element.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern
+        value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Basis for schema! EpiData -->
+  <xs:element name="EpiData">
+    <xs:annotation>
+      <xs:documentation>
+        The EpiData EPX document.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Settings"/>
+        <xs:element ref="ProjectSettings"/>
+        <xs:element ref="StudyInfo"/>
+        <xs:element ref="ValueLabelSets" minOccurs="0"/>
+        <xs:element ref="DataFiles"/>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:integer" fixed="1">
+        <xs:annotation>
+          <xs:documentation>
+            Version of the EPX document. In this edition is MUST be: 1
+            <p/>
+            This number increases with newer releases of the document specification.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute ref="xml:lang" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            An EpiData instance should always use the ISO 639-2/T language codes.
+            For further reference please see xml:lang documentation or wikipedia:
+            http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes        
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Settings">
+    <xs:annotation>
+      <xs:documentation>
+        This element defines the basic settings for reading the document correctly. Since each instance of
+        an EpiData EPX document may choose to use different separators, their use must be specified. This
+        is done so in this element.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="dateSeparator" type="SingleCharType" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the separators for dates.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="timeSeparator" type="SingleCharType" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the separtor for time registration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="decimalSeparator" type="SingleCharType" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            Defines the separator for floating point numbers. We do not define a thousand separator and number should
+            not contain any such separator.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProjectSettings">
+    <xs:annotation>
+      <xs:documentation>This element describes settings relevant for the project and settings for the programs displaying/executing the project.
+
+This element is mainly for use in the EpiData programs and are not required to be used in other setups. However is it vital that when this element IS present in a project file, that the content is saved again as is and is not altered.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="autoIncStart" type="xs:integer" default="1">
+        <xs:annotation>
+          <xs:documentation>Defines the starting value of all Auto Increment fields (@FieldType = ftAutoInc). If this value is set after records have been entered the algorithm for next value in the auto inc field is:
+result = Max(autoIncStart, last_record_value + 1)</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="timedBackupInterval" type="xs:integer" default="10">
+        <xs:annotation>
+          <xs:documentation>Defines the number of minutes between each time a program should automatically created backups of the project. This backup should be saved to another file, such that data is not overwritten unless the user explicitly request it (eg. by pressing save).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="backupOnShutdown" type="xs:boolean" default="true">
+        <xs:annotation>
+          <xs:documentation>Specifies that a program should create a backup of the project when closing the project. This is different from @timedBackup which is done while the program is running.
+Additionally this backup should be "permanent" in the sense that a program should not delete this backup file if a such exists. A good strategy is to save these kind of backup with the original filename but including the date and/or time of saving.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="showFieldNames" type="xs:boolean" default="false">
+        <xs:annotation>
+          <xs:documentation>Specifies that a program displaying the project should NOT show the names of the fields in a visual setting. The program should now disable access to the field name, just not display them.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="showFieldBorders" type="xs:boolean" default="true">
+        <xs:annotation>
+          <xs:documentation>If possible do not show fields with a visual border. </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StudyInfo">
+    <xs:annotation>
+      <xs:documentation>This element is an EpiData representation of the Dublin Core primary elements regarding study information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Author" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This element should contain the name of the author(s) for this project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Agency" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>TODO</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Created" type="EpiDataGlobalDateType">
+          <xs:annotation>
+            <xs:documentation>Specifies the date and time when this project was created. Note that this is not the first time the project was saved, but when created (as new) in a program.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Identifier" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A unique identifier for the project. This identifier should be unique at least across all project by same person, but preferable to all other projects as well.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Keywords" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A short list of comma separated keywords, describing the project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Modified" type="EpiDataGlobalDateType">
+          <xs:annotation>
+            <xs:documentation>Specifies the date and time when this project was last modified. This value should be updated every time the project is saved with new changes.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Notes" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>User defined notes for the project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Version" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A user defined version string for the project. Meant as a guide for the user to keep track of multiple copies of the same project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Abstract" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A human-readable abstract of the study unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the study and structured coverage information are to be entered in Purpose and Coverage. 
+</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Citations" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Any external reference. Could be, e.g. Pubmed reference number.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Funding" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Provides information about the agency and grant(s) which funded the described project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="GeographicalCoverage" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The spatial topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Publisher" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Person or organization responsible for making the resource available in its present form.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Purpose" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The purpose of the study, in human-readable form. This should include detailed information on the investigator's primary study questions or hypotheses as well as information on any legal basis for the data collection, such as laws requiring the collection of census data for apportionment purposes.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Population" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The targeted population of the study.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Rights" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Information about rights held in and over the resource.
+
+Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="TimeCoverage" type="TextType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Title" type="TextType">
+          <xs:annotation>
+            <xs:documentation>The project title.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValueLabelSets">
+    <xs:annotation>
+      <xs:documentation>Container for multiple sets of @ValueLabelSet</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ValueLabelSet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A ValueLabelSet is a logical container for a list of Value-Label pairs. It is the purpose of this container to descripe the type of content and the type of values.
+This is also known as a catagory.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:choice>
+              <xs:element name="Internal">
+                <xs:annotation>
+                  <xs:documentation>Specifies that the valuelabels are located in this file.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ValueLabel" maxOccurs="unbounded" type="LabelType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="type" use="required" type="FieldType"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataFiles">
+    <xs:annotation>
+      <xs:documentation>Container for ("multiple" will be in version 2) datafile's.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DataFile">
+          <xs:annotation>
+            <xs:documentation>A logical container for the physical data part of the project. It groups all fields, texts (headings) and data into one single presentable unit.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Records" minOccurs="0"/>
+              <xs:element ref="Caption" minOccurs="0"/>
+              <xs:element ref="Sections"/>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>A user supplied version information string. This allows a user to keep own track on what "state" this dataset is in.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="created" use="required" type="EpiDataGlobalDateType">
+              <xs:annotation>
+                <xs:documentation>Specifies the date and time when this dataset was created. Note that this is not the first time the dataset was saved, but when created (as new) in a program.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Records">
+    <xs:annotation>
+      <xs:documentation>Logical container for multiple record's.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Record" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A record represent a single physical line of data, based on the set of fields specified in a datafile. A line is constucted with the following syntax:
+
+FieldId=Value[,FieldId=Value...]
+
+If a value contains a "," (comma) then it must be escaped using "\" (backslash). Eg:
+
+<record status="rsNormal">name=Torsten,age=30,comment=this is a comment with a \, (comma) in it</record></xs:documentation>
+          </xs:annotation>
+          <xs:complexType mixed="true">
+            <xs:attribute name="status" use="required" type="RecordStatus"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sections">
+    <xs:annotation>
+      <xs:documentation>A logical container for all sections in a dataset.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Section" minOccurs="1" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A section is a logical grouping of fields and headings which naturally belong together.
+A section is also a visual unit and does as such also contain positional information.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Caption" minOccurs="0"/>
+              <xs:element ref="Fields" minOccurs="0"/>
+              <xs:element ref="Headings" minOccurs="0"/>
+            </xs:sequence>
+            <!-- Inherited attributes (class hierachy) -->
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="top" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the top border, measured in pixels from top of the page.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="left" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the left border, measured in pixels from top of the page.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="height" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the height of the section, measured in pixels.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="width" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Defines the width of the section, measured in pixels.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Fields">
+    <xs:annotation>
+      <xs:documentation>Logical container for a list of fields.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Field" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A field repesent a single question in the dataset along with all the properties that may influence the data entry.
+It is possible to direct flow, add logical restrictions, perform calculations based on entry and more.
+A field is also a visual unit and as such also contains positional information.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <!-- Element created "on the fly" in Core. Hence they written first. -->
+              <xs:element minOccurs="0" ref="Calculation"/>
+              <xs:element minOccurs="0" ref="Compare"/>
+              <xs:element minOccurs="0" ref="Jumps"/>
+              <xs:element minOccurs="0" ref="Ranges"/>
+              <!-- Elements created using inheritance in this order. -->
+              <xs:element minOccurs="0" ref="Notes"/>
+              <xs:element minOccurs="0" ref="Question"/>
+            </xs:sequence>
+            <!-- Inherited attributes (class hierachy) -->
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="type" use="required" type="FieldType"/>
+            <xs:attribute name="top" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the top boundry of the field. The heigth of a field (GUI entry) should be determined by the font heigth.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="left" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the left boundry of the field. The width of a field (GUI entry) should be determined by the font width of a "W" and the length of the field.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="length" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the number of characters allowed for entry.
+
+This is NOT the number of bytes used, since string field are recorded as UTF-8 text. Thus the byte-length may wary between length and length*4.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="decimals" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the number of decimal digits in a floating point field. If the field specifies any other type, this should always be 0 (nul).
+
+Note that the number of decimals does NOT add to the length of the field, hence the number of integer digits is:
+I = Length - (D + 1)
+
+The "+ 1" is due to the decimal separator. Hence the shortest length for a floating point field is 3 (1 integer digit, 1 separator, 1 decimal digit).</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="entryMode" use="required" type="EntryModeType"/>
+            <!-- Optional attributes -->
+            <xs:attribute name="autoUpdateMode" type="AutoUpdateMode"/>
+            <xs:attribute name="confirmEntry" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Specifies whether the use always should confirm the fields entered data. If set to "false" then the program flow should automatically jump to next field when the length of entry has reach field length.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="defaultValue" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Specifies if the field should contain a default value for each new record.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="forcePickList" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>If a value label set is assigned in @valueLabelRef, setting this to "true" will force a program to present a pick list with the value-label pairs of the assigned value label set.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="repeat" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>If specified, during the entry of a new record the field should be prefilled with the value from the last entered record.
+If no records have previously been entered the field should be empty.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="showValueLabel" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Specifies that the during visual representation, the label part of a value label should be shown after a valid value have been entered by the user.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="valueLabelRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a @ValueLabelSet.
+
+Specifies that the values of this field is part of the value label set. In an analysis it is customary to present the labels instead of the values.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="valueLabelWriteFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of another string field.
+
+If a @valueLabelRef is assigned then this specifies that the label part of the value-label pair is written to the references field. It is wise to change the recieving field to entryMode="emNoEnter"</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Calculation">
+    <xs:annotation>
+      <xs:documentation>A calculation give the user a possibility to perform a simple operation based upon the entered data.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ResultFieldRef" type="xs:IDREF">
+          <xs:annotation>
+            <xs:documentation>Must reference the "id" of a field.
+
+Specifies which field the result of the calculation should be stored in.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:choice>
+          <xs:sequence>
+            <xs:element name="DayFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an integer field.
+
+This element represents the day information in the "combine fields into date" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="MonthFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an integer field.
+
+This element represents the month information in the "combine fields into date" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="YearFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an integer field.
+
+This element represents the year information in the "combine fields into date" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element name="StartDateRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the starting date information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="StartTimeRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the starting time information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="EndDateRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the end date information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="EndTimeRef" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of an date field.
+
+This element represents the end time information in the "date/time difference" calculation.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element name="Field1Ref" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field (all types allowed).
+
+This element represents the first field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Field2Ref" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field (all types allowed).
+
+This element represents the second field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Field3Ref" type="xs:IDREF" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field (all types allowed).
+
+This element represents the third field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Delimiter1" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>This element represents the first free string that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="Delimiter2" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>This element represents the second (and optional) free string that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="type" use="required" type="CalculationType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Compare">
+    <xs:annotation>
+      <xs:documentation>Specifies that this field should be compared to another field with a simple set of operators.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="toFieldRef" use="required" type="xs:IDREF">
+        <xs:annotation>
+          <xs:documentation>Must reference the "id" of a field with the same type.
+
+Specifies which field this field is being compared to.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="type" use="required" type="FieldComparisonType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ranges">
+    <xs:annotation>
+      <xs:documentation>A logical container for a list of range definitions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Range" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A range defines the logical lower and upper limit of value, valid for this field.
+The defined limits MUST be the same type as the field type.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="start" use="required" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Defines the lower limit of valid data.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="end" use="required" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Defines the upper limit of valid data.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Jumps">
+    <xs:annotation>
+      <xs:documentation>A logical container for a list of jump definitions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Jump" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A jump is used to direct the entry flow in another direction, than what the "normal" flow is. This is based on a matching value, the destination and what to do with the fields that is skipped in the process.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="on" use="required" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Specifies the value that effectuates this jump. The value type must be the same as the field type.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="type" use="required" type="JumpType"/>
+            <xs:attribute name="reset" use="required" type="JumpResetType"/>
+            <xs:attribute name="toFieldRef" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>Must reference the "id" of a field or not be filled.
+
+This attribute must be used if the JumpType is jtToField and specifies which field to jump to.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Headings">
+    <xs:annotation>
+      <xs:documentation>A logical container for a list of heading definitions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Heading" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>A heading represents an optional text that can be used to guide the user during entry on what the dataset/field is all about.
+
+A heading is also a visual unit and as such also contains positional information.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Caption"/>
+            </xs:sequence>
+            <!-- Inherited attributes (class hierachy) -->
+            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="top" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the top boundry of the field. The heigth of a field (GUI entry) should be determined by the font heigth.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="left" use="required" type="xs:int">
+              <xs:annotation>
+                <xs:documentation>Specifies the left boundry of the field. The width of a field (GUI entry) should be determined by the font width of a "W" and the length of the field.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- Wrapper for TextType -->
+  <xs:element name="Caption" type="TextType">
+    <xs:annotation>
+      <xs:documentation>A Caption is a descriptive text for an element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Notes" type="TextType">
+    <xs:annotation>
+      <xs:documentation>A note is a place where the user can present additional information which may be relevant for the field, dataset, study etc.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Question" type="TextType">
+    <xs:annotation>
+      <xs:documentation>Represent the question text used in conjunction with a field.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>
