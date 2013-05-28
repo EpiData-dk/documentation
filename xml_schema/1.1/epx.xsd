@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://www.epidata.dk/XML/2.0" xmlns="http://www.epidata.dk/XML/2.0"
+  targetNamespace="http://www.epidata.dk/XML/1.1" xmlns="http://www.epidata.dk/XML/1.1"
   elementFormDefault="qualified">
 
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"
@@ -544,7 +544,7 @@
       <xs:attribute name="version" type="xs:integer" fixed="2">
         <xs:annotation>
           <xs:documentation>
-            Version of the EPX document. In this edition is MUST be: 1
+            Version of the EPX document. In this edition is MUST be: 2
             <p/>
             This number increases with newer releases of the document specification.
           </xs:documentation>
