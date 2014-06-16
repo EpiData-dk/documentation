@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EpiData xmlns="http://www.epidata.dk/XML/1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/1.3 http://www.epidata.dk/XML/1.3/epx.xsd" version="3" xml:lang="en" cycle="0">
+  <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
+  <ProjectSettings autoIncStart="1" timedBackupInterval="2" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
+  <StudyInfo>
+    <Abstract>
+      <Text xml:lang="en">This sample file illustrates how you can build a relational database with a number of dataforms in the project. </Text>
+    </Abstract>
+    <Title>
+      <Text xml:lang="en">Relational EpiData Project</Text>
+    </Title>
+    <Author/>
+    <Agency/>
+    <Created>2014/05/14 14.17.10</Created>
+    <Identifier/>
+    <Keywords/>
+    <Modified>2014/05/14 14.35.58</Modified>
+    <Notes/>
+    <Version>1</Version>
+  </StudyInfo>
+  <ValueLabelSets>
+    <ValueLabelSet id="_S3" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">Basic demographic Data</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Disease Entity description</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">Visit at Clinic</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_S4" type="ftInteger" scope="vlsInternal">
+      <ValueLabel missing="true" order="2" value="99">
+        <Label xml:lang="en">Unknown </Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_S5" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">Currently no salaried work</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Part time</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">Full time</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="9">
+        <Label xml:lang="en">Unknown</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_S2" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">Infectious Origin</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Injury</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">Cancer</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="4">
+        <Label xml:lang="en">Appendicitis</Label>
+      </ValueLabel>
+      <ValueLabel order="6" value="5">
+        <Label xml:lang="en">Not settled yet</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_S9" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="0">
+        <Label xml:lang="en">No</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="1">
+        <Label xml:lang="en">Yes</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="2">
+        <Label xml:lang="en">Undecided</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="9">
+        <Label xml:lang="en">Missing</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="valuelabel_id_6" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">Odense, Denmark</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Copenhagen, Denmark</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">La Paz, Bolivia</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="4">
+        <Label xml:lang="en">New Delhi, India</Label>
+      </ValueLabel>
+      <ValueLabel order="6" value="5">
+        <Label xml:lang="en">Roma, Italy</Label>
+      </ValueLabel>
+      <ValueLabel order="7" value="6">
+        <Label xml:lang="en">Ottawa, Canada</Label>
+      </ValueLabel>
+      <ValueLabel order="8" value="7">
+        <Label xml:lang="en">Other - specified</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="valuelabel_id_7" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">Planned visit</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Acute - unplanned</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_eq1" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">No problems</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Some problems</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">Severe problems</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+  </ValueLabelSets>
+  <DataFiles>
+    <DataFile id="datafile_id_1" created="2014/05/14 14.17.10" modified="2014/06/12 14.57.24" version="">
+      <Caption>
+        <Text xml:lang="en">Start Entry Here</Text>
+      </Caption>
+      <Notes/>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="PatientID" top="82" left="113" type="ftInteger" length="4" decimals="0" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Patient ID</Text>
+              </Question>
+            </Field>
+            <Field id="PNumber" top="82" left="337" type="ftString" length="10" decimals="0" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Social Security Number</Text>
+              </Question>
+            </Field>
+            <Field id="Dataform" top="131" left="337" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_S3">
+              <Notes>
+                <Text xml:lang="en">1: Enter basic data
+2: Enter desease
+3: Add/Edit Visit at clinic</Text>
+              </Notes>
+              <Question>
+                <Text xml:lang="en">Choose Dataform</Text>
+              </Question>
+              <Relates>
+                <Relate relationRef="relation_id_2" relateValue="1"/>
+                <Relate relationRef="relation_id_3" relateValue="2"/>
+                <Relate relationRef="relation_id_4" relateValue="3"/>
+              </Relates>
+            </Field>
+            <Field id="S4" top="203" left="139" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="S5" top="203" left="351" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S6" top="203" left="580" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (update)</Text>
+              </Question>
+            </Field>
+            <Field id="S1" top="245" left="139" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="S2" top="245" left="351" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S3" top="245" left="580" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (update)</Text>
+              </Question>
+            </Field>
+          </Fields>
+          <Headings>
+            <Heading id="H0" top="26" left="37" type="htH1">
+              <Caption>
+                <Text xml:lang="en">Relational data - start file</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H9" top="173" left="35" type="htH4">
+              <Caption>
+                <Text xml:lang="en">_______________________________________________________________________________________</Text>
+              </Caption>
+            </Heading>
+          </Headings>
+        </Section>
+      </Sections>
+      <KeyFields>
+        <Key fieldRef="PatientID"/>
+      </KeyFields>
+      <Records modified="2014/05/14 15.50.38" encryptedSalt=""/>
+    </DataFile>
+    <DataFile id="datafile_id_2" created="2014/05/14 14.43.31" modified="2014/06/13 09.25.46" version="">
+      <Caption>
+        <Text xml:lang="en">Person and Basic Data</Text>
+      </Caption>
+      <Notes/>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="PatientID" top="65" left="156" type="ftInteger" length="4" decimals="0" entryMode="emNoEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Patient ID</Text>
+              </Question>
+            </Field>
+            <Field id="S2" top="111" left="156" type="ftString" length="20" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Name</Text>
+              </Question>
+            </Field>
+            <Field id="S3" top="157" left="156" type="ftDMYDate" length="10" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Date of Birth</Text>
+              </Question>
+            </Field>
+            <Field id="S4" top="203" left="156" type="ftInteger" length="2" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_S4">
+              <Question>
+                <Text xml:lang="en">Number of Children</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="12"/>
+              </Ranges>
+            </Field>
+            <Field id="S5" top="249" left="156" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_S5">
+              <Question>
+                <Text xml:lang="en">Current Work</Text>
+              </Question>
+            </Field>
+            <Field id="S11" top="328" left="144" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="S10" top="328" left="356" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S9" top="328" left="585" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (update)</Text>
+              </Question>
+            </Field>
+            <Field id="S1" top="370" left="144" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="S7" top="370" left="356" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S6" top="370" left="585" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (update)</Text>
+              </Question>
+            </Field>
+          </Fields>
+          <Headings>
+            <Heading id="h1" top="21" left="38" type="htH2">
+              <Caption>
+                <Text xml:lang="en">Demographic and Person based information</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H9" top="298" left="40" type="htH4">
+              <Caption>
+                <Text xml:lang="en">_______________________________________________________________________________________</Text>
+              </Caption>
+            </Heading>
+          </Headings>
+        </Section>
+      </Sections>
+      <KeyFields>
+        <Key fieldRef="PatientID"/>
+      </KeyFields>
+      <Records modified="2014/06/02 23.39.27" encryptedSalt=""/>
+    </DataFile>
+    <DataFile id="datafile_id_3" created="2014/05/14 14.56.05" modified="2014/06/13 09.25.46" version="">
+      <Caption>
+        <Text xml:lang="en">Type of Disease</Text>
+      </Caption>
+      <Notes/>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="PatientID" top="77" left="204" type="ftInteger" length="4" decimals="0" entryMode="emNoEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Patient ID</Text>
+              </Question>
+            </Field>
+            <Field id="S2" top="111" left="204" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_S2">
+              <Question>
+                <Text xml:lang="en">Type of Disease</Text>
+              </Question>
+            </Field>
+            <Field id="S9" top="145" left="204" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_S9">
+              <Question>
+                <Text xml:lang="en">Surgery planned ?</Text>
+              </Question>
+              <Jumps>
+                <Jump on="0" type="jtSkipNextField" reset="jrSystemMissing"/>
+                <Jump on="2" type="jtSkipNextField" reset="jrSystemMissing"/>
+                <Jump on="9" type="jtSkipNextField" reset="jrMaxMissing"/>
+              </Jumps>
+            </Field>
+            <Field id="S10" top="145" left="470" type="ftDMYDate" length="10" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Date of Surgery</Text>
+              </Question>
+            </Field>
+            <Field id="S11" top="181" left="204" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_S9">
+              <Question>
+                <Text xml:lang="en">Rehabilitation</Text>
+              </Question>
+              <Jumps>
+                <Jump on="0" type="jtSkipNextField" reset="jrMaxMissing"/>
+                <Jump on="2" type="jtSkipNextField" reset="jrMaxMissing"/>
+              </Jumps>
+            </Field>
+            <Field id="S12" top="181" left="470" type="ftInteger" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_S4">
+              <Question>
+                <Text xml:lang="en">Length Rehabilitation (Weeks)</Text>
+              </Question>
+              <Ranges>
+                <Range start="1" end="52"/>
+              </Ranges>
+            </Field>
+            <Field id="S8" top="251" left="159" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="S5" top="251" left="371" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S6" top="251" left="600" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (update)</Text>
+              </Question>
+            </Field>
+            <Field id="S1" top="293" left="159" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="S4" top="293" left="371" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S3" top="293" left="600" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (update)</Text>
+              </Question>
+            </Field>
+          </Fields>
+          <Headings>
+            <Heading id="h1" top="19" left="51" type="htH2">
+              <Caption>
+                <Text xml:lang="en">Describe Your Disease entities here</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H9" top="221" left="55" type="htH4">
+              <Caption>
+                <Text xml:lang="en">_______________________________________________________________________________________</Text>
+              </Caption>
+            </Heading>
+          </Headings>
+        </Section>
+      </Sections>
+      <KeyFields>
+        <Key fieldRef="PatientID"/>
+      </KeyFields>
+      <Records modified="2014/05/14 15.50.38" encryptedSalt=""/>
+    </DataFile>
+    <DataFile id="datafile_id_4" created="2014/05/14 15.07.22" modified="2014/06/13 09.25.46" version="">
+      <Caption>
+        <Text xml:lang="en">Visit at Clinic</Text>
+      </Caption>
+      <Notes/>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="PatientID" top="81" left="148" type="ftInteger" length="4" decimals="0" entryMode="emNoEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Patient ID</Text>
+              </Question>
+            </Field>
+            <Field id="S2" top="81" left="329" type="ftDMYDate" length="10" decimals="0" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Date of visit</Text>
+              </Question>
+            </Field>
+            <Field id="S3" top="123" left="329" type="ftInteger" length="1" decimals="0" entryMode="emDefault" repeat="true" showValueLabel="true" valueLabelRef="valuelabel_id_6">
+              <Question>
+                <Text xml:lang="en">Place of Clinical Examination</Text>
+              </Question>
+              <Jumps>
+                <Jump on="7" type="jtToField" reset="jrLeaveAsIs" toFieldRef="S4"/>
+                <Jump on="*" type="jtSkipNextField" reset="jrLeaveAsIs"/>
+              </Jumps>
+            </Field>
+            <Field id="S4" top="165" left="329" type="ftString" length="20" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">other </Text>
+              </Question>
+            </Field>
+            <Field id="S5" top="207" left="329" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="valuelabel_id_7">
+              <Question>
+                <Text xml:lang="en">Planned visit ?</Text>
+              </Question>
+            </Field>
+            <Field id="eq1" top="310" left="254" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_eq1">
+              <Question>
+                <Text xml:lang="en">EQ5d-Mobility</Text>
+              </Question>
+            </Field>
+            <Field id="S7" top="341" left="254" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_eq1">
+              <Question>
+                <Text xml:lang="en">EQ5d-Self Care</Text>
+              </Question>
+            </Field>
+            <Field id="S8" top="372" left="254" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_eq1">
+              <Question>
+                <Text xml:lang="en">EQ5d-Usual Activities</Text>
+              </Question>
+            </Field>
+            <Field id="S9" top="403" left="254" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_eq1">
+              <Question>
+                <Text xml:lang="en">EQ5d-Pain/Discomfort</Text>
+              </Question>
+            </Field>
+            <Field id="S10" top="434" left="254" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_eq1">
+              <Question>
+                <Text xml:lang="en">EQ5d-Anxiety/depression</Text>
+              </Question>
+            </Field>
+            <Field id="V17" top="505" left="254" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Notes>
+                <Text xml:lang="en">0: No
+1: Yes</Text>
+              </Notes>
+              <Ranges>
+                <Range start="0" end="1"/>
+              </Ranges>
+              <Relates>
+                <Relate relationRef="relation_id_5" relateValue="1"/>
+              </Relates>
+            </Field>
+            <Field id="V11" top="562" left="161" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="V12" top="562" left="373" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S6" top="562" left="602" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (update)</Text>
+              </Question>
+            </Field>
+            <Field id="S1" top="604" left="161" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="V15" top="604" left="373" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="V16" top="604" left="602" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (update)</Text>
+              </Question>
+            </Field>
+          </Fields>
+          <Headings>
+            <Heading id="h1" top="43" left="33" type="htH2">
+              <Caption>
+                <Text xml:lang="en">Information about clinical visits</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H2" top="270" left="42" type="htH3">
+              <Caption>
+                <Text xml:lang="en">Health Related Quality of Life (EuroQol.org ) </Text>
+              </Caption>
+            </Heading>
+            <Heading id="H3" top="370" left="382" type="htH3">
+              <Caption>
+                <Text xml:lang="en">Notice !! Value labels are simplified here</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H5" top="398" left="465" type="htH4">
+              <Caption>
+                <Text xml:lang="en">http://www.euroqol.org</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H7" top="485" left="167" type="htH4">
+              <Caption>
+                <Text xml:lang="en">Enter laboratory results?</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H9" top="532" left="57" type="htH4">
+              <Caption>
+                <Text xml:lang="en">_______________________________________________________________________________________</Text>
+              </Caption>
+            </Heading>
+          </Headings>
+        </Section>
+      </Sections>
+      <KeyFields>
+        <Key fieldRef="PatientID"/>
+        <Key fieldRef="S2"/>
+      </KeyFields>
+      <Records modified="2014/05/14 15.50.38" encryptedSalt=""/>
+    </DataFile>
+    <DataFile id="datafile_id_5" created="2014/06/12 14.59.24" modified="2014/06/13 09.25.46" version="">
+      <Caption>
+        <Text xml:lang="en">Lab Results</Text>
+      </Caption>
+      <Notes/>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="PatientID" top="98" left="128" type="ftInteger" length="4" decimals="0" entryMode="emNoEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Patient ID</Text>
+              </Question>
+            </Field>
+            <Field id="S2" top="98" left="288" type="ftDMYDate" length="10" decimals="0" entryMode="emNoEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Date of visit</Text>
+              </Question>
+            </Field>
+            <Field id="V3" top="143" left="128" type="ftInteger" length="4" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Sequence No:</Text>
+              </Question>
+            </Field>
+            <Field id="V11" top="225" left="193" type="ftFloat" length="4" decimals="1" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Hgb</Text>
+              </Question>
+            </Field>
+            <Field id="V5" top="271" left="193" type="ftFloat" length="4" decimals="2" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Leucocyte</Text>
+              </Question>
+            </Field>
+            <Field id="V6" top="317" left="193" type="ftFloat" length="5" decimals="2" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">pH</Text>
+              </Question>
+            </Field>
+            <Field id="V7" top="384" left="153" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="V12" top="384" left="365" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="S6" top="384" left="594" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">time (update)</Text>
+              </Question>
+            </Field>
+            <Field id="S1" top="426" left="153" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (new record)</Text>
+              </Question>
+            </Field>
+            <Field id="V15" top="426" left="365" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (first save)</Text>
+              </Question>
+            </Field>
+            <Field id="V16" top="426" left="594" type="ftDMYAuto" length="10" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
+              <Question>
+                <Text xml:lang="en">today (update)</Text>
+              </Question>
+            </Field>
+          </Fields>
+          <Headings>
+            <Heading id="H2" top="40" left="64" type="htH2">
+              <Caption>
+                <Text xml:lang="en">Laboratory result</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H9" top="354" left="49" type="htH4">
+              <Caption>
+                <Text xml:lang="en">_______________________________________________________________________________________</Text>
+              </Caption>
+            </Heading>
+          </Headings>
+        </Section>
+      </Sections>
+      <KeyFields>
+        <Key fieldRef="PatientID"/>
+        <Key fieldRef="S2"/>
+        <Key fieldRef="V3"/>
+      </KeyFields>
+      <Records modified="2014/06/12 14.59.24" encryptedSalt=""/>
+    </DataFile>
+  </DataFiles>
+  <Relations>
+    <Relation id="relation_id_1" dataFileRef="datafile_id_1">
+      <Relations>
+        <Relation id="relation_id_2" dataFileRef="datafile_id_2" maxRecordCount="1"/>
+        <Relation id="relation_id_3" dataFileRef="datafile_id_3" maxRecordCount="1"/>
+        <Relation id="relation_id_4" dataFileRef="datafile_id_4" maxRecordCount="0">
+          <Relations>
+            <Relation id="relation_id_5" dataFileRef="datafile_id_5" maxRecordCount="0"/>
+          </Relations>
+        </Relation>
+      </Relations>
+    </Relation>
+  </Relations>
+</EpiData>
