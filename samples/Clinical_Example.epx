@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EpiData xmlns="http://www.epidata.dk/XML/1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/1.3 http://www.epidata.dk/XML/1.3/epx.xsd" version="3" xml:lang="en" cycle="0">
+<EpiData xmlns="http://www.epidata.dk/XML/1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/1.3 http://www.epidata.dk/XML/1.3/epx.xsd" version="3" xml:lang="en" branch="TRUNK" cycle="1">
   <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
   <ProjectSettings autoIncStart="1" timedBackupInterval="2" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
   <StudyInfo>
@@ -12,6 +12,8 @@
     <Author/>
     <Agency/>
     <Created>2014/05/14 14.17.10</Created>
+    <DataCollectionStart>9999/12/31 23.59.59</DataCollectionStart>
+    <DataCollectionEnd>9999/12/31 23.59.59</DataCollectionEnd>
     <Identifier/>
     <Keywords/>
     <Modified>2014/05/14 14.35.58</Modified>
@@ -124,11 +126,10 @@
     </ValueLabelSet>
   </ValueLabelSets>
   <DataFiles>
-    <DataFile id="datafile_id_1" created="2014/05/14 14.17.10" modified="2014/06/12 14.57.24" version="">
+    <DataFile id="datafile_id_1" created="2014/05/14 14.17.10" modified="2014/06/12 14.57.24" version="" afterRecordState="arsNewRecord">
       <Caption>
         <Text xml:lang="en">Start Entry Here</Text>
       </Caption>
-      <Notes/>
       <Sections>
         <Section id="MAIN" top="0" left="0" width="0" height="0">
           <Fields>
@@ -151,11 +152,6 @@
               <Question>
                 <Text xml:lang="en">Choose Dataform</Text>
               </Question>
-              <Relates>
-                <Relate relationRef="relation_id_2" relateValue="1"/>
-                <Relate relationRef="relation_id_3" relateValue="2"/>
-                <Relate relationRef="relation_id_4" relateValue="3"/>
-              </Relates>
             </Field>
             <Field id="S4" top="203" left="139" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
               <Question>
@@ -207,11 +203,10 @@
       </KeyFields>
       <Records modified="2014/05/14 15.50.38" encryptedSalt=""/>
     </DataFile>
-    <DataFile id="datafile_id_2" created="2014/05/14 14.43.31" modified="2014/06/13 09.25.46" version="">
+    <DataFile id="datafile_id_2" created="2014/05/14 14.43.31" modified="2014/06/13 09.25.46" version="" afterRecordState="arsNewRecord">
       <Caption>
         <Text xml:lang="en">Person and Basic Data</Text>
       </Caption>
-      <Notes/>
       <Sections>
         <Section id="MAIN" top="0" left="0" width="0" height="0">
           <Fields>
@@ -293,11 +288,10 @@
       </KeyFields>
       <Records modified="2014/06/02 23.39.27" encryptedSalt=""/>
     </DataFile>
-    <DataFile id="datafile_id_3" created="2014/05/14 14.56.05" modified="2014/06/13 09.25.46" version="">
+    <DataFile id="datafile_id_3" created="2014/05/14 14.56.05" modified="2014/06/13 09.25.46" version="" afterRecordState="arsNewRecord">
       <Caption>
         <Text xml:lang="en">Type of Disease</Text>
       </Caption>
-      <Notes/>
       <Sections>
         <Section id="MAIN" top="0" left="0" width="0" height="0">
           <Fields>
@@ -393,11 +387,10 @@
       </KeyFields>
       <Records modified="2014/05/14 15.50.38" encryptedSalt=""/>
     </DataFile>
-    <DataFile id="datafile_id_4" created="2014/05/14 15.07.22" modified="2014/06/13 09.25.46" version="">
+    <DataFile id="datafile_id_4" created="2014/05/14 15.07.22" modified="2014/06/13 09.25.46" version="" afterRecordState="arsNewRecord">
       <Caption>
         <Text xml:lang="en">Visit at Clinic</Text>
       </Caption>
-      <Notes/>
       <Sections>
         <Section id="MAIN" top="0" left="0" width="0" height="0">
           <Fields>
@@ -463,9 +456,6 @@
               <Ranges>
                 <Range start="0" end="1"/>
               </Ranges>
-              <Relates>
-                <Relate relationRef="relation_id_5" relateValue="1"/>
-              </Relates>
             </Field>
             <Field id="V11" top="562" left="161" type="ftTimeAuto" length="8" decimals="0" entryMode="emDefault" showValueLabel="true" autoUpdateMode="umCreated">
               <Question>
@@ -538,11 +528,10 @@
       </KeyFields>
       <Records modified="2014/05/14 15.50.38" encryptedSalt=""/>
     </DataFile>
-    <DataFile id="datafile_id_5" created="2014/06/12 14.59.24" modified="2014/06/13 09.25.46" version="">
+    <DataFile id="datafile_id_5" created="2014/06/12 14.59.24" modified="2014/06/13 09.25.46" version="" afterRecordState="arsNewRecord">
       <Caption>
         <Text xml:lang="en">Lab Results</Text>
       </Caption>
-      <Notes/>
       <Sections>
         <Section id="MAIN" top="0" left="0" width="0" height="0">
           <Fields>

@@ -7,6 +7,202 @@
     schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
 
   <!-- Reuseable types. -->
+  <!-- Simple types -->
+  <xs:simpleType name="AfterRecordState">
+    <xs:annotation>
+      <xs:documentation>
+        AfterRecordState speciefies what action an entry program should take, when the end of record is reached.
+        This happens AFTER relational jumps has happened.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="arsNewRecord">
+        <xs:annotation>
+          <xs:documentation>
+            The entry program should set the current dataform in a state, ready to enter a new record. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="arsReturnToParent">
+        <xs:annotation>
+          <xs:documentation>
+            The entry program should return to to the parent dataform, even if it is possible to enter additional records.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="arsReturnToParentOnMax">
+        <xs:annotation>
+          <xs:documentation>
+            The entry program should set the current dataform in a state, ready to enter a new record. Except if the limit of number of records have been reached, then return to parent. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="arsStayOnRecord">
+        <xs:annotation>
+          <xs:documentation>
+            The entry program should remain on the last entered record, even though no more entry is possible (eg. due to limitations in number of records).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AutoUpdateMode">
+    <xs:annotation>
+      <xs:documentation>
+        AutoUpdateMode is bound to the following field types: ft[DMY/MDY/YMD]Auto and ftTimeAuto. 
+        
+        It specifies how auto updated fields should update their values.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="umCreated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the value of the value for this field is set when a new record is created and should not be updated otherwise. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="umUpdated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that the value of the value for this field is set whenever the record is save, ie. on first save and additionally
+            on modifications, but not when read! 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CalculationType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the type of calculation.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ctTimeDiff">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where it is possible to find a time/date difference between specified fields.
+            At least 1 start date/time and at least 1 end date/time MUST be specified.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ctCombineDate">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where 3 fields (specifying a day count, month count and a year) is combined into
+            a date field. The resulting date field can be of any format type (DMY, MDY or YMD).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ctCombineString">
+        <xs:annotation>
+          <xs:documentation>
+            This specifies a calculation where up to 3 fields and up to 2 strings can be combined into a string. This
+            gives the user a possibility to create a unique string based on several different entries.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EntryModeType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines how entry for this field should be.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="emDefault">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is allowed but not mandatory. A field left blank is considered missing (system missing).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="emMustEnter">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is mandatory. The field cannot be blank, ie. it must contain data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="emNoEnter">
+        <xs:annotation>
+          <xs:documentation>
+            Entry is NOT allowed. This field may contain data, but cannot be altered by the user during
+            an entry session. Use this eg. for calculated fields.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EpiDataGlobalDateType">
+    <xs:annotation>
+      <xs:documentation>
+        Date formatted as: YYYY/MM/DD HH:MM:SS, where "/" and ":" are specified in the @Settings element.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern
+        value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EpiDataID">
+    <xs:restriction base="xs:NCName"/>
+  </xs:simpleType>
+  <xs:simpleType name="EpiDataIDRef">
+    <xs:restriction base="xs:NCName"/>
+  </xs:simpleType>
+  <xs:simpleType name="FieldComparisonType">
+    <xs:annotation>
+      <xs:documentation>
+        FieldComparisonType specifies that this field should be compared to another field using the specific comparision. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fcLT">
+        <xs:annotation>
+          <xs:documentation>Specifies that this field MUST be less than (&lt;) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcLEq">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be less than or equal (&lt;=) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcGEq">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be greaters than or equal (&gt;=) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcGT">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be greaters than (&gt;) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcEQ">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST be equal (=) to the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="fcNEq">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this field MUST not be equal (&lt;&gt;) the compared field. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="FieldType">
     <xs:annotation>
       <xs:documentation>
@@ -154,226 +350,6 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="RecordStatus">
-    <xs:annotation>
-      <xs:documentation>
-        RecordStatus specifies what state a record is in at present time. This allow
-        a user to document how a records is to be considered, eg. during data analysis.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="rsNormal">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies the default state for a record. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="rsVerified">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that this record has been verfied. This could either be by
-            manual checks of original data, double entry of data or other means.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="rsDeleted">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that this record has been marked for deletion. Since it is the nature of
-            EpiData to preserve data best possible, before actually deleting data it is marked for
-            deletion.
-            This state should also inform a data analysis program, NOT to include this record for
-            all analysis. ie. do NOT read into program.            
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="AutoUpdateMode">
-    <xs:annotation>
-      <xs:documentation>
-        AutoUpdateMode is bound to the following field types: ft[DMY/MDY/YMD]Auto and ftTimeAuto. 
-        
-        It specifies how auto updated fields should update their values.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="umCreated">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that the value of the value for this field is set when a new record is created and should not be updated otherwise. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="umUpdated">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that the value of the value for this field is set whenever the record is save, ie. on first save and additionally
-            on modifications, but not when read! 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="FieldComparisonType">
-    <xs:annotation>
-      <xs:documentation>
-        FieldComparisonType specifies that this field should be compared to another field using the specific comparision. 
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="fcLT">
-        <xs:annotation>
-          <xs:documentation>Specifies that this field MUST be less than (&lt;) the compared field. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="fcLEq">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that this field MUST be less than or equal (&lt;=) the compared field. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="fcGEq">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that this field MUST be greaters than or equal (&gt;=) the compared field. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="fcGT">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that this field MUST be greaters than (&gt;) the compared field. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="fcEQ">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that this field MUST be equal (=) to the compared field. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="fcNEq">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies that this field MUST not be equal (&lt;&gt;) the compared field. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="JumpType">
-    <xs:annotation>
-      <xs:documentation>
-        JumpType specifies where the jump is going to.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="jtSaveRecord">
-        <xs:annotation>
-          <xs:documentation>
-            Save current record and start new.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="jtExitSection">
-        <xs:annotation>
-          <xs:documentation>
-            Exit current section. If in main section or last section, behaves as "jtSaveRecord".
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="jtSkipNextField">
-        <xs:annotation>
-          <xs:documentation>
-            Skips next field. If last or second last field in section, behaves as "jtExitSection".
-            If last or second last field in main section, behaves as "jtSaveRecord".
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="jtToField">
-        <xs:annotation>
-          <xs:documentation>
-            Jump to specific field. Field MUST exists!
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="JumpResetType">
-    <xs:annotation>
-      <xs:documentation>
-        Specifies the behaviour for fields skipped when jumping over them.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="jrLeaveAsIs">
-        <xs:annotation>
-          <xs:documentation>
-            Leave fields as is. Ie. if the field contains data already do not delete.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="jrSystemMissing">
-        <xs:annotation>
-          <xs:documentation>
-            Insert system missing (.) into the field, regardsless of already present data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="jrMaxMissing">
-        <xs:annotation>
-          <xs:documentation>
-            Insert Max missing value if defined, otherwise default to "leave as is". 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="jr2ndMissing">
-        <xs:annotation>
-          <xs:documentation>
-            Insert 2nd greates missing value (2ndMax) if defined, otherwise default to "leave as is".
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="CalculationType">
-    <xs:annotation>
-      <xs:documentation>
-        Defines the type of calculation.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ctTimeDiff">
-        <xs:annotation>
-          <xs:documentation>
-            This specifies a calculation where it is possible to find a time/date difference between specified fields.
-            At least 1 start date/time and at least 1 end date/time MUST be specified.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ctCombineDate">
-        <xs:annotation>
-          <xs:documentation>
-            This specifies a calculation where 3 fields (specifying a day count, month count and a year) is combined into
-            a date field. The resulting date field can be of any format type (DMY, MDY or YMD).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ctCombineString">
-        <xs:annotation>
-          <xs:documentation>
-            This specifies a calculation where up to 3 fields and up to 2 strings can be combined into a string. This
-            gives the user a possibility to create a unique string based on several different entries.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="HeadingType">
     <xs:annotation>
       <xs:documentation>
@@ -418,37 +394,152 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="EntryModeType">
+  <xs:simpleType name="JumpResetType">
     <xs:annotation>
       <xs:documentation>
-        Defines how entry for this field should be.
+        Specifies the behaviour for fields skipped when jumping over them.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="emDefault">
+      <xs:enumeration value="jrLeaveAsIs">
         <xs:annotation>
           <xs:documentation>
-            Entry is allowed but not mandatory. A field left blank is considered missing (system missing).
+            Leave fields as is. Ie. if the field contains data already do not delete.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="emMustEnter">
+      <xs:enumeration value="jrSystemMissing">
         <xs:annotation>
           <xs:documentation>
-            Entry is mandatory. The field cannot be blank, ie. it must contain data.
+            Insert system missing (.) into the field, regardsless of already present data.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="emNoEnter">
+      <xs:enumeration value="jrMaxMissing">
         <xs:annotation>
           <xs:documentation>
-            Entry is NOT allowed. This field may contain data, but cannot be altered by the user during
-            an entry session. Use this eg. for calculated fields.
+            Insert Max missing value if defined, otherwise default to "leave as is". 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jr2ndMissing">
+        <xs:annotation>
+          <xs:documentation>
+            Insert 2nd greates missing value (2ndMax) if defined, otherwise default to "leave as is".
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="JumpType">
+    <xs:annotation>
+      <xs:documentation>
+        JumpType specifies where the jump is going to.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="jtSaveRecord">
+        <xs:annotation>
+          <xs:documentation>
+            Save current record and start new.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtExitSection">
+        <xs:annotation>
+          <xs:documentation>
+            Exit current section. If in main section or last section, behaves as "jtSaveRecord".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtSkipNextField">
+        <xs:annotation>
+          <xs:documentation>
+            Skips next field. If last or second last field in section, behaves as "jtExitSection".
+            If last or second last field in main section, behaves as "jtSaveRecord".
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="jtToField">
+        <xs:annotation>
+          <xs:documentation>
+            Jump to specific field. Field MUST exists!
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RecordStatus">
+    <xs:annotation>
+      <xs:documentation>
+        RecordStatus specifies what state a record is in at present time. This allow
+        a user to document how a records is to be considered, eg. during data analysis.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rsNormal">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the default state for a record. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="rsVerified">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this record has been verfied. This could either be by
+            manual checks of original data, double entry of data or other means.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="rsDeleted">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this record has been marked for deletion. Since it is the nature of
+            EpiData to preserve data best possible, before actually deleting data it is marked for
+            deletion.
+            This state should also inform a data analysis program, NOT to include this record for
+            all analysis. ie. do NOT read into program.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SingleCharType">
+    <xs:annotation>
+      <xs:documentation>
+        Only a single character is allow.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:length value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValueLabelScopeType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the scope of a ValueLabelSet. This can either be an internal set, which has a full list of value-label pair, or an external set which is referenced by filename and id.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="vlsInternal">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this ValueLabelSet is stored internally in the XML document and all value-label pairs are listed. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="vlsExternal">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that this ValueLabelSet is not store internally, but is a reference to an external file, which contains the actual value-label pairs.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Complex -->
   <xs:complexType name="EpiDataLangType" mixed="true">
     <xs:annotation>
       <xs:documentation>
@@ -459,11 +550,28 @@
     </xs:annotation>
     <xs:attribute ref="xml:lang"/>
   </xs:complexType>
-  <xs:complexType name="TextType">
-    <xs:sequence>
-      <xs:element name="Text" maxOccurs="unbounded" type="EpiDataLangType"/>
-    </xs:sequence>
+  
+  <!-- Inheritance types (experimental)
+  <xs:complexType name="IDType">
+    <xs:attribute name="id" type="EpiDataID"/>
   </xs:complexType>
+  <xs:complexType name="PositionType">
+    <xs:complexContent>
+      <xs:extension base="IDType">
+        <xs:attribute name="top" type="xs:int" use="required"/>
+        <xs:attribute name="left" type="xs:int" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AreaType">
+    <xs:complexContent>
+      <xs:extension base="PositionType">
+        <xs:attribute name="width" type="xs:nonNegativeInteger"/>
+        <xs:attribute name="height" type="xs:nonNegativeInteger"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType> -->
+  
   <xs:complexType name="LabelType" mixed="true">
     <xs:annotation>
       <xs:documentation>
@@ -504,28 +612,37 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-  <xs:simpleType name="SingleCharType">
-    <xs:annotation>
-      <xs:documentation>
-        Only a single character is allow.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:length value="1"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EpiDataGlobalDateType">
-    <xs:annotation>
-      <xs:documentation>
-        Date formatted as: YYYY/MM/DD HH:MM:SS, where "/" and ":" are specified in the @Settings element.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:pattern
-        value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"/>
-    </xs:restriction>
-  </xs:simpleType>
-
+  <xs:complexType name="TextType">
+    <xs:sequence>
+      <xs:element name="Text" maxOccurs="unbounded" type="EpiDataLangType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RelateType">
+    <xs:attribute name="relationRef" type="EpiDataIDRef" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="RelationsType">
+    <xs:sequence>
+      <xs:element name="Relation" type="RelationType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RelationType">
+    <xs:sequence>
+      <xs:element name="Relations" type="RelationsType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="EpiDataID" use="required"/>
+    <xs:attribute name="dataFileRef" type="EpiDataIDRef" use="required"/>
+    <xs:attribute name="maxRecordCount" type="xs:nonNegativeInteger"/>
+  </xs:complexType>
+  <xs:complexType name="ValueRelateType">
+    <xs:complexContent>
+      <xs:extension base="RelateType">
+        <xs:attribute name="relateValue" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  
+  <!-- ELEMENTS -->
   <!-- Basis for schema! EpiData -->
   <xs:element name="EpiData">
     <xs:annotation>
@@ -540,11 +657,12 @@
         <xs:element ref="StudyInfo"/>
         <xs:element ref="ValueLabelSets" minOccurs="0"/>
         <xs:element ref="DataFiles"/>
+        <xs:element ref="Relations"/>
       </xs:sequence>
       <xs:attribute name="version" type="xs:integer" fixed="3">
         <xs:annotation>
           <xs:documentation>
-            Version of the EPX document. In this edition is MUST be: 3
+            Version of the EPX document. In this edition it MUST be: 3
             <p/>
             This number increases with newer releases of the document specification.
           </xs:documentation>
@@ -647,60 +765,10 @@ Additionally this backup should be "permanent" in the sense that a program shoul
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Author" type="xs:string">
-          <xs:annotation>
-            <xs:documentation>This element should contain the name of the author(s) for this project.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Agency" type="xs:string" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>TODO</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Created" type="EpiDataGlobalDateType">
-          <xs:annotation>
-            <xs:documentation>Specifies the date and time when this project was created. Note that this is not the first time the project was saved, but when created (as new) in a program.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Identifier" type="xs:string" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>A unique identifier for the project. This identifier should be unique at least across all project by same person, but preferable to all other projects as well.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Keywords" type="xs:string" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>A short list of comma separated keywords, describing the project.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Modified" type="EpiDataGlobalDateType">
-          <xs:annotation>
-            <xs:documentation>Specifies the date and time when this project was last modified. This value should be updated every time the project is saved with new changes.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Notes" type="xs:string" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>User defined notes for the project.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Version" type="xs:string" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>A user defined version string for the project. Meant as a guide for the user to keep track of multiple copies of the same project.</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="DataCollectionStart" type="EpiDataGlobalDateType" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>Specifies the start date of the period which data spans</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="DataCollectionEnd" type="EpiDataGlobalDateType" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>Specifies the end date of the period which data spans</xs:documentation>
-          </xs:annotation>
-        </xs:element>
         <xs:element name="Abstract" type="TextType" minOccurs="0">
           <xs:annotation>
             <xs:documentation>A human-readable abstract of the study unit describing the nature and scope of the data collection, special characteristics of its content. Note that detailed information on the purpose of the study and structured coverage information are to be entered in Purpose and Coverage. 
-</xs:documentation>
+            </xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="Citations" type="TextType" minOccurs="0">
@@ -741,8 +809,8 @@ Additionally this backup should be "permanent" in the sense that a program shoul
         <xs:element name="Rights" type="TextType" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Information about rights held in and over the resource.
-
-Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</xs:documentation>
+              
+              Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="TimeCoverage" type="TextType" minOccurs="0">
@@ -760,6 +828,56 @@ Typically, rights information includes a statement about various property rights
             <xs:documentation>Analysis unit in data</xs:documentation>
           </xs:annotation>
         </xs:element>
+        <xs:element name="Author" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This element should contain the name of the author(s) for this project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Agency" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>TODO</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Created" type="EpiDataGlobalDateType">
+          <xs:annotation>
+            <xs:documentation>Specifies the date and time when this project was created. Note that this is not the first time the project was saved, but when created (as new) in a program.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="DataCollectionStart" type="EpiDataGlobalDateType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Specifies the start date of the period which data spans</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="DataCollectionEnd" type="EpiDataGlobalDateType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Specifies the end date of the period which data spans</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Identifier" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A unique identifier for the project. This identifier should be unique at least across all project by same person, but preferable to all other projects as well.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Keywords" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A short list of comma separated keywords, describing the project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Modified" type="EpiDataGlobalDateType">
+          <xs:annotation>
+            <xs:documentation>Specifies the date and time when this project was last modified. This value should be updated every time the project is saved with new changes.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Notes" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>User defined notes for the project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Version" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>A user defined version string for the project. Meant as a guide for the user to keep track of multiple copies of the same project.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -775,20 +893,22 @@ Typically, rights information includes a statement about various property rights
 This is also known as a catagory.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
-            <xs:choice>
-              <xs:element name="Internal">
-                <xs:annotation>
-                  <xs:documentation>Specifies that the valuelabels are located in this file.</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="ValueLabel" maxOccurs="unbounded" type="LabelType"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:choice>
-            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:sequence>
+              <xs:element name="ValueLabel" minOccurs="0" maxOccurs="unbounded" type="LabelType"/>
+            </xs:sequence>
+            <xs:attribute name="id" use="required" type="EpiDataID"/>
             <xs:attribute name="type" use="required" type="FieldType"/>
+            <xs:attribute name="scope" use="required" type="ValueLabelScopeType"/>
+            <xs:attribute name="filename" use="optional" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>
+                  A filename should not contain any directory/folder information, just the name itself. Only other EpiData XML documents may be refered to in XML.
+                  <p/>
+                  The filename attribute should only be used
+                  when the scope = vlsExternal.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -796,20 +916,22 @@ This is also known as a catagory.</xs:documentation>
   </xs:element>
   <xs:element name="DataFiles">
     <xs:annotation>
-      <xs:documentation>Container for ("multiple" will be in version 2) datafile's.</xs:documentation>
+      <xs:documentation>Container for "multiple" datafile's.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="DataFile">
+        <xs:element name="DataFile" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
             <xs:documentation>A logical container for the physical data part of the project. It groups all fields, texts (headings) and data into one single presentable unit.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element ref="Records" minOccurs="0"/>
-              <xs:element ref="KeyFields" minOccurs="0"/>
               <xs:element ref="Caption" minOccurs="0"/>
+              <xs:element ref="Notes" minOccurs="0"/>
               <xs:element ref="Sections"/>
+              <xs:element ref="Relates" minOccurs="0"/>
+              <xs:element ref="KeyFields" minOccurs="0"/>
+              <xs:element ref="Records" minOccurs="0"/>
             </xs:sequence>
             <xs:attribute name="version" type="xs:string">
               <xs:annotation>
@@ -826,7 +948,8 @@ This is also known as a catagory.</xs:documentation>
                 <xs:documentation>Specifies the date and time when the structure of this dataset was last modfied.</xs:documentation>
               </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="id" use="required" type="EpiDataID"/>
+            <xs:attribute name="afterRecordState" use="required" type="AfterRecordState"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -861,6 +984,7 @@ a Base64 encoding of an AES encrypted data stream.</xs:documentation>
           <xs:documentation>Specifies the date and time when the data in this dataset was last modfied.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="encryptedSalt" type="xs:base64Binary"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="KeyFields">
@@ -868,7 +992,7 @@ a Base64 encoding of an AES encrypted data stream.</xs:documentation>
       <xs:sequence>
         <xs:element name="Key" minOccurs="1" maxOccurs="unbounded">
           <xs:complexType>
-            <xs:attribute name="fieldRef" type="xs:IDREF" use="required">
+            <xs:attribute name="fieldRef" type="EpiDataIDRef" use="required">
             </xs:attribute>
           </xs:complexType>
         </xs:element>
@@ -893,7 +1017,7 @@ A section is also a visual unit and does as such also contain positional informa
               <xs:element ref="Headings" minOccurs="0"/>
             </xs:sequence>
             <!-- Inherited attributes (class hierachy) -->
-            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="id" use="required" type="EpiDataID"/>
             <xs:attribute name="top" use="required" type="xs:int">
               <xs:annotation>
                 <xs:documentation>Defines the top border, measured in pixels from top of the page.</xs:documentation>
@@ -933,17 +1057,18 @@ A field is also a visual unit and as such also contains positional information.<
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <!-- Element created "on the fly" in Core. Hence they written first. -->
+              <!-- Elements created using inheritance in this order. -->
+              <xs:element minOccurs="0" ref="Notes"/>
+              <xs:element minOccurs="0" ref="Question"/>
+              <!-- Element created "on the fly" in Core. -->
               <xs:element minOccurs="0" ref="Calculation"/>
               <xs:element minOccurs="0" ref="Compare"/>
               <xs:element minOccurs="0" ref="Jumps"/>
               <xs:element minOccurs="0" ref="Ranges"/>
-              <!-- Elements created using inheritance in this order. -->
-              <xs:element minOccurs="0" ref="Notes"/>
-              <xs:element minOccurs="0" ref="Question"/>
+              <xs:element minOccurs="0" ref="ValueRelates"/>
             </xs:sequence>
             <!-- Inherited attributes (class hierachy) -->
-            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="id" use="required" type="EpiDataID"/>
             <xs:attribute name="type" use="required" type="FieldType"/>
             <xs:attribute name="top" use="required" type="xs:int">
               <xs:annotation>
@@ -1001,14 +1126,14 @@ If no records have previously been entered the field should be empty.</xs:docume
                 <xs:documentation>Specifies that the during visual representation, the label part of a value label should be shown after a valid value have been entered by the user.</xs:documentation>
               </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="valueLabelRef" type="xs:IDREF">
+            <xs:attribute name="valueLabelRef" type="EpiDataIDRef">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of a @ValueLabelSet.
 
 Specifies that the values of this field is part of the value label set. In an analysis it is customary to present the labels instead of the values.</xs:documentation>
               </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="valueLabelWriteFieldRef" type="xs:IDREF">
+            <xs:attribute name="valueLabelWriteFieldRef" type="EpiDataIDRef">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of another string field.
 
@@ -1026,7 +1151,7 @@ If a @valueLabelRef is assigned then this specifies that the label part of the v
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ResultFieldRef" type="xs:IDREF">
+        <xs:element name="ResultFieldRef" type="EpiDataIDRef">
           <xs:annotation>
             <xs:documentation>Must reference the "id" of a field.
 
@@ -1035,21 +1160,21 @@ Specifies which field the result of the calculation should be stored in.</xs:doc
         </xs:element>
         <xs:choice>
           <xs:sequence>
-            <xs:element name="DayFieldRef" type="xs:IDREF">
+            <xs:element name="DayFieldRef" type="EpiDataIDRef">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of an integer field.
 
 This element represents the day information in the "combine fields into date" calculation.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="MonthFieldRef" type="xs:IDREF">
+            <xs:element name="MonthFieldRef" type="EpiDataIDRef">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of an integer field.
 
 This element represents the month information in the "combine fields into date" calculation.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="YearFieldRef" type="xs:IDREF">
+            <xs:element name="YearFieldRef" type="EpiDataIDRef">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of an integer field.
 
@@ -1058,28 +1183,28 @@ This element represents the year information in the "combine fields into date" c
             </xs:element>
           </xs:sequence>
           <xs:sequence>
-            <xs:element name="StartDateRef" type="xs:IDREF" minOccurs="0">
+            <xs:element name="StartDateRef" type="EpiDataIDRef" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of an date field.
 
 This element represents the starting date information in the "date/time difference" calculation.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="StartTimeRef" type="xs:IDREF" minOccurs="0">
+            <xs:element name="StartTimeRef" type="EpiDataIDRef" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of an date field.
 
 This element represents the starting time information in the "date/time difference" calculation.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="EndDateRef" type="xs:IDREF" minOccurs="0">
+            <xs:element name="EndDateRef" type="EpiDataIDRef" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of an date field.
 
 This element represents the end date information in the "date/time difference" calculation.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="EndTimeRef" type="xs:IDREF" minOccurs="0">
+            <xs:element name="EndTimeRef" type="EpiDataIDRef" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of an date field.
 
@@ -1088,21 +1213,21 @@ This element represents the end time information in the "date/time difference" c
             </xs:element>
           </xs:sequence>
           <xs:sequence>
-            <xs:element name="Field1Ref" type="xs:IDREF" minOccurs="0">
+            <xs:element name="Field1Ref" type="EpiDataIDRef" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of a field (all types allowed).
 
 This element represents the first field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="Field2Ref" type="xs:IDREF" minOccurs="0">
+            <xs:element name="Field2Ref" type="EpiDataIDRef" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of a field (all types allowed).
 
 This element represents the second field that may be used to combine 3 fields and two strings into a new string.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="Field3Ref" type="xs:IDREF" minOccurs="0">
+            <xs:element name="Field3Ref" type="EpiDataIDRef" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of a field (all types allowed).
 
@@ -1130,7 +1255,7 @@ This element represents the third field that may be used to combine 3 fields and
       <xs:documentation>Specifies that this field should be compared to another field with a simple set of operators.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:attribute name="toFieldRef" use="required" type="xs:IDREF">
+      <xs:attribute name="toFieldRef" use="required" type="EpiDataIDRef">
         <xs:annotation>
           <xs:documentation>Must reference the "id" of a field with the same type.
 
@@ -1140,6 +1265,7 @@ Specifies which field this field is being compared to.</xs:documentation>
       <xs:attribute name="type" use="required" type="FieldComparisonType"/>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Relations" type="RelationsType"/>
   <xs:element name="Ranges">
     <xs:annotation>
       <xs:documentation>A logical container for a list of range definitions.</xs:documentation>
@@ -1185,7 +1311,7 @@ The defined limits MUST be the same type as the field type.</xs:documentation>
             </xs:attribute>
             <xs:attribute name="type" use="required" type="JumpType"/>
             <xs:attribute name="reset" use="required" type="JumpResetType"/>
-            <xs:attribute name="toFieldRef" type="xs:IDREF">
+            <xs:attribute name="toFieldRef" type="EpiDataIDRef">
               <xs:annotation>
                 <xs:documentation>Must reference the "id" of a field or not be filled.
 
@@ -1214,7 +1340,7 @@ A heading is also a visual unit and as such also contains positional information
               <xs:element ref="Caption"/>
             </xs:sequence>
             <!-- Inherited attributes (class hierachy) -->
-            <xs:attribute name="id" use="required" type="xs:ID"/>
+            <xs:attribute name="id" use="required" type="EpiDataID"/>
             <xs:attribute name="top" use="required" type="xs:int">
               <xs:annotation>
                 <xs:documentation>Specifies the top boundry of the field. The heigth of a field (GUI entry) should be determined by the font heigth.</xs:documentation>
@@ -1231,6 +1357,21 @@ A heading is also a visual unit and as such also contains positional information
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Relates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Relate" type="RelateType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValueRelates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ValueRelate" type="ValueRelateType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
   <!-- Wrapper for TextType -->
   <xs:element name="Caption" type="TextType">
     <xs:annotation>
