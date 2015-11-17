@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://www.epidata.dk/XML/2.1"
-  xmlns="http://www.epidata.dk/XML/2.1"
+  targetNamespace="http://www.epidata.dk/XML/2.1" xmlns="http://www.epidata.dk/XML/2.1"
   elementFormDefault="qualified">
 
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"
@@ -47,7 +46,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="AutoUpdateMode">
     <xs:annotation>
       <xs:documentation>
@@ -74,7 +73,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="CalculationType">
     <xs:annotation>
       <xs:documentation>
@@ -108,7 +107,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="EntryModeType">
     <xs:annotation>
       <xs:documentation>
@@ -140,7 +139,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="EpiDataGlobalDateType">
     <xs:annotation>
       <xs:documentation>
@@ -152,15 +151,15 @@
         value="\p{N}{4}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2} \p{N}{2}\P{N}{1}\p{N}{2}\P{N}{1}\p{N}{2}"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="EpiDataID">
     <xs:restriction base="xs:NCName"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="EpiDataIDRef">
     <xs:restriction base="xs:NCName"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="FieldComparisonType">
     <xs:annotation>
       <xs:documentation>
@@ -211,7 +210,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="FieldType">
     <xs:annotation>
       <xs:documentation>
@@ -359,7 +358,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="HeadingType">
     <xs:annotation>
       <xs:documentation>
@@ -404,7 +403,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="JumpResetType">
     <xs:annotation>
       <xs:documentation>
@@ -442,7 +441,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="JumpType">
     <xs:annotation>
       <xs:documentation>
@@ -481,7 +480,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="RecordStatus">
     <xs:annotation>
       <xs:documentation>
@@ -518,7 +517,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="SingleCharType">
     <xs:annotation>
       <xs:documentation>
@@ -668,21 +667,21 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="Crypto" minOccurs="0"/>
-        <xs:choice>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="Crypto" minOccurs="0"/>
           <xs:element ref="Encrypted"/>
-          <xs:sequence>
-            <xs:element ref="Admin"/>
-            <xs:element ref="Settings"/>
-            <xs:element ref="ProjectSettings"/>
-            <xs:element ref="StudyInfo"/>
-            <xs:element ref="ValueLabelSets" minOccurs="0"/>
-            <xs:element ref="DataFiles"/>
-            <xs:element ref="Relations"/>
-          </xs:sequence>
-        </xs:choice>
-      </xs:sequence>
+        </xs:sequence>
+        <xs:sequence>
+          <xs:element ref="Admin"/>
+          <xs:element ref="Settings"/>
+          <xs:element ref="ProjectSettings"/>
+          <xs:element ref="StudyInfo"/>
+          <xs:element ref="ValueLabelSets" minOccurs="0"/>
+          <xs:element ref="DataFiles"/>
+          <xs:element ref="Relations"/>
+        </xs:sequence>
+      </xs:choice>
       <xs:attribute name="version" type="xs:integer" fixed="4">
         <xs:annotation>
           <xs:documentation>
@@ -727,19 +726,36 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
-  <xs:element name="Encrypted" type="xs:string"/>
-  
+
+  <xs:element name="Encrypted" type="xs:base64Binary"/>
+
   <xs:element name="Admin">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="Users"/>
-<!--     <xs:element ref="Groups"/>
-  <xs:element ref="GroupRelation"/> -->    
+        <xs:element ref="Groups"/>
+        <xs:element ref="GroupRelation"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 
+  <xs:element name="Users">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="User"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="User">
+    <xs:complexType>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="Groups"/>
+
+  <xs:element name="GroupRelation" type="CustomRelation"/>
+  
   <xs:element name="Settings">
     <xs:annotation>
       <xs:documentation>
@@ -1456,5 +1472,4 @@ A heading is also a visual unit and as such also contains positional information
     </xs:annotation>
   </xs:element>
 
-  <xs:element name="Users"/>
 </xs:schema>
