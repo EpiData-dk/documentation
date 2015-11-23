@@ -481,6 +481,36 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="ManageRightsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="earDefineProject"/>
+      <xs:enumeration value="earPrepareDoubleEntry"/>
+      <xs:enumeration value="earTranslate"/>
+      <xs:enumeration value="earGroups"/>
+      <xs:enumeration value="earUsers"/>
+      <xs:enumeration value="earPassword"/>
+      <xs:enumeration value="earExport"/>
+      <xs:enumeration value="earExtentendedData"/>
+      <xs:enumeration value="earReport"/>
+    </xs:restriction>         
+  </xs:simpleType>
+  <xs:simpleType name="ManageRightsSet">
+    <xs:list itemType="ManageRightsType"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="EntryRightsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="eerRead"/>
+      <xs:enumeration value="eerUpdate"/>
+      <xs:enumeration value="eerCreate"/>
+      <xs:enumeration value="eerDelete"/>
+    </xs:restriction>         
+  </xs:simpleType>
+  <xs:simpleType name="EntryRightsSet">
+    <xs:list itemType="EntryRightsType"/>
+  </xs:simpleType>
+  
+
   <xs:simpleType name="RecordStatus">
     <xs:annotation>
       <xs:documentation>
@@ -630,33 +660,53 @@
       <xs:element name="Text" maxOccurs="unbounded" type="EpiDataLangType"/>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="CustomRelation">
+ 
+  
+  <xs:complexType name="CustomRelationItemType">
+    <xs:sequence>
+      <xs:element ref="CustomRelationList" minOccurs="0"/>
+    </xs:sequence>
     <xs:attribute name="id" type="EpiDataID" use="required"/>
   </xs:complexType>
-
-  <xs:complexType name="DataFileRelationType">
+  <xs:complexType name="CustomRelationListType">
+    <xs:sequence>
+      <xs:element ref="CustomRelationItem" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomRelationItem" type="CustomRelationItemType" abstract="true"/>
+  <xs:element name="CustomRelationList" type="CustomRelationListType" abstract="true"/>
+  
+  <xs:complexType name="GroupRelationItemType">
     <xs:complexContent>
-      <xs:extension base="CustomRelation">
-        <xs:sequence>
-          <xs:element name="Relations" type="DataFileRelationType" minOccurs="0" maxOccurs="1"/>
-        </xs:sequence>
+      <xs:extension base="CustomRelationItemType">
+        <xs:attribute name="groupRef" type="EpiDataIDRef" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GroupRelation" substitutionGroup="CustomRelationItem" type="GroupRelationItemType"/>
+  <xs:element name="GroupRelations" substitutionGroup="CustomRelationList"/>
+
+  <xs:complexType name="DataFileRelationItemType">
+    <xs:complexContent>
+      <xs:extension base="CustomRelationItemType">
         <xs:attribute name="dataFileRef" type="EpiDataIDRef" use="required"/>
         <xs:attribute name="maxRecordCount" type="xs:nonNegativeInteger"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-
+  <xs:element name="Relation" substitutionGroup="CustomRelationItem" type="DataFileRelationItemType"/>
+  <xs:element name="Relations" substitutionGroup="CustomRelationList"/>
+  
+  <xs:complexType name="RelateType">
+    <xs:attribute name="relationRef" type="EpiDataIDRef" use="required"/>
+  </xs:complexType>
   <xs:complexType name="ValueRelateType">
     <xs:complexContent>
-      <xs:extension base="CustomRelation">
+      <xs:extension base="RelateType">
         <xs:attribute name="relateValue" type="xs:string" use="required"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-
-
-
 
   <!-- ELEMENTS -->
   <!-- Basis for schema! EpiData -->
@@ -673,7 +723,7 @@
           <xs:element ref="Encrypted"/>
         </xs:sequence>
         <xs:sequence>
-          <xs:element ref="Admin"/>
+          <xs:element ref="Admin" minOccurs="0"/>
           <xs:element ref="Settings"/>
           <xs:element ref="ProjectSettings"/>
           <xs:element ref="StudyInfo"/>
@@ -742,20 +792,45 @@
   <xs:element name="Users">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="User"/>
+        <xs:element ref="User" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   
   <xs:element name="User">
     <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FullName" type="xs:string" minOccurs="0"/>
+        <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+        <xs:element name="GroupRefs" type="EpiDataIDRef" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="EpiDataID" use="required"/>
+      <xs:attribute name="lastLogin" type="EpiDataGlobalDateType"/>
+      <xs:attribute name="created" type="EpiDataGlobalDateType" use="required"/>
+      <xs:attribute name="modified" type="EpiDataGlobalDateType"/>
     </xs:complexType>
   </xs:element>
   
-  <xs:element name="Groups"/>
-
-  <xs:element name="GroupRelation" type="CustomRelation"/>
+  <xs:element name="Groups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Group" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   
+  <xs:element name="Group">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Caption"></xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="EpiDataID" use="required"/>
+      <xs:attribute name="manageRights" type="ManageRightsSet"/>
+      <xs:attribute name="created" type="EpiDataGlobalDateType" use="required"/>
+      <xs:attribute name="modified" type="EpiDataGlobalDateType"/>
+    </xs:complexType>
+  </xs:element>
+
   <xs:element name="Settings">
     <xs:annotation>
       <xs:documentation>
@@ -1000,7 +1075,9 @@ This is also known as a catagory.</xs:documentation>
               <xs:element ref="Notes" minOccurs="0"/>
               <xs:element ref="Sections"/>
               <xs:element ref="Relates" minOccurs="0"/>
+              <xs:element ref="GroupRights" minOccurs="0"/>
               <xs:element ref="KeyFields" minOccurs="0"/>
+              <xs:element name="StatusbarContentString" type="xs:string" minOccurs="0"/>
               <xs:element ref="Records" minOccurs="0"/>
             </xs:sequence>
             <xs:attribute name="version" type="xs:string">
@@ -1056,6 +1133,19 @@ a Base64 encoding of an AES encrypted data stream.</xs:documentation>
         </xs:annotation>
       </xs:attribute>
       <xs:attribute name="encryptedSalt" type="xs:base64Binary"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GroupRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="GroupRight" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="groupRef" type="EpiDataIDRef" use="required"/>
+            <xs:attribute name="entryRights" type="EntryRightsSet" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 
@@ -1341,8 +1431,6 @@ Specifies which field this field is being compared to.</xs:documentation>
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="Relations" type="DataFileRelationType"/>
-
   <xs:element name="Ranges">
     <xs:annotation>
       <xs:documentation>A logical container for a list of range definitions.</xs:documentation>
@@ -1440,7 +1528,7 @@ A heading is also a visual unit and as such also contains positional information
   <xs:element name="Relates">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Relate" type="CustomRelation" maxOccurs="unbounded"/>
+        <xs:element name="Relate" type="RelateType" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
