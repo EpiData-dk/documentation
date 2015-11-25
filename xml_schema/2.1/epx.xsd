@@ -694,8 +694,8 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Relation" substitutionGroup="CustomRelationItem" type="DataFileRelationItemType"/>
-  <xs:element name="Relations" substitutionGroup="CustomRelationList"/>
+  <xs:element name="DataFileRelation" substitutionGroup="CustomRelationItem" type="DataFileRelationItemType"/>
+  <xs:element name="DataFileRelations" substitutionGroup="CustomRelationList"/>
   
   <xs:complexType name="RelateType">
     <xs:attribute name="relationRef" type="EpiDataIDRef" use="required"/>
@@ -729,7 +729,7 @@
           <xs:element ref="StudyInfo"/>
           <xs:element ref="ValueLabelSets" minOccurs="0"/>
           <xs:element ref="DataFiles"/>
-          <xs:element ref="Relations"/>
+          <xs:element ref="DataFileRelations"/>
         </xs:sequence>
       </xs:choice>
       <xs:attribute name="version" type="xs:integer" fixed="4">
