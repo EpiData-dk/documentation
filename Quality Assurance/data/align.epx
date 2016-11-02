@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EpiData xmlns="http://www.epidata.dk/XML/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/2.0 http://www.epidata.dk/XML/2.0/epx.xsd" version="3" xml:lang="en" branch="TRUNK" cycle="6">
+  <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
+  <ProjectSettings autoIncStart="1" timedBackupInterval="10" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
+  <StudyInfo>
+    <Title>
+      <Text xml:lang="en">Untitled Project</Text>
+    </Title>
+    <Author/>
+    <Agency/>
+    <Created>2015/01/22 14.27.57</Created>
+    <Identifier/>
+    <Keywords/>
+    <Modified>2015/01/22 14.27.57</Modified>
+    <Notes/>
+    <Version>1</Version>
+  </StudyInfo>
+  <DataFiles>
+    <DataFile id="dataform_1" created="2015/01/22 14.27.57" modified="2015/01/23 10.20.47" version="" afterRecordState="arsNewRecord">
+      <Caption>
+        <Text xml:lang="en">Dataform 1</Text>
+      </Caption>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="V1" top="34" left="64" type="ftInteger" length="1" decimals="0" entryMode="emDefault" showValueLabel="true"/>
+            <Field id="V2" top="63" left="97" type="ftFloat" length="8" decimals="2" entryMode="emDefault" showValueLabel="true"/>
+            <Field id="V3" top="96" left="128" type="ftString" length="20" decimals="0" entryMode="emDefault" showValueLabel="true"/>
+            <Field id="V4" top="129" left="160" type="ftDMYDate" length="10" decimals="0" entryMode="emDefault" showValueLabel="true"/>
+            <Field id="V5" top="160" left="193" type="ftTime" length="8" decimals="0" entryMode="emDefault" showValueLabel="true"/>
+          </Fields>
+        </Section>
+      </Sections>
+      <Records modified="2015/01/22 14.27.57" encryptedSalt=""/>
+    </DataFile>
+  </DataFiles>
+  <Relations>
+    <Relation id="relation_id_1" dataFileRef="dataform_1"/>
+  </Relations>
+</EpiData>
