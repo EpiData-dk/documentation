@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EpiData xmlns="http://www.epidata.dk/XML/1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/1.3 http://www.epidata.dk/XML/1.3/epx.xsd" version="3" xml:lang="en" branch="TRUNK" cycle="5">
+y<EpiData xmlns="http://www.epidata.dk/XML/1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/1.3 http://www.epidata.dk/XML/1.3/epx.xsd" version="3" xml:lang="en" cycle="5">
   <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
   <ProjectSettings autoIncStart="1" timedBackupInterval="2" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
   <StudyInfo>
