@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EpiData xmlns="http://www.epidata.dk/XML/1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/1.3 http://www.epidata.dk/XML/1.3/epx.xsd" version="2" xml:lang="en" cycle="2">
+ <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
+ <ProjectSettings autoIncStart="1" timedBackupInterval="10" backupOnShutdown="true" showFieldNames="true" showFieldBorders="true"/>
+ <StudyInfo>
+  <Author></Author>
+  <Agency></Agency>
+  <Created>2014/01/31 10.42.11</Created>
+  <Identifier></Identifier>
+  <Keywords></Keywords>
+  <Modified>2014/01/31 10.42.11</Modified>
+  <Notes></Notes>
+  <Version>1</Version>
+  <Title>
+   <Text xml:lang="en">Untitled Project</Text>
+  </Title>
+ </StudyInfo>
+ <ValueLabelSets>
+  <ValueLabelSet id="ICD10" type="ftString">
+   <Internal>
+<ValueLabel order="0" value="A00.0">
+ <Label xml:lang="en">"Cholera due to Vibrio cholerae 01, biovar cholerae"</Label>
+</ValueLabel>
+<ValueLabel order="1" value="A00.1">
+ <Label xml:lang="en">"Cholera due to Vibrio cholerae 01, biovar eltor"</Label>
+</ValueLabel>
+<ValueLabel order="2" value="A00.9">
+ <Label xml:lang="en">"Cholera, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="3" value="A01.0">
+ <Label xml:lang="en">Typhoid fever</Label>
+</ValueLabel>
+<ValueLabel order="4" value="A01.1">
+ <Label xml:lang="en">Paratyphoid fever A</Label>
+</ValueLabel>
+<ValueLabel order="5" value="A01.2">
+ <Label xml:lang="en">Paratyphoid fever B</Label>
+</ValueLabel>
+<ValueLabel order="6" value="A01.3">
+ <Label xml:lang="en">Paratyphoid fever C</Label>
+</ValueLabel>
+<ValueLabel order="7" value="A01.4">
+ <Label xml:lang="en">"Paratyphoid fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="8" value="A02.0">
+ <Label xml:lang="en">Salmonella enteritis</Label>
+</ValueLabel>
+<ValueLabel order="9" value="A02.1">
+ <Label xml:lang="en">Salmonella septicemia</Label>
+</ValueLabel>
+<ValueLabel order="10" value="A02.2">
+ <Label xml:lang="en">Localized salmonella infections</Label>
+</ValueLabel>
+<ValueLabel order="11" value="A02.8">
+ <Label xml:lang="en">Other specified salmonella infections</Label>
+</ValueLabel>
+<ValueLabel order="12" value="A02.9">
+ <Label xml:lang="en">"Salmonella infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="13" value="A03.0">
+ <Label xml:lang="en">Shigellosis due to Shigella dysenteriae</Label>
+</ValueLabel>
+<ValueLabel order="14" value="A03.1">
+ <Label xml:lang="en">Shigellosis due to Shigella flexneri</Label>
+</ValueLabel>
+<ValueLabel order="15" value="A03.2">
+ <Label xml:lang="en">Shigellosis due to Shigella boydii</Label>
+</ValueLabel>
+<ValueLabel order="16" value="A03.3">
+ <Label xml:lang="en">Shigellosis due to Shigella sonnei</Label>
+</ValueLabel>
+<ValueLabel order="17" value="A03.8">
+ <Label xml:lang="en">Other shigellosis</Label>
+</ValueLabel>
+<ValueLabel order="18" value="A03.9">
+ <Label xml:lang="en">"Shigellosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="19" value="A04.0">
+ <Label xml:lang="en">Enteropathogenic Escherichia coli infection</Label>
+</ValueLabel>
+<ValueLabel order="20" value="A04.1">
+ <Label xml:lang="en">Enterotoxigenic Escherichia coli infection</Label>
+</ValueLabel>
+<ValueLabel order="21" value="A04.2">
+ <Label xml:lang="en">Enteroinvasive Escherichia coli infection</Label>
+</ValueLabel>
+<ValueLabel order="22" value="A04.3">
+ <Label xml:lang="en">Enterohemorrhagic Escherichia coli infection</Label>
+</ValueLabel>
+<ValueLabel order="23" value="A04.4">
+ <Label xml:lang="en">Other intestinal Escherichia coli infections</Label>
+</ValueLabel>
+<ValueLabel order="24" value="A04.5">
+ <Label xml:lang="en">Campylobacter enteritis</Label>
+</ValueLabel>
+<ValueLabel order="25" value="A04.6">
+ <Label xml:lang="en">Enteritis due to Yersinia enterocolitica</Label>
+</ValueLabel>
+<ValueLabel order="26" value="A04.7">
+ <Label xml:lang="en">Enterocolitis due to Clostridium difficile</Label>
+</ValueLabel>
+<ValueLabel order="27" value="A04.8">
+ <Label xml:lang="en">Other specified bacterial intestinal infections</Label>
+</ValueLabel>
+<ValueLabel order="28" value="A04.9">
+ <Label xml:lang="en">"Bacterial intestinal infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="29" value="A05.0">
+ <Label xml:lang="en">Foodborne staphylococcal intoxication</Label>
+</ValueLabel>
+<ValueLabel order="30" value="A05.1">
+ <Label xml:lang="en">Botulism</Label>
+</ValueLabel>
+<ValueLabel order="31" value="A05.2">
+ <Label xml:lang="en">Foodborne Clostridium perfringens [Clostridium welchii] intoxication</Label>
+</ValueLabel>
+<ValueLabel order="32" value="A05.3">
+ <Label xml:lang="en">Foodborne Vibrio parahemolyticus intoxication</Label>
+</ValueLabel>
+<ValueLabel order="33" value="A05.4">
+ <Label xml:lang="en">Foodborne Bacillus cereus intoxication</Label>
+</ValueLabel>
+<ValueLabel order="34" value="A05.8">
+ <Label xml:lang="en">Other specified bacterial foodborne intoxications</Label>
+</ValueLabel>
+<ValueLabel order="35" value="A05.9">
+ <Label xml:lang="en">"Bacterial foodborne intoxication, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="36" value="A06.0">
+ <Label xml:lang="en">Acute amebic dysentery</Label>
+</ValueLabel>
+<ValueLabel order="37" value="A06.1">
+ <Label xml:lang="en">Chronic intestinal amebiasis</Label>
+</ValueLabel>
+<ValueLabel order="38" value="A06.2">
+ <Label xml:lang="en">Amebic nondysenteric colitis</Label>
+</ValueLabel>
+<ValueLabel order="39" value="A06.3">
+ <Label xml:lang="en">Ameboma of intestine</Label>
+</ValueLabel>
+<ValueLabel order="40" value="A06.4">
+ <Label xml:lang="en">Amebic liver abscess</Label>
+</ValueLabel>
+<ValueLabel order="41" value="A06.5">
+ <Label xml:lang="en">Amebic lung abscess</Label>
+</ValueLabel>
+<ValueLabel order="42" value="A06.6">
+ <Label xml:lang="en">Amebic brain abscess</Label>
+</ValueLabel>
+<ValueLabel order="43" value="A06.7">
+ <Label xml:lang="en">Cutaneous amebiasis</Label>
+</ValueLabel>
+<ValueLabel order="44" value="A06.8">
+ <Label xml:lang="en">Amebic infection of other sites</Label>
+</ValueLabel>
+<ValueLabel order="45" value="A06.9">
+ <Label xml:lang="en">"Amebiasis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="46" value="A07.0">
+ <Label xml:lang="en">Balantidiasis</Label>
+</ValueLabel>
+<ValueLabel order="47" value="A07.1">
+ <Label xml:lang="en">Giardiasis [lambliasis]</Label>
+</ValueLabel>
+<ValueLabel order="48" value="A07.2">
+ <Label xml:lang="en">Cryptosporidiosis</Label>
+</ValueLabel>
+<ValueLabel order="49" value="A07.3">
+ <Label xml:lang="en">Isosporiasis</Label>
+</ValueLabel>
+<ValueLabel order="50" value="A07.8">
+ <Label xml:lang="en">Other specified protozoal intestinal diseases</Label>
+</ValueLabel>
+<ValueLabel order="51" value="A07.9">
+ <Label xml:lang="en">"Protozoal intestinal disease, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="52" value="A08.0">
+ <Label xml:lang="en">Rotaviral enteritis</Label>
+</ValueLabel>
+<ValueLabel order="53" value="A08.1">
+ <Label xml:lang="en">Acute gastroenteropathy due to Norwalk agent</Label>
+</ValueLabel>
+<ValueLabel order="54" value="A08.2">
+ <Label xml:lang="en">Adenoviral enteritis</Label>
+</ValueLabel>
+<ValueLabel order="55" value="A08.3">
+ <Label xml:lang="en">Other viral enteritis</Label>
+</ValueLabel>
+<ValueLabel order="56" value="A08.4">
+ <Label xml:lang="en">"Viral intestinal infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="57" value="A08.5">
+ <Label xml:lang="en">Other specified intestinal infections</Label>
+</ValueLabel>
+<ValueLabel order="58" value="A09.0">
+ <Label xml:lang="en">Other and unspecified gastroenteritis and colitis of infectious origin</Label>
+</ValueLabel>
+<ValueLabel order="59" value="A09.9">
+ <Label xml:lang="en">Gastroenteritis and colitis of unspecified origin</Label>
+</ValueLabel>
+<ValueLabel order="60" value="A16.2">
+ <Label xml:lang="en">"Tuberculosis of lung, without mention of bacteriological or histological confirmation"</Label>
+</ValueLabel>
+<ValueLabel order="61" value="A16.3">
+ <Label xml:lang="en">"Tuberculosis of intrathoracic lymph nodes, without mention of bacteriological or histological confirmation"</Label>
+</ValueLabel>
+<ValueLabel order="62" value="A16.4">
+ <Label xml:lang="en">"Tuberculosis of larynx, trachea, and bronchus, without mention of bacteriological or histological confirmation"</Label>
+</ValueLabel>
+<ValueLabel order="63" value="A16.5">
+ <Label xml:lang="en">"Tuberculous pleurisy, without mention of bacteriological or histological confirmation"</Label>
+</ValueLabel>
+<ValueLabel order="64" value="A16.7">
+ <Label xml:lang="en">Primary respiratory tuberculosis without mention of bacteriological or histological confirmation</Label>
+</ValueLabel>
+<ValueLabel order="65" value="A16.8">
+ <Label xml:lang="en">"Other respiratory tuberculosis, without mention of bacteriological or histological confirmation"</Label>
+</ValueLabel>
+<ValueLabel order="66" value="A16.9">
+ <Label xml:lang="en">"Respiratory tuberculosis unspecified, without mention of bacteriological or histological confirmation"</Label>
+</ValueLabel>
+<ValueLabel order="67" value="A17.0">
+ <Label xml:lang="en">Tuberculous meningitis</Label>
+</ValueLabel>
+<ValueLabel order="68" value="A17.1">
+ <Label xml:lang="en">Meningeal tuberculoma</Label>
+</ValueLabel>
+<ValueLabel order="69" value="A17.8">
+ <Label xml:lang="en">Other tuberculosis of nervous system</Label>
+</ValueLabel>
+<ValueLabel order="70" value="A17.9">
+ <Label xml:lang="en">"Tuberculosis of nervous system, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="71" value="A18.0">
+ <Label xml:lang="en">Tuberculosis of bones and joints</Label>
+</ValueLabel>
+<ValueLabel order="72" value="A18.1">
+ <Label xml:lang="en">Tuberculosis of genitourinary system</Label>
+</ValueLabel>
+<ValueLabel order="73" value="A18.2">
+ <Label xml:lang="en">Tuberculous peripheral lymphadenopathy</Label>
+</ValueLabel>
+<ValueLabel order="74" value="A18.3">
+ <Label xml:lang="en">"Tuberculosis of intestines, peritoneum, and mesenteric glands"</Label>
+</ValueLabel>
+<ValueLabel order="75" value="A18.4">
+ <Label xml:lang="en">Tuberculosis of skin and subcutaneous tissue</Label>
+</ValueLabel>
+<ValueLabel order="76" value="A18.5">
+ <Label xml:lang="en">Tuberculosis of eye</Label>
+</ValueLabel>
+<ValueLabel order="77" value="A18.6">
+ <Label xml:lang="en">Tuberculosis of ear</Label>
+</ValueLabel>
+<ValueLabel order="78" value="A18.7">
+ <Label xml:lang="en">Tuberculosis of adrenal glands</Label>
+</ValueLabel>
+<ValueLabel order="79" value="A18.8">
+ <Label xml:lang="en">Tuberculosis of other specified organs</Label>
+</ValueLabel>
+<ValueLabel order="80" value="A19.0">
+ <Label xml:lang="en">Acute miliary tuberculosis of a single specified site</Label>
+</ValueLabel>
+<ValueLabel order="81" value="A19.1">
+ <Label xml:lang="en">Acute miliary tuberculosis of multiple sites</Label>
+</ValueLabel>
+<ValueLabel order="82" value="A19.2">
+ <Label xml:lang="en">"Acute miliary tuberculosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="83" value="A19.8">
+ <Label xml:lang="en">Other miliary tuberculosis</Label>
+</ValueLabel>
+<ValueLabel order="84" value="A19.9">
+ <Label xml:lang="en">"Miliary tuberculosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="85" value="A20.0">
+ <Label xml:lang="en">Bubonic plague</Label>
+</ValueLabel>
+<ValueLabel order="86" value="A20.1">
+ <Label xml:lang="en">Cellulocutaneous plague</Label>
+</ValueLabel>
+<ValueLabel order="87" value="A20.2">
+ <Label xml:lang="en">Pneumonic plague</Label>
+</ValueLabel>
+<ValueLabel order="88" value="A20.3">
+ <Label xml:lang="en">Plague meningitis</Label>
+</ValueLabel>
+<ValueLabel order="89" value="A20.7">
+ <Label xml:lang="en">Septicemic plague</Label>
+</ValueLabel>
+<ValueLabel order="90" value="A20.8">
+ <Label xml:lang="en">Other forms of plague</Label>
+</ValueLabel>
+<ValueLabel order="91" value="A20.9">
+ <Label xml:lang="en">"Plague, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="92" value="A21.0">
+ <Label xml:lang="en">Ulceroglandular tularemia</Label>
+</ValueLabel>
+<ValueLabel order="93" value="A21.1">
+ <Label xml:lang="en">Oculoglandular tularemia</Label>
+</ValueLabel>
+<ValueLabel order="94" value="A21.2">
+ <Label xml:lang="en">Pulmonary tularemia</Label>
+</ValueLabel>
+<ValueLabel order="95" value="A21.3">
+ <Label xml:lang="en">Gastrointestinal tularemia</Label>
+</ValueLabel>
+<ValueLabel order="96" value="A21.7">
+ <Label xml:lang="en">Generalized tularemia</Label>
+</ValueLabel>
+<ValueLabel order="97" value="A21.8">
+ <Label xml:lang="en">Other forms of tularemia</Label>
+</ValueLabel>
+<ValueLabel order="98" value="A21.9">
+ <Label xml:lang="en">"Tularemia, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="99" value="A22.0">
+ <Label xml:lang="en">Cutaneous anthrax</Label>
+</ValueLabel>
+<ValueLabel order="100" value="A22.1">
+ <Label xml:lang="en">Pulmonary anthrax</Label>
+</ValueLabel>
+<ValueLabel order="101" value="A22.2">
+ <Label xml:lang="en">Gastrointestinal anthrax</Label>
+</ValueLabel>
+<ValueLabel order="102" value="A22.7">
+ <Label xml:lang="en">Anthrax septicemia</Label>
+</ValueLabel>
+<ValueLabel order="103" value="A22.8">
+ <Label xml:lang="en">Other forms of anthrax</Label>
+</ValueLabel>
+<ValueLabel order="104" value="A22.9">
+ <Label xml:lang="en">"Anthrax, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="105" value="A23.0">
+ <Label xml:lang="en">Brucellosis due to Brucella melitensis</Label>
+</ValueLabel>
+<ValueLabel order="106" value="A23.1">
+ <Label xml:lang="en">Brucellosis due to Brucella abortus</Label>
+</ValueLabel>
+<ValueLabel order="107" value="A23.2">
+ <Label xml:lang="en">Brucellosis due to Brucella suis</Label>
+</ValueLabel>
+<ValueLabel order="108" value="A23.3">
+ <Label xml:lang="en">Brucellosis due to Brucella canis</Label>
+</ValueLabel>
+<ValueLabel order="109" value="A23.8">
+ <Label xml:lang="en">Other brucellosis</Label>
+</ValueLabel>
+<ValueLabel order="110" value="A23.9">
+ <Label xml:lang="en">"Brucellosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="111" value="A24.0">
+ <Label xml:lang="en">Glanders</Label>
+</ValueLabel>
+<ValueLabel order="112" value="A24.1">
+ <Label xml:lang="en">Acute and fulminating melioidosis</Label>
+</ValueLabel>
+<ValueLabel order="113" value="A24.2">
+ <Label xml:lang="en">Subacute and chronic melioidosis</Label>
+</ValueLabel>
+<ValueLabel order="114" value="A24.3">
+ <Label xml:lang="en">Other melioidosis</Label>
+</ValueLabel>
+<ValueLabel order="115" value="A24.4">
+ <Label xml:lang="en">"Melioidosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="116" value="A25.0">
+ <Label xml:lang="en">Spirillosis</Label>
+</ValueLabel>
+<ValueLabel order="117" value="A25.1">
+ <Label xml:lang="en">Streptobacillosis</Label>
+</ValueLabel>
+<ValueLabel order="118" value="A25.9">
+ <Label xml:lang="en">"Rat-bite fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="119" value="A26.0">
+ <Label xml:lang="en">Cutaneous erysipeloid</Label>
+</ValueLabel>
+<ValueLabel order="120" value="A26.7">
+ <Label xml:lang="en">Erysipelothrix septicemia</Label>
+</ValueLabel>
+<ValueLabel order="121" value="A26.8">
+ <Label xml:lang="en">Other forms of erysipeloid</Label>
+</ValueLabel>
+<ValueLabel order="122" value="A26.9">
+ <Label xml:lang="en">"Erysipeloid, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="123" value="A27.0">
+ <Label xml:lang="en">Leptospirosis icterohemorrhagica</Label>
+</ValueLabel>
+<ValueLabel order="124" value="A27.8">
+ <Label xml:lang="en">Other forms of leptospirosis</Label>
+</ValueLabel>
+<ValueLabel order="125" value="A27.9">
+ <Label xml:lang="en">"Leptospirosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="126" value="A28.0">
+ <Label xml:lang="en">Pasteurellosis</Label>
+</ValueLabel>
+<ValueLabel order="127" value="A28.1">
+ <Label xml:lang="en">Cat-scratch disease</Label>
+</ValueLabel>
+<ValueLabel order="128" value="A28.2">
+ <Label xml:lang="en">Extraintestinal yersiniosis</Label>
+</ValueLabel>
+<ValueLabel order="129" value="A28.8">
+ <Label xml:lang="en">"Other specified zoonotic bacterial diseases, not elsewhere classified"</Label>
+</ValueLabel>
+<ValueLabel order="130" value="A28.9">
+ <Label xml:lang="en">"Zoonotic bacterial disease, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="131" value="A30.0">
+ <Label xml:lang="en">Indeterminate leprosy</Label>
+</ValueLabel>
+<ValueLabel order="132" value="A30.1">
+ <Label xml:lang="en">Tuberculoid leprosy</Label>
+</ValueLabel>
+<ValueLabel order="133" value="A30.2">
+ <Label xml:lang="en">Borderline tuberculoid leprosy</Label>
+</ValueLabel>
+<ValueLabel order="134" value="A30.3">
+ <Label xml:lang="en">Borderline leprosy</Label>
+</ValueLabel>
+<ValueLabel order="135" value="A30.4">
+ <Label xml:lang="en">Borderline lepromatous leprosy</Label>
+</ValueLabel>
+<ValueLabel order="136" value="A30.5">
+ <Label xml:lang="en">Lepromatous leprosy</Label>
+</ValueLabel>
+<ValueLabel order="137" value="A30.8">
+ <Label xml:lang="en">Other forms of leprosy</Label>
+</ValueLabel>
+<ValueLabel order="138" value="A30.9">
+ <Label xml:lang="en">"Leprosy, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="139" value="A31.0">
+ <Label xml:lang="en">Pulmonary mycobacterial infection</Label>
+</ValueLabel>
+<ValueLabel order="140" value="A31.1">
+ <Label xml:lang="en">Cutaneous mycobacterial infection</Label>
+</ValueLabel>
+<ValueLabel order="141" value="A31.8">
+ <Label xml:lang="en">Other mycobacterial infections</Label>
+</ValueLabel>
+<ValueLabel order="142" value="A31.9">
+ <Label xml:lang="en">"Mycobacterial infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="143" value="A32.0">
+ <Label xml:lang="en">Cutaneous listeriosis</Label>
+</ValueLabel>
+<ValueLabel order="144" value="A32.1">
+ <Label xml:lang="en">Listerial meningitis and meningoencephalitis</Label>
+</ValueLabel>
+<ValueLabel order="145" value="A32.7">
+ <Label xml:lang="en">Listerial septicemia</Label>
+</ValueLabel>
+<ValueLabel order="146" value="A32.8">
+ <Label xml:lang="en">Other forms of listeriosis</Label>
+</ValueLabel>
+<ValueLabel order="147" value="A32.9">
+ <Label xml:lang="en">"Listeriosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="148" value="A36.0">
+ <Label xml:lang="en">Pharyngeal diphtheria</Label>
+</ValueLabel>
+<ValueLabel order="149" value="A36.1">
+ <Label xml:lang="en">Nasopharyngeal diphtheria</Label>
+</ValueLabel>
+<ValueLabel order="150" value="A36.2">
+ <Label xml:lang="en">Laryngeal diphtheria</Label>
+</ValueLabel>
+<ValueLabel order="151" value="A36.3">
+ <Label xml:lang="en">Cutaneous diphtheria</Label>
+</ValueLabel>
+<ValueLabel order="152" value="A36.8">
+ <Label xml:lang="en">Other diphtheria</Label>
+</ValueLabel>
+<ValueLabel order="153" value="A36.9">
+ <Label xml:lang="en">"Diphtheria, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="154" value="A37.0">
+ <Label xml:lang="en">Whooping cough due to Bordetella pertussis</Label>
+</ValueLabel>
+<ValueLabel order="155" value="A37.1">
+ <Label xml:lang="en">Whooping cough due to Bordetella parapertussis</Label>
+</ValueLabel>
+<ValueLabel order="156" value="A37.8">
+ <Label xml:lang="en">Whooping cough due to other Bordetella species</Label>
+</ValueLabel>
+<ValueLabel order="157" value="A37.9">
+ <Label xml:lang="en">"Whooping cough, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="158" value="A39.0">
+ <Label xml:lang="en">Meningococcal meningitis</Label>
+</ValueLabel>
+<ValueLabel order="159" value="A39.1">
+ <Label xml:lang="en">Waterhouse-Friderichsen syndrome</Label>
+</ValueLabel>
+<ValueLabel order="160" value="A39.2">
+ <Label xml:lang="en">Acute meningococcemia</Label>
+</ValueLabel>
+<ValueLabel order="161" value="A39.3">
+ <Label xml:lang="en">Chronic meningococcemia</Label>
+</ValueLabel>
+<ValueLabel order="162" value="A39.4">
+ <Label xml:lang="en">"Meningococcemia, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="163" value="A39.5">
+ <Label xml:lang="en">Meningococcal heart disease</Label>
+</ValueLabel>
+<ValueLabel order="164" value="A39.8">
+ <Label xml:lang="en">Other meningococcal infections</Label>
+</ValueLabel>
+<ValueLabel order="165" value="A39.9">
+ <Label xml:lang="en">"Meningococcal infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="166" value="A40.0">
+ <Label xml:lang="en">"Septicemia due to streptococcus, group A"</Label>
+</ValueLabel>
+<ValueLabel order="167" value="A40.1">
+ <Label xml:lang="en">"Septicemia due to streptococcus, group B"</Label>
+</ValueLabel>
+<ValueLabel order="168" value="A40.2">
+ <Label xml:lang="en">"Septicemia due to streptococcus, group D"</Label>
+</ValueLabel>
+<ValueLabel order="169" value="A40.3">
+ <Label xml:lang="en">Septicemia due to Streptococcus pneumoniae</Label>
+</ValueLabel>
+<ValueLabel order="170" value="A40.8">
+ <Label xml:lang="en">Other streptococcal septicemia</Label>
+</ValueLabel>
+<ValueLabel order="171" value="A40.9">
+ <Label xml:lang="en">"Streptococcal septicemia, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="172" value="A41.0">
+ <Label xml:lang="en">Septicemia due to Staphylococcus aureus</Label>
+</ValueLabel>
+<ValueLabel order="173" value="A41.1">
+ <Label xml:lang="en">Septicemia due to other specified staphylococcus</Label>
+</ValueLabel>
+<ValueLabel order="174" value="A41.2">
+ <Label xml:lang="en">Septicemia due to unspecified staphylococcus</Label>
+</ValueLabel>
+<ValueLabel order="175" value="A41.3">
+ <Label xml:lang="en">Septicemia due to Hemophilus influenzae</Label>
+</ValueLabel>
+<ValueLabel order="176" value="A41.4">
+ <Label xml:lang="en">Septicemia due to anaerobes</Label>
+</ValueLabel>
+<ValueLabel order="177" value="A41.5">
+ <Label xml:lang="en">Septicemia due to other Gram‑negative organisms</Label>
+</ValueLabel>
+<ValueLabel order="178" value="A41.8">
+ <Label xml:lang="en">Other specified septicemia</Label>
+</ValueLabel>
+<ValueLabel order="179" value="A41.9">
+ <Label xml:lang="en">"Septicemia, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="180" value="A42.0">
+ <Label xml:lang="en">Pulmonary actinomycosis</Label>
+</ValueLabel>
+<ValueLabel order="181" value="A42.1">
+ <Label xml:lang="en">Abdominal actinomycosis</Label>
+</ValueLabel>
+<ValueLabel order="182" value="A42.2">
+ <Label xml:lang="en">Cervicofacial actinomycosis</Label>
+</ValueLabel>
+<ValueLabel order="183" value="A42.7">
+ <Label xml:lang="en">Actinomycotic septicemia</Label>
+</ValueLabel>
+<ValueLabel order="184" value="A42.8">
+ <Label xml:lang="en">Other forms of actinomycosis</Label>
+</ValueLabel>
+<ValueLabel order="185" value="A42.9">
+ <Label xml:lang="en">"Actinomycosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="186" value="A43.0">
+ <Label xml:lang="en">Pulmonary nocardiosis</Label>
+</ValueLabel>
+<ValueLabel order="187" value="A43.1">
+ <Label xml:lang="en">Cutaneous nocardiosis</Label>
+</ValueLabel>
+<ValueLabel order="188" value="A43.8">
+ <Label xml:lang="en">Other forms of nocardiosis</Label>
+</ValueLabel>
+<ValueLabel order="189" value="A43.9">
+ <Label xml:lang="en">"Nocardiosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="190" value="A44.0">
+ <Label xml:lang="en">Systemic bartonellosis</Label>
+</ValueLabel>
+<ValueLabel order="191" value="A44.1">
+ <Label xml:lang="en">Cutaneous and mucocutaneous bartonellosis</Label>
+</ValueLabel>
+<ValueLabel order="192" value="A44.8">
+ <Label xml:lang="en">Other forms of bartonellosis</Label>
+</ValueLabel>
+<ValueLabel order="193" value="A44.9">
+ <Label xml:lang="en">"Bartonellosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="194" value="A48.0">
+ <Label xml:lang="en">Gas gangrene</Label>
+</ValueLabel>
+<ValueLabel order="195" value="A48.1">
+ <Label xml:lang="en">Legionnaires' disease</Label>
+</ValueLabel>
+<ValueLabel order="196" value="A48.2">
+ <Label xml:lang="en">Nonpneumonic Legionnaires' disease [Pontiac fever]</Label>
+</ValueLabel>
+<ValueLabel order="197" value="A48.3">
+ <Label xml:lang="en">Toxic shock syndrome</Label>
+</ValueLabel>
+<ValueLabel order="198" value="A48.4">
+ <Label xml:lang="en">Brazilian purpuric fever</Label>
+</ValueLabel>
+<ValueLabel order="199" value="A48.8">
+ <Label xml:lang="en">Other specified bacterial diseases</Label>
+</ValueLabel>
+<ValueLabel order="200" value="A49.0">
+ <Label xml:lang="en">"Staphylococcal infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="201" value="A49.1">
+ <Label xml:lang="en">"Streptococcal infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="202" value="A49.2">
+ <Label xml:lang="en">"Hemophilus influenzae infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="203" value="A49.3">
+ <Label xml:lang="en">"Mycoplasma infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="204" value="A49.8">
+ <Label xml:lang="en">Other bacterial infections of unspecified site</Label>
+</ValueLabel>
+<ValueLabel order="205" value="A49.9">
+ <Label xml:lang="en">"Bacterial infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="206" value="A50.0">
+ <Label xml:lang="en">"Early congenital syphilis, symptomatic"</Label>
+</ValueLabel>
+<ValueLabel order="207" value="A50.1">
+ <Label xml:lang="en">"Early congenital syphilis, latent"</Label>
+</ValueLabel>
+<ValueLabel order="208" value="A50.2">
+ <Label xml:lang="en">"Early congenital syphilis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="209" value="A50.3">
+ <Label xml:lang="en">Late congenital syphilitic oculopathy</Label>
+</ValueLabel>
+<ValueLabel order="210" value="A50.4">
+ <Label xml:lang="en">Late congenital neurosyphilis [juvenile neurosyphilis]</Label>
+</ValueLabel>
+<ValueLabel order="211" value="A50.5">
+ <Label xml:lang="en">"Other late congenital syphilis, symptomatic"</Label>
+</ValueLabel>
+<ValueLabel order="212" value="A50.6">
+ <Label xml:lang="en">"Late congenital syphilis, latent"</Label>
+</ValueLabel>
+<ValueLabel order="213" value="A50.7">
+ <Label xml:lang="en">"Late congenital syphilis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="214" value="A50.9">
+ <Label xml:lang="en">"Congenital syphilis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="215" value="A51.0">
+ <Label xml:lang="en">Primary genital syphilis</Label>
+</ValueLabel>
+<ValueLabel order="216" value="A51.1">
+ <Label xml:lang="en">Primary anal syphilis</Label>
+</ValueLabel>
+<ValueLabel order="217" value="A51.2">
+ <Label xml:lang="en">Primary syphilis of other sites</Label>
+</ValueLabel>
+<ValueLabel order="218" value="A51.3">
+ <Label xml:lang="en">Secondary syphilis of skin and mucous membranes</Label>
+</ValueLabel>
+<ValueLabel order="219" value="A51.4">
+ <Label xml:lang="en">Other secondary syphilis</Label>
+</ValueLabel>
+<ValueLabel order="220" value="A51.5">
+ <Label xml:lang="en">"Early syphilis, latent"</Label>
+</ValueLabel>
+<ValueLabel order="221" value="A51.9">
+ <Label xml:lang="en">"Early syphilis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="222" value="A52.0">
+ <Label xml:lang="en">Cardiovascular syphilis</Label>
+</ValueLabel>
+<ValueLabel order="223" value="A52.1">
+ <Label xml:lang="en">Symptomatic neurosyphilis</Label>
+</ValueLabel>
+<ValueLabel order="224" value="A52.2">
+ <Label xml:lang="en">Asymptomatic neurosyphilis</Label>
+</ValueLabel>
+<ValueLabel order="225" value="A52.3">
+ <Label xml:lang="en">"Neurosyphilis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="226" value="A52.7">
+ <Label xml:lang="en">Other symptomatic late syphilis</Label>
+</ValueLabel>
+<ValueLabel order="227" value="A52.8">
+ <Label xml:lang="en">"Late syphilis, latent"</Label>
+</ValueLabel>
+<ValueLabel order="228" value="A52.9">
+ <Label xml:lang="en">"Late syphilis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="229" value="A53.0">
+ <Label xml:lang="en">"Latent syphilis, unspecified as early or late"</Label>
+</ValueLabel>
+<ValueLabel order="230" value="A53.9">
+ <Label xml:lang="en">"Syphilis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="231" value="A54.0">
+ <Label xml:lang="en">Gonococcal infection of lower genitourinary tract without periurethral or accessory gland abscess</Label>
+</ValueLabel>
+<ValueLabel order="232" value="A54.1">
+ <Label xml:lang="en">Gonococcal infection of lower genitourinary tract with periurethral and accessory gland abscess</Label>
+</ValueLabel>
+<ValueLabel order="233" value="A54.2">
+ <Label xml:lang="en">Gonococcal pelviperitonitis and other gonococcal genitourinary infections</Label>
+</ValueLabel>
+<ValueLabel order="234" value="A54.3">
+ <Label xml:lang="en">Gonococcal infection of eye</Label>
+</ValueLabel>
+<ValueLabel order="235" value="A54.4">
+ <Label xml:lang="en">Gonococcal infection of musculoskeletal system</Label>
+</ValueLabel>
+<ValueLabel order="236" value="A54.5">
+ <Label xml:lang="en">Gonococcal pharyngitis</Label>
+</ValueLabel>
+<ValueLabel order="237" value="A54.6">
+ <Label xml:lang="en">Gonococcal infection of anus and rectum</Label>
+</ValueLabel>
+<ValueLabel order="238" value="A54.8">
+ <Label xml:lang="en">Other gonococcal infections</Label>
+</ValueLabel>
+<ValueLabel order="239" value="A54.9">
+ <Label xml:lang="en">"Gonococcal infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="240" value="A56.0">
+ <Label xml:lang="en">Chlamydial infection of lower genitourinary tract</Label>
+</ValueLabel>
+<ValueLabel order="241" value="A56.1">
+ <Label xml:lang="en">Chlamydial infection of pelviperitoneum and other genitourinary organs</Label>
+</ValueLabel>
+<ValueLabel order="242" value="A56.2">
+ <Label xml:lang="en">"Chlamydial infection of genitourinary tract, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="243" value="A56.3">
+ <Label xml:lang="en">Chlamydial infection of anus and rectum</Label>
+</ValueLabel>
+<ValueLabel order="244" value="A56.4">
+ <Label xml:lang="en">Chlamydial infection of pharynx</Label>
+</ValueLabel>
+<ValueLabel order="245" value="A56.8">
+ <Label xml:lang="en">Sexually transmitted chlamydial infection of other sites</Label>
+</ValueLabel>
+<ValueLabel order="246" value="A59.0">
+ <Label xml:lang="en">Urogenital trichomoniasis</Label>
+</ValueLabel>
+<ValueLabel order="247" value="A59.8">
+ <Label xml:lang="en">Trichomoniasis of other sites</Label>
+</ValueLabel>
+<ValueLabel order="248" value="A59.9">
+ <Label xml:lang="en">"Trichomoniasis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="249" value="A60.0">
+ <Label xml:lang="en">Herpesviral infection of genitalia and urogenital tract</Label>
+</ValueLabel>
+<ValueLabel order="250" value="A60.1">
+ <Label xml:lang="en">Herpesviral infection of perianal skin and rectum</Label>
+</ValueLabel>
+<ValueLabel order="251" value="A60.9">
+ <Label xml:lang="en">"Anogenital herpesviral infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="252" value="A63.0">
+ <Label xml:lang="en">Anogenital (venereal) warts</Label>
+</ValueLabel>
+<ValueLabel order="253" value="A63.8">
+ <Label xml:lang="en">Other specified predominantly sexually transmitted diseases</Label>
+</ValueLabel>
+<ValueLabel order="254" value="A66.0">
+ <Label xml:lang="en">Initial lesions of yaws</Label>
+</ValueLabel>
+<ValueLabel order="255" value="A66.1">
+ <Label xml:lang="en">Multiple papillomata and wet crab yaws</Label>
+</ValueLabel>
+<ValueLabel order="256" value="A66.2">
+ <Label xml:lang="en">Other early skin lesions of yaws</Label>
+</ValueLabel>
+<ValueLabel order="257" value="A66.3">
+ <Label xml:lang="en">Hyperkeratosis of yaws</Label>
+</ValueLabel>
+<ValueLabel order="258" value="A66.4">
+ <Label xml:lang="en">Gummata and ulcers of yaws</Label>
+</ValueLabel>
+<ValueLabel order="259" value="A66.5">
+ <Label xml:lang="en">Gangosa</Label>
+</ValueLabel>
+<ValueLabel order="260" value="A66.6">
+ <Label xml:lang="en">Bone and joint lesions of yaws</Label>
+</ValueLabel>
+<ValueLabel order="261" value="A66.7">
+ <Label xml:lang="en">Other manifestations of yaws</Label>
+</ValueLabel>
+<ValueLabel order="262" value="A66.8">
+ <Label xml:lang="en">Latent yaws</Label>
+</ValueLabel>
+<ValueLabel order="263" value="A66.9">
+ <Label xml:lang="en">"Yaws, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="264" value="A67.0">
+ <Label xml:lang="en">Primary lesions of pinta</Label>
+</ValueLabel>
+<ValueLabel order="265" value="A67.1">
+ <Label xml:lang="en">Intermediate lesions of pinta</Label>
+</ValueLabel>
+<ValueLabel order="266" value="A67.2">
+ <Label xml:lang="en">Late lesions of pinta</Label>
+</ValueLabel>
+<ValueLabel order="267" value="A67.3">
+ <Label xml:lang="en">Mixed lesions of pinta</Label>
+</ValueLabel>
+<ValueLabel order="268" value="A67.9">
+ <Label xml:lang="en">"Pinta, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="269" value="A68.0">
+ <Label xml:lang="en">Louse-borne relapsing fever</Label>
+</ValueLabel>
+<ValueLabel order="270" value="A68.1">
+ <Label xml:lang="en">Tick-borne relapsing fever</Label>
+</ValueLabel>
+<ValueLabel order="271" value="A68.9">
+ <Label xml:lang="en">"Relapsing fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="272" value="A69.0">
+ <Label xml:lang="en">Necrotizing ulcerative stomatitis</Label>
+</ValueLabel>
+<ValueLabel order="273" value="A69.1">
+ <Label xml:lang="en">Other Vincent's infections</Label>
+</ValueLabel>
+<ValueLabel order="274" value="A69.2">
+ <Label xml:lang="en">Lyme disease</Label>
+</ValueLabel>
+<ValueLabel order="275" value="A69.8">
+ <Label xml:lang="en">Other specified spirochetal infections</Label>
+</ValueLabel>
+<ValueLabel order="276" value="A69.9">
+ <Label xml:lang="en">"Spirochetal infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="277" value="A71.0">
+ <Label xml:lang="en">Initial stage of trachoma</Label>
+</ValueLabel>
+<ValueLabel order="278" value="A71.1">
+ <Label xml:lang="en">Active stage of trachoma</Label>
+</ValueLabel>
+<ValueLabel order="279" value="A71.9">
+ <Label xml:lang="en">"Trachoma, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="280" value="A74.0">
+ <Label xml:lang="en">Chlamydial conjunctivitis</Label>
+</ValueLabel>
+<ValueLabel order="281" value="A74.8">
+ <Label xml:lang="en">Other chlamydial diseases</Label>
+</ValueLabel>
+<ValueLabel order="282" value="A74.9">
+ <Label xml:lang="en">"Chlamydial infection, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="283" value="A75.0">
+ <Label xml:lang="en">Epidemic louse-borne typhus fever due to Rickettsia prowazekii</Label>
+</ValueLabel>
+<ValueLabel order="284" value="A75.1">
+ <Label xml:lang="en">Recrudescent typhus [Brill's disease]</Label>
+</ValueLabel>
+<ValueLabel order="285" value="A75.2">
+ <Label xml:lang="en">Typhus fever due to Rickettsia typhi</Label>
+</ValueLabel>
+<ValueLabel order="286" value="A75.3">
+ <Label xml:lang="en">Typhus fever due to Rickettsia tsutsugamushi</Label>
+</ValueLabel>
+<ValueLabel order="287" value="A75.9">
+ <Label xml:lang="en">"Typhus fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="288" value="A77.0">
+ <Label xml:lang="en">Spotted fever due to Rickettsia rickettsii</Label>
+</ValueLabel>
+<ValueLabel order="289" value="A77.1">
+ <Label xml:lang="en">Spotted fever due to Rickettsia conorii</Label>
+</ValueLabel>
+<ValueLabel order="290" value="A77.2">
+ <Label xml:lang="en">Spotted fever due to Rickettsia sibirica</Label>
+</ValueLabel>
+<ValueLabel order="291" value="A77.3">
+ <Label xml:lang="en">Spotted fever due to Rickettsia australis</Label>
+</ValueLabel>
+<ValueLabel order="292" value="A77.8">
+ <Label xml:lang="en">Other spotted fevers</Label>
+</ValueLabel>
+<ValueLabel order="293" value="A77.9">
+ <Label xml:lang="en">"Spotted fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="294" value="A79.0">
+ <Label xml:lang="en">Trench fever</Label>
+</ValueLabel>
+<ValueLabel order="295" value="A79.1">
+ <Label xml:lang="en">Rickettsialpox due to Rickettsia akari</Label>
+</ValueLabel>
+<ValueLabel order="296" value="A79.8">
+ <Label xml:lang="en">Other specified rickettsioses</Label>
+</ValueLabel>
+<ValueLabel order="297" value="A79.9">
+ <Label xml:lang="en">"Rickettsiosis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="298" value="A80.0">
+ <Label xml:lang="en">"Acute paralytic poliomyelitis, vaccine-associated"</Label>
+</ValueLabel>
+<ValueLabel order="299" value="A80.1">
+ <Label xml:lang="en">"Acute paralytic poliomyelitis, wild virus, imported"</Label>
+</ValueLabel>
+<ValueLabel order="300" value="A80.2">
+ <Label xml:lang="en">"Acute paralytic poliomyelitis, wild virus, indigenous"</Label>
+</ValueLabel>
+<ValueLabel order="301" value="A80.3">
+ <Label xml:lang="en">"Acute paralytic poliomyelitis, other and unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="302" value="A80.4">
+ <Label xml:lang="en">Acute nonparalytic poliomyelitis</Label>
+</ValueLabel>
+<ValueLabel order="303" value="A80.9">
+ <Label xml:lang="en">"Acute poliomyelitis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="304" value="A81.0">
+ <Label xml:lang="en">Creutzfeldt-Jakob disease</Label>
+</ValueLabel>
+<ValueLabel order="305" value="A81.1">
+ <Label xml:lang="en">Subacute sclerosing panencephalitis</Label>
+</ValueLabel>
+<ValueLabel order="306" value="A81.2">
+ <Label xml:lang="en">Progressive multifocal leukoencephalopathy</Label>
+</ValueLabel>
+<ValueLabel order="307" value="A81.8">
+ <Label xml:lang="en">Other atypical virus infections of central nervous system</Label>
+</ValueLabel>
+<ValueLabel order="308" value="A81.9">
+ <Label xml:lang="en">"Atypical virus infection of central nervous system, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="309" value="A82.0">
+ <Label xml:lang="en">Sylvatic rabies</Label>
+</ValueLabel>
+<ValueLabel order="310" value="A82.1">
+ <Label xml:lang="en">Urban rabies</Label>
+</ValueLabel>
+<ValueLabel order="311" value="A82.9">
+ <Label xml:lang="en">"Rabies, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="312" value="A83.0">
+ <Label xml:lang="en">Japanese encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="313" value="A83.1">
+ <Label xml:lang="en">Western equine encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="314" value="A83.2">
+ <Label xml:lang="en">Eastern equine encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="315" value="A83.3">
+ <Label xml:lang="en">St. Louis encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="316" value="A83.4">
+ <Label xml:lang="en">Australian encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="317" value="A83.5">
+ <Label xml:lang="en">California encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="318" value="A83.6">
+ <Label xml:lang="en">Rocio virus disease</Label>
+</ValueLabel>
+<ValueLabel order="319" value="A83.8">
+ <Label xml:lang="en">Other mosquito-borne viral encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="320" value="A83.9">
+ <Label xml:lang="en">"Mosquito-borne viral encephalitis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="321" value="A84.0">
+ <Label xml:lang="en">Far Eastern tick-borne encephalitis [Russian spring-summer encephalitis]</Label>
+</ValueLabel>
+<ValueLabel order="322" value="A84.1">
+ <Label xml:lang="en">Central European tick-borne encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="323" value="A84.8">
+ <Label xml:lang="en">Other tick-borne viral encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="324" value="A84.9">
+ <Label xml:lang="en">"Tick-borne viral encephalitis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="325" value="A85.0">
+ <Label xml:lang="en">Enteroviral encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="326" value="A85.1">
+ <Label xml:lang="en">Adenoviral encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="327" value="A85.2">
+ <Label xml:lang="en">"Arthropod-borne viral encephalitis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="328" value="A85.8">
+ <Label xml:lang="en">Other specified viral encephalitis</Label>
+</ValueLabel>
+<ValueLabel order="329" value="A87.0">
+ <Label xml:lang="en">Enteroviral meningitis</Label>
+</ValueLabel>
+<ValueLabel order="330" value="A87.1">
+ <Label xml:lang="en">Adenoviral meningitis</Label>
+</ValueLabel>
+<ValueLabel order="331" value="A87.2">
+ <Label xml:lang="en">Lymphocytic choriomeningitis</Label>
+</ValueLabel>
+<ValueLabel order="332" value="A87.8">
+ <Label xml:lang="en">Other viral meningitis</Label>
+</ValueLabel>
+<ValueLabel order="333" value="A87.9">
+ <Label xml:lang="en">"Viral meningitis, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="334" value="A88.0">
+ <Label xml:lang="en">Enteroviral exanthematous fever [Boston exanthem]</Label>
+</ValueLabel>
+<ValueLabel order="335" value="A88.1">
+ <Label xml:lang="en">Epidemic vertigo</Label>
+</ValueLabel>
+<ValueLabel order="336" value="A88.8">
+ <Label xml:lang="en">Other specified viral infections of central nervous system</Label>
+</ValueLabel>
+<ValueLabel order="337" value="A92.0">
+ <Label xml:lang="en">Chikungunya virus disease</Label>
+</ValueLabel>
+<ValueLabel order="338" value="A92.1">
+ <Label xml:lang="en">O'nyong-nyong fever</Label>
+</ValueLabel>
+<ValueLabel order="339" value="A92.2">
+ <Label xml:lang="en">Venezuelan equine fever</Label>
+</ValueLabel>
+<ValueLabel order="340" value="A92.3">
+ <Label xml:lang="en">West Nile fever</Label>
+</ValueLabel>
+<ValueLabel order="341" value="A92.4">
+ <Label xml:lang="en">Rift Valley fever</Label>
+</ValueLabel>
+<ValueLabel order="342" value="A92.8">
+ <Label xml:lang="en">Other specified mosquito-borne viral fevers</Label>
+</ValueLabel>
+<ValueLabel order="343" value="A92.9">
+ <Label xml:lang="en">"Mosquito-borne viral fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="344" value="A93.0">
+ <Label xml:lang="en">Oropouche virus disease</Label>
+</ValueLabel>
+<ValueLabel order="345" value="A93.1">
+ <Label xml:lang="en">Sandfly fever</Label>
+</ValueLabel>
+<ValueLabel order="346" value="A93.2">
+ <Label xml:lang="en">Colorado tick fever</Label>
+</ValueLabel>
+<ValueLabel order="347" value="A93.8">
+ <Label xml:lang="en">Other specified arthropod-borne viral fevers</Label>
+</ValueLabel>
+<ValueLabel order="348" value="A95.0">
+ <Label xml:lang="en">Sylvatic yellow fever</Label>
+</ValueLabel>
+<ValueLabel order="349" value="A95.1">
+ <Label xml:lang="en">Urban yellow fever</Label>
+</ValueLabel>
+<ValueLabel order="350" value="A95.9">
+ <Label xml:lang="en">"Yellow fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="351" value="A96.0">
+ <Label xml:lang="en">Junin hemorrhagic fever</Label>
+</ValueLabel>
+<ValueLabel order="352" value="A96.1">
+ <Label xml:lang="en">Machupo hemorrhagic fever</Label>
+</ValueLabel>
+<ValueLabel order="353" value="A96.2">
+ <Label xml:lang="en">Lassa fever</Label>
+</ValueLabel>
+<ValueLabel order="354" value="A96.8">
+ <Label xml:lang="en">Other arenaviral hemorrhagic fevers</Label>
+</ValueLabel>
+<ValueLabel order="355" value="A96.9">
+ <Label xml:lang="en">"Arenaviral hemorrhagic fever, unspecified"</Label>
+</ValueLabel>
+<ValueLabel order="356" value="A98.0">
+ <Label xml:lang="en">Crimean-Congo hemorrhagic fever</Label>
+</ValueLabel>
+<ValueLabel order="357" value="A98.1">
+ <Label xml:lang="en">Omsk hemorrhagic fever</Label>
+</ValueLabel>
+<ValueLabel order="358" value="A98.2">
+ <Label xml:lang="en">Kyasanur Forest disease</Label>
+</ValueLabel>
+<ValueLabel order="359" value="A98.3">
+ <Label xml:lang="en">Marburg virus disease</Label>
+</ValueLabel>
+<ValueLabel order="360" value="A98.4">
+ <Label xml:lang="en">Ebola virus disease</Label>
+</ValueLabel>
+<ValueLabel order="361" value="A98.5">
+ <Label xml:lang="en">Hemorrhagic fever with renal syndrome</Label>
+</ValueLabel>
+<ValueLabel order="362" value="A98.8">
+ <Label xml:lang="en">Other specified viral hemorrhagic fevers</Label>
+</ValueLabel>
+   </Internal>
+  </ValueLabelSet>
+ </ValueLabelSets>
+ <DataFiles>
+  <DataFile id="datafile_id_1" created="2014/01/31 10.42.11" modified="2014/01/31 10.44.23">
+   <Records modified="2014/01/31 11.11.45">
+   </Records>
+   <Caption>
+    <Text xml:lang="en">Dataform 1</Text>
+   </Caption>
+   <Sections>
+    <Section id="MAIN" top="0" left="0" width="0" height="0">
+     <Fields/>
+     <Headings/>
+    </Section>
+   </Sections>
+  </DataFile>
+ </DataFiles>
+</EpiData>
