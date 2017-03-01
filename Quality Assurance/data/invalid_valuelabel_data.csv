@@ -1,0 +1,30 @@
+Vcode,Vname 
+J22/J18,"Acute respiratory infection, including pneumonia"
+B24,HIV and AIDS Related Death
+A09,Diarrheal Diseases
+B54,Malaria
+B05,Measles
+A16,Pulmonary Tuberculosis
+E14,Diabetes Mellitus
+I99,Hypertension
+J45(J46),Asthma
+I64,Stroke
+G40,Epilepsy
+C80.1,Cancer
+V89,Road Traffic Accident
+W19,Accidental fall
+X09,Accidental exposure to smoke fire and flames
+X29,Contact with venomous animals and plants
+X84,Intentional self-harm
+X49,Accidental poisoning and exposure to Noxious substance
+Y09,Assault
+X39,Exposure to force of nature
+999,Neonatal Death
+C80.1,Cancer
+E46,Severe Malnutrition
+VAs-09,Pregnancy related
+999,During Pregnancy
+999,Within 6 weeks of delivery
+R99,Unknown Causes Of Death - Sudden
+1R99,Unknown Causes Of Death - Acute  (within 3 months)
+2R99,Unknown Causes Of Death - Chronic Illness (more than 3 months)
