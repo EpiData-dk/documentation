@@ -1,5 +1,3 @@
-@Library('epidata.pipeline@branches/home') _
-
 env.MANUAL_VERSION='1.0'
 
 node {
