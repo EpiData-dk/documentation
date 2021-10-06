@@ -24,11 +24,10 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>epidataentryclient/</directory>
-            <outputDirectory>epidataentryclient/</outputDirectory>
+            <directory>epidataanalysis/</directory>
+            <outputDirectory>epidataanalysis/</outputDirectory>
             <includes>
-                <include>epidataentryclientintro.pdf</include>
-                <include>epidataentryclientshortcuts.pdf</include>
+                <include>EpiDataAnalysis_Introduction.pdf</include>
             </includes>
         </fileSet>
         <fileSet>
