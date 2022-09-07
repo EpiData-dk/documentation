@@ -2,37 +2,14 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
     <id>docs</id>
-    <baseDirectory>docs/</baseDirectory>
+    <baseDirectory>/</baseDirectory>
     <formats>
         <format>tar.gz</format>
     </formats>
     <fileSets>
         <fileSet>
-            <directory>epidatamanager/</directory>
-            <outputDirectory>epidatamanager/</outputDirectory>
-            <includes>
-                <include>epidatamanagerintro.pdf</include>
-                <include>epidatamanagershortcuts.pdf</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>epidataentryclient/</directory>
-            <outputDirectory>epidataentryclient/</outputDirectory>
-            <includes>
-                <include>epidataentryclientintro.pdf</include>
-                <include>epidataentryclientshortcuts.pdf</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>epidataanalysis/</directory>
-            <outputDirectory>epidataanalysis/</outputDirectory>
-            <includes>
-                <include>EpiDataAnalysis_Introduction.pdf</include>
-            </includes>
-        </fileSet>
-        <fileSet>
             <directory>admin_docs/</directory>
-            <outputDirectory>admin_docs/</outputDirectory>
+            <outputDirectory>docs/</outputDirectory>
             <includes>
                 <include>ExtendedAccess.pdf</include>
             </includes>
