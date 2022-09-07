@@ -1,6 +1,7 @@
 name: Build Documentation Artifact
 
 on:
+  pull_request:    
   push:
     branches:
       - master
@@ -43,9 +44,14 @@ jobs:
                 }                
               }
             ]'
-            
-      - name: Deploy
+
+      - name: Set Version and package
         run: |
-          mvn versions:set -DnewVersion=${DOCUMENTS_VERSION}.${GITHUB_RUN_NUMBER} -f pom.xml
-          mvn deploy -f deploy.pom.xml
-          mvn clean
+          mvn versions:set -DnewVersion=${DOCUMENTS_VERSION}.${GITHUB_RUN_NUMBER}
+          mvn package
+
+      - name: Upload package
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          mvn deploy
+
