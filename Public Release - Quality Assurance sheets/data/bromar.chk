@@ -1,0 +1,43 @@
+* Check file created from import of the Stata file C:\data\bromar.dta
+
+LABELBLOCK
+  LABEL kmlbl
+    1  "0- 25 km"
+    2  "26-62 km"
+    3  "63 -120"
+    4  "120+ km"
+    5  Copenhagen
+    6  "East Denmark Other"
+  END
+  LABEL declbl
+    0  "2.5-3.4"
+    1  "3.5-3.7"
+    2  "3.8-4.1"
+    3  "4.2-6.2"
+  END
+  LABEL yn
+    0  No
+    1  Yes
+  END
+END
+
+sex
+   COMMENT LEGAL 
+   1 "Female"
+   2 "Male"
+end
+MISSINGVALUE 9 
+END
+
+kmgrp
+  COMMENT LEGAL USE kmlbl
+END
+
+decgrp
+  COMMENT LEGAL USE declbl
+END
+
+runok
+  COMMENT LEGAL USE yn
+END
+

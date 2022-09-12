@@ -1,0 +1,45 @@
+* test relate by value of means in complete and combined file with relate
+cls
+set echo = off
+type "Test means on a complete and combined file"
+read "POLITI.DBF" /close
+sort soevn slags
+gen i id = recnumber
+means soevn slags if soevn <> 99 and soevn <> 0  /q
+define mean1 ##.########## global
+define sum1 ##.########## global
+define obs1 #### global
+define mean2 ##.########## global
+define sum2 ##.########## global
+define obs2 #### global
+mean1 = $mean1
+sum1 = $sum1
+obs1 = $obs1
+mean2 = $mean2
+sum2 = $sum2
+obs2 = $obs2
+drop slags
+erase p1.rec
+savedata p1
+read "politi.dbf" /close
+sort soevn slags
+gen i id = recnumber
+drop soevn
+erase p2.rec
+savedata p2
+type "Repeat analysis after relate"
+read p1 /close
+relate id p2
+means soevn slags if soevn <> 99 and soevn <> 0 /q
+
+assert samenum(mean1,$mean1)
+assert sum1 = $sum1
+assert obs1 = $obs1
+assert mean2 = $mean2
+assert sum2 = $sum2
+assert lre(obs2,$obs2) > 14
+
+
+
+
+

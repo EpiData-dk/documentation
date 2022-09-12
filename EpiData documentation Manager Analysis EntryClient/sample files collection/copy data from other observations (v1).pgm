@@ -1,0 +1,64 @@
+// complex change in a file read from a register, where some observations are empty
+// shows how to compare content from one observation to the next
+// version 1.0
+// EpiData Association - get latest Analysis from http://www.epidata.dk
+
+cls;
+Read "diagnosis-list.csv"  !c           ;
+select _n < 10 do list data ;
+browse !caption:="Observations before any change" ;   //close all open browsers
+list var;
+
+freq hours !m;
+freq age !m;
+
+
+// now fill in for the variables age diagnose and procedures the correct value from previous observation
+new global j i;
+
+
+// first test with 5 observations:
+// notice the use of three different functions: trim, length and substring.
+// one could use the same in all three - it is merely for demonstration and inspiration
+for j := 1 to 5 do
+   begin
+     age[j] := iif(trim(age[j]) = ".", age[j-1],age[j]);
+     diagnosis[j] := iif(length(diagnosis[j]) = 0 , diagnosis[j-1],diagnosis[j]);
+     procedures[j] := iif(substring(procedures[j],1,1) <> ".", procedures[j],procedures[j-1]);
+   end;
+
+select _n < 11
+    do browse !caption:="Observations after changing. Note only first five are completed" ;
+
+set "show info" := "on";
+// in version 1.0 the next line will be with a comment:
+// following version 1.0, one could here do an aggregate command:
+// agg age hours  !sum:=number !m;
+
+// now we can do it for all, but turn output off
+set "show info" := "on";
+count;
+set "show info" := "off";
+? "all observations will now be changed, n= " + $count;
+
+// repeat
+// first test with 5 observations:
+// notice the use of three different functions: trim, length and substring.
+// one could use the same in all three - it is merely for demonstration and inspiration
+for j := 1 to $count do
+   begin
+     age[j] := iif(trim(age[j]) = ".", age[j-1],age[j]);
+     diagnosis[j] := iif(length(diagnosis[j]) = 0 , diagnosis[j-1],diagnosis[j]);
+     procedures[j] := iif(substring(procedures[j],1,1) <> ".", procedures[j],procedures[j-1]);
+   end;
+set "show info" := "on";
+
+browse !caption:="After changing all observations, data should be complete" ;
+
+// in version 1.0 the next line will be with a comment:
+// following version 1.0, one could here do an aggregate command:
+// agg age hours  !sum:=number !m;
+
+freq hours !m;
+freq age !m;
+

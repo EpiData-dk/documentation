@@ -1,0 +1,991 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<head><title>EpiData Software - http://www.epidata.dk</title>
+  <META Name="Author" CONTENT="JM.Lauritsen">
+  <META NAME="Revisit-after" CONTENT="8">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <link href="css/epidata.css" rel="stylesheet" type="text/css" media="screen">
+
+  <meta name="description" content="EpiData Web page">
+  <meta name="distribution" content="global">
+  <meta name="resource-type" content="document">
+   <meta name="robots" content="all">
+ 
+<link rel="SHORTCUT ICON" href="http://www.epidata.dk/favicon.ico">
+
+<script type="text/javascript">if (window.self != window.top) window.top.location = window.self.location; </script>
+
+	<STYLE>
+	<!--
+		P { color: #000000; font-family: serif,sanserif,monospace ; font-size: 1.0em; ALIGN=JUSTIFY}
+		H1 {  font-size: 1.1em; margin-top: 1cm;  color: #000000; widows: 2; orphans: 2; color : Blue }
+		H2 { font-size: 1.05em;  margin-top: 0.5cm; direction: ltr; color: #000000; text-align: left; ; color : Blue}
+		H3 { font-size: 1.025em; margin-top: 0.5cm;  direction: ltr; color: #000000; text-align: left; ; color : Blue }
+		H4 { font-size: 1.0em; margin-top: 0.5cm;  direction: ltr; color: #000000; text-align: left; ; color : Blue }
+                body {color: black; background-color: white;  font-size: 1.0em; font-weight: normal}
+	      	.heading { color: blue; font-weight: bold; font-size: 1.05em; ALIGN=JUSTIFY}
+
+		table.box1 {empty-cells: show; 	vertical-align: baseline; border-spacing: 0; font-family: "Times New Roman",serif,verdana ; font-size: 1.0em; }
+		table.box1 { color: #000000;	background-color: #f8f8f8;	empty-cells: show;}
+		table.box1 td { border: solid thin blue; Text-align: right;	padding-left: .3em;	padding-right: .3em; font-size: 1.0em}
+		table.box1 .firstcol { Text-align: left ; font-weight: bold; color: red}   
+
+		table.filled1 {	empty-cells: show; 	vertical-align: baseline; font-family: "Times New Roman",serif,verdana ; font-size: 1.0em;}
+		table.filled1 { color: blue;	background-color: #f8f8f8;	empty-cells: show; font-size: 1.0em}
+		table.filled1 tr {	border: none;	border-spacing: 0.6mm;}
+		table.filled1 tr, td { 	background-color: #dddddd; color: #000000;	padding: .2em; }
+		table.filled1 .caption {font-size: 1.1em ; color: blue; padding: .2em; background-color: #dddddd;}
+		table.filled1 .even { 	color: blue; background-color: white; padding: .2em; font-family: "Times New Roman",serif,verdana ; font-size: 1.0em;}
+		table.filled1 .uneven {	color: red; background-color: yellow; font-weight: bold; padding: .2em; font-family: "Times New Roman",serif,verdana ; font-size: 1.0em;}
+	-->
+	</STYLE>
+
+
+<!-- Here we use a conditional comment to give IE/5/6/Win the javascript hack that helps them do max-width --><!--[if IE]>
+  <style type="text/css">
+    #sizer {
+    width:expression(document.body.clientWidth > 900 ? "300px" : "50%" );
+    }
+    #news {
+    margin-left: 10px;
+    }
+  </style>
+<![endif]-->
+
+</head>
+
+<body>
+
+<div id="sizer">
+<div id="expander">
+
+<!- page starts here -->
+
+<h2 class="top" style="background-image: url('grafik/r38.png'); background-repeat: repeat-x;"><img src="grafik/epidata.png" alt="+" height="25px">EpiData Software</h2>
+   <div id="header">
+      <ul>
+        <li><A href="Http://www.epidata.dk" title="Main EpiData page">Home</a></li>
+        <li><a href="Http://www.epidata.dk/about.htm" title="What is the EpiData Association">About</a></li>      
+        <li><a href="#public">Current public release</a></li>
+        <li><a href="#known">Known Issues - public release</a></li>
+         <li><a href="#test">Aspects in test versions or development</a></li>
+   </ul>
+ 	</div>
+
+<div class="maincol">
+<!-- content of main window -->
+
+<h4 style="background-image: url('grafik/r.png'); background-repeat: repeat-x;">EpiData Analysis </h4>
+
+<p>Copyright 2002-2008  Epidata Association <A HREF="HTTP://www.epidata.dk">www.epidata.dk</A></font>
+</p>
+
+<p>Discuss problems on the <a href="http://lists.umanitoba.ca/mailman/listinfo/epidata-list">EpiData list</a> and report definite
+  bugs to <a href="http://www.epidata.dk/php/mantis.php">the development and bug tracking system</A>, which 
+documents all developments. This is also part of preparation for compliance with GCP (Good Clinical Practice) principles implementation)
+</p>
+
+<hr>
+<a name="test"></a><h4 style="background-image: url('grafik/r.png'); background-repeat: repeat-x;">
+Currently in development (test versions)</h4>
+<ul>
+  <li>A Wiki based manual and reference system expected released later (to be announced)<br>&nbsp;</li>
+  <li>New experimental commands in development (expect errors or incomplete function):
+      	 <ul>
+           <li>Xchart: New experimental graphs</li>
+	 </ul>
+</UL>
+
+<p>Test versions are available at <a href="Http://www.epidata.dk/testing.php">www.epidata.dk/testing.php</a> (requires internet)
+ <br>Build numbers not mentioned here are internal for developers only</p>
+
+<hr>
+<p class="heading">Latest test version</p> 
+
+Test version (see version number on test page) available from: <a href="Http://www.epidata.dk/testing.php">the testing.php page</a> contains: 
+
+<p class="heading">Version 2.0.4 build 141 <small>Release candidate for v2.1</small> </p>
+
+ <ul><li>Extended or adapted function
+     <ul>
+      <li>Information given of "current select" or "if" when doing analysis commands
+      <li>Reading of value labels in external files adapted
+      <li>Creates correct build and version numbering (release set to 4).
+      <li>Some tab delimited files with extra tabs can be read now
+      <li>Boxplot now shows a table of values for percentiles  
+      </ul></li>
+  <li>Bugs fixed
+	<ul>
+          <li>/c=xxx can now be used for value labels with string variables
+          <li>percent signs cannot be used in lines with a comment *
+          <li>Sorting tables now correct in dialogs and /fv tables
+          <li>Table dialog for Pareto corrected to take string variables
+          <li>other minor bugs 
+       </ul>
+  </ul>
+
+<p class="heading">Version 2.0.0 build 138 <small>Release candidate for v2.1</small> </p>
+
+ <ul><li>Extended or adapted function
+     <ul>
+      <li>READ /CB: Read "csv" files placed on clipboard
+      <li>Import data from clipboard (if placed as delimited files)</li>
+      <li>Browse and Updata completely rewritten
+       <ul><li>Copy all or part of data to clipboard
+            <li>Sort while looking at data pointing to a variable
+            <li>Variable information available on right click
+       </ul>
+      <li>List displays labels by default. Add /vl /v to modify
+      <li>Recode: value labels extended for all recoding
+      <li>Translation: All dialogs translated (ready for translators)
+      </ul></li>
+  <li>Documentation
+	<ul>
+	<li>Command reference updated (F1)</li>
+	</ul></li>
+  <li>Bugs
+	<ul>
+	<li>Various bugs removed </li>
+	<li>Known bugs or problems
+        <ul>
+          <li>percent signs cannot be used in lines with a comment *
+          <li>Some examples of reading csv files with problems exist
+          <li>Small data size problems can occour exist with 2x2 estimation and percentiles
+          <li>Pareto plot - in menu dialog - cannot take weight variable
+        /ul></li>
+  	</ul></li>
+       </ul>
+</ul>
+
+<p class="heading">Version 2.0.0 build 134 </p> 
+
+ <ul><li>Extended or adapted function
+     <ul>
+      <li>CIPLOT: adapted to changed order of variables and defaults</li>
+      <li>BAR and Histogram: Y axis can be scaled as percent: Option /PCT
+       <li>Weight variables can be non-integer
+      <li>merge accepts comparing upper string with string key  
+      <li>Update disabled this build (inconsistent behaviour must be rewritten)
+      </ul></li>
+  <li>Documentation
+	<ul>
+	<li>Command reference updated (F1)</li>
+	</ul></li>
+  <li>Bugs
+	<ul>
+        <li>Upper string variables written as standard string
+	<li>Various bugs removed </li>
+	</ul></li>
+
+
+</ul>
+
+
+<p class="heading">Version 2.0.0 build 132 </p> 
+
+ <ul><li>Extended or adapted function
+     <ul>
+      <li>CIPLOT: new command to show proportions and Confidence Interval</li>
+      <li>Translation almost ready</li>
+	  <li>Menu and toolbar design simplified and unified (for translation)
+      </ul></li>
+  <li>Various bugs fixed
+  <li>Documentation
+	<ul>
+	<li>Command reference updated (F1)</li>
+	</ul></li>
+</ul>
+
+
+<p class="heading">Version 2.0.0 build 131 </p> 
+
+ <ul><li>Extended or adapted function
+     <ul>
+      <li>Close and Read: If you have not modified data in memory, then close is not needed</li>
+	  <li>Menu adapted: <ul><li>"Window" added as a word on help menu <li>Exit changed to Help in editor
+	  <li>Default windowing (file menu - setup): will now save the default position</ul>
+      </ul></li>
+  <li>Various bugs fixed:
+        <ul><li>Modified principle for Keyboard Shortcuts</li>     
+           </ul></li>
+  
+</ul>
+
+
+<p class="heading">Version 2.0.0 build 130 </p> 
+
+ <ul><li>Extended or adapted function
+     <ul>
+      <li>HELPVIEW: new command show html file in help window</li>
+      <li>Translation process started. </li>
+	  <li>Menu and toolbar design simplified and unified (for translation)
+      </ul></li>
+  <li>Various bugs fixed:
+        <ul><li>Counting error with tab ... /CC</li>     
+           <li>SPC graph float was integer</li>     
+           <li>Various minor bugs - see mantis system</li>
+		   <li>See also build 129 below
+		</ul></li>
+  <li>Documentation
+	<ul>
+	<li>Command reference updated (F1)</li>
+	</ul></li>
+</ul>
+
+
+<hr>
+<a name="public"></a><h4 style="background-image: url('grafik/r.png'); background-repeat: repeat-x;">Latest public release</h4>
+
+
+<p class="heading">Version 2.0.3 build 129 </p> 
+
+ <ul><li>Extended or adapted function
+     <ul>
+      <li>Memory control: Memory usage optimised (after testsuite: was 200Mb, now 15Mb)</li>
+      <li>Box plot clarified to get a default Tukey design.</li>
+      <li>dotplot extended with user control of dot separation</li>
+      <li>user control of more graph colours with axis</li>
+      <li>Clarification of information when using: /m and /by with means and kwallis</li>
+      <li>Graphs: Option /bw : change colour setting to black and white</li>
+      <li>Graphs: Colour for axes and texts defined by: set graph colour text</li>
+     </ul></li>
+  <li>Various bugs fixed:
+        <ul><li>Writing files with "automatic" naming convention</li>     
+           <li>Incorrect Odds Ratio with more than two strata</li>     
+           <li>Various minor bugs - see mantis system</li>
+	   <li>Incorrect variable name error</li>
+           <li>Incorrect last point control limits in P-Charts</li>
+         </ul></li> 
+  <li>Documentation
+  <ul>
+   <li>Command reference updated (F1)</li>
+  </ul></li>
+</ul>
+
+
+
+<a name="known"></a><h4 style="background-image: url('grafik/r.png'); background-repeat: repeat-x;">Known issues in current <a href="#public">public release</a></h4> 
+<ul>
+<li>Problems of estimation:<ul>
+<li>Percentages in pie charts are not always correct.
+</ul>
+<li>User examples of these problems should be reported:<ul>
+<li>Odds Ratios and RR in tables with Rare data (0 in cells)
+<li>Correlate command results in "floating point error" when correlate cannot be calculated
+</ul>
+<li>Tests of homogeneity (interaction) in summary stratified 2x2 tables not implemented
+<li>Means and Kwallis do not allow string variables for the group variable
+</ul>
+
+<p>The validation report for latest public release is available on the <a href="http://www.epidata.dk/documentation.php#tech">documentation page</a> (requires internet)</p>
+
+
+<p class="heading">Version 2.0.0 build 127 - Version: Nov 10th 2007 </p> 
+
+
+ <ul>
+<!-- <li>New Commands  
+-->
+ <li>Extended or adapted commands
+     <ul>
+      <li>Dotplot: the dots are now symmetrical around the x value
+      <li>Set parameter: "Set replace datafile" obsolete due to option /replace
+     </ul></li>
+ <li>Screen control 
+     <ul>
+      <li>Command prompt empty at start, press arrow-up to get "read" command 
+     </ul></li>
+  <li>Various bugs fixed:
+        <ul><li>table sorting problem with /SD and boolean variables </li>     
+           <li>Counts of informative tables corrected</li>     
+	   <li>Error in percentiles corrected</li>     
+        </ul></li> 
+  <li>Documentation
+  <ul><li>Validate report now available for each build <a href="http://www.epidata.dk/documentation.php#tech">documentation page</a> (requires internet)</li>
+   <li>Command reference updated (F1)</li>
+  </ul></li>
+  </ul>
+
+
+<p class="heading">Version 2.0.0 build 126 - Version: Nov 5th 2007 </p> 
+
+<p>Version 2 is a major step forward in the development of the EpiData project.
+
+ <ul>
+  <li>Read data <ul>
+    <li>Warning when reading incorrect dates</li>
+    <li>Enhanced principle of reading csv/txt files</li>
+  </ul>
+<li>Savedata now saves chk files</li>
+  <li>UPPER CASE variables handled (from build 110)</li>
+  <li>New MERGE command - relate obsolete</li>
+  <li>Continue command on next line: \  (to separate long commands on several lines)</li>
+  <li>Tables : The table command was completely rewritten</li>
+           <ul><li>Weighted tables</li>
+               <li>Sorting of columns and rows</li>
+               <li>Estimation changed and extended</li>
+               <li>New dialog for tables and frequencies
+           </ul> 
+         <li>Graph : All graphs rewritten</li>
+         <ul><li>All graph functions part of exe file (lpng.dll file no longer needed).</li>   
+             <li>Graphs optimised: With empty strings space removed (e.g. title or footnote)</li> 
+          <li>By other variable: add /by to indicate stratify by other variable 
+         <li>Histogram and Bar clarified in design, see help file</li>  
+       <li>SPC graphs: Adapted test and count principles implemented</li>
+       <li>Pareto: New graph command showing pareto charts</li>  
+         <li>CDFPLOT: cumulative percentage plot and normal distribution (probit) plot</li>
+         <li>DOTPLOT: plots of observations optionally by a group variable</li>
+         <li>EpiCurve: graph for showing development in an epidemic episode</li>
+      
+	</ul>
+         <li>Outbreak Analysis:
+           <ul>
+             <li>Short form condensed tables for outbreak analysis: tab ..... /OA </li> 
+             <li>Epicurve graph for showing development in an epidemic episode</li>
+           </ul>
+         <li>metadata commands: missingvalue, label, labelvalue, labeldata, rename variable</li>
+         <ul><li>labelvalue: value labels definition. labelvalue var /1="text" /2="text2" .... [/clear]</li>
+           <li>missingvalue: missing value definition. missingvalue var /x /y /z        // max 3 values</li> 
+           <li>rename : rename variable to newname </li>
+           <li>recode .. by ..: Now adds value labels with grouping</li>
+         </ul>
+ <li>New functions:
+      <ul>
+         <li>findfile(....) : look for a file, found:=1, not found:=0 </li>
+      </ul></li>     
+ <li>Screen control 
+      <ul>
+      <li>Function key F12 will clear screen (also while other commands are running)</li>  
+      <li>Set commands controls screen elements (set display ......)<br></li>
+      <li>Right click on image: copy to clipboard as BMP 
+       <br>(Graphs are copied to clipboard as wmf when created) 
+	</ul>
+
+ <li>Extended or adapted commands
+     <ul>
+      <li>Set parameters (many changes) 
+            <br>default changed: history command pgm=off, 
+            <br>default changed: stylesheet external=off   (stylesheet content in header of html output)
+            <br>new: set TABLE PERCENT HEADER [COL][ROW][TOTAL]
+            <br>Removed: many set definitions changed to options</li> 
+      <li>Warning given when using restricted words in variables (e.g. var or date)
+      <li>Strings are right trimmed before summation. E.g. "a  " + "b" = "ab", but "a  " + " b" = "a b"</li> 
+      <li>String constants of length one are not trimmed: "a" + " " + "b"= "a b", but "a" + "&nbsp;&nbsp;" + "b" = "ab"</li> 
+      <li>Display of variables does not show formats which are not used</li>
+      <li>Option /REPLACE added to SAVEDATA, LOGFILE, copyfile </li>  
+      <li>Option /KEY added to APPEND and SAVEDATA - password </li>  
+     </ul></li>
+
+  <li>Various bugs:
+        <ul><li>Many other bugs removed as part of development, </li>     
+        </ul></li>
+  
+  </ul><!-- end new areas -->
+
+<h4 style="background-image: url('grafik/r.png'); background-repeat: repeat-x;">Before Version 2.0</h4>
+
+<p class="heading">Version 1.1.8 build 68 - Version: Mar 17th 2006 (Gnrl. download july 8th 2006)</p> 
+
+ <ul> <li>User specified Setup during installation now inludes selected "set parameters"</li>
+      <li>New commands:
+      <ul>
+         <li>closehelp : close help window</li>
+         <li>Newpage : Force new page when printing after this line</li>
+      </ul></li>      
+      <li>Extended commands
+     <ul>
+	<li>New options for graph command add line at value, e.g. /xline=5 /ylinep=17
+         <br>/xlined /ylined : add a dotted line ...... /xline /yline: add a line _______  
+         <br>Note: if you indicate value larger or smaller than data, the line will be at data min/max value. </li>    
+     <li>SPC graphs extended - exclude observations from calculations:
+         <br>/exp=x   (x: observation number, e.g. /exp=18)
+         <br>/exv=x   (x: observations with Y variable larger than value excluded)
+         <br>/legend indicates whether some values were excluded or not</li>
+     <li>! (command prompt) 
+         <br>Without option /Open the command prompt will close again
+         <br>/open   (keep command prompt open - useful for checking errors and parsing of commands)</li>
+      <li>Help window enhanced. 
+         <br>Added right click with copy text, browse next-previous page etc.</li>
+      <li>Aggregate/Stattables : Added 99 percentile /p99</li>
+      <li>Set parameters, 
+            <br>default changed: Table percents=off, 
+            <br>name change: Set graph replacefile, renamed to: Set replace graphfile=
+            <br>Removed: set table statistics  (had no effect)</li> 
+    </ul></li>
+     <li>Various bugs:
+       <ul>
+          <li>Graph Cache removed</li>
+          <li>Error on attempt to create encrypted variable and create variable from date type</li>
+          <li>When using /xlabel for SPC graphs x variable label now taken from the label variable</li>
+          <li>UPDATE: Did not update date variables</li>
+          <li>Aggregate: Floating point error with some percentiles</li>
+          <li>Aggregate: Missing records handled incorrectly in build 62 for some combinations</li> 
+          <li>PCharts: Mean values were shown as truncated below the graph, but calculated correctly</li>
+          <li>In comma separated files " ,., " was read as 0</li>
+        </ul></li>
+ </ul>
+
+
+
+
+<p class="heading">Version 1.1.2 build 62 - Version: Jan 19th. 2006</p>
+
+
+
+ <ul> 
+     <li>Principle of preventing running twice reversed 
+         <br>Now: file preventdouble.ea installed on all winXP+ versions
+         <br>&nbsp;&nbsp;&nbsp;Users can delete this to run several instances
+         <br>Before: file rundouble.ini should be created on all versions
+ </ul>
+
+
+<p class="heading">Version 1.1.1 at build 62</p>
+ <ul> 
+     <li>Help file shown in separate window
+     <ul>
+     <li>Press F1 to show commands help file in separate window
+     <li>Show extended command help (if made): 
+         <br>write command in prompt and press F1 
+         <br>if not found that command is shown in commands.htm reference
+     <li>Show html file in help window: help xxx
+     </ul>   
+     <li>Modified Output file principle
+     <ul>
+     <li>Output file turned on at initiation of programme EAoutput.htm
+     <li>Saveoutput - same as logopen
+     <li>CloseOutput - same as logclose
+        <li>"Set stylesheet external=on[off]" 
+           <br>when off a copy of the stylesheet is included in the output html file.
+           <br>when on: a link to the stylesheet file is included instead
+     </ul>
+    <li>User Control of more than one concurrent instance of Analysis
+    <li>Modified Commands
+       <ul>
+       <li>temporary select "if" must be placed at the end of a command
+           <br> except: select and count "if" must follow select/count 
+   </ul>
+
+    <li>New commands
+       <ul>
+       <li>aggregate (abbreviation agg) - create aggregated statistics (collapsing data)
+       <li>stattables (abbreviation stattab) - tabulate aggregated statistics
+       <li>label variables (label <variable> "text" )
+       <li>labeldata "text" (label the data file)     
+       </ul>
+    <li>Extended Commands
+       <ul>
+        <li>Graphs  <ul>
+       <li>SPC charts: Test1 modified for Run Charts
+       <li>SPC charts: Missing in count variable allowed 
+       <li>SPC graphs - tests are shown in a table
+       <li>Graphs addition of Y axis text: /Ytext=
+       <li>Graphs addition of X axis text: /Xtext=  (default is variable label of x-variable)
+       <li>Default colouring of bar charts: Each bar separate colour
+        <li>"Set graph colour" defines bar chart colouring (default value: 123456)
+        <li>"Set graph filename show" Add name of graph file below the graph - default = off
+        <li>"Set graph filename folder" Add complete folder for graph file to html output - default = off
+    </ul>
+   <li>Variable label addition to tables, graphs etc. controlled with "set var label" and "set var name"
+   <li>ERASEPNG - new option added: /ALL  (will include all png files, without only graph*.png are included)
+   <li>Frequency tables<ul>
+       <li>Variable label added 
+       <li>Cumulative percentage
+       <li>Options D0 D1 (zero or one decimal on percentage)
+       <li>NC  - no cumulative percentage   
+       </ul>
+   <li>F8 now activates file indicated in "Set start page"
+   <li>Link to introduction pdf file added to help menu
+   <li>Right mouse click on variable (F3 window) shows all variable definitions
+   <li>"Results" sufficient for "var results"
+   <li>"results clear" sufficient for "var temp clear"
+   </ul>
+    <li>Modifications to set   <ul>
+        <li>"Set window font size" defines size of "F3/F2/F7" windows on right side of screen
+        <li>"Set editor font size" defines size of font in editor
+        <li>"Set Command History" changed to "Set History Command add" (add pgm commands to history)
+        <li>"set HISTORY COMMAND PGM" default is now OFF - <br>on: add all commands in a pgm to history 
+        <li>"set RECODE INTERVAL TEXT" the string inserted with "recode to", default "-"
+        <li>"set Generate type" changed to "Var generate type" (Default type for variable generation)
+        </ul>
+      <li>Bugs fixed:
+      <ul>
+      <li>Copy and Paste from output window to editor or command prompt was not working
+      <li>Various small formatting or parsing bugs (e.g. copyfile with spaces in filenames)
+      <li>error with parsing of if command - which could replace data 
+      <li>Means group error with one observation in a group
+      </ul>
+</ul>
+
+<p class="heading">Version 1.0 at build 43 </p>
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>Release number removed - only version and build shown from now on
+   <li>Possible to run Exe file without any other file (Graphs will not work)
+   </ul>
+<li>Bugs fixed:
+<ul>
+   <li>Define in CHK files are accepted
+   <li>Conditions for test 2 in SPC charts adapted 
+   <li>Empty lines at top of text type logfiles removed
+   <li>TAB in pasted lines into editor changed to spaces
+</ul>
+</ul>
+
+
+<p class="heading">Version 1.0 release 0 build 40 </p>
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>Refined style sheets for output
+   <li>Reference to observations must be in []
+   <li>Observation (record number) can be referenced with _n. E.g. age[_n -1]
+   <li>Introduction document added to installation
+   <li>Error given if group variable in means or kwallis is of type string
+   </ul>
+<li>Bugs fixed:
+<ul>
+   <li>Certain if statements not parsed correctly 
+   <li>Append with records marked for deletion. 
+</ul>
+</ul>
+
+<p class="heading">Version 0.9 release 6 build 39 </p>
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>Refined style sheets for output
+   </ul>
+<li>Bugs fixed:
+<ul>
+   <li>Marginal percentages with etab command. 
+   <li>Append with records marked for deletion. 
+   <li>Headers for "first word" rec files could be wrong in some instances
+</ul>
+</ul>
+
+
+<p class="heading">Version 0.9 release 6 build 38 </p>
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>Tables will have collapsed borders 
+   <li>Chi<sup>2</sup> are ALL uncorrected values now (except for MH summary)
+   </ul>
+<li>Bugs fixed:
+<ul>
+   <li>Chi<sup>2</sup> values for very large numbers could be wrong
+   <li>Append with records marked for deletion. 
+</ul>
+</ul>
+
+
+
+<p class="heading">Version 0.9 release 5 build 37 </p>
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>Documentation revised and clarified (output definition)
+   <li>Added to help menu: Edit setup file (epidatastat.ini)
+   </ul>
+</ul>
+
+
+<p class="heading">Version 0.9 release 5 build 36 </p>
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>A "select font" on first startup to guide the user for efficient setup of screen
+   <li>Improved documentation of output formation
+   <li>Table command can show categories defined as missing
+   <li>New option controls if more than one instance of the programme can run
+   <li>Aspects of handling missing value further implemented.
+   <li>Parsing of strings changed to exclude trailing blanks: e.g "Lion " is the same as "Lion", but not the same as " Lion".
+   <li>sorting of tables corrected
+   <li>Tests of homogeneity (interaction) in summary stratified 2x2 tables removed until final stable solution is found
+   </ul>
+<li>Bugs fixed:
+<ul>
+   <li>"Pointer error" in tables or describe fixed       
+   <li>Error in table estimates for 2x2 tables
+   <li>Recnumber now returns number within current select
+   <li>set listrec was not working
+</ul>
+</ul>
+
+<p class="heading">Version 0.9 release 5 build 28-35</p>
+    Not available for public testing. Different strategies to solve bugs were tested.
+
+<p class="heading">Version 0.9 release 5 build 27 </p>
+(This is a minor release.) 
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>Version now also reads a comment from http://www.epidata.dk
+   </ul>
+
+<li>Bugs fixed:
+<ul>
+         <li>Emin in Tables also checked marginal totals  
+</ul>
+</ul>
+
+<p class="heading">Version 0.9 release 5 build 26 </p>
+ <ul> 
+<li>Added or modified
+   <ul>
+   <li>This is a major release. Release number introduced again. Builds will indicate smaller changes
+   <li>Reading of data files and chk files <b>final</b> (see note on recnumber definition above)
+   <li>Two table commands are now working: <b>Tab</b>les (for general tabulation) and <b>Etab</b>les (Epidemiology tables) 
+   <li>Several Output class definitions in one line allowed (separate with ,)
+   <li>Improved command history window (F7)
+   <li> Notice: Graphs showing as ! in output window is not a bug, but due to shift in folder from where graph file is.
+   <li> comparing a string variable to a constant will remove trailing blanks, e.g. "test of" = "test of   "
+</ul>
+<li>Bug removal:
+        <ul>        
+        <li>Table command - thorough testing of correctness of estimates and inverting tables.
+        <li>Table stratified - estimates for subtables fixed. Command changed to etab
+<br>Faulty calculation of summarised RR and OR, plus tests of interaction - fixed
+        <li>Processor dependent parsing of count and if (serious bug, difficult to catch and solve)
+        <li>
+        <li>Boolean variables corrected (Y N and . read correctly)
+       </ul>
+</ul>
+
+
+<p class="heading">Version 0.9 build 23-25 </p>
+ <ul>
+<li>Internal builds to find solutions for serious bugs on some PC's
+</ul>
+
+<p class="heading">Version 0.9 build 22 </p>
+ <ul>
+<li>Added or modified
+   <ul>
+   <li>Reading of data files and chk files <b>final</b> (see note on recnumber definition above)
+   <li>Output adapted to W3c (www.w3c.org) standards, see pdf file in "docs" subfolder. 
+   <li>Simplification of control of what is shown (commands, info, results): <b>set show</b> definitions<br>Note some inconsistencies are still there
+   <li>set parameter for table design added
+   <li>Reading of files with encrypted fields (prompt for password or add /key)
+   <li>Major commands can be used with first three letters
+   <li>Reading of missingvalue definitions
+   <li>Output changed to tables (improves speed)
+   <li>Several interface adaptations
+   <li>Added command history window (F7)
+   <li>Much improved examples on opening pages
+   <li>Improved reporting on append
+</ul>
+<li>Bug removal:
+        <ul>        
+        <li> Crash when selecting block in output fixed.
+       </ul>
+</ul>
+
+
+<p class="heading">Version 0.9 build 21 </p>
+ <ul>
+<li>Added or modified
+   <ul>
+   <li>Added row column total percent with special formatting of each
+   <li>Enhanced find function
+   <li>Command Prompt can be invisible (but exists)
+   <li>Faster output for variable and directory lists
+   <li>Max cases for Correlate and Regression increased to 5000
+   <li>command CORRELATE correctly rejects when number of observations > 5000
+   <li>Various other refinements of interface
+</ul>
+</ul>
+
+<p class="heading">Version 0.9 build 20 </p>
+ <ul>
+<li>Added or modified
+   <ul>
+   <li>set parameter for save pgm file changed to "Set history name="
+   <li>Illegal national characters in field names replaced on reading
+   <li>Improved feedback with append files (when structure is different)
+</ul>
+<li>Bug removal:
+        <ul>        
+        <li> Option Quiet in describe reversed /q=show lacking: hide output.
+       </ul>
+</ul>
+
+
+
+<p class="heading">Version 0.9 build 19</p>
+ <ul>
+<li>Added or modified
+   <ul>
+   <li>set parameters unified (NOTE MANY CHANGES)
+   <li>note that to invert 2x2 tables use "set table epi=on"
+   <li>output and selection of estimates from tables command
+   <li>
+</ul>
+<li>Bug removal and modification:
+        <ul>        
+        <li>table command labels and inversion incorrect in b18 (fixed)
+       </ul>
+</ul>
+
+<p class="heading">Version 0.9 build 18</p>
+ <ul>
+<li>New
+   <ul>
+   <li>search in output window and help files
+   <li>APPEND command: add data from other files of same structure
+   <li>option /quiet or /q added to means and describe
+   <li>Reading data can be stopped by ESC  
+   <li>PgUp and PgDn moves output up and down. 
+   <li>Several options to control table output (rr or percents)
+   <li>Tables with 2x2 data are inverted if OR or RR requested
+</ul>
+<li>Added or modified
+   <ul>
+   <li>headers corrected when writing data files
+   <li>testing routines finetuned (try "runtest validate")
+   <li>Internal representation of float variables finalised 
+   <li>Negative values in recode possible
+   <li>Assert and Assert error internal variables not reset after means,describe and count
+   <li>Deleted Record Status obeyed when reading data (set readdeleted=off|on)
+</ul>
+<li>Bug removal and modification:
+        <ul>        
+        <li>Blank output screen after cls fixed  
+       </ul>
+</ul>
+
+<p class="heading">Version 0.9 build 17</p>
+        <small>For few hours a prebuild 17 could not show graphs</small>
+ <ul>
+<li>Added or modified
+   <ul>
+   <li>Internal representation of float variable enhanced
+   <li>Table output adapted (Odds Ratio's)
+</ul>
+<li>Bug removal and modification:
+        <ul>        
+        <li>Creation of boolean fields fixed
+        <li>Negative values in result variables fixed for mean  
+       </ul>
+</ul>
+
+<p class="heading">Version 0.9 build 16</p>
+ <ul>
+<li>Added or modified
+   <ul>
+   <li>update shows which values are changed with if statements. 
+   <li>if started with a pgm file, that file will be executed.
+   <li>internal representation of float variable changed from double to extended
+   <li>Testsystem improved (e.g. try startnist.pgm) 
+</ul>
+<li>Bug removal and modification:
+        <ul>        
+	<li>String variables of length 1 are saved correctly
+        <li>negative values in result variables fixed
+        <li>lre() function corrected for negative values 
+        <li>Calculation of 10,25,75 and 90 percentiles corrected          
+        <li>recode function corrected to include limits btw. groups
+        <li>Various interface problems
+       </ul>
+<li>Documentation
+	<ul>
+	   <li>Adapted Commands.htm and Howto.htm file.
+        </ul>
+</ul>
+
+
+<p class="heading">Version 0.9 build 15</p>
+ <ul>
+<li>Added or modified
+        <ul>        
+        <li>Graph button on workprocess toolbar working again (bug introduced in build 14).
+	<li>Number on button 4 removed (lacked removal in build 14)
+       </ul>
+</ul>
+
+<p class="heading">Version 0.9 build 14</p>
+ <ul>
+<li>Added or modified
+   <ul><li>Warning on Chi value imprecision for N>950 in kwallis
+   <li>Adapted work process toolbar and menus
+   <li>bar graphs now show value labels at bottom
+   <li>runtest command gives table of results
+   <li>set allstats changed to allstatistics
+</ul>
+<li>Bug removal and modification:
+        <ul>        
+	<li>Parsing of strings "a "+"b"="a b"
+        <li>Variable On parsing several variables to freq or describe "a no data" error could should up if one variable was all missing.
+	<li>Variable lists extended (e.g. freq a-d)
+        <li>Confidence intervals: mean+/- 1.96*sqrt(Variance/N) (was not always correct)
+        <li>Median corrected.          
+       </ul>
+<li>Documentation
+	<ul>
+	   <li>Adapted Commands.htm and Howto.htm file.
+        </ul>
+</ul>
+
+<p class="heading">Version 0.9 build 13</p>
+ <ul>
+<li>Added 
+   <ul><li>set: set Viewer Font Charset=       (to accomodate Chinese characters)
+   <li>User configurable window placements (saved in epidatascreen.ini)
+   <li>New command: eraseallpng        /NOCONFIRM   (will erase all graph????????????.png files)
+   <li>Graph font size specification: set graphfontsize=   (default pitch 10)
+</ul>
+<li>Bug removal and modification:
+        <ul>        
+	<li>Access violation when creating graphs
+        <li>On parsing several variables to freq or describe "a no data" error could should up if one variable was all missing.
+	<li>Browser now shows only selected records
+        <li>Various smaller bugs or adaptations 
+       </ul>
+<li>Documentation
+	<ul>
+	   <li>Adapted Commands.htm and Howto.htm file.
+        </ul>
+</ul>
+
+
+<p class="heading">Version 0.9 build 12</p>
+ <ul>
+<li>Added: /append and /close parameters for logfiles
+<li>Bug removal:
+<ul>
+	<li>Incorrect autosaving of pgm files (did not read parameter)
+</ul>
+<li>Documentation
+	<ul>
+	   <li>Adapted Commands.htm file.
+        </ul>
+</ul>
+
+<p class="heading">Version 0.9 build 11</p>
+ <ul>
+<li>Added set: set labelshow= on/off/both (shows valuelabels, values or both in tables)
+<li>"How to.." and "commands" added to help menu
+<li>Adaptation:
+<ul>
+<li>Added variable names and labels in tables
+</ul>
+<li>Bug removal:<ul>
+<li>Incorrect values with describe for median and percentiles
+<li>Frequency tables incorrect with several variables
+<li>Incorrect return of select prompting: select  age < (?what age?) 
+<li>access violation if trying to define variables and no data file open
+<li>defining dates are now dates e.g.: define d <dd/mm/yyyy>
+</ul>
+<li>Documentation
+<ul>
+<li>Adapted Commands.htm file.
+</ul>
+</ul>
+
+
+<p class="heading">Version 0.9 build 10</p>
+ <ul>
+<li>Added close option to read, e.g. read "testdata\bromar.rec" /close 
+<li>Adaptation:
+<ul>
+<li>45 degree x labels on SPC graphs as default
+<li>Tickmarks on all graphs except with /NOXTICK  /NOYTICK
+<li>A pre build 10 existed for a few hours without these two: 
+<br>1 Replacing datafile with savedata controlled by set replacedatafile
+<br>2 Replacing graph file controlled by set graphreplacefile
+</ul>
+<li>Bug removal:<ul>
+<li>Regress now activated by workprocess toolbar. (was desribe)
+<li>Naming of autosaved graph files changed (could contain :)
+<li>Minor interface bugs - e.g. adding of double click to F2 window
+<li>Main Menu file submenu now acts with close
+</ul>
+<li>Documentation
+<ul>
+<li>Adapted Commands.htm file. Introduced howto.htm with suggestions.
+</ul>
+</ul>
+
+<p class="heading">Version 0.9 build 9</p>
+ <ul>
+<li>Fixed bug which showed Field Type wrong in F3 window for byte (string 1) variables 
+<li>Fixed bug when using byte variables in describe command
+<li>Adapted info.htm opening file
+</ul>
+
+<p class="heading">Version 0.9 build 8</p>
+ <ul>
+<li>Graph dialog finalised (still lacking details of axis control)
+<li>Further changes of reading - recognicing formats - in delimited data files 
+<li>Fixing bugs in relation to missing values in frequency tables
+<li>Adaptation - information - to users when reading errors in data
+<li>Adapted info.htm opening file
+</ul>
+
+<p class="heading">Version 0.9 build 7</p>
+ <ul>
+<li>Graph dialog introduced
+<li>Changes of reading - recognicing formats - in delimited data files 
+</ul>
+
+<p class="heading">Status at version 0.9 build 1 to build 6</p>
+ <ul>
+<li>Complete restructuring of internal structure in program to make it stringent in style and separate interface handling from commands. 
+<li>Statistical process control graphs and principles in collaboration with Gruk Norway
+<li>Interface policy finalised - menus for beginners, commands for experienced users.
+<li>Finalisation tests commenced
+</ul>
+
+<p class="heading">Status at version 0.9.0</p>
+ <ul>
+	 <li >
+Unfortunately Salah Mahmud had to stop participation in the development due to other committments in autumn 2003. 
+The core parser made by Salah Mahmud constitutes a key part of the project. Therefore the parser is referenced as a separate entity.
+Salah also contributed to parts of the early documentation.
+</ul>
+
+<h4 style="background-image: url('grafik/r.png'); background-repeat: repeat-x;">Early development</h4>
+<p class="heading">Versions prior to 0.9</p>
+<ul>
+	 <li>New commands
+    <ul>
+       <li>Loop command, to repeatdly execute a command or a command block
+       <li>View command, to display HTML files in the output window.
+   </ul> <p>
+	 <li>New functions/system variables
+    <ul>
+       <li> Sysdir: system variable, returns the path to the folder containing EpiData Analysis (EpiDataStat.exe
+   </ul>   <p>
+    <ul>
+       <li>The new Program editor is functional
+       <li>The output window was enhanced to allow copying HTML to clipboard and to support moving between viewed documents like an Internet browser
+   </ul>   <p>
+	 <li>improvement in parsing commands
+    <ul>
+       <li>
+       <li>
+   </ul>   <p>
+	 <li>Reading/writing data
+    <ul>
+       <li>Epianalysis can now read all the new data types introduced in Epidata 2.2 (encrypted fields are ignored)
+       <li>
+   </ul>   <p>
+	 <li>Optimization
+    <ul>
+       <li>Reading REC file is slightly faster now
+       <li>Tabulating one-char string variables (eg sex=[M,F]) is as fast as tabulating boolean or integer variables
+   </ul>
+</ul>
+
+</font>
+
+
+<SCRIPT type="text/javascript">foot()</script>
+
+</div><!- end column text -->
+</div><!- end sizer -->
+</div><!- id="expander" -->
+
+</body></html>
